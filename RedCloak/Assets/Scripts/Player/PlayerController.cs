@@ -157,6 +157,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool(isDashing, false);
     }
     
+  
 
     void OnRoll() // When Shift called Do Rolling
     {
@@ -164,12 +165,17 @@ public class PlayerController : MonoBehaviour
 
         if (!Rolling && !Jumping)
         {
-            AudioManager.instance.PlayPitchSFX("Roll", 0.1f);
+            
             animator.SetBool(isRolling, true);
             Rolling = true;
         }
-        
     }
+
+    void RollSound()
+    {
+        AudioManager.instance.PlayPitchSFX("Roll", 0.1f);
+    }
+
 
     void ComboStart()
     {
@@ -286,6 +292,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator DoJump() // Give Power
     {
+        AudioManager.instance.PlaySFX("Jump", 0.2f);
         if (ghostDash.makeGhost) // While During Dash
         {
             rigid.gravityScale = playerGravityScale;
