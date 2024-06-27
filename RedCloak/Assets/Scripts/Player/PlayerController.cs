@@ -307,29 +307,31 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collider) // Jump and wall Climb check
     {
         //Debug.Log(collider.gameObject.tag);
-        if (collider.gameObject.CompareTag("Floor") || collider.gameObject.CompareTag("Monster"))
+        if (collider.gameObject.CompareTag("Floor") || collider.gameObject.CompareTag("Monster") || collider.gameObject.CompareTag("Platform"))
         {
             //Debug.Log(boundPlayer.x);
             //Debug.Log(boundPlayer.y);
-
+            //Debug.Log("Floor");
 
             for (int i = -1; i < 2; i++)
             {
 
-                RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(playerCollider.bounds.extents.x * i,0), new Vector2(0, -1), 0.3f, groundLayerMask); // is Grounded Check
+                RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(playerCollider.bounds.extents.x * i,0), new Vector2(0, -1), 0.5f, groundLayerMask); // is Grounded Check
                 if (hit.collider?.name != null)
                 {
                     //Debug.Log(hit.collider.name);
                     if (!isGrounded && Jumping)
                     {
+                        //Debug.Log("Down");
                         //Falling = false;
                         isGrounded = true;
                         Jumping = false;
                         animator.SetBool(isFalling, false);
                         animator.SetBool(isJumping, false);
+                        break;
 
                     }
-                    return;
+                    //return;
                 }
             }
 
