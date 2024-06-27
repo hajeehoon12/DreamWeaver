@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     Animator animator;
 
-    public float maxSpeed;// ÃÖ´ë¼Óµµ ¼³Á¤
+    public float maxSpeed;// ï¿½Ö´ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
     public float jumpPower;
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
