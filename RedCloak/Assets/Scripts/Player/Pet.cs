@@ -29,7 +29,7 @@ public class Pet : MonoBehaviour
         float dir = _playerSprite.flipX ? 1 : -1;
 
         transform.LookAt(player.transform);
-        transform.position = Vector3.Slerp(transform.position, player.transform.position + new Vector3(dir, 1), Time.deltaTime);
+        transform.position = Vector3.Slerp(transform.position, player.transform.position + new Vector3(dir, 1.5f), Time.deltaTime);
         
 
     }
