@@ -239,11 +239,18 @@ public class PlayerController : MonoBehaviour
             animator.SetBool(isRunning, false);
         }
 
+        float dir = spriteRenderer.flipX ? -1 : 1;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(dir * boundPlayer.x, boundPlayer.y), new Vector2(dir, 0), 0.02f, groundLayerMask);
+        if (hit.collider?.name != null) return;
+
         if (Rolling)
         {
             transform.position += moveVelocity * 1.2f * maxSpeed * Time.deltaTime;
             return;
         }
+
+
+
         transform.position += moveVelocity * maxSpeed * Time.deltaTime;
     }
 
