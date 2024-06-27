@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("I'm hitting!!");
         float CheckDir = 1f;
 
-        AudioManager.instance.PlayPitchSFX("SwordAttack", 0.1f);
+        AudioManager.instance.PlayPitchSFX("SwordAttack", 0.05f);
 
         if (spriteRenderer.flipX) CheckDir = -1f;
 
@@ -164,6 +164,7 @@ public class PlayerController : MonoBehaviour
 
         if (!Rolling && !Jumping)
         {
+            AudioManager.instance.PlayPitchSFX("Roll", 0.1f);
             animator.SetBool(isRolling, true);
             Rolling = true;
         }
