@@ -106,7 +106,7 @@ public class AudioManager : MonoBehaviour
                 return;
             }
         }
-        Debug.Log(p_sfxName + " ì´ë¦„ì˜ íš¨ê³¼ìŒì´ ì—†ìŠµë‹ˆë‹¤.");
+        Debug.Log(p_sfxName + " ÀÌ¸§ÀÇ È¿°úÀ½ÀÌ ¾ø½À´Ï´Ù.");
         return;
     }
 
@@ -119,7 +119,7 @@ public class AudioManager : MonoBehaviour
             {
                 for (int j = 0; j < sfxPlayer.Length; j++)
                 {
-                    // SFXPlayerì—ì„œ ì¬ìƒ ì¤‘ì´ì§€ ì•Šì€ Audio Sourceë¥¼ ë°œê²¬í–ˆë‹¤ë©´ 
+                    // SFXPlayer¿¡¼­ Àç»ı ÁßÀÌÁö ¾ÊÀº Audio Source¸¦ ¹ß°ßÇß´Ù¸é 
                     if (!sfxPlayer[j].isPlaying)
                     {
                         sfxPlayer[j].clip = sfx[i].clip;
@@ -127,11 +127,11 @@ public class AudioManager : MonoBehaviour
                         return;
                     }
                 }
-                Debug.Log("ëª¨ë“  ì˜¤ë””ì˜¤ í”Œë ˆì´ì–´ê°€ ì¬ìƒì¤‘ì…ë‹ˆë‹¤.");
+                Debug.Log("¸ğµç ¿Àµğ¿À ÇÃ·¹ÀÌ¾î°¡ Àç»ıÁßÀÔ´Ï´Ù.");
                 return;
             }
         }
-        Debug.Log(p_sfxName + " ì´ë¦„ì˜ íš¨ê³¼ìŒì´ ì—†ìŠµë‹ˆë‹¤.");
+        Debug.Log(p_sfxName + " ÀÌ¸§ÀÇ È¿°úÀ½ÀÌ ¾ø½À´Ï´Ù.");
         return;
     }
 
@@ -144,7 +144,7 @@ public class AudioManager : MonoBehaviour
             {
                 for (int j = 0; j < sfxPlayer.Length; j++)
                 {
-                    // SFXPlayerì—ì„œ ì¬ìƒ ì¤‘ì´ì§€ ì•Šì€ Audio Sourceë¥¼ ë°œê²¬í–ˆë‹¤ë©´ 
+                    // SFXPlayer¿¡¼­ Àç»ı ÁßÀÌÁö ¾ÊÀº Audio Source¸¦ ¹ß°ßÇß´Ù¸é 
                     if (!sfxPlayer[j].isPlaying)
                     {
                         sfxPlayer[j].clip = sfx[i].clip;
@@ -154,11 +154,11 @@ public class AudioManager : MonoBehaviour
                         return;
                     }
                 }
-                Debug.Log("ëª¨ë“  ì˜¤ë””ì˜¤ í”Œë ˆì´ì–´ê°€ ì¬ìƒì¤‘ì…ë‹ˆë‹¤.");
+                Debug.Log("¸ğµç ¿Àµğ¿À ÇÃ·¹ÀÌ¾î°¡ Àç»ıÁßÀÔ´Ï´Ù.");
                 return;
             }
         }
-        Debug.Log(p_sfxName + " ì´ë¦„ì˜ íš¨ê³¼ìŒì´ ì—†ìŠµë‹ˆë‹¤.");
+        Debug.Log(p_sfxName + " ÀÌ¸§ÀÇ È¿°úÀ½ÀÌ ¾ø½À´Ï´Ù.");
         return;
     }
 
