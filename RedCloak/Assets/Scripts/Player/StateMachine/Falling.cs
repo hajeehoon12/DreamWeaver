@@ -6,6 +6,7 @@ using UnityEngine.Animations;
 public class Falling : StateMachineBehaviour
 {
     PlayerController controller;
+    
 
     //bool canDoubleJump = false;
 
@@ -26,6 +27,7 @@ public class Falling : StateMachineBehaviour
                 controller.isGrounded = true;
                 controller.OnJump();
                 controller.canDoubleJump = false;
+                controller.DoubleJump();
 
             }
         }

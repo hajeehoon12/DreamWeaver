@@ -49,7 +49,8 @@ public class PlayerController : MonoBehaviour
     public float attackRate = 10f;  //attack Damage
     public int ComboCount;          // current combo Count
 
-
+    public GameObject SnowEffect;
+    public ParticleSystem Snow;
 
 
 
@@ -68,6 +69,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        SnowEffect.SetActive(false);
         playerGravityScale = rigid.gravityScale;
         boundPlayer = playerCollider.bounds.extents;
         canDoubleJump = true;
@@ -115,6 +117,22 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void DoubleJump()
+    {
+        StartCoroutine(CallSnowEffect());
+
+    }
+
+    IEnumerator CallSnowEffect()
+    {
+        SnowEffect.SetActive(true);
+        Snow.Play();
+        yield return new WaitForSeconds(0.2f);
+        Snow.Stop();
+        SnowEffect.SetActive(false);
+
+
+    }
 
     void OnDash() // when C keyboard input do dash
     {

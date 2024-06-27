@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa30c449521d4e479de570e53199340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DJParticle: {fileID: 4924508274929071776, guid: 0edef91621bb6b34384ccc9dbb98729c, type: 3}
 --- !u!1101 &-8216400570629848481
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1410,6 +1411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e9c8a15f727674bb4d45ae4829e928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DJParticle: {fileID: 4924508274929071776, guid: 0edef91621bb6b34384ccc9dbb98729c, type: 3}
 --- !u!1101 &8061531830569224156
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

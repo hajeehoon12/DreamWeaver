@@ -6,6 +6,8 @@ using UnityEngine.InputSystem.XR;
 public class Jumping : StateMachineBehaviour
 {
     PlayerController controller;
+    
+
     private static readonly int isFalling = Animator.StringToHash("IsFalling");
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -23,6 +25,7 @@ public class Jumping : StateMachineBehaviour
                 controller.isGrounded = true;
                 controller.OnJump();
                 controller.canDoubleJump = false;
+                controller.DoubleJump();
 
             }
         }
