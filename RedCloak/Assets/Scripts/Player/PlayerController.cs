@@ -138,11 +138,11 @@ public class PlayerController : MonoBehaviour
         {
             if (spriteRenderer.flipX)
             {
-                transform.position -= new Vector3(0.2f, 0, 0);
+                transform.position -= new Vector3(0.05f * transform.localScale.x, 0, 0);
             }
             else
             {
-                transform.position += new Vector3(0.2f, 0, 0);
+                transform.position += new Vector3(0.05f * transform.localScale.x, 0, 0);
             }
             yield return new WaitForSeconds(0.02f);
         }
