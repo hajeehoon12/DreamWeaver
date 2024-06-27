@@ -1,0 +1,615 @@
+fileFormatVersion: 2
+guid: 21525768b093eea40823656e6378a385
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Hammer Tank_Frame_0
+    originalName: 
+    pivot: {x: 0.52500004, y: 0.45}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 320
+      height: 320
+    spriteID: 8dbae46950e044d4fab2b80322c86a16
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Hammer Tank_Frame_1
+    originalName: 
+    pivot: {x: 0.52500004, y: 0.45}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 332
+      width: 320
+      height: 320
+    spriteID: b5531ccd7afcde1498cb8ab4313e8981
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 332}
+  - name: Hammer Tank_Frame_2
+    originalName: 
+    pivot: {x: 0.52500004, y: 0.45}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 660
+      width: 320
+      height: 320
+    spriteID: 896cfddf8671ea643b2b87b18fb8155e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 660}
+  - name: Hammer Tank_Frame_3
+    originalName: 
+    pivot: {x: 0.52500004, y: 0.45}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 988
+      width: 320
+      height: 320
+    spriteID: 87f5e423711848c43b4a91d762571752
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 988}
+  - name: Hammer Tank_Frame_4
+    originalName: 
+    pivot: {x: 0.52500004, y: 0.45}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1316
+      width: 320
+      height: 320
+    spriteID: 4ddf513d1827ac2408e8eaf53acb570b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1316}
+  - name: Hammer Tank_Frame_5
+    originalName: 
+    pivot: {x: 0.52500004, y: 0.45}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1644
+      width: 320
+      height: 320
+    spriteID: 57edfa1c310dd89439a09bec3e6a9464
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1644}
+  - name: Hammer Tank_Frame_6
+    originalName: 
+    pivot: {x: 0.52500004, y: 0.45}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 332
+      y: 4
+      width: 320
+      height: 320
+    spriteID: ccc731f8c915cfe44aa43c30e86f3354
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 332, y: 4}
+  - name: Hammer Tank_Frame_7
+    originalName: 
+    pivot: {x: 0.52500004, y: 0.45}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 332
+      y: 332
+      width: 320
+      height: 320
+    spriteID: 71ce6eca765224049936b6ec85642ca0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 332, y: 332}
+  - name: Hammer Tank_Frame_8
+    originalName: 
+    pivot: {x: 0.52500004, y: 0.45}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 332
+      y: 660
+      width: 320
+      height: 320
+    spriteID: 32c38a884dbf9cd48aa56cb3f96b203d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 332, y: 660}
+  - name: Hammer Tank_Frame_9
+    originalName: 
+    pivot: {x: 0.52500004, y: 0.45}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 332
+      y: 988
+      width: 320
+      height: 320
+    spriteID: 3f5e63961bd6fe848bdd4e46c1e916bf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 332, y: 988}
+  - name: Hammer Tank_Frame_10
+    originalName: 
+    pivot: {x: 0.52500004, y: 0.45}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 332
+      y: 1316
+      width: 320
+      height: 320
+    spriteID: 240b396f6a25d7e4b9240fc184e0da12
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 332, y: 1316}
+  - name: Hammer Tank_Frame_11
+    originalName: 
+    pivot: {x: 0.52500004, y: 0.45}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 332
+      y: 1644
+      width: 320
+      height: 320
+    spriteID: cf4c404bbcece9e4990281198450ec32
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 332, y: 1644}
+  - name: Hammer Tank_Frame_12
+    originalName: 
+    pivot: {x: 0.52500004, y: 0.45}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 660
+      y: 4
+      width: 320
+      height: 320
+    spriteID: e1d3c5b13aca94b43a9d8867c6b13b31
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 660, y: 4}
+  - name: Hammer Tank_Frame_13
+    originalName: 
+    pivot: {x: 0.52500004, y: 0.45}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 660
+      y: 332
+      width: 320
+      height: 320
+    spriteID: e4ec168457328694c80997fbf84d1856
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 660, y: 332}
+  - name: Hammer Tank_Frame_14
+    originalName: 
+    pivot: {x: 0.52500004, y: 0.45}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 660
+      y: 660
+      width: 320
+      height: 320
+    spriteID: f67aeb8613abfd04984170d6132f32e7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 660, y: 660}
+  - name: Hammer Tank_Frame_15
+    originalName: 
+    pivot: {x: 0.52500004, y: 0.45}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 660
+      y: 988
+      width: 320
+      height: 320
+    spriteID: d02163a2932ca1141b0d8cc5bf7820f5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 660, y: 988}
+  - name: Hammer Tank_Frame_16
+    originalName: 
+    pivot: {x: 0.52500004, y: 0.45}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 660
+      y: 1316
+      width: 320
+      height: 320
+    spriteID: 41ea3ada0c01d2b47b189650fde0455a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 660, y: 1316}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 444712516
+    name: Hammer Tank
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Hammer Tank_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: -80
+        y: -144
+        width: 320
+        height: 320
+      spriteId: 8dbae46950e044d4fab2b80322c86a16
+    - name: Hammer Tank_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: -80
+        y: -144
+        width: 320
+        height: 320
+      spriteId: b5531ccd7afcde1498cb8ab4313e8981
+    - name: Hammer Tank_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: -80
+        y: -144
+        width: 320
+        height: 320
+      spriteId: 896cfddf8671ea643b2b87b18fb8155e
+    - name: Hammer Tank_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: -80
+        y: -144
+        width: 320
+        height: 320
+      spriteId: 87f5e423711848c43b4a91d762571752
+    - name: Hammer Tank_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: -80
+        y: -144
+        width: 320
+        height: 320
+      spriteId: 4ddf513d1827ac2408e8eaf53acb570b
+    - name: Hammer Tank_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: -80
+        y: -144
+        width: 320
+        height: 320
+      spriteId: 57edfa1c310dd89439a09bec3e6a9464
+    - name: Hammer Tank_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: -80
+        y: -144
+        width: 320
+        height: 320
+      spriteId: ccc731f8c915cfe44aa43c30e86f3354
+    - name: Hammer Tank_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: -80
+        y: -144
+        width: 320
+        height: 320
+      spriteId: 71ce6eca765224049936b6ec85642ca0
+    - name: Hammer Tank_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: -80
+        y: -144
+        width: 320
+        height: 320
+      spriteId: 32c38a884dbf9cd48aa56cb3f96b203d
+    - name: Hammer Tank_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: -80
+        y: -144
+        width: 320
+        height: 320
+      spriteId: 3f5e63961bd6fe848bdd4e46c1e916bf
+    - name: Hammer Tank_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: -80
+        y: -144
+        width: 320
+        height: 320
+      spriteId: 240b396f6a25d7e4b9240fc184e0da12
+    - name: Hammer Tank_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: -80
+        y: -144
+        width: 320
+        height: 320
+      spriteId: cf4c404bbcece9e4990281198450ec32
+    - name: Hammer Tank_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: -80
+        y: -144
+        width: 320
+        height: 320
+      spriteId: e1d3c5b13aca94b43a9d8867c6b13b31
+    - name: Hammer Tank_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: -80
+        y: -144
+        width: 320
+        height: 320
+      spriteId: e4ec168457328694c80997fbf84d1856
+    - name: Hammer Tank_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: -80
+        y: -144
+        width: 320
+        height: 320
+      spriteId: f67aeb8613abfd04984170d6132f32e7
+    - name: Hammer Tank_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: -80
+        y: -144
+        width: 320
+        height: 320
+      spriteId: d02163a2932ca1141b0d8cc5bf7820f5
+    - name: Hammer Tank_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: -80
+        y: -144
+        width: 320
+        height: 320
+      spriteId: 41ea3ada0c01d2b47b189650fde0455a
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 176, y: 80}

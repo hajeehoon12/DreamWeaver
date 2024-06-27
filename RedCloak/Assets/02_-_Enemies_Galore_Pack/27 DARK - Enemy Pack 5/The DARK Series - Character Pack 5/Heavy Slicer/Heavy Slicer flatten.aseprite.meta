@@ -1,0 +1,1595 @@
+fileFormatVersion: 2
+guid: 7459e7615e4b0a04c9da0a6210b29704
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Heavy Slicer flatten_Frame_0
+    originalName: 
+    pivot: {x: 0.95652175, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 45
+      y: 43
+      width: 23
+      height: 32
+    spriteID: 300ce0580f25dd845ae0e2bcbfae3d18
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 45, y: 43}
+  - name: Heavy Slicer flatten_Frame_1
+    originalName: 
+    pivot: {x: 0.95652175, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 45
+      y: 83
+      width: 23
+      height: 32
+    spriteID: da4f507eabffbbe41a173680c8135425
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 45, y: 83}
+  - name: Heavy Slicer flatten_Frame_2
+    originalName: 
+    pivot: {x: 0.95652175, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 45
+      y: 123
+      width: 23
+      height: 32
+    spriteID: 5740ba998a0600a43a1631856816d29c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 45, y: 123}
+  - name: Heavy Slicer flatten_Frame_3
+    originalName: 
+    pivot: {x: 0.95652175, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 45
+      y: 163
+      width: 23
+      height: 32
+    spriteID: 765ccd4d830f2eb4e8f4e1224c8d3ae8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 45, y: 163}
+  - name: Heavy Slicer flatten_Frame_4
+    originalName: 
+    pivot: {x: 0.95652175, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 45
+      y: 203
+      width: 23
+      height: 32
+    spriteID: aa1a4f816be49c94eb8af60e7ad292af
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 45, y: 203}
+  - name: Heavy Slicer flatten_Frame_5
+    originalName: 
+    pivot: {x: 0.95652175, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 45
+      y: 243
+      width: 23
+      height: 32
+    spriteID: df59c2cf324c25e43b111146b35b7aa5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 45, y: 243}
+  - name: Heavy Slicer flatten_Frame_6
+    originalName: 
+    pivot: {x: 0.95652175, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 45
+      y: 283
+      width: 23
+      height: 32
+    spriteID: 83c2cc96d57e80545a090590e7d2b4fe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 45, y: 283}
+  - name: Heavy Slicer flatten_Frame_7
+    originalName: 
+    pivot: {x: 0.95652175, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 45
+      y: 323
+      width: 23
+      height: 32
+    spriteID: 1ac6bad3564040a47af0704c957f7652
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 45, y: 323}
+  - name: Heavy Slicer flatten_Frame_8
+    originalName: 
+    pivot: {x: 0.95652175, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 45
+      y: 363
+      width: 23
+      height: 32
+    spriteID: faa998478c39c1a4aad7044010ea8776
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 45, y: 363}
+  - name: Heavy Slicer flatten_Frame_9
+    originalName: 
+    pivot: {x: 0.95652175, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 45
+      y: 403
+      width: 23
+      height: 32
+    spriteID: 6027d1d849d5ada4584fbe426db379dd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 45, y: 403}
+  - name: Heavy Slicer flatten_Frame_10
+    originalName: 
+    pivot: {x: 0.95652175, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 45
+      y: 443
+      width: 23
+      height: 32
+    spriteID: dc645ffb42ebf1e4eb948d3eed6f7448
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 45, y: 443}
+  - name: Heavy Slicer flatten_Frame_11
+    originalName: 
+    pivot: {x: 0.95652175, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 4
+      width: 23
+      height: 32
+    spriteID: f88646f054cee6a43a2f2328f71dd52e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 4}
+  - name: Heavy Slicer flatten_Frame_12
+    originalName: 
+    pivot: {x: 0.95652175, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 44
+      width: 23
+      height: 32
+    spriteID: 019376b04eae0d743b89f62c8fbd8337
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 44}
+  - name: Heavy Slicer flatten_Frame_13
+    originalName: 
+    pivot: {x: 0.95652175, y: 0.06666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 164
+      width: 23
+      height: 30
+    spriteID: dcd5e587465daf2479d4c693e7905c5c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 164}
+  - name: Heavy Slicer flatten_Frame_14
+    originalName: 
+    pivot: {x: 0.9166667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 379
+      width: 24
+      height: 31
+    spriteID: 168d2e4f86cfc6241a1ec87db91035b5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 379}
+  - name: Heavy Slicer flatten_Frame_15
+    originalName: 
+    pivot: {x: 0.9166667, y: -0.032258064}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 418
+      width: 24
+      height: 31
+    spriteID: ad84b7d6a202b1540ba8d9c7e5c23006
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 418}
+  - name: Heavy Slicer flatten_Frame_16
+    originalName: 
+    pivot: {x: 0.9166667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 457
+      width: 24
+      height: 31
+    spriteID: 295b4d272792ec34fa80e7cf29fda777
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 457}
+  - name: Heavy Slicer flatten_Frame_17
+    originalName: 
+    pivot: {x: 0.95000005, y: 0.03448276}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 135
+      y: 4
+      width: 20
+      height: 29
+    spriteID: 15c2e8b7255df924a84003382475db17
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 135, y: 4}
+  - name: Heavy Slicer flatten_Frame_18
+    originalName: 
+    pivot: {x: 1, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 422
+      width: 19
+      height: 31
+    spriteID: d6831cef2efe79f45a3baba51c4bd037
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 422}
+  - name: Heavy Slicer flatten_Frame_19
+    originalName: 
+    pivot: {x: 1, y: -0.032258064}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 461
+      width: 19
+      height: 31
+    spriteID: 3ce122fc8ad21124c8d60d3f35c21a84
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 461}
+  - name: Heavy Slicer flatten_Frame_20
+    originalName: 
+    pivot: {x: 1, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 108
+      y: 4
+      width: 19
+      height: 31
+    spriteID: 26525a0ddc5760143ad457469cd456e1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 108, y: 4}
+  - name: Heavy Slicer flatten_Frame_21
+    originalName: 
+    pivot: {x: 0.95652175, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 84
+      width: 23
+      height: 32
+    spriteID: aac808cb542098c46861daa64c18393b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 84}
+  - name: Heavy Slicer flatten_Frame_22
+    originalName: 
+    pivot: {x: 0.91999996, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 302
+      width: 25
+      height: 31
+    spriteID: acfe29662b590764db49f8863e9c66df
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 302}
+  - name: Heavy Slicer flatten_Frame_23
+    originalName: 
+    pivot: {x: 0.8888889, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 226
+      width: 27
+      height: 30
+    spriteID: 3dba4636bbff15446a8d9fa572a13869
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 226}
+  - name: Heavy Slicer flatten_Frame_24
+    originalName: 
+    pivot: {x: 0.79310346, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 115
+      width: 29
+      height: 29
+    spriteID: 234d063537111b349aa767616aa90b86
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 115}
+  - name: Heavy Slicer flatten_Frame_25
+    originalName: 
+    pivot: {x: 0.76666665, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 41
+      width: 30
+      height: 29
+    spriteID: 090658dde5329e54caa7e67f1ac70f7f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 41}
+  - name: Heavy Slicer flatten_Frame_26
+    originalName: 
+    pivot: {x: 0.79999995, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 341
+      width: 25
+      height: 30
+    spriteID: cc8df43c5feb6ce45981933958560dc7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 341}
+  - name: Heavy Slicer flatten_Frame_27
+    originalName: 
+    pivot: {x: 0.90909094, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 202
+      width: 22
+      height: 30
+    spriteID: 651a19f2328279641b3d046130758cc0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 202}
+  - name: Heavy Slicer flatten_Frame_28
+    originalName: 
+    pivot: {x: 0.90476197, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 385
+      width: 21
+      height: 29
+    spriteID: b4a46003467c22848b7fe03a2ddd4ad5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 385}
+  - name: Heavy Slicer flatten_Frame_29
+    originalName: 
+    pivot: {x: 0.86363643, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 348
+      width: 22
+      height: 29
+    spriteID: 75f70ca1709dee546912f0c3d4f06525
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 348}
+  - name: Heavy Slicer flatten_Frame_30
+    originalName: 
+    pivot: {x: 0.75757575, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 33
+      height: 29
+    spriteID: d3f327da714cf5d4ab6e8f9af1c320ab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Heavy Slicer flatten_Frame_31
+    originalName: 
+    pivot: {x: 0.8, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 78
+      width: 30
+      height: 29
+    spriteID: f777fca6b43ca9c49a314834a24efe63
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 78}
+  - name: Heavy Slicer flatten_Frame_32
+    originalName: 
+    pivot: {x: 0.8076923, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 264
+      width: 26
+      height: 30
+    spriteID: 30a514c5c91b5ba4097b440f89bc09a9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 264}
+  - name: Heavy Slicer flatten_Frame_33
+    originalName: 
+    pivot: {x: 0.8333333, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 45
+      y: 4
+      width: 24
+      height: 31
+    spriteID: f082ec01c56bbd940ac4efd554dbb360
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 45, y: 4}
+  - name: Heavy Slicer flatten_Frame_34
+    originalName: 
+    pivot: {x: 0.826087, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 124
+      width: 23
+      height: 32
+    spriteID: b0619c3e7b634c5468de3ea9705dd713
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 124}
+  - name: Heavy Slicer flatten_Frame_35
+    originalName: 
+    pivot: {x: 0.79310346, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 152
+      width: 29
+      height: 29
+    spriteID: b3e24e62fcdfe97458946f41e28b2fc7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 152}
+  - name: Heavy Slicer flatten_Frame_36
+    originalName: 
+    pivot: {x: 0.95652175, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 240
+      width: 23
+      height: 28
+    spriteID: 0aa48542cb03f1b47bd41a99135227c7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 240}
+  - name: Heavy Slicer flatten_Frame_37
+    originalName: 
+    pivot: {x: 0.79310346, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 189
+      width: 29
+      height: 29
+    spriteID: ac313e869055b724ca3916356fc13373
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 189}
+  - name: Heavy Slicer flatten_Frame_38
+    originalName: 
+    pivot: {x: 0.95652175, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 276
+      width: 23
+      height: 28
+    spriteID: 54d619e5cc664f34b8a10545cbd335ce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 276}
+  - name: Heavy Slicer flatten_Frame_39
+    originalName: 
+    pivot: {x: 0.95652175, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 312
+      width: 23
+      height: 28
+    spriteID: 20c956f00f2f9cd49b94be73dc629496
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 312}
+  - name: Heavy Slicer flatten_Frame_40
+    originalName: 
+    pivot: {x: 0.9545455, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 4
+      width: 22
+      height: 26
+    spriteID: 7e08738e7d2a466409c5beb75d00516d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 4}
+  - name: Heavy Slicer flatten_Frame_41
+    originalName: 
+    pivot: {x: 0.8571429, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 45
+      y: 483
+      width: 21
+      height: 24
+    spriteID: a64c8350b56b64948bdc48e1e4b5542d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 45, y: 483}
+  - name: Heavy Slicer flatten_Frame_42
+    originalName: 
+    pivot: {x: 0.8571429, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 128
+      width: 21
+      height: 23
+    spriteID: d9c3ce7c5ccdc264aa152c5b38d250da
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 128}
+  - name: Heavy Slicer flatten_Frame_43
+    originalName: 
+    pivot: {x: 0.8181819, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 38
+      width: 22
+      height: 22
+    spriteID: 2c91be41bcbba78498941d7a4839238a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 38}
+  - name: Heavy Slicer flatten_Frame_44
+    originalName: 
+    pivot: {x: 0.8181819, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 68
+      width: 22
+      height: 22
+    spriteID: c7cc1d64dc1707c43911576a8b7d2da4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 68}
+  - name: Heavy Slicer flatten_Frame_45
+    originalName: 
+    pivot: {x: 0.8181819, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 98
+      width: 22
+      height: 22
+    spriteID: dbf4d7e4e1b78f042b2c89d83df0e849
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 98}
+  - name: Heavy Slicer flatten_Frame_46
+    originalName: 
+    pivot: {x: 0.6153846, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 193
+      y: 4
+      width: 26
+      height: 19
+    spriteID: 2ece2bb23c11db3498c47e1e5d0048f8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 193, y: 4}
+  - name: Heavy Slicer flatten_Frame_47
+    originalName: 
+    pivot: {x: 0.26666665, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 496
+      width: 30
+      height: 12
+    spriteID: d6a31b3f392607543979f4d685536980
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 496}
+  - name: Heavy Slicer flatten_Frame_48
+    originalName: 
+    pivot: {x: 0.23333335, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 193
+      y: 31
+      width: 30
+      height: 12
+    spriteID: 526a1c30867143f4e8e4153ac8dfffe6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 193, y: 31}
+  - name: Heavy Slicer flatten_Frame_49
+    originalName: 
+    pivot: {x: 0.2, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 193
+      y: 51
+      width: 30
+      height: 12
+    spriteID: 96b27ca4f51f1c24d9ce93ac7ceacdeb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 193, y: 51}
+  - name: Heavy Slicer flatten_Frame_50
+    originalName: 
+    pivot: {x: 0.2, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 193
+      y: 71
+      width: 30
+      height: 12
+    spriteID: ba0c9eebd2dce714f98cf076a2e9a010
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 193, y: 71}
+  - name: Heavy Slicer flatten_Frame_51
+    originalName: 
+    pivot: {x: 0.2, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 193
+      y: 91
+      width: 30
+      height: 12
+    spriteID: eb1ad1c6a962b6647965418f7b4ab136
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 193, y: 91}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 86045121
+    name: Heavy Slicer flatten
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Heavy Slicer flatten_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 32
+      spriteId: 300ce0580f25dd845ae0e2bcbfae3d18
+    - name: Heavy Slicer flatten_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 32
+      spriteId: da4f507eabffbbe41a173680c8135425
+    - name: Heavy Slicer flatten_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 32
+      spriteId: 5740ba998a0600a43a1631856816d29c
+    - name: Heavy Slicer flatten_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 32
+      spriteId: 765ccd4d830f2eb4e8f4e1224c8d3ae8
+    - name: Heavy Slicer flatten_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 32
+      spriteId: aa1a4f816be49c94eb8af60e7ad292af
+    - name: Heavy Slicer flatten_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 32
+      spriteId: df59c2cf324c25e43b111146b35b7aa5
+    - name: Heavy Slicer flatten_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 32
+      spriteId: 83c2cc96d57e80545a090590e7d2b4fe
+    - name: Heavy Slicer flatten_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 32
+      spriteId: 1ac6bad3564040a47af0704c957f7652
+    - name: Heavy Slicer flatten_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 32
+      spriteId: faa998478c39c1a4aad7044010ea8776
+    - name: Heavy Slicer flatten_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 32
+      spriteId: 6027d1d849d5ada4584fbe426db379dd
+    - name: Heavy Slicer flatten_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 32
+      spriteId: dc645ffb42ebf1e4eb948d3eed6f7448
+    - name: Heavy Slicer flatten_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 32
+      spriteId: f88646f054cee6a43a2f2328f71dd52e
+    - name: Heavy Slicer flatten_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 32
+      spriteId: 019376b04eae0d743b89f62c8fbd8337
+    - name: Heavy Slicer flatten_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 2
+        y: -2
+        width: 23
+        height: 30
+      spriteId: dcd5e587465daf2479d4c693e7905c5c
+    - name: Heavy Slicer flatten_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 2
+        y: 0
+        width: 24
+        height: 31
+      spriteId: 168d2e4f86cfc6241a1ec87db91035b5
+    - name: Heavy Slicer flatten_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 2
+        y: 1
+        width: 24
+        height: 31
+      spriteId: ad84b7d6a202b1540ba8d9c7e5c23006
+    - name: Heavy Slicer flatten_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 2
+        y: 0
+        width: 24
+        height: 31
+      spriteId: 295b4d272792ec34fa80e7cf29fda777
+    - name: Heavy Slicer flatten_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 5
+        y: -1
+        width: 20
+        height: 29
+      spriteId: 15c2e8b7255df924a84003382475db17
+    - name: Heavy Slicer flatten_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 5
+        y: 0
+        width: 19
+        height: 31
+      spriteId: d6831cef2efe79f45a3baba51c4bd037
+    - name: Heavy Slicer flatten_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 5
+        y: 1
+        width: 19
+        height: 31
+      spriteId: 3ce122fc8ad21124c8d60d3f35c21a84
+    - name: Heavy Slicer flatten_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 5
+        y: 0
+        width: 19
+        height: 31
+      spriteId: 26525a0ddc5760143ad457469cd456e1
+    - name: Heavy Slicer flatten_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 32
+      spriteId: aac808cb542098c46861daa64c18393b
+    - name: Heavy Slicer flatten_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 1
+        y: 0
+        width: 25
+        height: 31
+      spriteId: acfe29662b590764db49f8863e9c66df
+    - name: Heavy Slicer flatten_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 0
+        y: 0
+        width: 27
+        height: 30
+      spriteId: 3dba4636bbff15446a8d9fa572a13869
+    - name: Heavy Slicer flatten_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 1
+        y: 0
+        width: 29
+        height: 29
+      spriteId: 234d063537111b349aa767616aa90b86
+    - name: Heavy Slicer flatten_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 1
+        y: 0
+        width: 30
+        height: 29
+      spriteId: 090658dde5329e54caa7e67f1ac70f7f
+    - name: Heavy Slicer flatten_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 4
+        y: 0
+        width: 25
+        height: 30
+      spriteId: cc8df43c5feb6ce45981933958560dc7
+    - name: Heavy Slicer flatten_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 4
+        y: 0
+        width: 22
+        height: 30
+      spriteId: 651a19f2328279641b3d046130758cc0
+    - name: Heavy Slicer flatten_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 5
+        y: 0
+        width: 21
+        height: 29
+      spriteId: b4a46003467c22848b7fe03a2ddd4ad5
+    - name: Heavy Slicer flatten_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 5
+        y: 0
+        width: 22
+        height: 29
+      spriteId: 75f70ca1709dee546912f0c3d4f06525
+    - name: Heavy Slicer flatten_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: -1
+        y: 0
+        width: 33
+        height: 29
+      spriteId: d3f327da714cf5d4ab6e8f9af1c320ab
+    - name: Heavy Slicer flatten_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 0
+        y: 0
+        width: 30
+        height: 29
+      spriteId: f777fca6b43ca9c49a314834a24efe63
+    - name: Heavy Slicer flatten_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 3
+        y: 0
+        width: 26
+        height: 30
+      spriteId: 30a514c5c91b5ba4097b440f89bc09a9
+    - name: Heavy Slicer flatten_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 4
+        y: 0
+        width: 24
+        height: 31
+      spriteId: f082ec01c56bbd940ac4efd554dbb360
+    - name: Heavy Slicer flatten_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 5
+        y: 0
+        width: 23
+        height: 32
+      spriteId: b0619c3e7b634c5468de3ea9705dd713
+    - name: Heavy Slicer flatten_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 1
+        y: 0
+        width: 29
+        height: 29
+      spriteId: b3e24e62fcdfe97458946f41e28b2fc7
+    - name: Heavy Slicer flatten_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 28
+      spriteId: 0aa48542cb03f1b47bd41a99135227c7
+    - name: Heavy Slicer flatten_Frame_37
+      frameIndex: 37
+      cellRect:
+        x: 1
+        y: 0
+        width: 29
+        height: 29
+      spriteId: ac313e869055b724ca3916356fc13373
+    - name: Heavy Slicer flatten_Frame_38
+      frameIndex: 38
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 28
+      spriteId: 54d619e5cc664f34b8a10545cbd335ce
+    - name: Heavy Slicer flatten_Frame_39
+      frameIndex: 39
+      cellRect:
+        x: 2
+        y: 0
+        width: 23
+        height: 28
+      spriteId: 20c956f00f2f9cd49b94be73dc629496
+    - name: Heavy Slicer flatten_Frame_40
+      frameIndex: 40
+      cellRect:
+        x: 3
+        y: 0
+        width: 22
+        height: 26
+      spriteId: 7e08738e7d2a466409c5beb75d00516d
+    - name: Heavy Slicer flatten_Frame_41
+      frameIndex: 41
+      cellRect:
+        x: 6
+        y: 0
+        width: 21
+        height: 24
+      spriteId: a64c8350b56b64948bdc48e1e4b5542d
+    - name: Heavy Slicer flatten_Frame_42
+      frameIndex: 42
+      cellRect:
+        x: 6
+        y: 0
+        width: 21
+        height: 23
+      spriteId: d9c3ce7c5ccdc264aa152c5b38d250da
+    - name: Heavy Slicer flatten_Frame_43
+      frameIndex: 43
+      cellRect:
+        x: 6
+        y: 0
+        width: 22
+        height: 22
+      spriteId: 2c91be41bcbba78498941d7a4839238a
+    - name: Heavy Slicer flatten_Frame_44
+      frameIndex: 44
+      cellRect:
+        x: 6
+        y: 0
+        width: 22
+        height: 22
+      spriteId: c7cc1d64dc1707c43911576a8b7d2da4
+    - name: Heavy Slicer flatten_Frame_45
+      frameIndex: 45
+      cellRect:
+        x: 6
+        y: 0
+        width: 22
+        height: 22
+      spriteId: dbf4d7e4e1b78f042b2c89d83df0e849
+    - name: Heavy Slicer flatten_Frame_46
+      frameIndex: 46
+      cellRect:
+        x: 8
+        y: 0
+        width: 26
+        height: 19
+      spriteId: 2ece2bb23c11db3498c47e1e5d0048f8
+    - name: Heavy Slicer flatten_Frame_47
+      frameIndex: 47
+      cellRect:
+        x: 16
+        y: 0
+        width: 30
+        height: 12
+      spriteId: d6a31b3f392607543979f4d685536980
+    - name: Heavy Slicer flatten_Frame_48
+      frameIndex: 48
+      cellRect:
+        x: 17
+        y: 0
+        width: 30
+        height: 12
+      spriteId: 526a1c30867143f4e8e4153ac8dfffe6
+    - name: Heavy Slicer flatten_Frame_49
+      frameIndex: 49
+      cellRect:
+        x: 18
+        y: 0
+        width: 30
+        height: 12
+      spriteId: 96b27ca4f51f1c24d9ce93ac7ceacdeb
+    - name: Heavy Slicer flatten_Frame_50
+      frameIndex: 50
+      cellRect:
+        x: 18
+        y: 0
+        width: 30
+        height: 12
+      spriteId: ba0c9eebd2dce714f98cf076a2e9a010
+    - name: Heavy Slicer flatten_Frame_51
+      frameIndex: 51
+      cellRect:
+        x: 18
+        y: 0
+        width: 30
+        height: 12
+      spriteId: eb1ad1c6a962b6647965418f7b4ab136
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 48, y: 32}
