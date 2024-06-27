@@ -5,6 +5,8 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Rolling : StateMachineBehaviour
 {
+    private static readonly int isRolling = Animator.StringToHash("IsRolling");
+
     PlayerController controller;
     float dir = 1f;
     
@@ -21,6 +23,12 @@ public class Rolling : StateMachineBehaviour
         {
             controller.transform.position += new Vector3(dir, 0) * 1.2f * controller.maxSpeed * Time.deltaTime;
         }
+    }
+
+    public override void OnStateMachineExit(Animator animator, int stateMachinePathHash)
+    {
+        controller.Rolling = false;
+        animator.SetBool(isRolling, false);
     }
 
 }

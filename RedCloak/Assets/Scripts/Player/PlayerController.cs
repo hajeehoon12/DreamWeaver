@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     public bool canDash = true;           // skill on / off
     public bool canComboAttack = true;    // skill on / off
 
+    public bool canDoubleJump = true;
+
     Vector2 boundPlayer;
 
 
@@ -68,6 +70,7 @@ public class PlayerController : MonoBehaviour
     {
         playerGravityScale = rigid.gravityScale;
         boundPlayer = playerCollider.bounds.extents;
+        canDoubleJump = true;
     }
 
     private void FixedUpdate()
@@ -76,8 +79,6 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        
-
         JumpCheck(); // Checking whether can jump
 
         if (Input.GetMouseButtonDown(0))
@@ -268,7 +269,7 @@ public class PlayerController : MonoBehaviour
         transform.position += moveVelocity * maxSpeed * Time.deltaTime;
     }
 
-    private void OnJump() // Space Button = Jump
+    public void OnJump() // Space Button = Jump
     {
         //Debug.Log(rigid.velocity.y);
         if (Rolling) return;
@@ -321,7 +322,7 @@ public class PlayerController : MonoBehaviour
             for (int i = -1; i < 2; i++)
             {
 
-                RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(playerCollider.bounds.extents.x * i,0), new Vector2(0, -1), 0.5f, groundLayerMask); // is Grounded Check
+                RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(playerCollider.bounds.extents.x * i,0.1f), new Vector2(0, -1), 0.5f, groundLayerMask); // is Grounded Check
                 if (hit.collider?.name != null)
                 {
                     //Debug.Log(hit.collider.name);
@@ -331,6 +332,7 @@ public class PlayerController : MonoBehaviour
                         //Falling = false;
                         isGrounded = true;
                         Jumping = false;
+                        canDoubleJump = true;
                         animator.SetBool(isFalling, false);
                         animator.SetBool(isJumping, false);
                         break;
