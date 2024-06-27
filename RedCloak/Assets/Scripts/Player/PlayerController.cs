@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 public class PlayerController : MonoBehaviour
 {
+
+    public static PlayerController instance;
 
     private static readonly int isRunning = Animator.StringToHash("IsRunning");
     private static readonly int isJumping = Animator.StringToHash("IsJumping");
@@ -16,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     Animator animator;
 
-    public float maxSpeed;// �ִ�ӵ� ����
+    public float maxSpeed;// 
     public float jumpPower;
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
@@ -25,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
     bool Jumping = false;           // AM i Jumping?
     //bool Falling = false;
-    bool Rolling = false;           // AM i rolling?
+    public bool Rolling = false;           // AM i rolling?
     public bool isGrounded = true;  // AM i on the ground?
     bool canCombo = false;          // AM i doing combo attack
 
@@ -50,6 +53,9 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        instance = this;
+
+
         rigid = GetComponentInParent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -72,7 +78,7 @@ public class PlayerController : MonoBehaviour
     {
         
 
-        JumpCheck(); // Checking wheter can jump
+        JumpCheck(); // Checking whether can jump
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -164,8 +170,7 @@ public class PlayerController : MonoBehaviour
         if (!canRoll) return;
 
         if (!Rolling && !Jumping)
-        {
-            
+        {  
             animator.SetBool(isRolling, true);
             Rolling = true;
         }
@@ -254,7 +259,7 @@ public class PlayerController : MonoBehaviour
 
         if (Rolling)
         {
-            transform.position += moveVelocity * 1.2f * maxSpeed * Time.deltaTime;
+            //transform.position += moveVelocity * 1.2f * maxSpeed * Time.deltaTime;
             return;
         }
 
