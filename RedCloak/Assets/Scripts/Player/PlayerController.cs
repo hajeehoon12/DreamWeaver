@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
     Vector2 boundPlayer;
 
+    Coroutine dashCoroutine;
 
     public float attackRate = 10f;  //attack Damage
     public int ComboCount;          // current combo Count
@@ -97,8 +98,19 @@ public class PlayerController : MonoBehaviour
             OnClick();
         }
 
+        FallDoubleCheck();
+
     }
 
+    public void FallDoubleCheck() // idle to jump
+    {
+        if (rigid.velocity.y < -3f)
+        {
+            animator.SetBool(isFalling, true);
+            Jumping = true;
+            isGrounded = false;
+        }
+    }
 
     public void WallClimb()
     {
@@ -122,6 +134,11 @@ public class PlayerController : MonoBehaviour
             {
                 if (dir * Input.GetAxisRaw("Horizontal") > 0)
                 {
+                    animator.SetBool(isWallClimbing, true);
+                    animator.SetBool(isJumping, false);
+                    animator.SetBool(isDashing, false);
+                    if(dashCoroutine != null) StopCoroutine(dashCoroutine);
+                    DashOff();
                     rigid.velocity = new Vector2(rigid.velocity.x, 0);
                 }
                 if (Input.GetAxis("Jump") != 0)
@@ -134,9 +151,14 @@ public class PlayerController : MonoBehaviour
                     rigid.velocity = new Vector2(-dir * jumpPower * 0.4f, jumpPower);
                     StartCoroutine(CallSnowEffect());
                     //spriteRenderer.flipX = !spriteRenderer.flipX;
+                    animator.SetBool(isWallClimbing, false);
+                    animator.SetBool(isJumping, true);
                 }
             }
-            
+        }
+        else
+        {
+            animator.SetBool(isWallClimbing, false);
         }
 
     }
@@ -185,6 +207,7 @@ public class PlayerController : MonoBehaviour
     void OnDash() // when C keyboard input do dash
     {
         if (!canDash) return;
+        if (animator.GetBool(isWallClimbing)) return;
 
         if (!ghostDash.makeGhost)
         {
@@ -194,7 +217,7 @@ public class PlayerController : MonoBehaviour
             ghostDash.makeGhost = true;
             animator.SetBool(isDashing, true);
             animator.SetBool(isAttacking, false);
-            StartCoroutine(DoingDash());
+            dashCoroutine = StartCoroutine(DoingDash());
         }
 
 
@@ -228,6 +251,10 @@ public class PlayerController : MonoBehaviour
         rigid.gravityScale = playerGravityScale;
         ghostDash.makeGhost = false;
         animator.SetBool(isDashing, false);
+        if (!isGrounded)
+        {
+            animator.SetBool(isJumping, true);
+        }
     }
     
   
@@ -243,9 +270,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    
+
     void RollSound()
     {
         AudioManager.instance.PlayPitchSFX("Roll", 0.1f);
+        
     }
 
 
