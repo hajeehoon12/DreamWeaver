@@ -35,6 +35,10 @@ public class Wall : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        controller.slopeSpeed = controller.originSlopeSpeed;
+        if (collision.gameObject.TryGetComponent<PlayerController>(out controller))
+        {
+            controller.slopeSpeed = controller.originSlopeSpeed;
+        }
+        
     }
 }
