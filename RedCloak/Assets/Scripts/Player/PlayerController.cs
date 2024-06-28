@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 public class PlayerController : MonoBehaviour
 {
+
+    public static PlayerController instance;
 
     private static readonly int isRunning = Animator.StringToHash("IsRunning");
     private static readonly int isJumping = Animator.StringToHash("IsJumping");
@@ -16,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     Animator animator;
 
-    public float maxSpeed;// �ִ�ӵ� ����
+    public float maxSpeed;// 
     public float jumpPower;
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
@@ -25,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
     bool Jumping = false;           // AM i Jumping?
     //bool Falling = false;
-    bool Rolling = false;           // AM i rolling?
+    public bool Rolling = false;           // AM i rolling?
     public bool isGrounded = true;  // AM i on the ground?
     bool canCombo = false;          // AM i doing combo attack
 
@@ -33,10 +36,17 @@ public class PlayerController : MonoBehaviour
     
     public LayerMask enemyLayerMask;
     public LayerMask groundLayerMask;
+    public LayerMask wallLayerMask;
 
     public bool canRoll = true;           // skill on / off
     public bool canDash = true;           // skill on / off
     public bool canComboAttack = true;    // skill on / off
+    public bool canWallJump = true;       // skill on / off
+
+
+    public bool canDoubleJump = true;      // not skill on / off
+
+    public bool isWall = false;
 
     Vector2 boundPlayer;
 
@@ -44,12 +54,18 @@ public class PlayerController : MonoBehaviour
     public float attackRate = 10f;  //attack Damage
     public int ComboCount;          // current combo Count
 
+    public GameObject SnowEffect;
+    public ParticleSystem Snow;
 
-
+    private float lastWallJumpTime = 0.3f;
+    private float wallJumpDelayTime = 0.3f;
 
 
     void Awake()
     {
+        instance = this;
+
+
         rigid = GetComponentInParent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -60,8 +76,10 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        SnowEffect.SetActive(false);
         playerGravityScale = rigid.gravityScale;
         boundPlayer = playerCollider.bounds.extents;
+        canDoubleJump = true;
     }
 
     private void FixedUpdate()
@@ -70,9 +88,9 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        
+        JumpCheck(); // Checking whether can jump
 
-        JumpCheck(); // Checking wheter can jump
+        WallClimb();
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -81,8 +99,47 @@ public class PlayerController : MonoBehaviour
 
     }
 
-   
 
+    public void WallClimb()
+    {
+        float dir = spriteRenderer.flipX ? -1 : 1;
+        isWall = Physics2D.Raycast(transform.position + new Vector3(dir * playerCollider.bounds.extents.x,playerCollider.bounds.extents.y), Vector2.right * dir, 0.05f, wallLayerMask);
+
+        if (lastWallJumpTime >= wallJumpDelayTime-0.02f && lastWallJumpTime <= wallJumpDelayTime)
+        {
+            rigid.velocity = new Vector2(0, rigid.velocity.y); 
+        }
+
+        if (lastWallJumpTime < wallJumpDelayTime)
+        {
+            lastWallJumpTime += Time.deltaTime;
+        }
+
+
+        if (isWall)
+        {
+            if (lastWallJumpTime >= wallJumpDelayTime)
+            {
+                if (dir * Input.GetAxisRaw("Horizontal") > 0)
+                {
+                    rigid.velocity = new Vector2(rigid.velocity.x, 0);
+                }
+                if (Input.GetAxis("Jump") != 0)
+                {
+                    lastWallJumpTime -= 0.3f;
+
+                    animator.SetBool(isFalling, false);
+                    animator.SetBool(isJumping, true);
+                    AudioManager.instance.PlaySFX("Jump", 0.2f);
+                    rigid.velocity = new Vector2(-dir * jumpPower * 0.4f, jumpPower);
+                    StartCoroutine(CallSnowEffect());
+                    //spriteRenderer.flipX = !spriteRenderer.flipX;
+                }
+            }
+            
+        }
+
+    }
   
 
     public void CheckHit() // Execute In attack Animation
@@ -108,6 +165,22 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void DoubleJump()
+    {
+        StartCoroutine(CallSnowEffect());
+
+    }
+
+    IEnumerator CallSnowEffect()
+    {
+        SnowEffect.SetActive(true);
+        Snow.Play();
+        yield return new WaitForSeconds(0.2f);
+        Snow.Stop();
+        SnowEffect.SetActive(false);
+
+
+    }
 
     void OnDash() // when C keyboard input do dash
     {
@@ -138,11 +211,11 @@ public class PlayerController : MonoBehaviour
         {
             if (spriteRenderer.flipX)
             {
-                transform.position -= new Vector3(0.2f, 0, 0);
+                transform.position -= new Vector3(0.05f * transform.localScale.x, 0, 0);
             }
             else
             {
-                transform.position += new Vector3(0.2f, 0, 0);
+                transform.position += new Vector3(0.05f * transform.localScale.x, 0, 0);
             }
             yield return new WaitForSeconds(0.02f);
         }
@@ -164,8 +237,7 @@ public class PlayerController : MonoBehaviour
         if (!canRoll) return;
 
         if (!Rolling && !Jumping)
-        {
-            
+        {  
             animator.SetBool(isRolling, true);
             Rolling = true;
         }
@@ -254,16 +326,19 @@ public class PlayerController : MonoBehaviour
 
         if (Rolling)
         {
-            transform.position += moveVelocity * 1.2f * maxSpeed * Time.deltaTime;
+            //transform.position += moveVelocity * 1.2f * maxSpeed * Time.deltaTime;
             return;
         }
 
-
+        if (lastWallJumpTime < wallJumpDelayTime)
+        {
+            return;
+        }
 
         transform.position += moveVelocity * maxSpeed * Time.deltaTime;
     }
 
-    private void OnJump() // Space Button = Jump
+    public void OnJump() // Space Button = Jump
     {
         //Debug.Log(rigid.velocity.y);
         if (Rolling) return;
@@ -307,29 +382,35 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collider) // Jump and wall Climb check
     {
         //Debug.Log(collider.gameObject.tag);
-        if (collider.gameObject.CompareTag("Floor") || collider.gameObject.CompareTag("Monster"))
+        if (collider.gameObject.CompareTag("Floor") || collider.gameObject.CompareTag("Monster") || collider.gameObject.CompareTag("Platform")) // 
         {
             //Debug.Log(boundPlayer.x);
             //Debug.Log(boundPlayer.y);
+            //Debug.Log("Floor");
+
+
 
 
             for (int i = -1; i < 2; i++)
             {
 
-                RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(playerCollider.bounds.extents.x * i,0), new Vector2(0, -1), 0.3f, groundLayerMask); // is Grounded Check
+                RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(playerCollider.bounds.extents.x * i * 0.7f,0.1f), new Vector2(0, -1), 0.5f, groundLayerMask); // is Grounded Check
                 if (hit.collider?.name != null)
                 {
                     //Debug.Log(hit.collider.name);
                     if (!isGrounded && Jumping)
                     {
+                        //Debug.Log("Down");
                         //Falling = false;
                         isGrounded = true;
                         Jumping = false;
+                        canDoubleJump = true;
                         animator.SetBool(isFalling, false);
                         animator.SetBool(isJumping, false);
+                        break;
 
                     }
-                    return;
+                    //return;
                 }
             }
 
