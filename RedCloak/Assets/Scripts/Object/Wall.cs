@@ -39,6 +39,6 @@ public class Wall : MonoBehaviour
         {
             controller.slopeSpeed = controller.originSlopeSpeed;
         }
-        
+
     }
 }
