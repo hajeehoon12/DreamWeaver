@@ -36,12 +36,17 @@ public class PlayerController : MonoBehaviour
     
     public LayerMask enemyLayerMask;
     public LayerMask groundLayerMask;
+    public LayerMask wallLayerMask;
 
     public bool canRoll = true;           // skill on / off
     public bool canDash = true;           // skill on / off
     public bool canComboAttack = true;    // skill on / off
+    public bool canWallJump = true;       // skill on / off
 
-    public bool canDoubleJump = true;
+
+    public bool canDoubleJump = true;      // not skill on / off
+
+    public bool isWall = false;
 
     Vector2 boundPlayer;
 
@@ -52,6 +57,7 @@ public class PlayerController : MonoBehaviour
     public GameObject SnowEffect;
     public ParticleSystem Snow;
 
+    private float lastWallJumpTime = 0.3f;
 
 
     void Awake()
@@ -83,6 +89,8 @@ public class PlayerController : MonoBehaviour
     {
         JumpCheck(); // Checking whether can jump
 
+        WallClimb();
+
         if (Input.GetMouseButtonDown(0))
         {
             OnClick();
@@ -90,8 +98,40 @@ public class PlayerController : MonoBehaviour
 
     }
 
-   
 
+    public void WallClimb()
+    {
+        float dir = spriteRenderer.flipX ? -1 : 1;
+        isWall = Physics2D.Raycast(transform.position + new Vector3(dir * playerCollider.bounds.extents.x,playerCollider.bounds.extents.y), Vector2.right * dir, 0.05f, wallLayerMask);
+
+
+
+        if (lastWallJumpTime < 0.15f)
+        {
+            lastWallJumpTime += Time.deltaTime;
+        }
+
+
+        if (isWall)
+        {
+
+            if (dir * Input.GetAxisRaw("Horizontal") > 0 && lastWallJumpTime >= 0.15f)
+            {
+                rigid.velocity = new Vector2(rigid.velocity.x, 0);
+            }
+
+            
+
+            if (Input.GetAxis("Jump") != 0 && lastWallJumpTime >= 0.15f)
+            {
+                lastWallJumpTime -= 0.3f;
+                rigid.velocity = new Vector2(-dir * jumpPower * 0.4f, jumpPower);
+                StartCoroutine(CallSnowEffect());
+                //spriteRenderer.flipX = !spriteRenderer.flipX;
+            }
+        }
+
+    }
   
 
     public void CheckHit() // Execute In attack Animation
@@ -331,16 +371,19 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collider) // Jump and wall Climb check
     {
         //Debug.Log(collider.gameObject.tag);
-        if (collider.gameObject.CompareTag("Floor") || collider.gameObject.CompareTag("Monster") || collider.gameObject.CompareTag("Platform"))
+        if (collider.gameObject.CompareTag("Floor") || collider.gameObject.CompareTag("Monster") || collider.gameObject.CompareTag("Platform")) // 
         {
             //Debug.Log(boundPlayer.x);
             //Debug.Log(boundPlayer.y);
             //Debug.Log("Floor");
 
+
+
+
             for (int i = -1; i < 2; i++)
             {
 
-                RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(playerCollider.bounds.extents.x * i,0.1f), new Vector2(0, -1), 0.5f, groundLayerMask); // is Grounded Check
+                RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(playerCollider.bounds.extents.x * i * 0.7f,0.1f), new Vector2(0, -1), 0.5f, groundLayerMask); // is Grounded Check
                 if (hit.collider?.name != null)
                 {
                     //Debug.Log(hit.collider.name);
