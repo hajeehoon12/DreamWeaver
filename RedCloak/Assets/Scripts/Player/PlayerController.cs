@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem Snow;
 
     private float lastWallJumpTime = 0.3f;
+    private float wallJumpDelayTime = 0.3f;
 
 
     void Awake()
@@ -104,9 +105,12 @@ public class PlayerController : MonoBehaviour
         float dir = spriteRenderer.flipX ? -1 : 1;
         isWall = Physics2D.Raycast(transform.position + new Vector3(dir * playerCollider.bounds.extents.x,playerCollider.bounds.extents.y), Vector2.right * dir, 0.05f, wallLayerMask);
 
+        if (lastWallJumpTime >= wallJumpDelayTime-0.02f && lastWallJumpTime <= wallJumpDelayTime)
+        {
+            rigid.velocity = new Vector2(0, rigid.velocity.y); 
+        }
 
-
-        if (lastWallJumpTime < 0.15f)
+        if (lastWallJumpTime < wallJumpDelayTime)
         {
             lastWallJumpTime += Time.deltaTime;
         }
@@ -114,21 +118,25 @@ public class PlayerController : MonoBehaviour
 
         if (isWall)
         {
-
-            if (dir * Input.GetAxisRaw("Horizontal") > 0 && lastWallJumpTime >= 0.15f)
+            if (lastWallJumpTime >= wallJumpDelayTime)
             {
-                rigid.velocity = new Vector2(rigid.velocity.x, 0);
-            }
+                if (dir * Input.GetAxisRaw("Horizontal") > 0)
+                {
+                    rigid.velocity = new Vector2(rigid.velocity.x, 0);
+                }
+                if (Input.GetAxis("Jump") != 0)
+                {
+                    lastWallJumpTime -= 0.3f;
 
+                    animator.SetBool(isFalling, false);
+                    animator.SetBool(isJumping, true);
+                    AudioManager.instance.PlaySFX("Jump", 0.2f);
+                    rigid.velocity = new Vector2(-dir * jumpPower * 0.4f, jumpPower);
+                    StartCoroutine(CallSnowEffect());
+                    //spriteRenderer.flipX = !spriteRenderer.flipX;
+                }
+            }
             
-
-            if (Input.GetAxis("Jump") != 0 && lastWallJumpTime >= 0.15f)
-            {
-                lastWallJumpTime -= 0.3f;
-                rigid.velocity = new Vector2(-dir * jumpPower * 0.4f, jumpPower);
-                StartCoroutine(CallSnowEffect());
-                //spriteRenderer.flipX = !spriteRenderer.flipX;
-            }
         }
 
     }
@@ -322,7 +330,10 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-
+        if (lastWallJumpTime < wallJumpDelayTime)
+        {
+            return;
+        }
 
         transform.position += moveVelocity * maxSpeed * Time.deltaTime;
     }
