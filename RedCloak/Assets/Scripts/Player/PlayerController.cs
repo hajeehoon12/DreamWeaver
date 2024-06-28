@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -63,6 +64,8 @@ public class PlayerController : MonoBehaviour
 
     public float slopeSpeed = 0.5f;
     public float originSlopeSpeed = 0.5f;
+
+    private bool isAttacked = false;
 
 
     void Awake()
@@ -139,6 +142,7 @@ public class PlayerController : MonoBehaviour
 
         if (isWall)
         {
+            
             if (lastWallJumpTime >= wallJumpDelayTime)
             {
                 if (dir * Input.GetAxisRaw("Horizontal") > 0)
@@ -148,10 +152,13 @@ public class PlayerController : MonoBehaviour
                     animator.SetBool(isDashing, false);
                     if(dashCoroutine != null) StopCoroutine(dashCoroutine);
                     DashOff();
+
                     if (rigid.velocity.y == 0.5f)
                     {
                         rigid.velocity = new Vector2(rigid.velocity.x, 0f); // init;
                     }
+                    //rigid.velocity = new Vector2(rigid.velocity.x, -slopeSpeed); // init;
+                    
                 }
                 if (Input.GetAxis("Jump") != 0)
                 {
@@ -421,6 +428,41 @@ public class PlayerController : MonoBehaviour
         Jumping = true;
     }
 
+    private void GetAttacked() // When Player Get Attacked
+    {
+        //Debug.Log("Do Red");
+
+        if (isAttacked) return;
+
+        float knockBackPower = 4f;
+        float Dir = spriteRenderer.flipX ? -1 : 1;
+        
+        StartCoroutine(ColorChanged());
+        StartCoroutine(GetAttackedCheck());
+
+        
+        rigid.velocity = Vector3.zero;
+        rigid.AddForce((Vector2.up + Dir * new Vector2(1f, 0)) * rigid.mass * knockBackPower, ForceMode2D.Impulse);
+
+    }
+
+    IEnumerator GetAttackedCheck()
+    {
+        isAttacked = true;
+        yield return new WaitForSeconds(0.2f); // Get Hit Time; Have to Change
+        isAttacked = false;
+    }
+
+    IEnumerator ColorChanged()
+    {
+        float durTime = 0f; // invincibleTime; Have To Change
+        spriteRenderer.DOColor(Color.red, durTime);
+        yield return new WaitForSeconds(durTime);
+        spriteRenderer.DOColor(Color.white, durTime);
+
+    }
+
+
 
     private void OnCollisionStay2D(Collision2D collider) // Jump and wall Climb check
     {
@@ -457,22 +499,22 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            for (int i = -1; i < 2; i += 2) // wall Climbing Check
-            {
+            //for (int i = -1; i < 2; i += 2) // wall Climbing Check
+            //{
                 //Debug.Log(i);
-                RaycastHit2D wallHit = Physics2D.Raycast(transform.position+new Vector3(boundPlayer.x * i, boundPlayer.y, 0), new Vector2(i, 0), 0.1f, groundLayerMask);
-                if (wallHit.collider?.name != null)
-                {
-                    if (Input.GetAxisRaw("Horizontal") * i > 0)// Two Case right wall right key, left wall left key
-                    {
+                //RaycastHit2D wallHit = Physics2D.Raycast(transform.position+new Vector3(boundPlayer.x * i, boundPlayer.y, 0), new Vector2(i, 0), 0.1f, groundLayerMask);
+                //if (wallHit.collider?.name != null)
+                //{
+                    //if (Input.GetAxisRaw("Horizontal") * i > 0)// Two Case right wall right key, left wall left key
+                    //{
                         //Debug.Log("I'm Climbing");
                         //animator.SetBool(isWallClimbing, true);
                         //rigid.gravityScale = 0f;
-                        return;
-                    }
-                }
+                        //return;
+                    //}
+                //}
 
-            }
+            //}
             //animator.SetBool(isWallClimbing, false);
             //rigid.gravityScale = playerGravityScale;
         }
