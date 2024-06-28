@@ -18,10 +18,5 @@ public class Monster : MonoBehaviour
         Debug.Log("InDamage");
         if (currentHealth > damage) currentHealth -= damage;
         else Destroy(gameObject);
-
     }
-
-
-
-
 }
