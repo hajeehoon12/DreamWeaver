@@ -17,11 +17,11 @@ public class PlayerController : MonoBehaviour
     private static readonly int isWallClimbing = Animator.StringToHash("IsWallClimbing");
 
 
-    Animator animator;
+    public Animator animator;
 
     public float maxSpeed;// 
     public float jumpPower;
-    Rigidbody2D rigid;
+    public Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     GhostDash ghostDash;
     Collider2D playerCollider;
@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
     Vector2 boundPlayer;
 
+    Coroutine dashCoroutine;
 
     public float attackRate = 10f;  //attack Damage
     public int ComboCount;          // current combo Count
@@ -59,6 +60,9 @@ public class PlayerController : MonoBehaviour
 
     private float lastWallJumpTime = 0.3f;
     private float wallJumpDelayTime = 0.3f;
+
+    public float slopeSpeed = 0.5f;
+    public float originSlopeSpeed = 0.5f;
 
 
     void Awake()
@@ -85,20 +89,37 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+        
     }
     void Update()
     {
         JumpCheck(); // Checking whether can jump
-
         WallClimb();
+
 
         if (Input.GetMouseButtonDown(0))
         {
             OnClick();
         }
 
+        FallDoubleCheck();
+        
     }
 
+
+
+
+
+
+    public void FallDoubleCheck() // idle to jump
+    {
+        if (rigid.velocity.y < -3f)
+        {
+            animator.SetBool(isFalling, true);
+            Jumping = true;
+            isGrounded = false;
+        }
+    }
 
     public void WallClimb()
     {
@@ -122,7 +143,15 @@ public class PlayerController : MonoBehaviour
             {
                 if (dir * Input.GetAxisRaw("Horizontal") > 0)
                 {
-                    rigid.velocity = new Vector2(rigid.velocity.x, 0);
+                    animator.SetBool(isWallClimbing, true);
+                    animator.SetBool(isJumping, false);
+                    animator.SetBool(isDashing, false);
+                    if(dashCoroutine != null) StopCoroutine(dashCoroutine);
+                    DashOff();
+                    if (rigid.velocity.y == 0.5f)
+                    {
+                        rigid.velocity = new Vector2(rigid.velocity.x, 0f); // init;
+                    }
                 }
                 if (Input.GetAxis("Jump") != 0)
                 {
@@ -134,9 +163,14 @@ public class PlayerController : MonoBehaviour
                     rigid.velocity = new Vector2(-dir * jumpPower * 0.4f, jumpPower);
                     StartCoroutine(CallSnowEffect());
                     //spriteRenderer.flipX = !spriteRenderer.flipX;
+                    animator.SetBool(isWallClimbing, false);
+                    animator.SetBool(isJumping, true);
                 }
             }
-            
+        }
+        else
+        {
+            animator.SetBool(isWallClimbing, false);
         }
 
     }
@@ -185,6 +219,7 @@ public class PlayerController : MonoBehaviour
     void OnDash() // when C keyboard input do dash
     {
         if (!canDash) return;
+        if (animator.GetBool(isWallClimbing)) return;
 
         if (!ghostDash.makeGhost)
         {
@@ -194,7 +229,8 @@ public class PlayerController : MonoBehaviour
             ghostDash.makeGhost = true;
             animator.SetBool(isDashing, true);
             animator.SetBool(isAttacking, false);
-            StartCoroutine(DoingDash());
+            if(dashCoroutine != null) StopCoroutine(dashCoroutine);
+            dashCoroutine = StartCoroutine(DoingDash());
         }
 
 
@@ -228,6 +264,10 @@ public class PlayerController : MonoBehaviour
         rigid.gravityScale = playerGravityScale;
         ghostDash.makeGhost = false;
         animator.SetBool(isDashing, false);
+        if (!isGrounded)
+        {
+            animator.SetBool(isJumping, true);
+        }
     }
     
   
@@ -243,9 +283,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    
+
     void RollSound()
     {
         AudioManager.instance.PlayPitchSFX("Roll", 0.1f);
+        
     }
 
 
@@ -394,7 +437,7 @@ public class PlayerController : MonoBehaviour
             for (int i = -1; i < 2; i++)
             {
 
-                RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(playerCollider.bounds.extents.x * i * 0.7f,0.1f), new Vector2(0, -1), 0.5f, groundLayerMask); // is Grounded Check
+                RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(playerCollider.bounds.extents.x * i * 0.85f,0.1f), new Vector2(0, -1), 0.5f, groundLayerMask); // is Grounded Check
                 if (hit.collider?.name != null)
                 {
                     //Debug.Log(hit.collider.name);
