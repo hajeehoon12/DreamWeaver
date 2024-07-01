@@ -62,6 +62,8 @@ public class PlayerController : MonoBehaviour
     private float lastWallJumpTime = 0.3f;
     private float wallJumpDelayTime = 0.3f;
 
+    public float attackedTime = 0.2f;
+
     public float slopeSpeed = 0.5f;
     public float originSlopeSpeed = 0.5f;
 
@@ -350,6 +352,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 moveVelocity = Vector3.zero;
 
+        if (isAttacked) return;
         if (ghostDash.makeGhost) return;
         
 
@@ -428,13 +431,18 @@ public class PlayerController : MonoBehaviour
         Jumping = true;
     }
 
+    public void OnGetAttacked()
+    {
+        GetAttacked();
+    }
+
     private void GetAttacked() // When Player Get Attacked
     {
         //Debug.Log("Do Red");
 
         if (isAttacked) return;
 
-        float knockBackPower = 4f;
+        float knockBackPower = 8f;
         float Dir = spriteRenderer.flipX ? -1 : 1;
         
         StartCoroutine(ColorChanged());
@@ -442,20 +450,20 @@ public class PlayerController : MonoBehaviour
 
         
         rigid.velocity = Vector3.zero;
-        rigid.AddForce((Vector2.up + Dir * new Vector2(1f, 0)) * rigid.mass * knockBackPower, ForceMode2D.Impulse);
+        rigid.AddForce((Vector2.up + Dir * new Vector2(3f, 0)) * rigid.mass * knockBackPower, ForceMode2D.Impulse);
 
     }
 
     IEnumerator GetAttackedCheck()
     {
         isAttacked = true;
-        yield return new WaitForSeconds(0.2f); // Get Hit Time; Have to Change
+        yield return new WaitForSeconds(attackedTime); // Get Hit Time; Have to Change
         isAttacked = false;
     }
 
     IEnumerator ColorChanged()
     {
-        float durTime = 0f; // invincibleTime; Have To Change
+        float durTime = attackedTime; // invincibleTime; Have To Change
         spriteRenderer.DOColor(Color.red, durTime);
         yield return new WaitForSeconds(durTime);
         spriteRenderer.DOColor(Color.white, durTime);
