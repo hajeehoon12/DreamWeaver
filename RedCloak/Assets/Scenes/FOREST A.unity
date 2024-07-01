@@ -644,11 +644,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1772169337 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4924508274929071776, guid: 0edef91621bb6b34384ccc9dbb98729c, type: 3}
-  m_PrefabInstance: {fileID: 2076802508}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1911850089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,10 +1337,7 @@ MonoBehaviour:
   isWall: 0
   attackRate: 10
   ComboCount: 0
-
-
   SnowEffect: {fileID: 110691735}
-
   Snow: {fileID: 2076802511}
   slopeSpeed: 0.5
   originSlopeSpeed: 0.5
