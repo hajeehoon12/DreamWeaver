@@ -470,7 +470,15 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(playerCollider.bounds.extents.x * 0.85f, 0.1f), new Vector2(0, -1), 0.5f, LayerMask.NameToLayer("Trap"));
+        if (hit.collider?.name != null)
+        {
+            Debug.Log(hit.collider.name);
+            GetAttacked();
+        }
+    }
 
     private void OnCollisionStay2D(Collision2D collider) // Jump and wall Climb check
     {

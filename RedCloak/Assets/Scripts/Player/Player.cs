@@ -29,7 +29,6 @@ public class Player : MonoBehaviour
 
     //    stats.playerSpeed = data.playerSpeed;
     //    stats.jumpPower = data.jumpPower;
-    //    stats.bulletSpeed = data.bulletSpeed;
     //    stats.attackDamage = data.attackDamage;
     //    stats.playerHP = data.playerHP;
     //    stats.playerMaxHP = data.playerMaxHP;
@@ -44,7 +43,6 @@ public class Player : MonoBehaviour
 
     //    data.playerSpeed = stats.playerSpeed;
     //    data.jumpPower = stats.jumpPower;
-    //    data.bulletSpeed = stats.bulletSpeed;
     //    data.attackDamage = stats.attackDamage;
     //    data.playerHP = stats.playerHP;
     //    data.playerMaxHP = stats.playerMaxHP;
