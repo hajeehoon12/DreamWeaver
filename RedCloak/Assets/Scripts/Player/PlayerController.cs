@@ -197,7 +197,7 @@ public class PlayerController : MonoBehaviour
         if (spriteRenderer.flipX) CheckDir = -1f;
 
         
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, playerCollider.bounds.extents.y, 0), new Vector2(1, 0) * CheckDir, 2f, enemyLayerMask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, playerCollider.bounds.extents.y, 0), new Vector2(1, 0) * CheckDir, 3f, enemyLayerMask);
         {
             if (hit.collider != null)
             {
@@ -210,14 +210,14 @@ public class PlayerController : MonoBehaviour
                 
         }
 
-        RaycastHit2D hits = Physics2D.Raycast(transform.position+new Vector3(0, playerCollider.bounds.extents.y, 0), new Vector2(1, 0) * CheckDir, 2f, objectLayerMask);
+        RaycastHit2D hits = Physics2D.Raycast(transform.position+new Vector3(0, playerCollider.bounds.extents.y, 0), new Vector2(1, 0) * CheckDir, 3f, objectLayerMask);
         {
 
             if (hits.collider == null) return;
             //Debug.Log(hit.collider.name);
             if (hits.transform.gameObject.TryGetComponent(out Rigidbody2D rigid2D))
             {
-                rigid2D.AddForce(CheckDir * new Vector2(1, 0) * rigid2D.mass * 20f, ForceMode2D.Impulse);
+                rigid2D.AddForce(CheckDir * new Vector2(1, 0) * rigid2D.mass * 10f, ForceMode2D.Impulse);
                 Debug.Log("hit object!!");
                 AudioManager.instance.PlayPitchSFX("BoxHit", 0.05f);
             }
