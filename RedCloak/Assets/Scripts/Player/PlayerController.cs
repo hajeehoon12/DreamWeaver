@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask enemyLayerMask;
     public LayerMask groundLayerMask;
     public LayerMask wallLayerMask;
+    public LayerMask objectLayerMask;
 
     public bool canRoll = true;           // skill on / off
     public bool canDash = true;           // skill on / off
@@ -98,6 +99,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        
         JumpCheck(); // Checking whether can jump
         WallClimb();
 
@@ -194,17 +196,34 @@ public class PlayerController : MonoBehaviour
 
         if (spriteRenderer.flipX) CheckDir = -1f;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(1, 0) * CheckDir, 2f, enemyLayerMask);
+        
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, playerCollider.bounds.extents.y, 0), new Vector2(1, 0) * CheckDir, 3f, enemyLayerMask);
         {
-            
-            if (hit.collider == null) return;
-            //Debug.Log(hit.collider.name);
-            if (hit.transform.gameObject.TryGetComponent(out Monster monster))
+            if (hit.collider != null)
             {
-                monster.GetDamage(attackRate);
+                //Debug.Log(hit.collider.name);
+                if (hit.transform.gameObject.TryGetComponent(out Monster monster))
+                {
+                    monster.GetDamage(attackRate);
+                }
             }
                 
         }
+
+        RaycastHit2D hits = Physics2D.Raycast(transform.position+new Vector3(0, playerCollider.bounds.extents.y, 0), new Vector2(1, 0) * CheckDir, 3f, objectLayerMask);
+        {
+
+            if (hits.collider == null) return;
+            //Debug.Log(hit.collider.name);
+            if (hits.transform.gameObject.TryGetComponent(out Rigidbody2D rigid2D))
+            {
+                rigid2D.AddForce(CheckDir * new Vector2(1, 0) * rigid2D.mass * 10f, ForceMode2D.Impulse);
+                Debug.Log("hit object!!");
+                AudioManager.instance.PlayPitchSFX("BoxHit", 0.05f);
+            }
+
+        }
+
 
     }
 
@@ -352,7 +371,11 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 moveVelocity = Vector3.zero;
 
-        if (isAttacked) return;
+        if (isAttacked)
+        {
+            Debug.Log("Can't move!!");
+            return;
+        }
         if (ghostDash.makeGhost) return;
         
 
@@ -450,7 +473,7 @@ public class PlayerController : MonoBehaviour
 
         
         rigid.velocity = Vector3.zero;
-        rigid.AddForce((Vector2.up + Dir * new Vector2(3f, 0)) * rigid.mass * knockBackPower, ForceMode2D.Impulse);
+        rigid.AddForce((Vector3.up + Dir * new Vector3(3f, 0, 0)) * rigid.mass * knockBackPower, ForceMode2D.Impulse); // Vector3.up + Dir * new Vector3(3f, 0, 0)
 
     }
 
@@ -470,7 +493,14 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //collision.
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Trap"))
+        {
+            GetAttacked();
+        }
+    }
 
     private void OnCollisionStay2D(Collision2D collider) // Jump and wall Climb check
     {
