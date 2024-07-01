@@ -9,7 +9,8 @@ public class UIBar : MonoBehaviour
     [SerializeField] private Slider playerHealthBar;
     [SerializeField] private Slider playerStaminaBar;
     [SerializeField] private Slider bossHealthBar;
-    public RectTransform endRect;
+    [SerializeField] private Slider damageBar;
+    public RectTransform damageEffect;
     
 
     public Monster monster;
@@ -17,33 +18,31 @@ public class UIBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetFillEndPosition();
+        if (damageEffect == null)
+        {
+            Debug.Log("이펙트없음");
+            return;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         // 체력 시스템 추가 후 반영
-        //bossHealthBar.value = monster.currentHealth / monster.maxHealth;
+        bossHealthBar.value = monster.currentHealth / monster.maxHealth;
 
-        GetFillEndPosition();
+        //매개변수로 대미지 전달
+        SetDamageEffect(5f);
     }
 
-    private void GetFillEndPosition()
+    private void SetDamageEffect(float damage)
     {
-        if(endRect == null)
-        {
-            return;
-        }
-
         float fillWidth = bossHealthBar.fillRect.rect.width;
         float endPosition = (bossHealthBar.fillRect.anchoredPosition.x + fillWidth - 10f);
 
-        endRect.anchoredPosition = new Vector2(endPosition, endRect.anchoredPosition.y);
-    }
+        damageEffect.anchoredPosition = new Vector2(endPosition, damageEffect.anchoredPosition.y);
 
-    private void SetDamageEffectWidth(float width)
-    {
-
+        float width = (damage / monster.maxHealth) * bossHealthBar.fillRect.rect.width;
+        damageEffect.sizeDelta = new Vector2(width, damageEffect.sizeDelta.y);
     }
 }
