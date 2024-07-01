@@ -68,7 +68,7 @@ public class CameraManager : MonoBehaviour
     private void Update()
     {
 
-        transform.position = _player.position + new Vector3(0, 10, -300);//_player.position + cameraPosition;
+        transform.position = _player.position + cameraPosition;//_player.position + cameraPosition;
         //render.material.mainTextureOffset = new Vector2((_firstPos.x - _player.position.x) / 300, 0);
 
         LimitCameraArea();
@@ -83,7 +83,7 @@ public class CameraManager : MonoBehaviour
         float bordery = mapSize.y - screenHeight;
         float clampY = Mathf.Clamp(transform.position.y, -bordery + center.y, bordery + center.y);
 
-        transform.position = new Vector3(clampX, clampY, -300f);
+        transform.position = new Vector3(clampX, clampY, -200f);
     }
 
     private void OnDrawGizmos()
