@@ -47,6 +47,7 @@ public class Archer : MonoBehaviour
         count++;
     }
 
+    
 
     void Attack()
     {
@@ -87,7 +88,25 @@ public class Archer : MonoBehaviour
         // do die
     }
 
+    void Charge()
+    {
+        AudioManager.instance.PlaySFX("Charge1sec", 0.2f);
+    }
 
+    void Vanish()
+    {
+        AudioManager.instance.PlaySFX("Vanish", 0.2f);
+    }
+
+    void Appear()
+    {
+        AudioManager.instance.PlaySFX("Appear", 0.2f);
+    }
+
+    void Laser()
+    {
+        AudioManager.instance.PlaySFX("Laser", 0.2f);
+    }
 
 
 

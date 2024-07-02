@@ -40,6 +40,15 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+        time: 0.94
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
         time: 1.1000004
         value: 1
         inSlope: Infinity
@@ -71,6 +80,15 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 0.3
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1.02
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -548,7 +566,11 @@ AnimationClip:
     - time: 0.6000004
       value: {fileID: -2164032833587647128, guid: 79fb707000d5efc4081b4a83d3f899da, type: 3}
     - time: 0.7000003
-      value: {fileID: -7685094052372713666, guid: 79fb707000d5efc4081b4a83d3f899da, type: 3}
+      value: {fileID: 0}
+    - time: 0.94
+      value: {fileID: -2709423021595515828, guid: 79fb707000d5efc4081b4a83d3f899da, type: 3}
+    - time: 1.02
+      value: {fileID: 3394083120444339088, guid: 79fb707000d5efc4081b4a83d3f899da, type: 3}
     - time: 1.1000004
       value: {fileID: -7221994311957129247, guid: 79fb707000d5efc4081b4a83d3f899da, type: 3}
     - time: 1.2000003
@@ -718,7 +740,9 @@ AnimationClip:
     - {fileID: -2709423021595515828, guid: 79fb707000d5efc4081b4a83d3f899da, type: 3}
     - {fileID: -1621513652202483069, guid: 79fb707000d5efc4081b4a83d3f899da, type: 3}
     - {fileID: -2164032833587647128, guid: 79fb707000d5efc4081b4a83d3f899da, type: 3}
-    - {fileID: -7685094052372713666, guid: 79fb707000d5efc4081b4a83d3f899da, type: 3}
+    - {fileID: 0}
+    - {fileID: -2709423021595515828, guid: 79fb707000d5efc4081b4a83d3f899da, type: 3}
+    - {fileID: 3394083120444339088, guid: 79fb707000d5efc4081b4a83d3f899da, type: 3}
     - {fileID: -7221994311957129247, guid: 79fb707000d5efc4081b4a83d3f899da, type: 3}
     - {fileID: 8343217747274336882, guid: 79fb707000d5efc4081b4a83d3f899da, type: 3}
     - {fileID: 671082664100508371, guid: 79fb707000d5efc4081b4a83d3f899da, type: 3}
@@ -779,6 +803,15 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+        time: 0.94
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
         time: 1.1000004
         value: 1
         inSlope: Infinity
@@ -810,6 +843,15 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 0.3
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1.02
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -1272,4 +1314,32 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.29
+    functionName: Vanish
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.83
+    functionName: Appear
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1
+    functionName: Charge
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.42
+    functionName: Laser
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
