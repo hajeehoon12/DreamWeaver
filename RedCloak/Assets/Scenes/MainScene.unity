@@ -401,7 +401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 749690704}
   m_Layer: 11
-  m_Name: BossSpawnPoint
+  m_Name: BossSpawnPoint(Temp)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -455,7 +455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 851225990}
   - component: {fileID: 851225991}
-  m_Layer: 17
+  m_Layer: 7
   m_Name: Laser2
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -815,11 +815,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: bgm.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: sfx.Array.size
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: bgm.Array.data[0].clip
@@ -828,6 +828,14 @@ PrefabInstance:
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: bgm.Array.data[0].name
       value: SadStory
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: bgm.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6dc511f696d944142898fed68d9d4061, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: bgm.Array.data[1].name
+      value: SilverBird
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: sfx.Array.data[4].clip
@@ -880,10 +888,50 @@ PrefabInstance:
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: sfx.Array.data[10].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 04aded3a101245f48a05897e4bb90cb0, type: 3}
+      objectReference: {fileID: 8300000, guid: 2c5f72c859500df45a07c00b3d351809, type: 3}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: sfx.Array.data[10].name
-      value: Charge1sec
+      value: Violin3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[11].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0d69c1291221b144b878d8814c404642, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[11].name
+      value: ArcherDeath
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[12].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0d69c1291221b144b878d8814c404642, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[12].name
+      value: ArcherDeath
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[13].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0d69c1291221b144b878d8814c404642, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[13].name
+      value: ArcherDeath
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[14].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0d69c1291221b144b878d8814c404642, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[14].name
+      value: ArcherDeath
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[15].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0d69c1291221b144b878d8814c404642, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[15].name
+      value: ArcherDeath
       objectReference: {fileID: 0}
     - target: {fileID: 4850818699871077568, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: m_Name
@@ -904,7 +952,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1339039239}
   - component: {fileID: 1339039240}
-  m_Layer: 17
+  m_Layer: 7
   m_Name: Laser
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1342,13 +1390,13 @@ GameObject:
   - component: {fileID: 1900751962}
   - component: {fileID: 1900751963}
   - component: {fileID: 1900751964}
-  m_Layer: 17
+  m_Layer: 7
   m_Name: archer
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1900751959
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1389,7 +1437,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 3104363064424926295, guid: 79fb707000d5efc4081b4a83d3f899da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1410,7 +1458,7 @@ Transform:
   m_GameObject: {fileID: 1900751958}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 128.1, y: -44.63, z: 0}
+  m_LocalPosition: {x: 128.1, y: -45.1, z: 0}
   m_LocalScale: {x: 18.70072, y: 18.70072, z: 18.70072}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1496,6 +1544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad2bbdc36e559e4c93fd61c784ef3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossHealth: 10
 --- !u!50 &1900751964
 Rigidbody2D:
   serializedVersion: 4
@@ -1504,7 +1553,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900751958}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -50197,7 +50246,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 2064183
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -55188,7 +55237,7 @@ Transform:
   m_GameObject: {fileID: 4937768984118300106}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -108.8, y: 0.37, z: 1}
+  m_LocalPosition: {x: 145.2, y: -45, z: 1}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children:

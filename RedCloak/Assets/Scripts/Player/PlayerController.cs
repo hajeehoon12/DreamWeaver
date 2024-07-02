@@ -211,6 +211,12 @@ public class PlayerController : MonoBehaviour
                 {
                     monster.GetDamage(attackRate);
                 }
+
+                if (hit.transform.gameObject.TryGetComponent(out Archer archer))
+                {
+                    archer.GetDamage(attackRate);
+                }
+
             }
                 
         }
@@ -424,7 +430,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(rigid.velocity.y);
         if (Rolling) return;
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) // && !Jumping
+        if (Input.GetKeyDown(KeyCode.Z) && isGrounded) // && !Jumping
         {
             isGrounded = false;
             
