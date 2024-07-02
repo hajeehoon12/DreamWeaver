@@ -147,13 +147,15 @@ public class Archer : MonoBehaviour
 
     void CallDie()
     {
+        GetComponent<Collider2D>().enabled = false;
+        animator.SetBool(isDead, true);
         isBossDie = true;
         StartCoroutine(ArcherDie());
     }
 
     IEnumerator ArcherDie()
     {
-        AudioManager.instance.PlaySFX("ArcherDeath", 0.2f);
+        AudioManager.instance.PlaySFX("ArcherDeath", 0.5f);
         yield return new WaitForSeconds(1f);
         AudioManager.instance.PlaySFX("Violin3", 0.15f);
         //StopAllCoroutines();
