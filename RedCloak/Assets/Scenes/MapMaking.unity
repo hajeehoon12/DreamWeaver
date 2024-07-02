@@ -138,8 +138,8 @@ MonoBehaviour:
   _player: {fileID: 4942515153668334140}
   map: {fileID: 0}
   cameraPosition: {x: 0, y: 5, z: -200}
-  center: {x: 70, y: -10}
-  mapSize: {x: 220, y: 40}
+  center: {x: 45, y: -13}
+  mapSize: {x: 40, y: 55}
   shakeCamera: {fileID: 0}
   shakeRotate: 0
   originPos: {x: 0, y: 0, z: 0}
@@ -66821,7 +66821,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 7.8e-44, z: 4.742e-42, w: 1.5784e-41}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -67146,7 +67146,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: -7849658766492704550, guid: 8a0bf82816ef7264f9469c139f71b56c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
