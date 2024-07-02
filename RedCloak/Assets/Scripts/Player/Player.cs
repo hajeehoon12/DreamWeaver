@@ -5,16 +5,16 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public PlayerController controller;
-    //public PlayerStat stats;
-    //public PlayerBattle battle;
+    public PlayerStat stats;
+    public PlayerBattle battle;
     public Pet pet;
 
     private void Awake()
     {
         CharacterManager.Instance.Player = this;
         controller = GetComponent<PlayerController>();
-        //stats = GetComponent<PlayerStat>();
-        //battle = GetComponent<PlayerBattle>();
+        stats = GetComponent<PlayerStat>();
+        battle = GetComponent<PlayerBattle>();
     }
 
 

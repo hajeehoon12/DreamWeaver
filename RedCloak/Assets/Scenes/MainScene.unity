@@ -1237,8 +1237,8 @@ BoxCollider2D:
   m_Offset: {x: 0.035000004, y: 0.125}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.058823474, y: 0}
-    oldSize: {x: 0.34, y: 0.22}
+    pivot: {x: 0.6521739, y: 0}
+    oldSize: {x: 0.23, y: 0.25}
     newSize: {x: 0.34, y: 0.22}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -54862,6 +54862,7 @@ GameObject:
   - component: {fileID: 293354116675532431}
   - component: {fileID: 8086681641514179468}
   - component: {fileID: 7033023090483215748}
+  - component: {fileID: 8086681641514179469}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -81490,6 +81491,22 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &8086681641514179469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4937768984118300106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90b0ca71dee3d249a16609f5d847338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  stats: {fileID: 0}
+  battle: {fileID: 0}
+  pet: {fileID: 0}
 --- !u!212 &8101615490886684742
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer spriteRenderer;
     GhostDash ghostDash;
     Collider2D playerCollider;
+    PlayerBattle playerBattle;
 
     bool Jumping = false;           // AM i Jumping?
     //bool Falling = false;
@@ -81,6 +82,7 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         ghostDash = GetComponent<GhostDash>();
         playerCollider = GetComponent<Collider2D>();
+        playerBattle = GetComponent<PlayerBattle>();
         
     }
 
@@ -90,6 +92,8 @@ public class PlayerController : MonoBehaviour
         playerGravityScale = rigid.gravityScale;
         boundPlayer = playerCollider.bounds.extents;
         canDoubleJump = true;
+
+        playerBattle.OnDamage += GetAttacked;
     }
 
     private void FixedUpdate()
@@ -497,7 +501,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(Define.MONSTER_TAG))
         {
-            OnGetAttacked();
+            playerBattle.ChangeHealth(-1); // get damaged
         }
 
         //collision.
