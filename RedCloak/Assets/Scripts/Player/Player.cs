@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField]
     public PlayerController controller;
-    public PlayerStat stats;
+   
     public PlayerBattle battle;
     public Pet pet;
+    public PlayerStat stats;
 
     private void Awake()
     {
@@ -15,6 +17,7 @@ public class Player : MonoBehaviour
         controller = GetComponent<PlayerController>();
         stats = GetComponent<PlayerStat>();
         battle = GetComponent<PlayerBattle>();
+
     }
 
 
@@ -22,35 +25,5 @@ public class Player : MonoBehaviour
     {
         pet = GameObject.Find("PetLight").GetComponent<Pet>();
     }
-
-    //public void LoadData(GameData data)
-    //{
-    //    this.transform.position = data.playerPosition;
-
-    //    stats.playerSpeed = data.playerSpeed;
-    //    stats.jumpPower = data.jumpPower;
-    //    stats.attackDamage = data.attackDamage;
-    //    stats.playerHP = data.playerHP;
-    //    stats.playerMaxHP = data.playerMaxHP;
-    //    stats.playerMP = data.playerMP;
-    //    stats.attackSpeed = data.attackSpeed;
-    //    stats.playerGold = data.playerGold;
-    //}
-
-    //public void SaveData(GameData data)
-    //{
-    //    data.playerPosition = this.transform.position;
-
-    //    data.playerSpeed = stats.playerSpeed;
-    //    data.jumpPower = stats.jumpPower;
-    //    data.attackDamage = stats.attackDamage;
-    //    data.playerHP = stats.playerHP;
-    //    data.playerMaxHP = stats.playerMaxHP;
-    //    data.playerMP = stats.playerMP;
-    //    data.attackSpeed = stats.attackSpeed;
-    //    data.playerGold = stats.playerGold;
-
-    //    Debug.Log("Player Data Saved");
-    //}
 
 }

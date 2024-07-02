@@ -54857,12 +54857,14 @@ GameObject:
   - component: {fileID: 4942515153668334140}
   - component: {fileID: 7123519901602951645}
   - component: {fileID: 5851958116257210996}
+  - component: {fileID: 8086681641514179469}
   - component: {fileID: 116868469260653053}
+  - component: {fileID: 8086681641514179470}
   - component: {fileID: 7086060329929725925}
   - component: {fileID: 293354116675532431}
   - component: {fileID: 8086681641514179468}
   - component: {fileID: 7033023090483215748}
-  - component: {fileID: 8086681641514179469}
+  - component: {fileID: 8086681641514179471}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -81503,10 +81505,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90b0ca71dee3d249a16609f5d847338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  stats: {fileID: 0}
-  battle: {fileID: 0}
+  controller: {fileID: 116868469260653053}
+  battle: {fileID: 8086681641514179470}
   pet: {fileID: 0}
+  stats: {fileID: 0}
+--- !u!114 &8086681641514179470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4937768984118300106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc320ef69bdca0429abf8a695278612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChangeDelay: 0.5
+  isAttacked: 0
+--- !u!114 &8086681641514179471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4937768984118300106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d5c37ef0d5ea034181632ded81a3723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpeed: 10
+  jumpPower: 15
+  attackDamage: 5
+  playerHP: 4
+  playerMaxHP: 4
+  playerMP: 50
+  playerMaxMP: 50
+  playerGold: 0
 --- !u!212 &8101615490886684742
 SpriteRenderer:
   m_ObjectHideFlags: 0

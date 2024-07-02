@@ -7,7 +7,6 @@ using UnityEngine.InputSystem.XR;
 public class PlayerController : MonoBehaviour
 {
 
-    public static PlayerController instance;
 
     private static readonly int isRunning = Animator.StringToHash("IsRunning");
     private static readonly int isJumping = Animator.StringToHash("IsJumping");
@@ -74,8 +73,6 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
-
 
         rigid = GetComponentInParent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -497,20 +494,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag(Define.MONSTER_TAG))
-        {
-            playerBattle.ChangeHealth(-1); // get damaged
-        }
-
-        //collision.
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Trap"))
-        {
-            GetAttacked();
-        }
-    }
-
     void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("Trigger detected with " + collider.gameObject.name);
@@ -518,6 +501,19 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collider) // Jump and wall Climb check
     {
+
+        if (collider.gameObject.CompareTag(Define.MONSTER_TAG))
+        {
+            playerBattle.ChangeHealth(-1); // get damaged
+        }
+
+        //collision.
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Trap"))
+        {
+            GetAttacked();
+        }
+
+
         //Debug.Log(collider.gameObject.tag);
         if (collider.gameObject.CompareTag("Floor") || collider.gameObject.CompareTag("Monster") || collider.gameObject.CompareTag("Platform")) // 
         {
