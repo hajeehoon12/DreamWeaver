@@ -495,7 +495,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision detected with " + collision.gameObject.name);
+        if (collision.gameObject.CompareTag(Define.MONSTER_TAG))
+        {
+            OnGetAttacked();
+        }
 
         //collision.
         if (collision.gameObject.layer == LayerMask.NameToLayer("Trap"))
