@@ -1261,6 +1261,7 @@ GameObject:
   - component: {fileID: 1900751959}
   - component: {fileID: 1900751961}
   - component: {fileID: 1900751962}
+  - component: {fileID: 1900751963}
   m_Layer: 17
   m_Name: archer
   m_TagString: Monster
@@ -1393,8 +1394,8 @@ BoxCollider2D:
   m_Offset: {x: 0.0026078597, y: 0.1345}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.06896551, y: 0}
-    oldSize: {x: 2.03, y: 0.22}
+    pivot: {x: 0.6521739, y: 0}
+    oldSize: {x: 0.23, y: 0.25}
     newSize: {x: 0.34, y: 0.22}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1403,6 +1404,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16521572, y: 0.23442602}
   m_EdgeRadius: 0
+--- !u!114 &1900751963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900751958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad2bbdc36e559e4c93fd61c784ef3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1900751961}
 --- !u!1 &1911850089
 GameObject:
   m_ObjectHideFlags: 0
