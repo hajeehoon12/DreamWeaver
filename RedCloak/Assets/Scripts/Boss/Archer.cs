@@ -25,9 +25,13 @@ public class Archer : MonoBehaviour
 
     void Discrimination()
     {
-        //Attack();
-        //WhenDie();
-        //SpecialAttack();
+        StartCoroutine(Iteration());
+
+    }
+
+    IEnumerator Iteration()
+    {
+        yield return new WaitForSeconds(0.5f);
 
         switch (count % 2)
         {
@@ -37,7 +41,7 @@ public class Archer : MonoBehaviour
             case 1:
                 SpecialAttack();
                 break;
-        
+
         }
 
         count++;
@@ -52,6 +56,7 @@ public class Archer : MonoBehaviour
     IEnumerator DoAttack()
     {
         animator.SetTrigger(doAttack);
+        animator.ResetTrigger(doSpecialAttack);
         yield return new WaitForSeconds(1.52f);
         Discrimination();
     }
@@ -64,6 +69,7 @@ public class Archer : MonoBehaviour
     IEnumerator DoSpeciatAttack()
     {
         animator.SetTrigger(doSpecialAttack);
+        animator.ResetTrigger(doAttack);
         yield return new WaitForSeconds(2.62f);
         Discrimination();
     }

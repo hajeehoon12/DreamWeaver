@@ -469,7 +469,7 @@ public class PlayerController : MonoBehaviour
         
 
         if (isAttacked) return;
-        Debug.Log("Do Red");
+        //Debug.Log("Do Red");
         float knockBackPower = 8f;
         float Dir = spriteRenderer.flipX ? -1 : 1;
 
@@ -482,7 +482,7 @@ public class PlayerController : MonoBehaviour
         rigid.velocity = Vector3.zero;
         transform.position += new Vector3(0, 0.3f, 0);
         rigid.AddForce((Vector3.up + Dir * new Vector3(-2f, 0, 0)) * rigid.mass * knockBackPower, ForceMode2D.Impulse); // Vector3.up + Dir * new Vector3(3f, 0, 0)
-        Debug.Log((Vector3.up + Dir * new Vector3(3f, 0, 0)));
+        //Debug.Log((Vector3.up + Dir * new Vector3(3f, 0, 0)));
     }
 
     IEnumerator GetAttackedCheck()
