@@ -136,6 +136,7 @@ public class PlayerController : MonoBehaviour
 
         if (lastWallJumpTime >= wallJumpDelayTime-0.02f && lastWallJumpTime <= wallJumpDelayTime)
         {
+            if (isAttacked) return;
             rigid.velocity = new Vector2(0, rigid.velocity.y); 
         }
 
@@ -374,7 +375,7 @@ public class PlayerController : MonoBehaviour
 
         if (isAttacked)
         {
-            Debug.Log("Can't move!!");
+            //Debug.Log("Can't move!!");
             return;
         }
         if (ghostDash.makeGhost) return;
@@ -462,10 +463,10 @@ public class PlayerController : MonoBehaviour
 
     private void GetAttacked() // When Player Get Attacked
     {
-        //Debug.Log("Do Red");
+        
 
         if (isAttacked) return;
-
+        Debug.Log("Do Red");
         float knockBackPower = 8f;
         float Dir = spriteRenderer.flipX ? -1 : 1;
         
@@ -474,8 +475,9 @@ public class PlayerController : MonoBehaviour
 
         
         rigid.velocity = Vector3.zero;
-        rigid.AddForce((Vector3.up + Dir * new Vector3(3f, 0, 0)) * rigid.mass * knockBackPower, ForceMode2D.Impulse); // Vector3.up + Dir * new Vector3(3f, 0, 0)
-
+        transform.position += new Vector3(0, 0.3f, 0);
+        rigid.AddForce((Vector3.up + Dir * new Vector3(-2f, 0, 0)) * rigid.mass * knockBackPower, ForceMode2D.Impulse); // Vector3.up + Dir * new Vector3(3f, 0, 0)
+        Debug.Log((Vector3.up + Dir * new Vector3(3f, 0, 0)));
     }
 
     IEnumerator GetAttackedCheck()
@@ -483,6 +485,7 @@ public class PlayerController : MonoBehaviour
         isAttacked = true;
         yield return new WaitForSeconds(attackedTime); // Get Hit Time; Have to Change
         isAttacked = false;
+        rigid.velocity = new Vector3(rigid.velocity.x, 0); // except super jump
     }
 
     IEnumerator ColorChanged()
@@ -496,7 +499,11 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Trigger detected with " + collider.gameObject.name);
+        if (collider.gameObject.CompareTag(Define.MONSTER_TAG))
+        {
+            playerBattle.ChangeHealth(-1); // get damaged
+        }
+        //Debug.Log("Trigger detected with " + collider.gameObject.name);
     }
 
     private void OnCollisionStay2D(Collision2D collider) // Jump and wall Climb check

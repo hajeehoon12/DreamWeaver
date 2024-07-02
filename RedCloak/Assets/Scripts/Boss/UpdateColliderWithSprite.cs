@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PolygonCollider2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class UpdateColliderWithSprite : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
@@ -39,6 +39,6 @@ public class UpdateColliderWithSprite : MonoBehaviour
             colliderPath[i] = spriteRenderer.transform.TransformPoint(spriteVertices[i]);
         }
 
-        polygonCollider.SetPath(0, colliderPath);
+        polygonCollider.SetPath(0, spriteVertices);
     }
 }
