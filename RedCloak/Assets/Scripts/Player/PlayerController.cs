@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
 
     public void FallDoubleCheck() // idle to jump
     {
-        if (rigid.velocity.y < -3f)
+        if (rigid.velocity.y < -5f)
         {
             animator.SetBool(isFalling, true);
             Jumping = true;
@@ -495,11 +495,18 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Collision detected with " + collision.gameObject.name);
+
         //collision.
         if (collision.gameObject.layer == LayerMask.NameToLayer("Trap"))
         {
             GetAttacked();
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        Debug.Log("Trigger detected with " + collider.gameObject.name);
     }
 
     private void OnCollisionStay2D(Collision2D collider) // Jump and wall Climb check
