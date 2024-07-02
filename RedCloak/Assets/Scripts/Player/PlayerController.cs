@@ -70,6 +70,9 @@ public class PlayerController : MonoBehaviour
 
     private bool isAttacked = false;
 
+    private bool monDir = false;
+    private float hitDir = 1;
+
 
     void Awake()
     {
@@ -469,6 +472,8 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Do Red");
         float knockBackPower = 8f;
         float Dir = spriteRenderer.flipX ? -1 : 1;
+
+        if(monDir) Dir = hitDir;
         
         StartCoroutine(ColorChanged());
         StartCoroutine(GetAttackedCheck());
@@ -512,6 +517,12 @@ public class PlayerController : MonoBehaviour
         if (collider.gameObject.CompareTag(Define.MONSTER_TAG))
         {
             playerBattle.ChangeHealth(-1); // get damaged
+            monDir = true;
+
+            if ((collider.transform.position.x - transform.position.x) > 0)
+            {
+                hitDir = -1;
+            }
         }
 
         //collision.
