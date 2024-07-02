@@ -20,6 +20,7 @@ public class Archer : MonoBehaviour
 
     private void Start()
     {
+        //AudioManager.instance.StopBGM();
         Discrimination();
     }
 
@@ -32,7 +33,7 @@ public class Archer : MonoBehaviour
     IEnumerator Iteration()
     {
         yield return new WaitForSeconds(0.5f);
-
+        Flip();
         switch (count % 2)
         {
             case 0:
@@ -47,7 +48,10 @@ public class Archer : MonoBehaviour
         count++;
     }
 
-    
+    void Flip()
+    {
+        transform.localEulerAngles += new Vector3(0, 180, 0);
+    }
 
     void Attack()
     {
