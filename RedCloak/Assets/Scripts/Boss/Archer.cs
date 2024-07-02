@@ -10,6 +10,7 @@ public class Archer : MonoBehaviour
     private static readonly int isDead = Animator.StringToHash("IsDead");
 
     private Animator animator;
+    private float count = 0;
 
     private void Awake()
     {
@@ -23,10 +24,23 @@ public class Archer : MonoBehaviour
     }
 
     void Discrimination()
-    { 
+    {
         //Attack();
         //WhenDie();
         //SpecialAttack();
+
+        switch (count % 2)
+        {
+            case 0:
+                Attack();
+                break;
+            case 1:
+                SpecialAttack();
+                break;
+        
+        }
+
+        count++;
     }
 
 
@@ -38,7 +52,7 @@ public class Archer : MonoBehaviour
     IEnumerator DoAttack()
     {
         animator.SetTrigger(doAttack);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.52f);
         Discrimination();
     }
 
@@ -50,7 +64,7 @@ public class Archer : MonoBehaviour
     IEnumerator DoSpeciatAttack()
     {
         animator.SetTrigger(doSpecialAttack);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2.62f);
         Discrimination();
     }
 
@@ -62,7 +76,7 @@ public class Archer : MonoBehaviour
     IEnumerator DoDie()
     {
         animator.SetBool(isDead, true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         
         // do die
     }
