@@ -1315,7 +1315,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.34, y: 0.22}
+  m_Size: {x: 0.23, y: 0.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1396,7 +1396,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.6521739, y: 0}
     oldSize: {x: 0.23, y: 0.25}
-    newSize: {x: 0.34, y: 0.22}
+    newSize: {x: 0.23, y: 0.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1416,7 +1416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad2bbdc36e559e4c93fd61c784ef3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1900751961}
 --- !u!1 &1911850089
 GameObject:
   m_ObjectHideFlags: 0
@@ -6908,7 +6907,7 @@ MonoBehaviour:
     m_Bits: 8192
   objectLayerMask:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 0
   canRoll: 1
   canDash: 1
   canComboAttack: 1
@@ -9076,7 +9075,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.97, y: 16.171528}
+  m_Size: {x: 11.92, y: 15.57}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -15687,7 +15686,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.68, y: 14.69}
+  m_Size: {x: 10.97, y: 16.17}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -16309,7 +16308,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.68, y: 14.69}
+  m_Size: {x: 11.69, y: 16.55}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -38624,7 +38623,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.97, y: 16.171528}
+  m_Size: {x: 10.06, y: 14.14}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -39122,7 +39121,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.68, y: 14.69}
+  m_Size: {x: 10.06, y: 14.14}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -44715,7 +44714,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.97, y: 16.171528}
+  m_Size: {x: 10.97, y: 16.17}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -53332,7 +53331,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.97, y: 16.171528}
+  m_Size: {x: 11.69, y: 16.55}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -54019,7 +54018,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.97, y: 16.171528}
+  m_Size: {x: 11.92, y: 15.57}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -81676,7 +81675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 116868469260653053}
-  battle: {fileID: 8086681641514179470}
+  battle: {fileID: 0}
   pet: {fileID: 0}
   stats: {fileID: 0}
 --- !u!114 &8086681641514179470
