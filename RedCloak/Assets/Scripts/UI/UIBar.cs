@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class UIBar : MonoBehaviour
 {
-    [SerializeField] private Slider playerHealthBar;
-    [SerializeField] private Slider playerStaminaBar;
+    [SerializeField] private Image healthIcon;
+    [SerializeField] private Slider manaBar;
     [SerializeField] private Slider bossHealthBar;
     [SerializeField] private Slider damageBar;
     public RectTransform damageEffect;
@@ -23,6 +23,7 @@ public class UIBar : MonoBehaviour
             Debug.Log("이펙트없음");
             return;
         }
+        // 플레이어 체력 가져와서 
     }
 
     // Update is called once per frame
@@ -30,12 +31,14 @@ public class UIBar : MonoBehaviour
     {
         // 체력 시스템 추가 후 반영
         bossHealthBar.value = monster.currentHealth / monster.maxHealth;
+        
+        // 플레이어 마나 시스템 추가 후 반영
 
         //매개변수로 대미지 전달
-        SetDamageEffect(5f);
+        BossSetDamageEffect(5f);
     }
 
-    private void SetDamageEffect(float damage)
+    private void BossSetDamageEffect(float damage)
     {
         float fillWidth = bossHealthBar.fillRect.rect.width;
         float endPosition = (bossHealthBar.fillRect.anchoredPosition.x + fillWidth - 10f);
@@ -44,5 +47,18 @@ public class UIBar : MonoBehaviour
 
         float width = (damage / monster.maxHealth) * bossHealthBar.fillRect.rect.width;
         damageEffect.sizeDelta = new Vector2(width, damageEffect.sizeDelta.y);
+    }
+
+    private void SetPlayerHealth()
+    {
+        // 플레이어 체력 시스템 추가 후 반영 최대 체력을 참고해 반복문으로 이미지 생성, 배열이나 리스트를 사용할 것
+        // 최대 체력을 참고해 healthIcon 생성
+        // GemFront의 setactive를 false로
+    }
+
+    private void LowHealthEffect()
+    {
+        //플레이어 체력시스템 참고
+
     }
 }
