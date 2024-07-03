@@ -73,6 +73,8 @@ public class PlayerController : MonoBehaviour
     private bool monDir = false;
     private float hitDir = 1;
 
+    public GameObject projectile;
+
 
     void Awake()
     {
@@ -394,13 +396,26 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool(isRunning, true);
             moveVelocity = Vector3.left;
+            if (!spriteRenderer.flipX)
+            {
+                projectile.transform.rotation = Quaternion.Euler(0, 0, -90);
+                projectile.transform.position -= new Vector3(6f, 0, 0);
+            }
             spriteRenderer.flipX = true;
+            
         }
         else if (Input.GetAxisRaw("Horizontal") > 0)
         {
             animator.SetBool(isRunning, true);
             moveVelocity = Vector3.right;
+            if (spriteRenderer.flipX)
+            {
+                projectile.transform.rotation = Quaternion.Euler(0, 0, 90);
+                projectile.transform.position += new Vector3(6f, 0, 0);
+            }
             spriteRenderer.flipX = false;
+            
+
         }
         else
         {

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,7 +41,7 @@ public class HS_ProjectileMover2D : MonoBehaviour
     {
 		if (speed != 0)
         {
-            rb.velocity = transform.forward * speed;
+            rb.velocity = transform.forward * speed; // no minus
             //transform.position += transform.forward * (speed * Time.deltaTime);         
         }
 	}

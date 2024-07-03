@@ -142,7 +142,7 @@ public class Archer : MonoBehaviour
                 rand = Random.Range(0, 2);
             }
 
-            if (isPhase2 && isPhase3)
+            if (isPhase2 || isPhase3)
             {
                 rand = Random.Range(0, appearPos.Length);
             }
@@ -165,13 +165,14 @@ public class Archer : MonoBehaviour
 
             transform.position = new Vector3(targetPos.x, hit.point.y+1);
             Debug.Log(transform.position);
+            Debug.Log(isPhase1);
         }
         else
         {
             transform.position = targetPos;
             if (transform.position.y < -45f)
             {
-                //transform.position = new Vector3(transform.position.x, -45f);
+                transform.position = new Vector3(transform.position.x, -45f);
             }
         }
 
@@ -243,7 +244,7 @@ public class Archer : MonoBehaviour
 
     void Appear()
     {
-        //animator.Play("Special Attack", -1, 0f);
+        if(isPhase3) animator.Play("Special Attack", -1, 0f);
         AudioManager.instance.PlaySFX("Appear", 0.2f);
     }
 

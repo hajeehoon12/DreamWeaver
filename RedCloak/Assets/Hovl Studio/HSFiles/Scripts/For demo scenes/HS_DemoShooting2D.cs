@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters;
 using System;
@@ -36,15 +36,18 @@ public class HS_DemoShooting2D : MonoBehaviour
     void Update()
     {
         //Single shoot
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1")) // DoFire
         {
-            Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
+            GameObject obj = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
+            obj.transform.localScale *= 4;
+            
         }
 
         //Fast shooting
-        if (Input.GetMouseButton(1) && fireCountdown <= 0f)
+        if (Input.GetMouseButton(1) && fireCountdown <= 0f) // Do Fast Shooting
         {
-            Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
+            GameObject obj = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
+            obj.transform.localScale *= 4;
             fireCountdown = 0;
             fireCountdown += hSliderValue;
         }
