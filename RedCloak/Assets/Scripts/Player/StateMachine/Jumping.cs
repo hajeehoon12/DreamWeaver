@@ -19,7 +19,7 @@ public class Jumping : StateMachineBehaviour
     {
         if (controller.canDoubleJump)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Z))
             {
                 controller.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 controller.isGrounded = true;
