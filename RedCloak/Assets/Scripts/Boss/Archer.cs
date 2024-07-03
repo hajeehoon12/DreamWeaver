@@ -113,8 +113,14 @@ public class Archer : MonoBehaviour
 
     void Attack()
     {
+        SetBossBart();
         Flip();
         StartCoroutine(DoAttack());
+    }
+
+    void SetBossBart()
+    {
+        UIBar.Instance.SetBossBar(bossMaxHealth, bossMaxHealth, 0);
     }
 
     IEnumerator DoAttack()
