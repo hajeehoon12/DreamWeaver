@@ -54,11 +54,11 @@ public class Archer : MonoBehaviour
 
     IEnumerator Iteration()
     {
-        Flip();
+        
         if (!isPhase2 && !isPhase3)
         {
             yield return new WaitForSeconds(1f);
-
+            Flip();
             switch (count % 2)
             {
                 case 0:
@@ -73,7 +73,7 @@ public class Archer : MonoBehaviour
         if (isPhase2 && !isPhase3)
         {
             yield return new WaitForSeconds(0.5f);
-
+            Flip();
             switch (count % 2)
             {
                 case 0:
@@ -87,8 +87,9 @@ public class Archer : MonoBehaviour
 
         if (!isPhase2 && isPhase3)
         {
-            //yield return new WaitForSeconds(0.2f);
-
+           
+            yield return new WaitForSeconds(0.25f);
+            Flip();
             switch (count % 2)
             {
                 case 0:
@@ -153,7 +154,15 @@ public class Archer : MonoBehaviour
 
             tempCount++;
         }
-        transform.position = targetPos;
+
+        if (!isPhase3 && !isPhase2)
+        {
+            transform.position = new Vector3(targetPos.x, -45f);
+        }
+        else
+        {
+            transform.position = targetPos;
+        }
 
         Flip();
     }
