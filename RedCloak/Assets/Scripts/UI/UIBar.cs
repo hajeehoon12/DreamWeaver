@@ -12,10 +12,15 @@ public class UIBar : MonoBehaviour
     [SerializeField] private Slider damageBar;
     public RectTransform damageEffect;
     
+    public static UIBar Instance;
 
     public Monster monster;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         if (damageEffect == null)
@@ -30,13 +35,20 @@ public class UIBar : MonoBehaviour
     void Update()
     {
         // 체력 시스템 추가 후 반영
-        bossHealthBar.value = monster.currentHealth / monster.maxHealth;
+        //bossHealthBar.value = monster.currentHealth / monster.maxHealth;
         
         // 플레이어 마나 시스템 추가 후 반영
 
         //매개변수로 대미지 전달
-        BossSetDamageEffect(5f);
+        //BossSetDamageEffect(5f);
     }
+
+    public void SetBossBar(float currentHealth, float maxHealth, float Damage)
+    {
+        bossHealthBar.value = currentHealth / maxHealth;
+        BossSetDamageEffect(Damage);
+    }
+
 
     private void BossSetDamageEffect(float damage)
     {

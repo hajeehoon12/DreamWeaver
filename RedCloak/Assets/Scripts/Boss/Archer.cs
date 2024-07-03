@@ -17,6 +17,7 @@ public class Archer : MonoBehaviour
     private bool isBossDie = false;
 
     public float bossHealth = 100;
+    public float bossMaxHealth = 100;
 
     SpriteRenderer spriteRenderer;
     Collider2D archerCol;
@@ -35,6 +36,7 @@ public class Archer : MonoBehaviour
 
     private void Start()
     {
+        bossHealth = bossMaxHealth;
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlayBGM("SilverBird", 0.15f);
         Discrimination();
@@ -177,11 +179,13 @@ public class Archer : MonoBehaviour
         if (bossHealth > damage)
         {
             bossHealth -= damage;
+            UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, damage);
             StartCoroutine(ColorChanged());
         }
         else
         {
             if (isBossDie) return;
+            UIBar.Instance.SetBossBar(0, bossMaxHealth, bossHealth);
             CallDie();
         }
     }
@@ -223,9 +227,6 @@ public class Archer : MonoBehaviour
         //StopAllCoroutines();
         //DOTween.KillAll();
         AudioManager.instance.StopBGM();
-
-       
-        
 
     }
 
