@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterPatrol : MonoBehaviour, IMonsterBehavior
+public class MonsterPatrol : MonoBehaviour
 {
     [SerializeField] private Vector3 wallRayPos;
     [SerializeField] private float wallRayDistance;
@@ -68,18 +68,6 @@ public class MonsterPatrol : MonoBehaviour, IMonsterBehavior
         transform.eulerAngles = transform.eulerAngles.y == 0
             ? transform.eulerAngles + flipAngle
             : transform.eulerAngles - flipAngle;
-    }
-
-    
-    
-    public INode.State StartBehavior()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void SetAnimation()
-    {
-        throw new System.NotImplementedException();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
