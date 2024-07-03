@@ -151,16 +151,19 @@ public class Archer : MonoBehaviour
 
     void Charge()
     {
+        archerCol.enabled = true;
         AudioManager.instance.PlaySFX("Charge1sec", 0.2f);
     }
 
     void Vanish()
     {
+        archerCol.enabled = false;
         AudioManager.instance.PlaySFX("Vanish", 0.2f);
     }
 
     void Appear()
     {
+        //animator.Play("Special Attack", -1, 0f);
         AudioManager.instance.PlaySFX("Appear", 0.2f);
     }
 
@@ -195,12 +198,15 @@ public class Archer : MonoBehaviour
 
     void CallDie()
     {
-        Collider2D[] archers = GetComponentsInChildren<Collider2D>();
+        gameObject.layer = LayerMask.NameToLayer("Default");
+        gameObject.tag = "Platform";
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        //Collider2D[] archers = GetComponentsInChildren<Collider2D>();
 
-        for (int i = 0; i < archers.Length; i++)
-        {
-            archers[i].enabled = false;
-        }
+        //for (int i = 0; i < archers.Length; i++)
+        //{
+        //    archers[i].enabled = false;
+        //}
 
 
         animator.SetBool(isDead, true);
@@ -210,12 +216,33 @@ public class Archer : MonoBehaviour
 
     IEnumerator ArcherDie()
     {
+        transform.DORotateQuaternion(Quaternion.identity, 0.3f);
         AudioManager.instance.PlaySFX("ArcherDeath", 0.5f);
         yield return new WaitForSeconds(1f);
         AudioManager.instance.PlaySFX("Violin3", 0.15f);
         //StopAllCoroutines();
         //DOTween.KillAll();
         AudioManager.instance.StopBGM();
+
+       
+        
+
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (isBossDie)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer(Define.FLOOR_Layer))
+            {
+                GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                Debug.Log("enabled");
+
+                //archerCol.isTrigger = true;
+                archerCol.enabled = false;
+            }
+        }
     }
 
 

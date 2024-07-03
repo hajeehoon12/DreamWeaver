@@ -1392,7 +1392,7 @@ GameObject:
   - component: {fileID: 1900751964}
   m_Layer: 7
   m_Name: archer
-  m_TagString: Monster
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1522,8 +1522,8 @@ BoxCollider2D:
   m_Offset: {x: 0.0026078597, y: 0.1345}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.058823474, y: 0}
-    oldSize: {x: 0.34, y: 0.22}
+    pivot: {x: 0.6521739, y: 0}
+    oldSize: {x: 0.23, y: 0.25}
     newSize: {x: 0.42, y: 0.21}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1544,7 +1544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad2bbdc36e559e4c93fd61c784ef3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossHealth: 100
+  bossHealth: 10
   ObstacleLayerMask:
     serializedVersion: 2
     m_Bits: 172544

@@ -10,8 +10,10 @@ public class Define
     //public const string ITEM_TAG = "Item";
     //public const string GROUND_Layer = "Ground";
     public const string TRAP_Layer = "Trap";
+    public const string OBJECT_Layer = "Object";
     //public const string BOSS_TAG = "Boss";
     public const string FLOOR_TAG = "Floor";
+    public const string FLOOR_Layer = "Floor";
     
     public const string MainScene = "TestScene-PDH";
     public const string StartScene = "StartScene";
