@@ -171,7 +171,7 @@ public class Archer : MonoBehaviour
             transform.position = targetPos;
             if (transform.position.y < -45f)
             {
-                transform.position = new Vector3(transform.position.x, -45f);
+                //transform.position = new Vector3(transform.position.x, -45f);
             }
         }
 
@@ -260,6 +260,7 @@ public class Archer : MonoBehaviour
 
             if (bossHealth < (bossMaxHealth * 2 / 3) && isPhase1)
             {
+                isPhase1 = false;
                 isPhase2 = true;
             }
 
