@@ -654,6 +654,10 @@ PrefabInstance:
       propertyPath: monster
       value: 
       objectReference: {fileID: 899442481}
+    - target: {fileID: 6536432000983452440, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
+      propertyPath: damageEffect
+      value: 
+      objectReference: {fileID: 2080689800}
     - target: {fileID: 6618538432346702134, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1624,8 +1628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad2bbdc36e559e4c93fd61c784ef3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossHealth: 10
-  bossMaxHealth: 100
+  bossMaxHealth: 300
   ObstacleLayerMask:
     serializedVersion: 2
     m_Bits: 172544
@@ -1980,6 +1983,11 @@ Transform:
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 6523699520211762466, guid: 0edef91621bb6b34384ccc9dbb98729c, type: 3}
   m_PrefabInstance: {fileID: 2076802508}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2080689800 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7556232392830710048, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
+  m_PrefabInstance: {fileID: 861715472}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2124408561
 GameObject:

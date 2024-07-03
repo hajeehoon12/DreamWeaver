@@ -16,15 +16,18 @@ public class Archer : MonoBehaviour
 
     private bool isBossDie = false;
 
-    public float bossHealth = 100;
-    public float bossMaxHealth = 100;
+    private float bossHealth = 300;
+    public float bossMaxHealth = 300;
 
     SpriteRenderer spriteRenderer;
     Collider2D archerCol;
 
     public LayerMask ObstacleLayerMask;
 
-    Vector2[] appearPos = { new Vector2(15, 0), new Vector2(14, 2), new Vector2(13, 4), new Vector2(12, 6), new Vector2(-12, 6), new Vector2(-13, 4), new Vector2(-14, 2), new Vector2(-15, 0), new Vector2(-14, -2), new Vector2(14, -2) };
+    Vector2[] appearPos = { new Vector2(15, 0), new Vector2(-15, 0), new Vector2(14, 2), new Vector2(13, 4), new Vector2(12, 6), new Vector2(-12, 6), new Vector2(-13, 4), new Vector2(-14, 2),new Vector2(-14, -2), new Vector2(14, -2) };
+
+    private bool isPhase2 = false;
+    private bool isPhase3 = false;
 
     private void Awake()
     {
@@ -40,6 +43,7 @@ public class Archer : MonoBehaviour
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlayBGM("SilverBird", 0.15f);
         Discrimination();
+        SetBossBar();
     }
 
     void Discrimination()
@@ -50,17 +54,50 @@ public class Archer : MonoBehaviour
 
     IEnumerator Iteration()
     {
-        yield return new WaitForSeconds(0.5f);
-        
-        switch (count % 2)
+        Flip();
+        if (!isPhase2 && !isPhase3)
         {
-            case 0:
-                Attack();
-                break;
-            case 1:
-                SpecialAttack();
-                break;
+            yield return new WaitForSeconds(1f);
 
+            switch (count % 2)
+            {
+                case 0:
+                    Attack();
+                    break;
+                case 1:
+                    SpecialAttack();
+                    break;
+            }
+        }
+
+        if (isPhase2 && !isPhase3)
+        {
+            yield return new WaitForSeconds(0.5f);
+
+            switch (count % 2)
+            {
+                case 0:
+                    Attack();
+                    break;
+                case 1:
+                    SpecialAttack();
+                    break;
+            }
+        }
+
+        if (!isPhase2 && isPhase3)
+        {
+            //yield return new WaitForSeconds(0.2f);
+
+            switch (count % 2)
+            {
+                case 0:
+                    Attack();
+                    break;
+                case 1:
+                    SpecialAttack();
+                    break;
+            }
         }
 
         count++;
@@ -96,7 +133,18 @@ public class Archer : MonoBehaviour
         while (tempCount < 100 || rand >= appearPos.Length-2)
         {
             targetPos = CharacterManager.Instance.Player.transform.position;
-            rand = Random.Range(0, appearPos.Length);
+
+            if (!isPhase2 && !isPhase3)
+            {
+                rand = Random.Range(0, 2);
+            }
+
+            if (isPhase2 && isPhase3)
+            {
+                rand = Random.Range(0, appearPos.Length);
+            }
+
+
             targetPos += appearPos[rand];
 
             RaycastHit2D hit = Physics2D.Raycast(CharacterManager.Instance.Player.transform.position+new Vector3(0,CharacterManager.Instance.Player.controller.playerCollider.bounds.extents.y * 2), (targetPos - (Vector2)CharacterManager.Instance.Player.transform.position).normalized, 22f, ObstacleLayerMask);
@@ -113,12 +161,11 @@ public class Archer : MonoBehaviour
 
     void Attack()
     {
-        SetBossBart();
-        Flip();
+       
         StartCoroutine(DoAttack());
     }
 
-    void SetBossBart()
+    void SetBossBar()
     {
         UIBar.Instance.SetBossBar(bossMaxHealth, bossMaxHealth, 0);
     }
@@ -185,6 +232,18 @@ public class Archer : MonoBehaviour
         if (bossHealth > damage)
         {
             bossHealth -= damage;
+
+            if (bossHealth < (bossMaxHealth * 2 / 3) && !isPhase2 && !isPhase3)
+            {
+                isPhase2 = true;
+            }
+
+            if (bossHealth < (bossMaxHealth / 3) && isPhase2)
+            { 
+                isPhase3 = true;
+                isPhase2 = false;
+            }
+
             UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, damage);
             StartCoroutine(ColorChanged());
         }
@@ -229,7 +288,7 @@ public class Archer : MonoBehaviour
         transform.DORotateQuaternion(Quaternion.identity, 0.3f);
         AudioManager.instance.PlaySFX("ArcherDeath", 0.5f);
         yield return new WaitForSeconds(1f);
-        AudioManager.instance.PlaySFX("Violin3", 0.15f);
+        AudioManager.instance.PlaySFX("Violin3", 0.05f);
         //StopAllCoroutines();
         //DOTween.KillAll();
         AudioManager.instance.StopBGM();
@@ -244,7 +303,7 @@ public class Archer : MonoBehaviour
             {
                 GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                 GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                Debug.Log("enabled");
+                //Debug.Log("enabled");
 
                 //archerCol.isTrigger = true;
                 archerCol.enabled = false;
