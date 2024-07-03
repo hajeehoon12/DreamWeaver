@@ -14,10 +14,7 @@ public class CameraShake : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-            Shake();
-        }
+        
     }
 
     public void Shake()

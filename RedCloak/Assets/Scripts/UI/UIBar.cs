@@ -55,4 +55,10 @@ public class UIBar : MonoBehaviour
         // 최대 체력을 참고해 healthIcon 생성
         // GemFront의 setactive를 false로
     }
+
+    private void LowHealthEffect()
+    {
+        //플레이어 체력시스템 참고
+
+    }
 }
