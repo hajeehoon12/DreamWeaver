@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+
 public class Archer : MonoBehaviour
 {
     private static readonly int doAttack = Animator.StringToHash("DoAttack");
@@ -18,11 +19,17 @@ public class Archer : MonoBehaviour
     public float bossHealth = 100;
 
     SpriteRenderer spriteRenderer;
+    Collider2D archerCol;
+
+    public LayerMask ObstacleLayerMask;
+
+    Vector2[] appearPos = { new Vector2(15, 0), new Vector2(14, 2), new Vector2(13, 4), new Vector2(12, 6), new Vector2(-12, 6), new Vector2(-13, 4), new Vector2(-14, 2), new Vector2(-15, 0), new Vector2(-14, -2), new Vector2(14, -2) };
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        archerCol = GetComponent<Collider2D>();
     }
 
 
@@ -42,7 +49,7 @@ public class Archer : MonoBehaviour
     IEnumerator Iteration()
     {
         yield return new WaitForSeconds(0.5f);
-        Flip();
+        
         switch (count % 2)
         {
             case 0:
@@ -57,13 +64,54 @@ public class Archer : MonoBehaviour
         count++;
     }
 
-    void Flip()
+    void Flip() // Look At Player
     {
-        transform.localEulerAngles += new Vector3(0, 180, 0);
+        //transform.localEulerAngles += new Vector3(0, 180, 0);
+
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        Vector3 direction = transform.position - CharacterManager.Instance.Player.transform.position;
+
+        float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        
+
+        if (direction.x > 0)
+        {
+            //transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.rotation = Quaternion.Euler(0, 180, -rotZ);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 180 + rotZ);
+        }
     }
+
+    void AppearPos() //When archer do Special Attack appear near by player
+    {
+        int tempCount = 0;
+        int rand = 0;
+        Vector2 targetPos = CharacterManager.Instance.Player.transform.position;
+        while (tempCount < 100 || rand >= appearPos.Length-2)
+        {
+            targetPos = CharacterManager.Instance.Player.transform.position;
+            rand = Random.Range(0, appearPos.Length);
+            targetPos += appearPos[rand];
+
+            RaycastHit2D hit = Physics2D.Raycast(CharacterManager.Instance.Player.transform.position+new Vector3(0,CharacterManager.Instance.Player.controller.playerCollider.bounds.extents.y * 2), (targetPos - (Vector2)CharacterManager.Instance.Player.transform.position).normalized, 22f, ObstacleLayerMask);
+            
+            if (hit.collider?.name == null) break;
+
+            tempCount++;
+        }
+        transform.position = targetPos;
+
+        Flip();
+    }
+
 
     void Attack()
     {
+        Flip();
         StartCoroutine(DoAttack());
     }
 
@@ -147,7 +195,14 @@ public class Archer : MonoBehaviour
 
     void CallDie()
     {
-        GetComponent<Collider2D>().enabled = false;
+        Collider2D[] archers = GetComponentsInChildren<Collider2D>();
+
+        for (int i = 0; i < archers.Length; i++)
+        {
+            archers[i].enabled = false;
+        }
+
+
         animator.SetBool(isDead, true);
         isBossDie = true;
         StartCoroutine(ArcherDie());

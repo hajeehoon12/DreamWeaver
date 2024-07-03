@@ -1457,15 +1457,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900751958}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 128.1, y: -45.1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.15653498, w: 0.9876724}
+  m_LocalPosition: {x: 128.1, y: -40.59, z: 1}
   m_LocalScale: {x: 18.70072, y: 18.70072, z: 18.70072}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1339039239}
   - {fileID: 851225990}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -18.012}
 --- !u!95 &1900751961
 Animator:
   serializedVersion: 5
@@ -1522,8 +1522,8 @@ BoxCollider2D:
   m_Offset: {x: 0.0026078597, y: 0.1345}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.6521739, y: 0}
-    oldSize: {x: 0.23, y: 0.25}
+    pivot: {x: 0.058823474, y: 0}
+    oldSize: {x: 0.34, y: 0.22}
     newSize: {x: 0.42, y: 0.21}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1544,7 +1544,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad2bbdc36e559e4c93fd61c784ef3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossHealth: 10
+  bossHealth: 100
+  ObstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 172544
 --- !u!50 &1900751964
 Rigidbody2D:
   serializedVersion: 4
@@ -7081,6 +7084,7 @@ MonoBehaviour:
   maxSpeed: 10
   jumpPower: 15
   rigid: {fileID: 0}
+  playerCollider: {fileID: 0}
   Rolling: 0
   isGrounded: 1
   enemyLayerMask:
@@ -80180,7 +80184,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: -7849658766492704550, guid: 8a0bf82816ef7264f9469c139f71b56c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
