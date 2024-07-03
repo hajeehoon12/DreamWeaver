@@ -23,9 +23,11 @@ public class Archer : MonoBehaviour
     Collider2D archerCol;
 
     public LayerMask ObstacleLayerMask;
+    public LayerMask FloorLayerMask;
 
     Vector2[] appearPos = { new Vector2(15, 0), new Vector2(-15, 0), new Vector2(14, 2), new Vector2(13, 4), new Vector2(12, 6), new Vector2(-12, 6), new Vector2(-13, 4), new Vector2(-14, 2),new Vector2(-14, -2), new Vector2(14, -2) };
 
+    private bool isPhase1 = true;
     private bool isPhase2 = false;
     private bool isPhase3 = false;
 
@@ -55,7 +57,7 @@ public class Archer : MonoBehaviour
     IEnumerator Iteration()
     {
         
-        if (!isPhase2 && !isPhase3)
+        if (isPhase1)
         {
             yield return new WaitForSeconds(1f);
             Flip();
@@ -70,7 +72,7 @@ public class Archer : MonoBehaviour
             }
         }
 
-        if (isPhase2 && !isPhase3)
+        if (isPhase2)
         {
             yield return new WaitForSeconds(0.5f);
             Flip();
@@ -85,7 +87,7 @@ public class Archer : MonoBehaviour
             }
         }
 
-        if (!isPhase2 && isPhase3)
+        if (isPhase3)
         {
            
             yield return new WaitForSeconds(0.25f);
@@ -135,7 +137,7 @@ public class Archer : MonoBehaviour
         {
             targetPos = CharacterManager.Instance.Player.transform.position;
 
-            if (!isPhase2 && !isPhase3)
+            if (isPhase1)
             {
                 rand = Random.Range(0, 2);
             }
@@ -155,13 +157,27 @@ public class Archer : MonoBehaviour
             tempCount++;
         }
 
-        if (!isPhase3 && !isPhase2)
+        if (isPhase1)
         {
-            transform.position = new Vector3(targetPos.x, -45f);
+            transform.position = new Vector3(targetPos.x, targetPos.y);
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, archerCol.bounds.extents.y), new Vector2(0, -1), 10f, FloorLayerMask);
+
+            transform.position = new Vector3(targetPos.x, hit.point.y);
+            Debug.Log(transform.position);
         }
         else
         {
             transform.position = targetPos;
+            if (transform.position.y < -45f)
+            {
+                transform.position = new Vector3(transform.position.x, -45f);
+            }
+        }
+
+        if (tempCount == 100)
+        {
+            transform.position = new Vector2(Mathf.Clamp(transform.position.x, 115f, 168f), Mathf.Clamp(transform.position.y,-45f, -35f));
         }
 
         Flip();
@@ -242,13 +258,14 @@ public class Archer : MonoBehaviour
         {
             bossHealth -= damage;
 
-            if (bossHealth < (bossMaxHealth * 2 / 3) && !isPhase2 && !isPhase3)
+            if (bossHealth < (bossMaxHealth * 2 / 3) && isPhase1)
             {
                 isPhase2 = true;
             }
 
             if (bossHealth < (bossMaxHealth / 3) && isPhase2)
-            { 
+            {
+                isPhase1 = false;
                 isPhase3 = true;
                 isPhase2 = false;
             }
