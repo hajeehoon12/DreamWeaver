@@ -7,6 +7,10 @@ public class UpdateColliderOnAnimation : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private PolygonCollider2D polygonCollider;
 
+    private Sprite saveSprite;
+
+    private bool isUpdating = false;
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -15,27 +19,54 @@ public class UpdateColliderOnAnimation : MonoBehaviour
 
     private void Update()
     {
-        UpdateColliderFromSprite();
+        if (isUpdating) UpdateCollision();
     }
+
+    public void UpdateStart()
+    {
+        isUpdating = true;
+    }
+
+    public void UpdateStop()
+    {
+        isUpdating = false;
+    }
+
+
 
     // Animation 이벤트로 호출할 메서드
-    public void UpdateColliderFromSprite()
+    public void UpdateCollision()
     {
-        Sprite sprite = spriteRenderer.sprite;
+        //Sprite sprite = spriteRenderer.sprite;
 
-        if (sprite != null)
-        {
-            Vector2[] spriteVertices = sprite.vertices;
-            Vector2[] worldVertices = new Vector2[spriteVertices.Length];
-
-            // 스프라이트의 로컬 좌표를 월드 좌표로 변환
-            for (int i = 0; i < spriteVertices.Length; i++)
-            {
-                worldVertices[i] = spriteRenderer.transform.TransformPoint(spriteVertices[i]);
-            }
-
-            // Polygon Collider 2D 업데이트
-            polygonCollider.SetPath(0, spriteVertices); // worldVertices
-        }
+        //if (sprite != null)
+        //{
+         //   Vector2[] spriteVertices = sprite.vertices;
+         //   polygonCollider.SetPath(0, spriteVertices); // worldVertices
+        //}
     }
+
+    public void SaveCollision()
+    {
+        //saveSprite = spriteRenderer.sprite;
+
+        //if (saveSprite != null)
+        //{
+        //    Vector2[] spriteVertices = saveSprite.vertices;
+        //    polygonCollider.SetPath(0, spriteVertices); // worldVertices
+        //}
+    }
+
+    public void LoadCollision()
+    {
+        //if (saveSprite != null)
+        //{
+        //    Vector2[] spriteVertices = saveSprite.vertices;
+        //    polygonCollider.SetPath(0, spriteVertices); // worldVertices
+        //}
+    }
+
+
+
+
 }

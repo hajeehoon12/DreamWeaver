@@ -2,7 +2,62 @@ fileFormatVersion: 2
 guid: a6075b6d61189db4298463989ff05724
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Slice attack
+    second: {fileID: 7400000, guid: 05904a60a451ab74e8af833e294d88b6, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: attack 1
+    second: {fileID: 7400000, guid: 62b8298ec35707b4fb1a28f2a1b12776, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: attack 2
+    second: {fileID: 7400000, guid: c52d4c9236e6ac1418aa49a80940ca33, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: cross slice
+    second: {fileID: 7400000, guid: 6b084d7b2b0c5d343801eb8c06d3fb42, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: death
+    second: {fileID: 7400000, guid: 6f114d49f58b33749b1f7ab3414e47d0, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: fall
+    second: {fileID: 7400000, guid: 2a805a892f882c74cb87bfeef423d040, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: hit
+    second: {fileID: 7400000, guid: 220e90858e6145245ae8517d3fff46c1, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: idle
+    second: {fileID: 7400000, guid: 05e26c4aa6daa40459c0a479c3ca389c, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: jump
+    second: {fileID: 7400000, guid: 096f1d4147c171d40a61ad5c18261927, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: land
+    second: {fileID: 7400000, guid: defbac6a90357f342bd864796a46dfba, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: run
+    second: {fileID: 7400000, guid: a727f9d250db23d42a77910382a53da4, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -97,7 +152,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638554520665997536
+  platformSettingsDirtyTick: 638555965665079855
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -1950,6 +2005,18 @@ ScriptedImporter:
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
   - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
     overridden: 0
     ignorePlatformSupport: 0
     maxTextureSize: 2048

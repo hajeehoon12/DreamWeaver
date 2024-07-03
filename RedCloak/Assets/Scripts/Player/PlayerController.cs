@@ -7,7 +7,6 @@ using UnityEngine.InputSystem.XR;
 public class PlayerController : MonoBehaviour
 {
 
-    public static PlayerController instance;
 
     private static readonly int isRunning = Animator.StringToHash("IsRunning");
     private static readonly int isJumping = Animator.StringToHash("IsJumping");
@@ -26,6 +25,7 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer spriteRenderer;
     GhostDash ghostDash;
     Collider2D playerCollider;
+    PlayerBattle playerBattle;
 
     bool Jumping = false;           // AM i Jumping?
     //bool Falling = false;
@@ -70,17 +70,19 @@ public class PlayerController : MonoBehaviour
 
     private bool isAttacked = false;
 
+    private bool monDir = false;
+    private float hitDir = 1;
+
 
     void Awake()
     {
-        instance = this;
-
 
         rigid = GetComponentInParent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         ghostDash = GetComponent<GhostDash>();
         playerCollider = GetComponent<Collider2D>();
+        playerBattle = GetComponent<PlayerBattle>();
         
     }
 
@@ -90,6 +92,8 @@ public class PlayerController : MonoBehaviour
         playerGravityScale = rigid.gravityScale;
         boundPlayer = playerCollider.bounds.extents;
         canDoubleJump = true;
+
+        playerBattle.OnDamage += GetAttacked;
     }
 
     private void FixedUpdate()
@@ -135,6 +139,7 @@ public class PlayerController : MonoBehaviour
 
         if (lastWallJumpTime >= wallJumpDelayTime-0.02f && lastWallJumpTime <= wallJumpDelayTime)
         {
+            if (isAttacked) return;
             rigid.velocity = new Vector2(0, rigid.velocity.y); 
         }
 
@@ -206,6 +211,12 @@ public class PlayerController : MonoBehaviour
                 {
                     monster.GetDamage(attackRate);
                 }
+
+                if (hit.transform.gameObject.TryGetComponent(out Archer archer))
+                {
+                    archer.GetDamage(attackRate);
+                }
+
             }
                 
         }
@@ -373,7 +384,7 @@ public class PlayerController : MonoBehaviour
 
         if (isAttacked)
         {
-            Debug.Log("Can't move!!");
+            //Debug.Log("Can't move!!");
             return;
         }
         if (ghostDash.makeGhost) return;
@@ -419,7 +430,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(rigid.velocity.y);
         if (Rolling) return;
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) // && !Jumping
+        if (Input.GetKeyDown(KeyCode.Z) && isGrounded) // && !Jumping
         {
             isGrounded = false;
             
@@ -461,20 +472,23 @@ public class PlayerController : MonoBehaviour
 
     private void GetAttacked() // When Player Get Attacked
     {
-        //Debug.Log("Do Red");
+        
 
         if (isAttacked) return;
-
+        //Debug.Log("Do Red");
         float knockBackPower = 8f;
         float Dir = spriteRenderer.flipX ? -1 : 1;
+
+        if(monDir) Dir = hitDir;
         
         StartCoroutine(ColorChanged());
         StartCoroutine(GetAttackedCheck());
 
         
         rigid.velocity = Vector3.zero;
-        rigid.AddForce((Vector3.up + Dir * new Vector3(3f, 0, 0)) * rigid.mass * knockBackPower, ForceMode2D.Impulse); // Vector3.up + Dir * new Vector3(3f, 0, 0)
-
+        transform.position += new Vector3(0, 0.3f, 0);
+        rigid.AddForce((Vector3.up + Dir * new Vector3(-2f, 0, 0)) * rigid.mass * knockBackPower, ForceMode2D.Impulse); // Vector3.up + Dir * new Vector3(3f, 0, 0)
+        //Debug.Log((Vector3.up + Dir * new Vector3(3f, 0, 0)));
     }
 
     IEnumerator GetAttackedCheck()
@@ -482,6 +496,7 @@ public class PlayerController : MonoBehaviour
         isAttacked = true;
         yield return new WaitForSeconds(attackedTime); // Get Hit Time; Have to Change
         isAttacked = false;
+        rigid.velocity = new Vector3(rigid.velocity.x, 0); // except super jump
     }
 
     IEnumerator ColorChanged()
@@ -493,24 +508,36 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Collision detected with " + collision.gameObject.name);
-
-        //collision.
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Trap"))
-        {
-            GetAttacked();
-        }
-    }
-
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Trigger detected with " + collider.gameObject.name);
+        if (collider.gameObject.CompareTag(Define.MONSTER_TAG))
+        {
+            playerBattle.ChangeHealth(-1); // get damaged
+        }
+        //Debug.Log("Trigger detected with " + collider.gameObject.name);
     }
 
     private void OnCollisionStay2D(Collision2D collider) // Jump and wall Climb check
     {
+
+        if (collider.gameObject.CompareTag(Define.MONSTER_TAG))
+        {
+            playerBattle.ChangeHealth(-1); // get damaged
+            monDir = true;
+
+            if ((collider.transform.position.x - transform.position.x) > 0)
+            {
+                hitDir = -1;
+            }
+        }
+
+        //collision.
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Trap"))
+        {
+            GetAttacked();
+        }
+
+
         //Debug.Log(collider.gameObject.tag);
         if (collider.gameObject.CompareTag("Floor") || collider.gameObject.CompareTag("Monster") || collider.gameObject.CompareTag("Platform")) // 
         {
