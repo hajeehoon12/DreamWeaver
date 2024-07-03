@@ -163,7 +163,7 @@ public class Archer : MonoBehaviour
 
             RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, archerCol.bounds.extents.y), new Vector2(0, -1), 10f, FloorLayerMask);
 
-            transform.position = new Vector3(targetPos.x, hit.point.y);
+            transform.position = new Vector3(targetPos.x, hit.point.y+1);
             Debug.Log(transform.position);
         }
         else
