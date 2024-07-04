@@ -62,7 +62,7 @@ public class PlayerProjectile : MonoBehaviour
             if (collision.transform.gameObject.TryGetComponent(out Monster monster))
             {
                 AudioManager.instance.PlayPitchSFX("GreenSlash", 0.15f);
-                monster.GetDamage(CharacterManager.Instance.Player.controller.attackRate/2);
+                monster.GetDamage(CharacterManager.Instance.Player.controller.attackRate);
             }
         }
 
@@ -71,7 +71,7 @@ public class PlayerProjectile : MonoBehaviour
             if (collision.transform.gameObject.TryGetComponent(out Archer monster))
             {
                 AudioManager.instance.PlayPitchSFX("GreenSlash", 0.15f);
-                monster.GetDamage(CharacterManager.Instance.Player.controller.attackRate/2);
+                monster.GetDamage(CharacterManager.Instance.Player.controller.attackRate);
             }
         }
 
