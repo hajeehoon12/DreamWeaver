@@ -6,15 +6,20 @@ using UnityEngine.UI;
 
 public class UIBar : MonoBehaviour
 {
-    [SerializeField] private Image healthIcon;
+    [SerializeField] private GameObject heartParent;
+    [SerializeField] private GameObject heart;
+    [SerializeField] private GameObject heartFront;
     [SerializeField] private Slider manaBar;
     [SerializeField] private Slider bossHealthBar;
-    [SerializeField] private Slider damageBar;
-    public RectTransform damageEffect;
+    //[SerializeField] private Slider maxHealthBar;
+    [SerializeField] private GameObject damageEffect;
+    public RectTransform damageEffectRect;
     
     public static UIBar Instance;
 
-    public Monster monster;
+    public Archer archer;
+
+    private float maxBossHealthBarWidth;
 
     // Start is called before the first frame update
     private void Awake()
@@ -23,12 +28,15 @@ public class UIBar : MonoBehaviour
     }
     void Start()
     {
-        if (damageEffect == null)
+        if (damageEffectRect == null)
         {
             Debug.Log("이펙트없음");
             return;
         }
         // 플레이어 체력 가져와서 
+
+        maxBossHealthBarWidth = bossHealthBar.fillRect.rect.width;
+        SetPlayerHealth();
     }
 
     // Update is called once per frame
@@ -55,22 +63,38 @@ public class UIBar : MonoBehaviour
         float fillWidth = bossHealthBar.fillRect.rect.width;
         float endPosition = (bossHealthBar.fillRect.anchoredPosition.x + fillWidth - 10f);
 
-        damageEffect.anchoredPosition = new Vector2(endPosition, damageEffect.anchoredPosition.y);
+        damageEffectRect.anchoredPosition = new Vector2(endPosition, damageEffectRect.anchoredPosition.y);
 
-        float width = (damage / monster.maxHealth) * bossHealthBar.fillRect.rect.width;
-        damageEffect.sizeDelta = new Vector2(width, damageEffect.sizeDelta.y);
+        //float width = (damage / archer.bossMaxHealth) * maxBossHealthBarWidth;
+        float width = damage % archer.bossMaxHealth;
+        damageEffectRect.sizeDelta = new Vector2(width, damageEffectRect.sizeDelta.y);
+        damageEffect.SetActive(true);
+        StartCoroutine(disableEffect());
     }
 
     private void SetPlayerHealth()
     {
-        // 플레이어 체력 시스템 추가 후 반영 최대 체력을 참고해 반복문으로 이미지 생성, 배열이나 리스트를 사용할 것
-        // 최대 체력을 참고해 healthIcon 생성
-        // GemFront의 setactive를 false로
+        //int healthCount = (int)CharacterManager.Instance.Player.stats.playerMaxHP;
+        int healthCount = 4;
+        GameObject heartInstantiate;
+        for(int i = 0; i < healthCount; i++)
+        {
+            heartInstantiate = Instantiate(heart);
+            heartInstantiate.transform.SetParent(heartParent.transform);
+        }
+        // 피격시 GemFront의 setactive를 false로
     }
 
     private void LowHealthEffect()
     {
         //플레이어 체력시스템 참고
 
+    }
+
+    IEnumerator disableEffect()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        damageEffect.SetActive(false);
     }
 }
