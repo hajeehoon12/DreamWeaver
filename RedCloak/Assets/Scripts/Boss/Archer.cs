@@ -369,6 +369,7 @@ public class Archer : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Default");
         gameObject.tag = "Platform";
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        //GetComponent<Rigidbody2D>().gravityScale = 0.5f;
         //Collider2D[] archers = GetComponentsInChildren<Collider2D>();
 
         //for (int i = 0; i < archers.Length; i++)
@@ -392,23 +393,35 @@ public class Archer : MonoBehaviour
         //DOTween.KillAll();
         AudioManager.instance.StopBGM();
 
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (isBossDie)
+        bool isGround = false;
+        while (!isGround)
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer(Define.FLOOR_Layer))
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(0, -1), 0.2f, FloorLayerMask);
+            if (hit.collider?.name != null)
             {
-                GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-                GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                //Debug.Log("enabled");
-
-                //archerCol.isTrigger = true;
-                archerCol.enabled = false;
+                isGround = true;
             }
+            yield return new WaitForSeconds(0.01f);
         }
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        //Debug.Log("enabled");
+
+        //archerCol.isTrigger = true;
+        archerCol.enabled = false;
+
     }
+
+    //private void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    if (isBossDie)
+    //    {
+    //        if (collision.gameObject.layer == LayerMask.NameToLayer(Define.FLOOR_Layer))
+    //        {
+               
+     //       }
+    //    }
+   // }
 
 
 

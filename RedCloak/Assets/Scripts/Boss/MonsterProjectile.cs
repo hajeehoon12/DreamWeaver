@@ -61,6 +61,7 @@ public class MonsterProjectile : MonoBehaviour
         {
             if (collision.transform.gameObject.TryGetComponent(out PlayerBattle battle))
             {
+                if(!collision.transform.gameObject.GetComponent<PlayerController>().Rolling)
                 battle.ChangeHealth(-1);
             }
         }
