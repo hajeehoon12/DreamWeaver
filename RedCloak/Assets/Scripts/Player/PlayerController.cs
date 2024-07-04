@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     public Collider2D playerCollider;
     PlayerBattle playerBattle;
 
+    PlayerShooting shootProjectile;
+
     bool Jumping = false;           // AM i Jumping?
     //bool Falling = false;
     public bool Rolling = false;           // AM i rolling?
@@ -85,6 +87,7 @@ public class PlayerController : MonoBehaviour
         ghostDash = GetComponent<GhostDash>();
         playerCollider = GetComponent<Collider2D>();
         playerBattle = GetComponent<PlayerBattle>();
+        shootProjectile = GetComponentInChildren<PlayerShooting>();
         
     }
 
@@ -202,6 +205,8 @@ public class PlayerController : MonoBehaviour
         AudioManager.instance.PlayPitchSFX("SwordAttack", 0.05f);
 
         if (spriteRenderer.flipX) CheckDir = -1f;
+
+        shootProjectile.FireProjectile();
 
         
         RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, playerCollider.bounds.extents.y, 0), new Vector2(1, 0) * CheckDir, 3f, enemyLayerMask);

@@ -164,8 +164,8 @@ public class Archer : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, archerCol.bounds.extents.y), new Vector2(0, -1), 10f, FloorLayerMask);
 
             transform.position = new Vector3(targetPos.x, hit.point.y+1);
-            Debug.Log(transform.position);
-            Debug.Log(isPhase1);
+            //Debug.Log(transform.position);
+            //Debug.Log(isPhase1);
         }
         else
         {
@@ -244,7 +244,10 @@ public class Archer : MonoBehaviour
 
     void Appear()
     {
-        if(isPhase3) animator.Play("Special Attack", -1, 0f);
+        if (isPhase3)
+        {
+            animator.Play("Special Attack", -1, 0f);
+        }
         AudioManager.instance.PlaySFX("Appear", 0.2f);
     }
 

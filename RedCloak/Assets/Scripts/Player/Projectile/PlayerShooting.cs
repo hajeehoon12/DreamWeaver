@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.Serialization.Formatters;
-using System;
 using UnityEngine;
 
-public class HS_DemoShooting2D : MonoBehaviour
+public class PlayerShooting : MonoBehaviour
 {
     public GameObject FirePoint;
     public Camera Cam;
@@ -38,8 +36,8 @@ public class HS_DemoShooting2D : MonoBehaviour
         //Single shoot
         if (Input.GetButtonDown("Fire1")) // DoFire
         {
-            
-            
+
+
         }
 
         //Fast shooting
@@ -118,4 +116,7 @@ public class HS_DemoShooting2D : MonoBehaviour
             Prefab = Prefabs.Length - 1;
         }
     }
+
+
+
 }

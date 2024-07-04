@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212901308133699535}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 4391789325693851394}
   - component: {fileID: 4494047301104690998}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: ProjectileOriginal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,14 +143,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6799595111446954386}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7255404, w: 0.6881796}
-  m_LocalPosition: {x: -7.55, y: -2.2, z: -3.5}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalRotation: {x: -0, y: 0, z: -0.7071068, w: -0.7071068}
+  m_LocalPosition: {x: 0.3, y: 0.1081, z: 0}
+  m_LocalScale: {x: -0.06268, y: -0.06268, z: -0.06268}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 899312686317325041}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -270}
 --- !u!33 &8455142979819349847
 MeshFilter:
   m_ObjectHideFlags: 0
