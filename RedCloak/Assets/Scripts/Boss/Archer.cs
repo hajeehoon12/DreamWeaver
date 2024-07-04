@@ -35,6 +35,9 @@ public class Archer : MonoBehaviour
 
     public GameObject GreenArrow;
 
+    float lastAvoidTime = 0f;
+    float lastSkillTime = 0f;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -54,6 +57,20 @@ public class Archer : MonoBehaviour
         isPhase1 = true;
         isPhase2 = false;
         isPhase3 = false;
+    }
+
+    private void Update()
+    {
+        if (lastAvoidTime <= 5)
+        {
+            lastAvoidTime += Time.deltaTime;
+        }
+
+        if(lastSkillTime <= 10)
+        {
+            lastSkillTime += Time.deltaTime;
+        }
+
     }
 
     void Discrimination()
@@ -206,6 +223,7 @@ public class Archer : MonoBehaviour
 
     IEnumerator DoAttack()
     {
+        yield return new WaitForSeconds(0.5f);
         animator.SetTrigger(doAttack);
         animator.ResetTrigger(doSpecialAttack);
         yield return new WaitForSeconds(1.52f);
@@ -252,14 +270,22 @@ public class Archer : MonoBehaviour
 
     void Appear()
     {
-        if (isPhase3 && skillPhase3 < 10)
+        if (lastSkillTime >= 10)
         {
-            animator.Play("Special Attack", -1, 0f);
-            GameObject obj = Instantiate(GreenArrow, transform.position +new Vector3(0,2,0)  + 3 * transform.forward, Quaternion.identity);
-            obj.transform.LookAt(CharacterManager.Instance.Player.transform);
-            obj.transform.localScale = new Vector3(obj.transform.localScale.x * 4, obj.transform.localScale.y * 8, obj.transform.localScale.z * 4);
-            
-            skillPhase3++;
+            if (isPhase3 && skillPhase3 < 10)
+            {
+                animator.Play("Special Attack", -1, 0f);
+                GameObject obj = Instantiate(GreenArrow, transform.position + new Vector3(0, 2.5f, 0) + 3 * transform.forward, Quaternion.identity);
+                obj.transform.LookAt(CharacterManager.Instance.Player.transform);
+                obj.transform.localScale = new Vector3(obj.transform.localScale.x * 4, obj.transform.localScale.y * 8, obj.transform.localScale.z * 4);
+
+                skillPhase3++;
+            }
+            else
+            {
+                lastSkillTime = 0;
+                skillPhase3 = 0;
+            }
         }
         AudioManager.instance.PlaySFX("Appear", 0.2f);
     }
@@ -269,17 +295,24 @@ public class Archer : MonoBehaviour
         AudioManager.instance.PlaySFX("Laser", 0.2f);
     }
 
+    IEnumerator AvoidAttack()
+    {
+        animator.Play("Special Attack", -1, 0.29f);
+        yield return new WaitForSeconds(0.2f);
+        AppearPos();
+        animator.Play("Attack", -2, 0f);
+
+    }
+
     public void GetDamage(float damage)
     {
-
-        if (isPhase2)
+        if (!isPhase1)
         {
-            int accuracy = Random.Range(0, 2);
-
-            if (accuracy == 0)
+            if (lastAvoidTime >=5)
             {
-                animator.Play("Special Attack", -1, 0.29f);
-                Flip();
+                lastAvoidTime -= 5;
+                
+                StartCoroutine(AvoidAttack());
                 return;
             }
             
@@ -288,7 +321,7 @@ public class Archer : MonoBehaviour
         if (bossHealth > damage)
         {
             bossHealth -= damage;
-
+            Debug.Log($"남은 보스 체력 : {bossHealth}");
             if (bossHealth < (bossMaxHealth * 2 / 3) && isPhase1)
             {
                 isPhase1 = false;
@@ -300,6 +333,8 @@ public class Archer : MonoBehaviour
                 isPhase1 = false;
                 isPhase3 = true;
                 isPhase2 = false;
+                lastAvoidTime = 10;
+                Appear();
             }
 
             UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, damage);
@@ -310,6 +345,7 @@ public class Archer : MonoBehaviour
             if (isBossDie) return;
             UIBar.Instance.SetBossBar(0, bossMaxHealth, bossHealth);
             CallDie();
+            archerCol.enabled = true;
         }
     }
 
