@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     GhostDash ghostDash;
-    Collider2D playerCollider;
+    public Collider2D playerCollider;
     PlayerBattle playerBattle;
 
     bool Jumping = false;           // AM i Jumping?
