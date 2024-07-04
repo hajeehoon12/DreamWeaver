@@ -275,10 +275,13 @@ public class Archer : MonoBehaviour
             if (isPhase3 && skillPhase3 < 10)
             {
                 animator.Play("Special Attack", -1, 0f);
-                GameObject obj = Instantiate(GreenArrow, transform.position + new Vector3(0, 2.5f, 0) + 3 * transform.forward, Quaternion.identity);
-                obj.transform.LookAt(CharacterManager.Instance.Player.transform);
-                obj.transform.localScale = new Vector3(obj.transform.localScale.x * 4, obj.transform.localScale.y * 8, obj.transform.localScale.z * 4);
 
+                for (int i = 0; i < 3; i++)
+                {
+                    GameObject obj = Instantiate(GreenArrow, transform.position + new Vector3(0, 2.5f, 0) + 3 * transform.forward, Quaternion.identity);
+                    obj.transform.LookAt(CharacterManager.Instance.Player.transform.position + new Vector3(0, 6*(i-1), 0));
+                    obj.transform.localScale = new Vector3(obj.transform.localScale.x * 4, obj.transform.localScale.y * 8, obj.transform.localScale.z * 4);
+                }
                 skillPhase3++;
             }
             else
@@ -330,12 +333,12 @@ public class Archer : MonoBehaviour
                 isPhase2 = true;
             }
 
-            if (bossHealth < (bossMaxHealth / 3) && isPhase2)
+            if (bossHealth < (bossMaxHealth * 1 / 3) && isPhase2)
             {
                 isPhase1 = false;
                 isPhase3 = true;
                 isPhase2 = false;
-                lastAvoidTime = 10;
+                lastSkillTime = 10;
                 Appear();
             }
 
