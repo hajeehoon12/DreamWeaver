@@ -1235,6 +1235,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerSlash
       objectReference: {fileID: 0}
+    - target: {fileID: 6799595111446954386, guid: 5efc3e238418636409fceef0a61616b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8029857807478044835, guid: 5efc3e238418636409fceef0a61616b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.3
@@ -1352,7 +1356,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.42, y: 0.21}
+  m_Size: {x: 0.46, y: 0.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1434,7 +1438,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.6521739, y: 0}
     oldSize: {x: 0.23, y: 0.25}
-    newSize: {x: 0.42, y: 0.21}
+    newSize: {x: 0.46, y: 0.18}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1461,6 +1465,10 @@ MonoBehaviour:
   FloorLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  isPhase1: 1
+  isPhase2: 0
+  isPhase3: 0
+  GreenArrow: {fileID: 1261555563981962, guid: e02c3f3ca1f00534eb28310899c7cd93, type: 3}
 --- !u!50 &1900751964
 Rigidbody2D:
   serializedVersion: 4

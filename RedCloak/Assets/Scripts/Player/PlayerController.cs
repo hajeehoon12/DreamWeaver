@@ -206,7 +206,7 @@ public class PlayerController : MonoBehaviour
 
         if (spriteRenderer.flipX) CheckDir = -1f;
 
-        shootProjectile.FireProjectile();
+        shootProjectile?.FireProjectile();
 
         
         RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, playerCollider.bounds.extents.y, 0), new Vector2(1, 0) * CheckDir, 3f, enemyLayerMask);

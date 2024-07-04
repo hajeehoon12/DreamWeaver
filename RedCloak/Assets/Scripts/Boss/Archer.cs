@@ -27,9 +27,13 @@ public class Archer : MonoBehaviour
 
     Vector2[] appearPos = { new Vector2(15, 0), new Vector2(-15, 0), new Vector2(14, 2), new Vector2(13, 4), new Vector2(12, 6), new Vector2(-12, 6), new Vector2(-13, 4), new Vector2(-14, 2),new Vector2(-14, -2), new Vector2(14, -2) };
 
-    private bool isPhase1 = true;
-    private bool isPhase2 = false;
-    private bool isPhase3 = false;
+    public bool isPhase1 = true;
+    public bool isPhase2 = false;
+    public bool isPhase3 = false;
+
+    private int skillPhase3 = 0;
+
+    public GameObject GreenArrow;
 
     private void Awake()
     {
@@ -46,6 +50,10 @@ public class Archer : MonoBehaviour
         AudioManager.instance.PlayBGM("SilverBird", 0.15f);
         Discrimination();
         SetBossBar();
+
+        isPhase1 = true;
+        isPhase2 = false;
+        isPhase3 = false;
     }
 
     void Discrimination()
@@ -60,7 +68,7 @@ public class Archer : MonoBehaviour
         if (isPhase1)
         {
             yield return new WaitForSeconds(1f);
-            Flip();
+            //Flip();
             switch (count % 2)
             {
                 case 0:
@@ -75,7 +83,7 @@ public class Archer : MonoBehaviour
         if (isPhase2)
         {
             yield return new WaitForSeconds(0.5f);
-            Flip();
+            // Flip();
             switch (count % 2)
             {
                 case 0:
@@ -90,8 +98,8 @@ public class Archer : MonoBehaviour
         if (isPhase3)
         {
            
-            yield return new WaitForSeconds(0.25f);
-            Flip();
+            yield return new WaitForSeconds(0.3f);
+            //Flip();
             switch (count % 2)
             {
                 case 0:
@@ -187,7 +195,7 @@ public class Archer : MonoBehaviour
 
     void Attack()
     {
-       
+        Flip();
         StartCoroutine(DoAttack());
     }
 
@@ -244,9 +252,14 @@ public class Archer : MonoBehaviour
 
     void Appear()
     {
-        if (isPhase3)
+        if (isPhase3 && skillPhase3 < 10)
         {
             animator.Play("Special Attack", -1, 0f);
+            GameObject obj = Instantiate(GreenArrow, transform.position +new Vector3(0,2,0)  + 3 * transform.forward, Quaternion.identity);
+            obj.transform.LookAt(CharacterManager.Instance.Player.transform);
+            obj.transform.localScale = new Vector3(obj.transform.localScale.x * 4, obj.transform.localScale.y * 8, obj.transform.localScale.z * 4);
+            
+            skillPhase3++;
         }
         AudioManager.instance.PlaySFX("Appear", 0.2f);
     }
@@ -258,6 +271,20 @@ public class Archer : MonoBehaviour
 
     public void GetDamage(float damage)
     {
+
+        if (isPhase2)
+        {
+            int accuracy = Random.Range(0, 2);
+
+            if (accuracy == 0)
+            {
+                animator.Play("Special Attack", -1, 0.29f);
+                Flip();
+                return;
+            }
+            
+        }
+
         if (bossHealth > damage)
         {
             bossHealth -= damage;
