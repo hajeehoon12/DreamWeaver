@@ -27,9 +27,16 @@ public class Archer : MonoBehaviour
 
     Vector2[] appearPos = { new Vector2(15, 0), new Vector2(-15, 0), new Vector2(14, 2), new Vector2(13, 4), new Vector2(12, 6), new Vector2(-12, 6), new Vector2(-13, 4), new Vector2(-14, 2),new Vector2(-14, -2), new Vector2(14, -2) };
 
-    private bool isPhase1 = true;
-    private bool isPhase2 = false;
-    private bool isPhase3 = false;
+    public bool isPhase1 = true;
+    public bool isPhase2 = false;
+    public bool isPhase3 = false;
+
+    private int skillPhase3 = 0;
+
+    public GameObject GreenArrow;
+
+    float lastAvoidTime = 0f;
+    float lastSkillTime = 0f;
 
     private void Awake()
     {
@@ -46,6 +53,24 @@ public class Archer : MonoBehaviour
         AudioManager.instance.PlayBGM("SilverBird", 0.15f);
         Discrimination();
         SetBossBar();
+
+        isPhase1 = true;
+        isPhase2 = false;
+        isPhase3 = false;
+    }
+
+    private void Update()
+    {
+        if (lastAvoidTime <= 5)
+        {
+            lastAvoidTime += Time.deltaTime;
+        }
+
+        if(lastSkillTime <= 10)
+        {
+            lastSkillTime += Time.deltaTime;
+        }
+
     }
 
     void Discrimination()
@@ -60,7 +85,7 @@ public class Archer : MonoBehaviour
         if (isPhase1)
         {
             yield return new WaitForSeconds(1f);
-            Flip();
+            //Flip();
             switch (count % 2)
             {
                 case 0:
@@ -75,7 +100,7 @@ public class Archer : MonoBehaviour
         if (isPhase2)
         {
             yield return new WaitForSeconds(0.5f);
-            Flip();
+            // Flip();
             switch (count % 2)
             {
                 case 0:
@@ -90,8 +115,8 @@ public class Archer : MonoBehaviour
         if (isPhase3)
         {
            
-            yield return new WaitForSeconds(0.25f);
-            Flip();
+            yield return new WaitForSeconds(0.3f);
+            //Flip();
             switch (count % 2)
             {
                 case 0:
@@ -142,7 +167,7 @@ public class Archer : MonoBehaviour
                 rand = Random.Range(0, 2);
             }
 
-            if (isPhase2 && isPhase3)
+            if (isPhase2 || isPhase3)
             {
                 rand = Random.Range(0, appearPos.Length);
             }
@@ -164,14 +189,15 @@ public class Archer : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, archerCol.bounds.extents.y), new Vector2(0, -1), 10f, FloorLayerMask);
 
             transform.position = new Vector3(targetPos.x, hit.point.y+1);
-            Debug.Log(transform.position);
+            //Debug.Log(transform.position);
+            //Debug.Log(isPhase1);
         }
         else
         {
             transform.position = targetPos;
             if (transform.position.y < -45f)
             {
-                //transform.position = new Vector3(transform.position.x, -45f);
+                transform.position = new Vector3(transform.position.x, -45f);
             }
         }
 
@@ -186,7 +212,7 @@ public class Archer : MonoBehaviour
 
     void Attack()
     {
-       
+        Flip();
         StartCoroutine(DoAttack());
     }
 
@@ -197,6 +223,7 @@ public class Archer : MonoBehaviour
 
     IEnumerator DoAttack()
     {
+        yield return new WaitForSeconds(0.5f);
         animator.SetTrigger(doAttack);
         animator.ResetTrigger(doSpecialAttack);
         yield return new WaitForSeconds(1.52f);
@@ -243,7 +270,26 @@ public class Archer : MonoBehaviour
 
     void Appear()
     {
-        //animator.Play("Special Attack", -1, 0f);
+        if (lastSkillTime >= 10)
+        {
+            if (isPhase3 && skillPhase3 < 10)
+            {
+                animator.Play("Special Attack", -1, 0f);
+
+                for (int i = 0; i < 3; i++)
+                {
+                    GameObject obj = Instantiate(GreenArrow, transform.position + new Vector3(0, 2.5f, 0) + 3 * transform.forward, Quaternion.identity);
+                    obj.transform.LookAt(CharacterManager.Instance.Player.transform.position + new Vector3(0, 6*(i-1), 0));
+                    obj.transform.localScale = new Vector3(obj.transform.localScale.x * 4, obj.transform.localScale.y * 8, obj.transform.localScale.z * 4);
+                }
+                skillPhase3++;
+            }
+            else
+            {
+                lastSkillTime = 0;
+                skillPhase3 = 0;
+            }
+        }
         AudioManager.instance.PlaySFX("Appear", 0.2f);
     }
 
@@ -252,23 +298,48 @@ public class Archer : MonoBehaviour
         AudioManager.instance.PlaySFX("Laser", 0.2f);
     }
 
+    IEnumerator AvoidAttack()
+    {
+        animator.StopPlayback();
+        animator.Play("Special Attack", 0, 0.29f);
+        yield return new WaitForSeconds(0.2f);
+        //AppearPos();
+        //
+        //animator.Play("Attack", 0, 0f);
+
+    }
+
     public void GetDamage(float damage)
     {
+        if (!isPhase1)
+        {
+            if (lastAvoidTime >=5)
+            {
+                lastAvoidTime -= 5;
+                
+                StartCoroutine(AvoidAttack());
+                return;
+            }
+            
+        }
+
         if (bossHealth > damage)
         {
             bossHealth -= damage;
-
+            Debug.Log($"남은 보스 체력 : {bossHealth}");
             if (bossHealth < (bossMaxHealth * 2 / 3) && isPhase1)
             {
                 isPhase1 = false;
                 isPhase2 = true;
             }
 
-            if (bossHealth < (bossMaxHealth / 3) && isPhase2)
+            if (bossHealth < (bossMaxHealth * 1 / 3) && isPhase2)
             {
                 isPhase1 = false;
                 isPhase3 = true;
                 isPhase2 = false;
+                lastSkillTime = 10;
+                Appear();
             }
 
             UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, damage);
@@ -279,6 +350,7 @@ public class Archer : MonoBehaviour
             if (isBossDie) return;
             UIBar.Instance.SetBossBar(0, bossMaxHealth, bossHealth);
             CallDie();
+            archerCol.enabled = true;
         }
     }
 

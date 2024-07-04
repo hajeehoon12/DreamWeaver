@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     public Collider2D playerCollider;
     PlayerBattle playerBattle;
 
+    PlayerShooting shootProjectile;
+
     bool Jumping = false;           // AM i Jumping?
     //bool Falling = false;
     public bool Rolling = false;           // AM i rolling?
@@ -73,6 +75,8 @@ public class PlayerController : MonoBehaviour
     private bool monDir = false;
     private float hitDir = 1;
 
+    public GameObject projectile;
+
 
     void Awake()
     {
@@ -83,6 +87,7 @@ public class PlayerController : MonoBehaviour
         ghostDash = GetComponent<GhostDash>();
         playerCollider = GetComponent<Collider2D>();
         playerBattle = GetComponent<PlayerBattle>();
+        shootProjectile = GetComponentInChildren<PlayerShooting>();
         
     }
 
@@ -200,6 +205,8 @@ public class PlayerController : MonoBehaviour
         AudioManager.instance.PlayPitchSFX("SwordAttack", 0.05f);
 
         if (spriteRenderer.flipX) CheckDir = -1f;
+
+        shootProjectile?.FireProjectile();
 
         
         RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, playerCollider.bounds.extents.y, 0), new Vector2(1, 0) * CheckDir, 3f, enemyLayerMask);
@@ -394,13 +401,26 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool(isRunning, true);
             moveVelocity = Vector3.left;
+            if (!spriteRenderer.flipX)
+            {
+                projectile.transform.rotation = Quaternion.Euler(0, 0, -90);
+                projectile.transform.position -= new Vector3(6f, 0, 0);
+            }
             spriteRenderer.flipX = true;
+            
         }
         else if (Input.GetAxisRaw("Horizontal") > 0)
         {
             animator.SetBool(isRunning, true);
             moveVelocity = Vector3.right;
+            if (spriteRenderer.flipX)
+            {
+                projectile.transform.rotation = Quaternion.Euler(0, 0, 90);
+                projectile.transform.position += new Vector3(6f, 0, 0);
+            }
             spriteRenderer.flipX = false;
+            
+
         }
         else
         {
