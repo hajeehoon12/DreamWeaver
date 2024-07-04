@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HS_ProjectileMover2D : MonoBehaviour
+public class MonsterProjectile : MonoBehaviour
 {
     public float speed = 15f;
     public float hitOffset = 0f;
@@ -21,7 +21,7 @@ public class HS_ProjectileMover2D : MonoBehaviour
             //Instantiate flash effect on projectile position
             var flashInstance = Instantiate(flash, transform.position, Quaternion.identity);
             flashInstance.transform.forward = gameObject.transform.forward;
-            
+
             //Destroy flash effect depending on particle Duration time
             var flashPs = flashInstance.GetComponent<ParticleSystem>();
             if (flashPs != null)
@@ -34,17 +34,17 @@ public class HS_ProjectileMover2D : MonoBehaviour
                 Destroy(flashInstance, flashPsParts.main.duration);
             }
         }
-        Destroy(gameObject,5);
-	}
+        Destroy(gameObject, 5);
+    }
 
-    void FixedUpdate ()
+    void FixedUpdate()
     {
-		if (speed != 0)
+        if (speed != 0)
         {
             rb.velocity = transform.forward * speed; // no minus
             //transform.position += transform.forward * (speed * Time.deltaTime);         
         }
-	}
+    }
 
     //https ://docs.unity3d.com/ScriptReference/Rigidbody.OnCollisionEnter.html
     void OnCollisionEnter2D(Collision2D collision)
@@ -57,22 +57,14 @@ public class HS_ProjectileMover2D : MonoBehaviour
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
         Vector3 pos = contact.point + contact.normal * hitOffset;
 
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            if (collision.transform.gameObject.TryGetComponent(out Monster monster))
+            if (collision.transform.gameObject.TryGetComponent(out PlayerBattle battle))
             {
-                monster.GetDamage(CharacterManager.Instance.Player.controller.attackRate);
+                if(!collision.transform.gameObject.GetComponent<PlayerController>().Rolling)
+                battle.ChangeHealth(-1);
             }
         }
-
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Boss"))
-        {
-            if (collision.transform.gameObject.TryGetComponent(out Archer monster))
-            {
-                monster.GetDamage(CharacterManager.Instance.Player.controller.attackRate);
-            }
-        }
-
 
 
         //Spawn hit effect on collision

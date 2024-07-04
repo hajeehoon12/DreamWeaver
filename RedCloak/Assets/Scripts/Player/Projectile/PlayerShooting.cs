@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.Serialization.Formatters;
-using System;
 using UnityEngine;
 
-public class HS_DemoShooting2D : MonoBehaviour
+public class PlayerShooting : MonoBehaviour
 {
     public GameObject FirePoint;
     public Camera Cam;
@@ -38,8 +36,8 @@ public class HS_DemoShooting2D : MonoBehaviour
         //Single shoot
         if (Input.GetButtonDown("Fire1")) // DoFire
         {
-            
-            
+
+
         }
 
         //Fast shooting
@@ -95,16 +93,6 @@ public class HS_DemoShooting2D : MonoBehaviour
     }
 
 
-    //GUI Text
-    void OnGUI()
-    {
-        GUI.Label(new Rect(10 * windowDpi, 5 * windowDpi, 400 * windowDpi, 20 * windowDpi), "Use left mouse button to single shoot!");
-        GUI.Label(new Rect(10 * windowDpi, 25 * windowDpi, 400 * windowDpi, 20 * windowDpi), "Use and hold the right mouse button for quick shooting!");
-        GUI.Label(new Rect(10 * windowDpi, 45 * windowDpi, 400 * windowDpi, 20 * windowDpi), "Fire rate:");
-        hSliderValue = GUI.HorizontalSlider(new Rect(70 * windowDpi, 50 * windowDpi, 100 * windowDpi, 20 * windowDpi), hSliderValue, 0.0f, 1.0f);
-        GUI.Label(new Rect(10 * windowDpi, 65 * windowDpi, 400 * windowDpi, 20 * windowDpi), "Use the keyboard buttons A/<- and D/-> to change projectiles!");
-    }
-
     // To change prefabs (count - prefab number)
     void Counter(int count)
     {
@@ -118,4 +106,7 @@ public class HS_DemoShooting2D : MonoBehaviour
             Prefab = Prefabs.Length - 1;
         }
     }
+
+
+
 }
