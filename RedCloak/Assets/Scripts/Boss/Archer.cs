@@ -301,7 +301,7 @@ public class Archer : MonoBehaviour
     IEnumerator AvoidAttack()
     {
         animator.StopPlayback();
-        animator.Play("Special Attack", 0, 0.29f);
+        animator.Play("Special Attack", 0, 0.1f);
         yield return new WaitForSeconds(0.2f);
         //AppearPos();
         //
