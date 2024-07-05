@@ -2,7 +2,7 @@ using BehaviorDesigner.Runtime;
 using System.Collections;
 using UnityEngine;
 
-public class Monster : MonoBehaviour
+public class Monster : MonoBehaviour, IDamage
 {
     public bool GetHit = false;
     
