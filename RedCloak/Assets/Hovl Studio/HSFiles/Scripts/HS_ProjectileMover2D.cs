@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,7 +41,7 @@ public class HS_ProjectileMover2D : MonoBehaviour
     {
 		if (speed != 0)
         {
-            rb.velocity = transform.forward * speed;
+            rb.velocity = transform.forward * speed; // no minus
             //transform.position += transform.forward * (speed * Time.deltaTime);         
         }
 	}
@@ -56,6 +56,24 @@ public class HS_ProjectileMover2D : MonoBehaviour
         ContactPoint2D contact = collision.contacts[0];
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
         Vector3 pos = contact.point + contact.normal * hitOffset;
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            if (collision.transform.gameObject.TryGetComponent(out Monster monster))
+            {
+                monster.GetDamage(CharacterManager.Instance.Player.controller.attackRate);
+            }
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Boss"))
+        {
+            if (collision.transform.gameObject.TryGetComponent(out Archer monster))
+            {
+                monster.GetDamage(CharacterManager.Instance.Player.controller.attackRate);
+            }
+        }
+
+
 
         //Spawn hit effect on collision
         if (hit != null)

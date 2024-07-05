@@ -24,8 +24,10 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     GhostDash ghostDash;
-    Collider2D playerCollider;
+    public Collider2D playerCollider;
     PlayerBattle playerBattle;
+
+    PlayerShooting shootProjectile;
 
     bool Jumping = false;           // AM i Jumping?
     //bool Falling = false;
@@ -73,6 +75,8 @@ public class PlayerController : MonoBehaviour
     private bool monDir = false;
     private float hitDir = 1;
 
+    public GameObject projectile;
+
 
     void Awake()
     {
@@ -83,6 +87,7 @@ public class PlayerController : MonoBehaviour
         ghostDash = GetComponent<GhostDash>();
         playerCollider = GetComponent<Collider2D>();
         playerBattle = GetComponent<PlayerBattle>();
+        shootProjectile = GetComponentInChildren<PlayerShooting>();
         
     }
 
@@ -201,6 +206,8 @@ public class PlayerController : MonoBehaviour
 
         if (spriteRenderer.flipX) CheckDir = -1f;
 
+        shootProjectile?.FireProjectile();
+
         
         RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, playerCollider.bounds.extents.y, 0), new Vector2(1, 0) * CheckDir, 3f, enemyLayerMask);
         {
@@ -258,6 +265,7 @@ public class PlayerController : MonoBehaviour
     void OnDash() // when C keyboard input do dash
     {
         if (!canDash) return;
+        if (Rolling) return;
         if (animator.GetBool(isWallClimbing)) return;
 
         if (!ghostDash.makeGhost)
@@ -314,10 +322,17 @@ public class PlayerController : MonoBehaviour
     void OnRoll() // When Shift called Do Rolling
     {
         if (!canRoll) return;
+        if (animator.GetBool(isJumping)) return;
 
         if (!Rolling && !Jumping)
-        {  
+        {
+            rigid.gravityScale = playerGravityScale;
+            if (dashCoroutine != null) StopCoroutine(dashCoroutine);
+            ghostDash.makeGhost = false;
+            animator.Play("Roll", -1, 0f);
+            animator.SetBool(isDashing, false);
             animator.SetBool(isRolling, true);
+            animator.SetBool(isAttacking, false);
             Rolling = true;
         }
     }
@@ -394,13 +409,28 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool(isRunning, true);
             moveVelocity = Vector3.left;
+            if (!spriteRenderer.flipX && !Rolling)
+            {
+                projectile.transform.rotation = Quaternion.Euler(0, 0, -90);
+                projectile.transform.position -= new Vector3(6f, 0, 0);
+            }
+            if(!Rolling)
             spriteRenderer.flipX = true;
+            
         }
         else if (Input.GetAxisRaw("Horizontal") > 0)
         {
             animator.SetBool(isRunning, true);
             moveVelocity = Vector3.right;
+            if (spriteRenderer.flipX & !Rolling)
+            {
+                projectile.transform.rotation = Quaternion.Euler(0, 0, 90);
+                projectile.transform.position += new Vector3(6f, 0, 0);
+            }
+            if(!Rolling)
             spriteRenderer.flipX = false;
+            
+
         }
         else
         {
@@ -512,6 +542,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collider.gameObject.CompareTag(Define.MONSTER_TAG))
         {
+            if (Rolling) return;
             playerBattle.ChangeHealth(-1); // get damaged
         }
         //Debug.Log("Trigger detected with " + collider.gameObject.name);
@@ -520,8 +551,9 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collider) // Jump and wall Climb check
     {
 
-        if (collider.gameObject.CompareTag(Define.MONSTER_TAG))
+        if (collider.gameObject.CompareTag(Define.MONSTER_TAG) || collider.gameObject.layer == LayerMask.NameToLayer("Boss"))
         {
+            if (Rolling) return;
             playerBattle.ChangeHealth(-1); // get damaged
             monDir = true;
 
@@ -534,6 +566,7 @@ public class PlayerController : MonoBehaviour
         //collision.
         if (collider.gameObject.layer == LayerMask.NameToLayer("Trap"))
         {
+            if (Rolling) return;
             GetAttacked();
         }
 

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters;
 using System;
@@ -36,27 +36,30 @@ public class HS_DemoShooting2D : MonoBehaviour
     void Update()
     {
         //Single shoot
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1")) // DoFire
         {
-            Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
+            
+            
         }
 
         //Fast shooting
-        if (Input.GetMouseButton(1) && fireCountdown <= 0f)
+        if (Input.GetMouseButton(1) && fireCountdown <= 0f) // Do Fast Shooting
         {
-            Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
-            fireCountdown = 0;
-            fireCountdown += hSliderValue;
+            //GameObject obj = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
+            //obj.transform.localEulerAngles += new Vector3(0, 180, 0);
+            //obj.transform.localScale *= 4;
+            //fireCountdown = 0;
+            //fireCountdown += hSliderValue;
         }
         fireCountdown -= Time.deltaTime;
 
         //To change projectiles
-        if ((Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0) && buttonSaver >= 0.4f)// left button
+        if ((Input.GetKey(KeyCode.Q) && buttonSaver >= 0.4f))// left button
         {
             buttonSaver = 0f;
             Counter(-1);
         }
-        if ((Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0) && buttonSaver >= 0.4f)// right button
+        if ((Input.GetKey(KeyCode.E) && buttonSaver >= 0.4f))// right button
         {
             buttonSaver = 0f;
             Counter(+1);
@@ -64,16 +67,33 @@ public class HS_DemoShooting2D : MonoBehaviour
         buttonSaver += Time.deltaTime;
 
         //To rotate fire point
-        if (Cam != null)
-        {
-            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
-        }
-        else
-        {
-            Debug.Log("No camera");
-        }
+        //if (Cam != null)
+        //{
+        //    var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //    transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
+        //}
+        //else
+        // {
+        //    Debug.Log("No camera");
+        //}
     }
+
+    public void FireProjectile()
+    {
+        GameObject obj = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
+        obj.transform.localEulerAngles += new Vector3(0, 180, 0);
+        obj.transform.localScale *= 4;
+    }
+
+    public void RapidFireProjectile()
+    {
+        GameObject obj = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
+        obj.transform.localEulerAngles += new Vector3(0, 180, 0);
+        obj.transform.localScale *= 4;
+        fireCountdown = 0;
+        fireCountdown += hSliderValue;
+    }
+
 
     //GUI Text
     void OnGUI()
