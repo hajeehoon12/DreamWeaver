@@ -48,7 +48,7 @@ public class Archer : MonoBehaviour , IDamage
 
     private void Start()
     {
-        CallArcherBoss();
+        //CallArcherBoss();
     }
 
     public void CallArcherBoss()
@@ -57,7 +57,7 @@ public class Archer : MonoBehaviour , IDamage
         AudioManager.instance.StopBGM();
 
         //DOTween.To(() => bossHealth, x => bossHealth = x, bossMaxHealth, 2);
-
+        UIBar.Instance.CallBossBar();
         StartCoroutine(ArcherBossStageStart());
         isPhase1 = true;
         isPhase2 = false;
@@ -401,7 +401,7 @@ public class Archer : MonoBehaviour , IDamage
         //    archers[i].enabled = false;
         //}
 
-
+        UIBar.Instance.CallBackBossBar();
         animator.SetBool(isDead, true);
         isBossDie = true;
         StartCoroutine(ArcherDie());
