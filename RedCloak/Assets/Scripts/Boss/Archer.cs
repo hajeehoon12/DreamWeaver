@@ -48,16 +48,17 @@ public class Archer : MonoBehaviour , IDamage
 
     private void Start()
     {
-        CallArcherBoss();
+        //CallArcherBoss();
     }
 
     public void CallArcherBoss()
     {
         
         AudioManager.instance.StopBGM();
+        AudioManager.instance.PlaySFX("Nervous", 0.1f);
 
         //DOTween.To(() => bossHealth, x => bossHealth = x, bossMaxHealth, 2);
-
+        UIBar.Instance.CallBossBar();
         StartCoroutine(ArcherBossStageStart());
         isPhase1 = true;
         isPhase2 = false;
@@ -79,6 +80,7 @@ public class Archer : MonoBehaviour , IDamage
         animator.Play("Special Attack", 0, 0f);
         Discrimination();
         AudioManager.instance.PlayBGM("SilverBird", 0.15f);
+        CameraManager.Instance.ModifyCameraInfo(new Vector2(20, 5), new Vector2(142, -38));
     }
 
 
@@ -401,7 +403,7 @@ public class Archer : MonoBehaviour , IDamage
         //    archers[i].enabled = false;
         //}
 
-
+        UIBar.Instance.CallBackBossBar();
         animator.SetBool(isDead, true);
         isBossDie = true;
         StartCoroutine(ArcherDie());
@@ -412,10 +414,13 @@ public class Archer : MonoBehaviour , IDamage
         transform.DORotateQuaternion(Quaternion.identity, 0.3f);
         AudioManager.instance.PlaySFX("ArcherDeath", 0.5f);
         yield return new WaitForSeconds(1f);
-        AudioManager.instance.PlaySFX("Violin3", 0.05f);
+        AudioManager.instance.PlaySFX("Success", 0.05f);
         //StopAllCoroutines();
         //DOTween.KillAll();
         AudioManager.instance.StopBGM();
+
+
+        CameraManager.Instance.CallBackCameraInfo();
 
         bool isGround = false;
         while (!isGround)
@@ -433,6 +438,7 @@ public class Archer : MonoBehaviour , IDamage
 
         //archerCol.isTrigger = true;
         archerCol.enabled = false;
+        
 
     }
 

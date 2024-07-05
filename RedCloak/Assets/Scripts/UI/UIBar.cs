@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class UIBar : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class UIBar : MonoBehaviour
     [SerializeField] private Slider manaBar;
     [SerializeField] private Slider bossHealthBar;
     [SerializeField] private Slider damageBar;
+    [SerializeField] private Transform BossBarPos;
     public RectTransform damageEffect;
     
     public static UIBar Instance;
@@ -20,9 +22,12 @@ public class UIBar : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
     }
     void Start()
     {
+        BossBarPos.DOMoveY(-50, 0f);
+        //CallBossBar();
         if (damageEffect == null)
         {
             Debug.Log("이펙트없음");
@@ -59,6 +64,16 @@ public class UIBar : MonoBehaviour
 
         float width = (damage / monster.maxHealth) * bossHealthBar.fillRect.rect.width;
         damageEffect.sizeDelta = new Vector2(width, damageEffect.sizeDelta.y);
+    }
+
+    public void CallBossBar()
+    {
+        BossBarPos.DOMoveY(50, 1f);
+    }
+
+    public void CallBackBossBar()
+    {
+        BossBarPos.DOMoveY(-50, 1f);
     }
 
     private void SetPlayerHealth()
