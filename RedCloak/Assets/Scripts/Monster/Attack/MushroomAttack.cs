@@ -1,0 +1,29 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MushroomAttack : MonoBehaviour, IMobAttack
+{
+    [SerializeField] private MonsterController _controller;
+    [SerializeField] private Vector2 attackRayPos;
+    [SerializeField] private float attackRange;
+
+    private void Start()
+    {
+        _controller.MobAttack = this;
+    }
+
+    public bool Attack()
+    {
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + attackRayPos, transform.right, attackRange,
+            1 << LayerMask.NameToLayer("Player"));
+        
+        if (hit)
+        {
+            hit.collider.GetComponent<PlayerController>().OnGetAttacked();
+        }
+
+        return hit;
+    }
+}
