@@ -16,7 +16,7 @@ public class Archer : MonoBehaviour
 
     private bool isBossDie = false;
 
-    private float bossHealth = 300;
+    private float bossHealth = 0;
     public float bossMaxHealth = 300;
 
     SpriteRenderer spriteRenderer;
@@ -48,16 +48,40 @@ public class Archer : MonoBehaviour
 
     private void Start()
     {
-        bossHealth = bossMaxHealth;
-        AudioManager.instance.StopBGM();
-        AudioManager.instance.PlayBGM("SilverBird", 0.15f);
-        Discrimination();
-        SetBossBar();
+        CallArcherBoss();
+    }
 
+    public void CallArcherBoss()
+    {
+        
+        AudioManager.instance.StopBGM();
+
+        //DOTween.To(() => bossHealth, x => bossHealth = x, bossMaxHealth, 2);
+
+        StartCoroutine(ArcherBossStageStart());
         isPhase1 = true;
         isPhase2 = false;
         isPhase3 = false;
     }
+
+    IEnumerator ArcherBossStageStart()
+    {
+        
+        float time = 0f;
+
+        while (time < 1)
+        {
+            bossHealth += (bossMaxHealth * Time.deltaTime);
+            SetBossBar();
+            yield return new WaitForSeconds(Time.deltaTime);
+            time += Time.deltaTime;
+        }
+        animator.Play("Special Attack", 0, 0f);
+        Discrimination();
+        AudioManager.instance.PlayBGM("SilverBird", 0.15f);
+    }
+
+
 
     private void Update()
     {
@@ -218,7 +242,7 @@ public class Archer : MonoBehaviour
 
     void SetBossBar()
     {
-        UIBar.Instance.SetBossBar(bossMaxHealth, bossMaxHealth, 0);
+        UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, 0);
     }
 
     IEnumerator DoAttack()
