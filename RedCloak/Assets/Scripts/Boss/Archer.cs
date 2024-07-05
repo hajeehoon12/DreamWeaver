@@ -55,6 +55,7 @@ public class Archer : MonoBehaviour , IDamage
     {
         
         AudioManager.instance.StopBGM();
+        AudioManager.instance.PlaySFX("Nervous", 0.1f);
 
         //DOTween.To(() => bossHealth, x => bossHealth = x, bossMaxHealth, 2);
         UIBar.Instance.CallBossBar();
