@@ -335,8 +335,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b97e3b7a93285f4aaa5285ecfe9c69d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GetHit: 0
   maxHealth: 0
   currentHealth: 0
+  _animator: {fileID: 0}
+  _collider: {fileID: 0}
+  _rigidbody: {fileID: 0}
+  _behavior: {fileID: 0}
 --- !u!1 &1636403732
 GameObject:
   m_ObjectHideFlags: 1

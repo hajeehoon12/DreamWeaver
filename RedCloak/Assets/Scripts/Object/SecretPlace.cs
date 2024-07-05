@@ -1,16 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectLayer : MonoBehaviour
+public class SecretPlace : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
     private Color originColor;
-
-    void Start()
-    {
-        spriteRenderer.sortingOrder = Mathf.RoundToInt(transform.position.y) * -1;
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
