@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 
 
-public class Archer : MonoBehaviour
+public class Archer : MonoBehaviour , IDamage
 {
     private static readonly int doAttack = Animator.StringToHash("DoAttack");
     private static readonly int doSpecialAttack = Animator.StringToHash("DoSpecialAttack");

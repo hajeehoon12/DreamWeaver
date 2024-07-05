@@ -214,15 +214,15 @@ public class PlayerController : MonoBehaviour
             if (hit.collider != null)
             {
                 //Debug.Log(hit.collider.name);
-                if (hit.transform.gameObject.TryGetComponent(out Monster monster))
+                if (hit.transform.gameObject.TryGetComponent(out IDamage monster))
                 {
                     monster.GetDamage(attackRate);
                 }
 
-                if (hit.transform.gameObject.TryGetComponent(out Archer archer))
-                {
-                    archer.GetDamage(attackRate);
-                }
+                //if (hit.transform.gameObject.TryGetComponent(out Archer archer))
+                //{
+                //    archer.GetDamage(attackRate);
+                //}
 
             }
                 
