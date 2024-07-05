@@ -6,9 +6,9 @@ using UnityEngine;
 public class MonsterController : MonoBehaviour
 {
     [SerializeField] private float invincibleTime;
-    [SerializeField] private Vector2 attackRayPos;
-    [SerializeField] private float attackRange;
+    
     private WaitForSeconds invincible;
+    public IMobAttack MobAttack;
 
     private void Start()
     {
@@ -17,13 +17,13 @@ public class MonsterController : MonoBehaviour
 
     public void Attack()
     {
-        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + attackRayPos, transform.right, attackRange,
-            1 << LayerMask.NameToLayer("Player"));
-        if (hit)
+        if (MobAttack != null)
         {
-            hit.collider.GetComponent<PlayerController>().OnGetAttacked();
-            SetLayerCollisionMatrix(gameObject.layer, hit.collider.gameObject.layer, false);
-            StartCoroutine(collisionDelay());
+            if (MobAttack.Attack())
+            {
+                SetLayerCollisionMatrix(gameObject.layer, LayerMask.NameToLayer("Player"), false);
+                StartCoroutine(collisionDelay());
+            }
         }
     }
     
