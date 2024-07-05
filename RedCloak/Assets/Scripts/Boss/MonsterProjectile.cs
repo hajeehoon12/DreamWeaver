@@ -61,8 +61,17 @@ public class MonsterProjectile : MonoBehaviour
         {
             if (collision.transform.gameObject.TryGetComponent(out PlayerBattle battle))
             {
-                if(!collision.transform.gameObject.GetComponent<PlayerController>().Rolling)
-                battle.ChangeHealth(-1);
+                if (!collision.transform.gameObject.GetComponent<PlayerController>().Rolling)
+                {
+
+                    bool dir = transform.position.x - collision.gameObject.transform.position.x > 0 ? false : true;
+
+                    collision.transform.gameObject.GetComponent<PlayerController>().SetHitDir(dir);
+                    battle.ChangeHealth(-1);
+
+
+
+                }
             }
         }
 
