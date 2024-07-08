@@ -10,20 +10,19 @@ public class UIBar : MonoBehaviour
     [SerializeField] private GameObject heartParent;
     [SerializeField] private GameObject heart;
     [SerializeField] private GameObject heartFront;
-    [SerializeField] private Slider manaBar;
+    [SerializeField] private GameObject damageEffect;
+    [SerializeField] private GameObject lowHealthEffect;
     [SerializeField] private Slider bossHealthBar;
     //[SerializeField] private Slider maxHealthBar;
-    [SerializeField] private Image ManaBar;
-    [SerializeField] private GameObject damageEffect;
-    public RectTransform damageEffectRect;
-    [SerializeField] private Slider damageBar;
+    [SerializeField] private Image manaBar;
     [SerializeField] private Transform BossBarPos;
+    public RectTransform damageEffectRect;
     
     public static UIBar Instance;
 
-    //public Archer archer;
-
     private float maxBossHealthBarWidth;
+    private float playerCurrnetMana;
+    private float playerMaxMana;
 
     public List<GameObject> heartsFront = new List<GameObject>();
 
@@ -38,14 +37,16 @@ public class UIBar : MonoBehaviour
         BossBarPos.DOMoveY(-50, 0f);
         //CallBackBossBar();
         //CallBossBar();
-        // 플레이어 체력 가져와서 
 
         if (damageEffectRect == null)
             maxBossHealthBarWidth = bossHealthBar.fillRect.rect.width;
         SetPlayerHealth();
     }
-
-
+    private void Update()
+    {
+        UpdateMana();
+        ApplyDamage();
+    }
 
     public void SetBossBar(float currentHealth, float maxHealth, float Damage)
     {
@@ -61,7 +62,6 @@ public class UIBar : MonoBehaviour
 
         damageEffectRect.anchoredPosition = new Vector2(endPosition, damageEffectRect.anchoredPosition.y);
 
-        //float width = (damage / archer.bossMaxHealth) * maxBossHealthBarWidth;
         float width = damage % maxHealth;
         damageEffectRect.sizeDelta = new Vector2(width, damageEffectRect.sizeDelta.y);
         damageEffect.SetActive(true);
@@ -90,31 +90,44 @@ public class UIBar : MonoBehaviour
             heartsFront.Add(heartFront);
             //heartInstantiate.transform.SetParent(heartParent.transform);
         }
-        // 피격시 GemFront의 setactive를 false로
     }
 
     public void ApplyDamage()
     {
-        Debug.Log("heart");
+        float currntPlayerHealth = CharacterManager.Instance.Player.stats.playerHP;
+
         for (int i = heartsFront.Count - 1; i >= 0; i--)
         {
-            if (heartsFront[i].activeSelf)
-            {
-                heartsFront[i].SetActive(false);
-                break;
-            }
+            heartsFront[i].SetActive(i < currntPlayerHealth);
         }
+
+        LowHealthEffect();
     }
 
     private void LowHealthEffect()
     {
-        //플레이어 체력시스템 참고
+        if(CharacterManager.Instance.Player.stats.playerHP == 1)
+        {
+            lowHealthEffect.SetActive(true);
+        }
 
+        else
+        {
+            lowHealthEffect.SetActive(false);
+        }
+        // 화면 효과 추가
     }
 
-    private void SetMana(float currntMana, float maxMana, float useMana)
+    public void SetMana(float currntMana, float maxMana)
     {
-        manaBar.value = currntMana / maxMana;
+        manaBar.fillAmount = currntMana / maxMana;
+    }
+
+    private void UpdateMana()
+    {
+        playerCurrnetMana = CharacterManager.Instance.Player.stats.playerMP;
+        playerMaxMana = CharacterManager.Instance.Player.stats.playerMaxMP;
+        SetMana(playerCurrnetMana, playerMaxMana);
     }
 
     IEnumerator disableEffect()
