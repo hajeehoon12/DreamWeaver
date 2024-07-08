@@ -214,15 +214,15 @@ public class PlayerController : MonoBehaviour
             if (hit.collider != null)
             {
                 //Debug.Log(hit.collider.name);
-                if (hit.transform.gameObject.TryGetComponent(out Monster monster))
+                if (hit.transform.gameObject.TryGetComponent(out IDamage monster))
                 {
                     monster.GetDamage(attackRate);
                 }
 
-                if (hit.transform.gameObject.TryGetComponent(out Archer archer))
-                {
-                    archer.GetDamage(attackRate);
-                }
+                //if (hit.transform.gameObject.TryGetComponent(out Archer archer))
+                //{
+                //    archer.GetDamage(attackRate);
+                //}
 
             }
                 
@@ -511,6 +511,7 @@ public class PlayerController : MonoBehaviour
 
         if(monDir) Dir = hitDir;
         
+        
         StartCoroutine(ColorChanged());
         StartCoroutine(GetAttackedCheck());
 
@@ -520,6 +521,20 @@ public class PlayerController : MonoBehaviour
         rigid.AddForce((Vector3.up + Dir * new Vector3(-2f, 0, 0)) * rigid.mass * knockBackPower, ForceMode2D.Impulse); // Vector3.up + Dir * new Vector3(3f, 0, 0)
         //Debug.Log((Vector3.up + Dir * new Vector3(3f, 0, 0)));
     }
+
+    public void SetHitDir(bool dir)
+    {
+        StartCoroutine(TempSetHitDir(dir));    
+    }
+
+    IEnumerator TempSetHitDir(bool dir)
+    {
+        monDir = true;
+        hitDir = dir ? -1 : 1;
+        yield return new WaitForSeconds(0.2f);
+        monDir = false;
+    }
+
 
     IEnumerator GetAttackedCheck()
     {
@@ -551,10 +566,17 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collider) // Jump and wall Climb check
     {
 
-        if (collider.gameObject.CompareTag(Define.MONSTER_TAG) || collider.gameObject.layer == LayerMask.NameToLayer("Boss"))
+        if (collider.gameObject.CompareTag(Define.MONSTER_TAG) || collider.gameObject.layer == LayerMask.NameToLayer(Define.BOSS_Layer))
         {
             if (Rolling) return;
             playerBattle.ChangeHealth(-1); // get damaged
+
+            if (ghostDash.makeGhost)
+            {
+                DashOff();
+                ghostDash.makeGhost = false;
+            }
+
             monDir = true;
 
             if ((collider.transform.position.x - transform.position.x) > 0)
@@ -564,7 +586,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //collision.
-        if (collider.gameObject.layer == LayerMask.NameToLayer("Trap"))
+        if (collider.gameObject.layer == LayerMask.NameToLayer(Define.TRAP_Layer))
         {
             if (Rolling) return;
             GetAttacked();
@@ -572,7 +594,7 @@ public class PlayerController : MonoBehaviour
 
 
         //Debug.Log(collider.gameObject.tag);
-        if (collider.gameObject.CompareTag("Floor") || collider.gameObject.CompareTag("Monster") || collider.gameObject.CompareTag("Platform")) // 
+        if (collider.gameObject.CompareTag(Define.FLOOR_TAG) || collider.gameObject.CompareTag(Define.MONSTER_TAG) || collider.gameObject.CompareTag(Define.PLATFORM_TAG)) // 
         {
             //Debug.Log(boundPlayer.x);
             //Debug.Log(boundPlayer.y);

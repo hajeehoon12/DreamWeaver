@@ -106,7 +106,7 @@ public class AudioManager : MonoBehaviour
                 return;
             }
         }
-        Debug.Log(p_sfxName + " �̸��� ȿ������ �����ϴ�.");
+        
         return;
     }
 
@@ -119,7 +119,7 @@ public class AudioManager : MonoBehaviour
             {
                 for (int j = 0; j < sfxPlayer.Length; j++)
                 {
-                    // SFXPlayer���� ��� ������ ���� Audio Source�� �߰��ߴٸ� 
+                    
                     if (!sfxPlayer[j].isPlaying)
                     {
                         sfxPlayer[j].clip = sfx[i].clip;
@@ -127,11 +127,11 @@ public class AudioManager : MonoBehaviour
                         return;
                     }
                 }
-                Debug.Log("��� ����� �÷��̾ ������Դϴ�.");
+                Debug.Log("All Audio Player is Used it Needs More");
                 return;
             }
         }
-        Debug.Log(p_sfxName + " �̸��� ȿ������ �����ϴ�.");
+        Debug.Log(p_sfxName + " There is No name of SFX.");
         return;
     }
 
@@ -154,11 +154,11 @@ public class AudioManager : MonoBehaviour
                         return;
                     }
                 }
-                Debug.Log("��� ����� �÷��̾ ������Դϴ�.");
+                Debug.Log("All Audio Player is Used it Needs More");
                 return;
             }
         }
-        Debug.Log(p_sfxName + " �̸��� ȿ������ �����ϴ�.");
+        Debug.Log(p_sfxName + " There is No name of SFX.");
         return;
     }
 

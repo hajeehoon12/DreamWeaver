@@ -185,9 +185,10 @@ MonoBehaviour:
   heartFront: {fileID: 0}
   manaBar: {fileID: 0}
   bossHealthBar: {fileID: 8276824445468084590}
-  damageEffect: {fileID: 2377424932266865709}
-  damageEffectRect: {fileID: 7556232392830710048}
-  archer: {fileID: 0}
+  damageBar: {fileID: 0}
+  BossBarPos: {fileID: 316522279400013440}
+  damageEffect: {fileID: 7556232392830710048}
+  monster: {fileID: 0}
 --- !u!1 &2377424932266865709
 GameObject:
   m_ObjectHideFlags: 0

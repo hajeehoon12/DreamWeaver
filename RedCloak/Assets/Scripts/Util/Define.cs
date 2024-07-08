@@ -6,6 +6,9 @@ public class Define
 {
     public const string PLAYER_TAG = "Player";
     public const string MONSTER_TAG = "Monster";
+
+    public const string BOSS_Layer = "Boss";
+
     //public const string BULLET_TAG = "Bullet";
     //public const string ITEM_TAG = "Item";
     //public const string GROUND_Layer = "Ground";
@@ -14,6 +17,12 @@ public class Define
     //public const string BOSS_TAG = "Boss";
     public const string FLOOR_TAG = "Floor";
     public const string FLOOR_Layer = "Floor";
+
+    public const string PLATFORM_TAG = "Platform";
+
+    //public const string TRAP_Layer = "Trap";
+
+    public const string DEFAULT_Layer = "Default";
     
     public const string MainScene = "TestScene-PDH";
     public const string StartScene = "StartScene";

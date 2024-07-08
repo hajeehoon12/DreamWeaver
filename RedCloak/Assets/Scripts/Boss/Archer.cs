@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 
 
-public class Archer : MonoBehaviour
+public class Archer : MonoBehaviour , IDamage
 {
     private static readonly int doAttack = Animator.StringToHash("DoAttack");
     private static readonly int doSpecialAttack = Animator.StringToHash("DoSpecialAttack");
@@ -16,7 +16,7 @@ public class Archer : MonoBehaviour
 
     private bool isBossDie = false;
 
-    private float bossHealth = 300;
+    private float bossHealth = 0;
     public float bossMaxHealth = 300;
 
     SpriteRenderer spriteRenderer;
@@ -48,16 +48,47 @@ public class Archer : MonoBehaviour
 
     private void Start()
     {
-        bossHealth = bossMaxHealth;
-        AudioManager.instance.StopBGM();
-        AudioManager.instance.PlayBGM("SilverBird", 0.15f);
-        Discrimination();
-        SetBossBar();
+        //CallArcherBoss();
+    }
 
+    public void CallArcherBoss()
+    {
+        
+        AudioManager.instance.StopBGM();
+        AudioManager.instance.PlaySFX("Nervous", 0.1f);
+
+        //DOTween.To(() => bossHealth, x => bossHealth = x, bossMaxHealth, 2);
+        UIBar.Instance.CallBossBar();
+        StartCoroutine(ArcherBossStageStart());
+        
         isPhase1 = true;
         isPhase2 = false;
         isPhase3 = false;
     }
+
+    IEnumerator ArcherBossStageStart()
+    {
+
+        CameraManager.Instance.MakeCameraShake(transform.position, 3f, 0.05f, 0.1f);
+        yield return new WaitForSeconds(1f);
+
+        float time = 0f;
+
+        while (time < 1)
+        {
+            bossHealth += (bossMaxHealth * Time.deltaTime);
+            SetBossBar();
+            yield return new WaitForSeconds(Time.deltaTime);
+            time += Time.deltaTime;
+        }
+        animator.Play("Special Attack", 0, 0f);
+        Discrimination();
+        AudioManager.instance.PlayBGM("SilverBird", 0.15f);
+        CameraManager.Instance.ModifyCameraInfo(new Vector2(20, 5), new Vector2(142, -38));
+        spriteRenderer.flipX = false;
+    }
+
+
 
     private void Update()
     {
@@ -84,7 +115,7 @@ public class Archer : MonoBehaviour
         
         if (isPhase1)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             //Flip();
             switch (count % 2)
             {
@@ -99,7 +130,7 @@ public class Archer : MonoBehaviour
 
         if (isPhase2)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             // Flip();
             switch (count % 2)
             {
@@ -115,7 +146,7 @@ public class Archer : MonoBehaviour
         if (isPhase3)
         {
            
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.5f);
             //Flip();
             switch (count % 2)
             {
@@ -218,7 +249,7 @@ public class Archer : MonoBehaviour
 
     void SetBossBar()
     {
-        UIBar.Instance.SetBossBar(bossMaxHealth, bossMaxHealth, 0);
+        UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, 0);
     }
 
     IEnumerator DoAttack()
@@ -301,7 +332,7 @@ public class Archer : MonoBehaviour
     IEnumerator AvoidAttack()
     {
         animator.StopPlayback();
-        animator.Play("Special Attack", 0, 0.29f);
+        animator.Play("Special Attack", 0, 0.1f);
         yield return new WaitForSeconds(0.2f);
         //AppearPos();
         //
@@ -366,8 +397,8 @@ public class Archer : MonoBehaviour
 
     void CallDie()
     {
-        gameObject.layer = LayerMask.NameToLayer("Default");
-        gameObject.tag = "Platform";
+        gameObject.layer = LayerMask.NameToLayer(Define.DEFAULT_Layer);
+        gameObject.tag = Define.PLATFORM_TAG;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         //GetComponent<Rigidbody2D>().gravityScale = 0.5f;
         //Collider2D[] archers = GetComponentsInChildren<Collider2D>();
@@ -377,7 +408,7 @@ public class Archer : MonoBehaviour
         //    archers[i].enabled = false;
         //}
 
-
+        UIBar.Instance.CallBackBossBar();
         animator.SetBool(isDead, true);
         isBossDie = true;
         StartCoroutine(ArcherDie());
@@ -388,10 +419,13 @@ public class Archer : MonoBehaviour
         transform.DORotateQuaternion(Quaternion.identity, 0.3f);
         AudioManager.instance.PlaySFX("ArcherDeath", 0.5f);
         yield return new WaitForSeconds(1f);
-        AudioManager.instance.PlaySFX("Violin3", 0.05f);
+        AudioManager.instance.PlaySFX("Success", 0.05f);
         //StopAllCoroutines();
         //DOTween.KillAll();
         AudioManager.instance.StopBGM();
+
+
+        CameraManager.Instance.CallBackCameraInfo();
 
         bool isGround = false;
         while (!isGround)
@@ -409,6 +443,7 @@ public class Archer : MonoBehaviour
 
         //archerCol.isTrigger = true;
         archerCol.enabled = false;
+        
 
     }
 

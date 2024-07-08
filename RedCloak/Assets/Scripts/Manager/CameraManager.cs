@@ -20,8 +20,12 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField]
     Vector2 center;
+
+    public Vector2 tempCenter;
     
     public Vector2 mapSize;
+
+    public Vector2 tempMapSize;
 
     float screenHeight;
     float screenWidth;
@@ -34,7 +38,7 @@ public class CameraManager : MonoBehaviour
     public Vector3 originPos;
     public Quaternion originRot;
 
-
+    public bool isCameraShaking = false;
 
 
     private void Awake()
@@ -59,14 +63,11 @@ public class CameraManager : MonoBehaviour
         screenWidth = screenHeight * Screen.width / Screen.height;
 
         //mapSize = map.GetComponent<Collider2D>().bounds.extents + new Vector3(0, 2, 0);
-
-        
-
-
     }
 
     private void Update()
     {
+        if (isCameraShaking) return;
 
         transform.position = _player.position + cameraPosition;//_player.position + cameraPosition;
         //render.material.mainTextureOffset = new Vector2((_firstPos.x - _player.position.x) / 300, 0);
@@ -92,6 +93,25 @@ public class CameraManager : MonoBehaviour
         Gizmos.DrawWireCube(center, mapSize * 2);
     }
 
+    public void ModifyCameraInfo(Vector2 newMapSize, Vector2 newCenter)
+    {
+        tempMapSize = mapSize;
+        tempCenter = center;
+
+        mapSize = newMapSize;
+        center = newCenter;
+
+    }
+
+    public void CallBackCameraInfo()
+    {
+        mapSize = tempMapSize;
+        center = tempCenter;
+    }
+
+
+
+
     public void MakeCameraShake(Vector3 cameraPos, float duration, float Position, float Rotation)
     {
         StartCoroutine(Shake(cameraPos, duration, Position, Rotation));
@@ -100,7 +120,7 @@ public class CameraManager : MonoBehaviour
 
     public IEnumerator Shake(Vector3 cameraPos, float duration = 5f, float magnitudePos = 0.03f, float magnitudeRot = 0.1f)
     {
-   
+        isCameraShaking = true;
         originPos = transform.position;
         originRot = transform.rotation;
 
@@ -132,6 +152,7 @@ public class CameraManager : MonoBehaviour
         shakeCamera.localPosition = originPos;
         shakeCamera.localRotation = originRot;
 
+        isCameraShaking = false;
     }
 
 }

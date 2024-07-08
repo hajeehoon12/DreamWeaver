@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class UIBar : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class UIBar : MonoBehaviour
     [SerializeField] private Image ManaBar;
     [SerializeField] private GameObject damageEffect;
     public RectTransform damageEffectRect;
+    [SerializeField] private Slider damageBar;
+    [SerializeField] private Transform BossBarPos;
+    public RectTransform damageEffect;
     
     public static UIBar Instance;
 
@@ -28,10 +32,14 @@ public class UIBar : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
     }
     void Start()
     {
         if (damageEffectRect == null)
+        BossBarPos.DOMoveY(-50, 0f);
+        //CallBossBar();
+        if (damageEffect == null)
         {
             Debug.Log("이펙트없음");
             return;
@@ -74,6 +82,16 @@ public class UIBar : MonoBehaviour
         damageEffectRect.sizeDelta = new Vector2(width, damageEffectRect.sizeDelta.y);
         damageEffect.SetActive(true);
         StartCoroutine(disableEffect());
+    }
+
+    public void CallBossBar()
+    {
+        BossBarPos.DOMoveY(50, 1f);
+    }
+
+    public void CallBackBossBar()
+    {
+        BossBarPos.DOMoveY(-50, 1f);
     }
 
     private void SetPlayerHealth()
