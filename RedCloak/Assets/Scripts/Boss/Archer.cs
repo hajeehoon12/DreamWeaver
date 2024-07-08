@@ -25,6 +25,8 @@ public class Archer : MonoBehaviour , IDamage
     public LayerMask ObstacleLayerMask;
     public LayerMask FloorLayerMask;
 
+    public Collider2D BossZoneWall;
+
     Vector2[] appearPos = { new Vector2(15, 0), new Vector2(-15, 0), new Vector2(14, 2), new Vector2(13, 4), new Vector2(12, 6), new Vector2(-12, 6), new Vector2(-13, 4), new Vector2(-14, 2),new Vector2(-14, -2), new Vector2(14, -2) };
 
     public bool isPhase1 = true;
@@ -53,7 +55,7 @@ public class Archer : MonoBehaviour , IDamage
 
     public void CallArcherBoss()
     {
-        
+        BossZoneWall.enabled = true;   
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlaySFX("Nervous", 0.1f);
 
@@ -440,7 +442,7 @@ public class Archer : MonoBehaviour , IDamage
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         //Debug.Log("enabled");
-
+        BossZoneWall.enabled = false;
         //archerCol.isTrigger = true;
         archerCol.enabled = false;
         
