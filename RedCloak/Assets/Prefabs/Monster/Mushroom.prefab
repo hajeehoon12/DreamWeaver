@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 496139213113542282}
   - component: {fileID: 5120574971657637704}
   - component: {fileID: 1442947496838072070}
-  - component: {fileID: 5357989453053354889}
   - component: {fileID: 3215954223387460982}
   - component: {fileID: 6602119143200609328}
   - component: {fileID: 3542864294503575016}
   - component: {fileID: 4175634004089284804}
   - component: {fileID: 2669598754552298823}
+  - component: {fileID: 838369592587668458}
   m_Layer: 7
   m_Name: Mushroom
   m_TagString: Untagged
@@ -112,51 +112,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &5357989453053354889
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 996369902222499704}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.3, y: 0.33}
-    newSize: {x: 0.3, y: 0.34}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.34}
-  m_EdgeRadius: 0
 --- !u!50 &3215954223387460982
 Rigidbody2D:
   serializedVersion: 4
@@ -169,7 +124,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 3.6720002
+  m_Mass: 2.0669737
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -223,8 +178,8 @@ MonoBehaviour:
         Attack Range","Instant":true,"SharedVector2AttackRayPos":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"AttackRayPosition","IsShared":true,"Vector2mValue":"(0,0.5)"},"SharedFloatAttackDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"AttackDistance","IsShared":true,"SinglemValue":1.5}},{"Type":"BehaviorDesigner.Runtime.Tasks.Parallel","NodeData":{"Offset":"(-34.10376,121.040405)"},"ID":20,"Name":"Parallel","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetBoolParameter","NodeData":{"Offset":"(-70.0001144,121.63279)"},"ID":21,"Name":"Set
         Bool Parameter","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null,"GameObjectmValue":3},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"Run"},"SharedBoolboolValue":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"BooleansetOnce":false},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetTrigger","NodeData":{"Offset":"(59.5916328,121.428665)"},"ID":22,"Name":"Set
         Trigger","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null,"GameObjectmValue":4},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"Attack"}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(88.344635,117.979553)"},"ID":23,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":2},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Parallel","NodeData":{"Offset":"(176.506348,98.2196045)"},"ID":24,"Name":"Parallel","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Patrol","NodeData":{"Offset":"(-50,130)"},"ID":25,"Name":"Patrol","Instant":true,"SharedFloatSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":7},"SharedBoolKnockBack":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false}},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetBoolParameter","NodeData":{"Offset":"(80,130)"},"ID":26,"Name":"Set
-        Bool Parameter","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null,"GameObjectmValue":5},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"Run"},"SharedBoolboolValue":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"BooleansetOnce":false}]}]}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Parallel","NodeData":{"Offset":"(272.040833,140)"},"ID":27,"Name":"Parallel","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Patrol","NodeData":{"Offset":"(-130.5,131)"},"ID":28,"Name":"Patrol","Instant":true,"SharedFloatSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":5},"SharedBoolKnockBack":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"GetHit","IsShared":true,"BooleanmValue":true}},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-12,130.163223)"},"ID":29,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.CheckWallCliff","NodeData":{"Offset":"(-83,107)"},"ID":30,"Name":"Check
-        Wall Cliff","Instant":true,"SharedVector2WallRayPos":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":null,"Vector2mValue":"(0,0)"}},{"Type":"Flip","NodeData":{"Offset":"(63,111)"},"ID":31,"Name":"Flip","Instant":true}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetBoolParameter","NodeData":{"Offset":"(134.5,130)"},"ID":32,"Name":"Set
+        Bool Parameter","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null,"GameObjectmValue":5},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"Run"},"SharedBoolboolValue":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"BooleansetOnce":false}]}]}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Parallel","NodeData":{"Offset":"(272.040833,140)"},"ID":27,"Name":"Parallel","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Patrol","NodeData":{"Offset":"(-130.5,131)"},"ID":28,"Name":"Patrol","Instant":true,"SharedFloatSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":5},"SharedBoolKnockBack":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"GetHit","IsShared":true,"BooleanmValue":true}},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-12,130.163223)"},"ID":29,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.CheckWallCliff","NodeData":{"Offset":"(2.10638237,107)"},"ID":30,"Name":"Check
+        Wall Cliff","Instant":true,"SharedVector2WallRayPos":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":null,"Vector2mValue":"(0,0)"}},{"Type":"Flip","NodeData":{"Offset":"(148.106369,111)"},"ID":31,"Name":"Flip","Instant":true}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetBoolParameter","NodeData":{"Offset":"(134.5,130)"},"ID":32,"Name":"Set
         Bool Parameter","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null,"GameObjectmValue":6},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"Run"},"SharedBoolboolValue":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"BooleansetOnce":false}]}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Player","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"AttackRayPosition","IsShared":true,"Vector2mValue":"(0,0.5)"},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"AttackDistance","IsShared":true,"SinglemValue":1.5},{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"DetectionRange","IsShared":true,"Vector2mValue":"(0,1)"},{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"DetectionSize","IsShared":true,"Vector2mValue":"(10,2)"},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"GetHit","IsShared":true,"BooleanmValue":true},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"KnockbackPower","IsShared":true,"SinglemValue":5}]}'
       fieldSerializationData:
         typeName: []
@@ -272,8 +227,10 @@ MonoBehaviour:
   GetHit: 0
   maxHealth: 30
   currentHealth: 0
+  light1Prefab: {fileID: 9131188216839003653, guid: 95e4150ec3bfcdf47b91bb60ecfe6518, type: 3}
+  light2Prefab: {fileID: 2643489189189102077, guid: 0ee74d7f447da28429c27628eef9b9ca, type: 3}
   _animator: {fileID: 1442947496838072070}
-  _collider: {fileID: 5357989453053354889}
+  _collider: {fileID: 838369592587668458}
   _rigidbody: {fileID: 3215954223387460982}
   _behavior: {fileID: 6602119143200609328}
 --- !u!114 &2669598754552298823
@@ -291,3 +248,38 @@ MonoBehaviour:
   _controller: {fileID: 3542864294503575016}
   attackRayPos: {x: 0, y: 0.5}
   attackRange: 1.5
+--- !u!70 &838369592587668458
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996369902222499704}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.2, y: 0.33}
+  m_Direction: 0
