@@ -47,6 +47,7 @@ public class UIBar : MonoBehaviour
     {
         UpdateMana();
         SetMana(playerCurrnetMana, playerMaxMana);
+        UpdateHealth();
 
 
         //매개변수로 대미지 전달
@@ -87,6 +88,7 @@ public class UIBar : MonoBehaviour
     private void SetPlayerHealth()
     {
         int healthCount = CharacterManager.Instance.Player.stats.playerMaxHP;
+
         GameObject heartInstantiate;
         for(int i = 0; i < healthCount; i++)
         {
@@ -98,15 +100,13 @@ public class UIBar : MonoBehaviour
         // 피격시 GemFront의 setactive를 false로
     }
 
-    public void ApplyDamage()
+    public void UpdateHealth()
     {
+        int playerCurrentHealth = CharacterManager.Instance.Player.stats.playerHP;
+
         for (int i = heartsFront.Count - 1; i >= 0; i--)
         {
-            if (heartsFront[i].activeSelf)
-            {
-                heartsFront[i].SetActive(false);
-                break;
-            }
+            heartsFront[i].SetActive(i < playerCurrentHealth);
         }
     }
 
