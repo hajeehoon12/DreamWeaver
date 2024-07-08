@@ -566,7 +566,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collider) // Jump and wall Climb check
     {
 
-        if (collider.gameObject.CompareTag(Define.MONSTER_TAG) || collider.gameObject.layer == LayerMask.NameToLayer("Boss"))
+        if (collider.gameObject.CompareTag(Define.MONSTER_TAG) || collider.gameObject.layer == LayerMask.NameToLayer(Define.BOSS_Layer))
         {
             if (Rolling) return;
             playerBattle.ChangeHealth(-1); // get damaged
@@ -586,7 +586,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //collision.
-        if (collider.gameObject.layer == LayerMask.NameToLayer("Trap"))
+        if (collider.gameObject.layer == LayerMask.NameToLayer(Define.TRAP_Layer))
         {
             if (Rolling) return;
             GetAttacked();
@@ -594,7 +594,7 @@ public class PlayerController : MonoBehaviour
 
 
         //Debug.Log(collider.gameObject.tag);
-        if (collider.gameObject.CompareTag("Floor") || collider.gameObject.CompareTag("Monster") || collider.gameObject.CompareTag("Platform")) // 
+        if (collider.gameObject.CompareTag(Define.FLOOR_TAG) || collider.gameObject.CompareTag(Define.MONSTER_TAG) || collider.gameObject.CompareTag(Define.PLATFORM_TAG)) // 
         {
             //Debug.Log(boundPlayer.x);
             //Debug.Log(boundPlayer.y);
