@@ -221,22 +221,22 @@ public class Archer : MonoBehaviour , IDamage
 
             RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, archerCol.bounds.extents.y), new Vector2(0, -1), 10f, FloorLayerMask);
 
-            transform.position = new Vector3(targetPos.x, hit.point.y+1);
+            transform.position = new Vector3(targetPos.x, hit.point.y);
             //Debug.Log(transform.position);
             //Debug.Log(isPhase1);
         }
         else
         {
             transform.position = targetPos;
-            if (transform.position.y < -45f)
+            if (transform.position.y < -49f)
             {
-                transform.position = new Vector3(transform.position.x, -45f);
+                transform.position = new Vector3(transform.position.x, -49f);
             }
         }
 
         if (tempCount == 100)
         {
-            transform.position = new Vector2(Mathf.Clamp(transform.position.x, 115f, 168f), Mathf.Clamp(transform.position.y,-48f, -35f));
+            transform.position = new Vector2(Mathf.Clamp(transform.position.x, 115f, 168f), Mathf.Clamp(transform.position.y,-49f, -35f));
         }
 
         Flip();

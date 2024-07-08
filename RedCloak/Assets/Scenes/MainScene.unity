@@ -1091,7 +1091,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 251551525854544007, guid: b6486a15360015f4e82dfee031d2d27b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.4
+      value: 13.11
       objectReference: {fileID: 0}
     - target: {fileID: 954591885953473655, guid: b6486a15360015f4e82dfee031d2d27b, type: 3}
       propertyPath: m_Name
@@ -1208,6 +1208,10 @@ PrefabInstance:
     - target: {fileID: 8713936297533919727, guid: b6486a15360015f4e82dfee031d2d27b, type: 3}
       propertyPath: m_Creator
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021390208248180930, guid: b6486a15360015f4e82dfee031d2d27b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 17.35
       objectReference: {fileID: 0}
     - target: {fileID: 9093191044181365461, guid: b6486a15360015f4e82dfee031d2d27b, type: 3}
       propertyPath: m_Creator
@@ -16231,6 +16235,26 @@ PrefabInstance:
       propertyPath: BossZoneWall
       value: 
       objectReference: {fileID: 1567447249}
+    - target: {fileID: 6650833377409032575, guid: 2471b3579b61d644abf3739653e92f6a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.81209415
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650833377409032575, guid: 2471b3579b61d644abf3739653e92f6a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.58352655
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650833377409032575, guid: 2471b3579b61d644abf3739653e92f6a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 5.8207647e-11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650833377409032575, guid: 2471b3579b61d644abf3739653e92f6a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -1.16415294e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650833377409032575, guid: 2471b3579b61d644abf3739653e92f6a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 71.398
+      objectReference: {fileID: 0}
     - target: {fileID: 8353841846385766618, guid: 2471b3579b61d644abf3739653e92f6a, type: 3}
       propertyPath: m_Name
       value: archer
