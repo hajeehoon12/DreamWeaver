@@ -21,7 +21,7 @@ public class UIBar : MonoBehaviour
     
     public static UIBar Instance;
 
-    public Archer archer;
+    //public Archer archer;
 
     private float maxBossHealthBarWidth;
 
@@ -45,27 +45,16 @@ public class UIBar : MonoBehaviour
         SetPlayerHealth();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // 플레이어 마나 시스템 추가 후 반영
 
-        //매개변수로 대미지 전달
-        //BossSetDamageEffect(5f);
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-            
-        }
-    }
 
     public void SetBossBar(float currentHealth, float maxHealth, float Damage)
     {
         bossHealthBar.value = currentHealth / maxHealth;
-        BossSetDamageEffect(Damage);
+        BossSetDamageEffect(currentHealth, maxHealth, Damage);
     }
 
 
-    private void BossSetDamageEffect(float damage)
+    private void BossSetDamageEffect(float currentHealth, float maxHealth, float damage)
     {
         float fillWidth = bossHealthBar.fillRect.rect.width;
         float endPosition = (bossHealthBar.fillRect.anchoredPosition.x + fillWidth - 10f);
@@ -73,7 +62,7 @@ public class UIBar : MonoBehaviour
         damageEffectRect.anchoredPosition = new Vector2(endPosition, damageEffectRect.anchoredPosition.y);
 
         //float width = (damage / archer.bossMaxHealth) * maxBossHealthBarWidth;
-        float width = damage % archer.bossMaxHealth;
+        float width = damage % maxHealth;
         damageEffectRect.sizeDelta = new Vector2(width, damageEffectRect.sizeDelta.y);
         damageEffect.SetActive(true);
         StartCoroutine(disableEffect());
