@@ -10,22 +10,21 @@ public class UIBar : MonoBehaviour
     [SerializeField] private GameObject heartParent;
     [SerializeField] private GameObject heart;
     [SerializeField] private GameObject heartFront;
-    [SerializeField] private Slider manaBar;
     [SerializeField] private Slider bossHealthBar;
     //[SerializeField] private Slider maxHealthBar;
-    [SerializeField] private Image ManaBar;
+    [SerializeField] private Image manaBar;
     [SerializeField] private GameObject damageEffect;
     public RectTransform damageEffectRect;
     [SerializeField] private Slider damageBar;
     [SerializeField] private Transform BossBarPos;
     
     public static UIBar Instance;
-
     public Archer archer;
+    public List<GameObject> heartsFront = new List<GameObject>();
 
     private float maxBossHealthBarWidth;
-
-    public List<GameObject> heartsFront = new List<GameObject>();
+    private float playerMaxMana;
+    private float playerCurrnetMana;
 
     // Start is called before the first frame update
     private void Awake()
@@ -38,23 +37,20 @@ public class UIBar : MonoBehaviour
         if (damageEffectRect == null)
         BossBarPos.DOMoveY(-50, 0f);
         //CallBossBar();
-        // 플레이어 체력 가져와서 
-
         maxBossHealthBarWidth = bossHealthBar.fillRect.rect.width;
+        
         SetPlayerHealth();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // 플레이어 마나 시스템 추가 후 반영
+        UpdateMana();
+        SetMana(playerCurrnetMana, playerMaxMana);
+
 
         //매개변수로 대미지 전달
         //BossSetDamageEffect(5f);
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-            ApplyDamage();
-        }
     }
 
     public void SetBossBar(float currentHealth, float maxHealth, float Damage)
@@ -90,8 +86,7 @@ public class UIBar : MonoBehaviour
 
     private void SetPlayerHealth()
     {
-        //int healthCount = (int)CharacterManager.Instance.Player.stats.playerMaxHP;
-        int healthCount = 4;
+        int healthCount = CharacterManager.Instance.Player.stats.playerMaxHP;
         GameObject heartInstantiate;
         for(int i = 0; i < healthCount; i++)
         {
@@ -105,7 +100,6 @@ public class UIBar : MonoBehaviour
 
     public void ApplyDamage()
     {
-        Debug.Log("heart");
         for (int i = heartsFront.Count - 1; i >= 0; i--)
         {
             if (heartsFront[i].activeSelf)
@@ -122,9 +116,17 @@ public class UIBar : MonoBehaviour
 
     }
 
-    private void SetMana(float currntMana, float maxMana, float useMana)
+    private void UpdateMana()
     {
-        manaBar.value = currntMana / maxMana;
+        playerMaxMana = CharacterManager.Instance.Player.stats.playerMaxMP;
+        playerCurrnetMana = CharacterManager.Instance.Player.stats.playerMP;
+    }
+
+    private void SetMana(float currntMana, float maxMana)
+    {
+        float manaRate = currntMana / maxMana;
+        
+        manaBar.fillAmount = manaRate;
     }
 
     IEnumerator disableEffect()

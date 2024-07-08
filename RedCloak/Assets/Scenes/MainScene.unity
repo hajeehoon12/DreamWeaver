@@ -212,6 +212,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 184775861190978615, guid: d04b95d1e6b0c4c43abae292c25a1384, type: 3}
   m_PrefabInstance: {fileID: 8460457417911603502}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &327040743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5262891585752537189, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
+  m_PrefabInstance: {fileID: 861715472}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &390470170
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +538,10 @@ PrefabInstance:
       propertyPath: archer
       value: 
       objectReference: {fileID: 2005701607047402863}
+    - target: {fileID: 6536432000983452440, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
+      propertyPath: manaBar
+      value: 
+      objectReference: {fileID: 327040743}
     - target: {fileID: 6618538432346702134, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

@@ -45,7 +45,7 @@ public class PlayerBattle : MonoBehaviour
         }
     }
 
-    public bool ChangeHealth(float change)
+    public bool ChangeHealth(int change)
     {
         if (timeSinceLastChange < healthChangeDelay) // if not attacked
         {
