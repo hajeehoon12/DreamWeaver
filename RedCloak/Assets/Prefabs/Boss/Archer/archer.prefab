@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846220261079709690}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6427876, y: 0, z: 0, w: 0.7660445}
+  m_LocalRotation: {x: 0.58352655, y: 5.8207647e-11, z: -1.16415294e-10, w: 0.81209415}
   m_LocalPosition: {x: -0, y: 0.007, z: -0.001}
   m_LocalScale: {x: 0.24596, y: 0.24596, z: 0.24596}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2668697359467555121}
-  m_LocalEulerAnglesHint: {x: 80, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 71.398, y: 0, z: 0}
 --- !u!212 &6919492889776294594
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -415,6 +415,7 @@ MonoBehaviour:
   FloorLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  BossZoneWall: {fileID: 0}
   isPhase1: 0
   isPhase2: 0
   isPhase3: 1

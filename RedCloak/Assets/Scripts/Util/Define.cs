@@ -18,6 +18,8 @@ public class Define
     public const string FLOOR_TAG = "Floor";
     public const string FLOOR_Layer = "Floor";
 
+    public const string WALL_Layer = "Wall";
+
     public const string PLATFORM_TAG = "Platform";
 
     //public const string TRAP_Layer = "Trap";

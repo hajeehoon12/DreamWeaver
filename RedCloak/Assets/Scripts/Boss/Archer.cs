@@ -25,6 +25,8 @@ public class Archer : MonoBehaviour , IDamage
     public LayerMask ObstacleLayerMask;
     public LayerMask FloorLayerMask;
 
+    public Collider2D BossZoneWall;
+
     Vector2[] appearPos = { new Vector2(15, 0), new Vector2(-15, 0), new Vector2(14, 2), new Vector2(13, 4), new Vector2(12, 6), new Vector2(-12, 6), new Vector2(-13, 4), new Vector2(-14, 2),new Vector2(-14, -2), new Vector2(14, -2) };
 
     public bool isPhase1 = true;
@@ -53,7 +55,7 @@ public class Archer : MonoBehaviour , IDamage
 
     public void CallArcherBoss()
     {
-        
+        BossZoneWall.enabled = true;   
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlaySFX("Nervous", 0.1f);
 
@@ -219,22 +221,22 @@ public class Archer : MonoBehaviour , IDamage
 
             RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, archerCol.bounds.extents.y), new Vector2(0, -1), 10f, FloorLayerMask);
 
-            transform.position = new Vector3(targetPos.x, hit.point.y+1);
+            transform.position = new Vector3(targetPos.x, hit.point.y);
             //Debug.Log(transform.position);
             //Debug.Log(isPhase1);
         }
         else
         {
             transform.position = targetPos;
-            if (transform.position.y < -45f)
+            if (transform.position.y < -49f)
             {
-                transform.position = new Vector3(transform.position.x, -45f);
+                transform.position = new Vector3(transform.position.x, -49f);
             }
         }
 
         if (tempCount == 100)
         {
-            transform.position = new Vector2(Mathf.Clamp(transform.position.x, 115f, 168f), Mathf.Clamp(transform.position.y,-45f, -35f));
+            transform.position = new Vector2(Mathf.Clamp(transform.position.x, 115f, 168f), Mathf.Clamp(transform.position.y,-49f, -35f));
         }
 
         Flip();
@@ -440,7 +442,7 @@ public class Archer : MonoBehaviour , IDamage
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         //Debug.Log("enabled");
-
+        BossZoneWall.enabled = false;
         //archerCol.isTrigger = true;
         archerCol.enabled = false;
         
