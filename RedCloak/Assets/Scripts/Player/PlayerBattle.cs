@@ -20,6 +20,8 @@ public class PlayerBattle : MonoBehaviour
     public event Action OnDeath;
     public event Action OnInvincibilityEnd;
 
+    public bool onInvincible = false;
+
 
     public float MaxHealth => CharacterManager.Instance.Player.stats.playerMaxHP;
 
@@ -33,6 +35,12 @@ public class PlayerBattle : MonoBehaviour
                 OnInvincibilityEnd?.Invoke();
                 //isAttacked = false;
 
+                onInvincible = true;
+
+            }
+            else
+            {
+                onInvincible = false;
             }
         }
     }

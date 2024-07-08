@@ -38,7 +38,7 @@ public class CameraManager : MonoBehaviour
     public Vector3 originPos;
     public Quaternion originRot;
 
-
+    public bool isCameraShaking = false;
 
 
     private void Awake()
@@ -67,6 +67,8 @@ public class CameraManager : MonoBehaviour
 
     private void Update()
     {
+        if (isCameraShaking) return;
+
         transform.position = _player.position + cameraPosition;//_player.position + cameraPosition;
         //render.material.mainTextureOffset = new Vector2((_firstPos.x - _player.position.x) / 300, 0);
 
@@ -118,7 +120,7 @@ public class CameraManager : MonoBehaviour
 
     public IEnumerator Shake(Vector3 cameraPos, float duration = 5f, float magnitudePos = 0.03f, float magnitudeRot = 0.1f)
     {
-   
+        isCameraShaking = true;
         originPos = transform.position;
         originRot = transform.rotation;
 
@@ -150,6 +152,7 @@ public class CameraManager : MonoBehaviour
         shakeCamera.localPosition = originPos;
         shakeCamera.localRotation = originRot;
 
+        isCameraShaking = false;
     }
 
 }
