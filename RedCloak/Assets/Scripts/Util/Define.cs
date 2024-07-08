@@ -14,6 +14,10 @@ public class Define
     //public const string BOSS_TAG = "Boss";
     public const string FLOOR_TAG = "Floor";
     public const string FLOOR_Layer = "Floor";
+
+    public const string PLATFORM_TAG = "Platform";
+
+    public const string DEFAULT_Layer = "Default";
     
     public const string MainScene = "TestScene-PDH";
     public const string StartScene = "StartScene";
