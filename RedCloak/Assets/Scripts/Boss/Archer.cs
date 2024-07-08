@@ -115,7 +115,7 @@ public class Archer : MonoBehaviour , IDamage
         
         if (isPhase1)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             //Flip();
             switch (count % 2)
             {
@@ -130,7 +130,7 @@ public class Archer : MonoBehaviour , IDamage
 
         if (isPhase2)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             // Flip();
             switch (count % 2)
             {
@@ -146,7 +146,7 @@ public class Archer : MonoBehaviour , IDamage
         if (isPhase3)
         {
            
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.5f);
             //Flip();
             switch (count % 2)
             {
