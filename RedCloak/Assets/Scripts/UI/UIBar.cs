@@ -18,7 +18,6 @@ public class UIBar : MonoBehaviour
     public RectTransform damageEffectRect;
     [SerializeField] private Slider damageBar;
     [SerializeField] private Transform BossBarPos;
-    public RectTransform damageEffect;
     
     public static UIBar Instance;
 
@@ -39,11 +38,6 @@ public class UIBar : MonoBehaviour
         if (damageEffectRect == null)
         BossBarPos.DOMoveY(-50, 0f);
         //CallBossBar();
-        if (damageEffect == null)
-        {
-            Debug.Log("이펙트없음");
-            return;
-        }
         // 플레이어 체력 가져와서 
 
         maxBossHealthBarWidth = bossHealthBar.fillRect.rect.width;
