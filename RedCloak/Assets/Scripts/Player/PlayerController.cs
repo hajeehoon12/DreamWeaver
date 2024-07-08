@@ -594,7 +594,7 @@ public class PlayerController : MonoBehaviour
 
 
         //Debug.Log(collider.gameObject.tag);
-        if (collider.gameObject.CompareTag(Define.FLOOR_TAG) || collider.gameObject.CompareTag(Define.MONSTER_TAG) || collider.gameObject.CompareTag(Define.PLATFORM_TAG)) // 
+        if (collider.gameObject.CompareTag(Define.FLOOR_TAG) || collider.gameObject.CompareTag(Define.MONSTER_TAG) || collider.gameObject.CompareTag(Define.PLATFORM_TAG) || collider.gameObject.layer == LayerMask.NameToLayer(Define.WALL_Layer)) // 
         {
             //Debug.Log(boundPlayer.x);
             //Debug.Log(boundPlayer.y);
