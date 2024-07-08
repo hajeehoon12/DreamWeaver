@@ -14,7 +14,7 @@ public class Archer : MonoBehaviour , IDamage
     private Animator animator;
     private float count = 0;
 
-    private bool isBossDie = false;
+    public bool isBossDie = false;
 
     private float bossHealth = 0;
     public float bossMaxHealth = 300;
@@ -400,8 +400,8 @@ public class Archer : MonoBehaviour , IDamage
 
     void CallDie()
     {
-        gameObject.layer = LayerMask.NameToLayer(Define.DEFAULT_Layer);
-        gameObject.tag = Define.PLATFORM_TAG;
+        gameObject.layer = LayerMask.NameToLayer(Define.DEFAULT);
+        gameObject.tag = Define.PLATFORM;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         //GetComponent<Rigidbody2D>().gravityScale = 0.5f;
         //Collider2D[] archers = GetComponentsInChildren<Collider2D>();

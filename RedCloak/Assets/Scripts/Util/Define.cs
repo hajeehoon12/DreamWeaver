@@ -4,28 +4,22 @@ using UnityEngine;
 
 public class Define
 {
-    public const string PLAYER_TAG = "Player";
-    public const string MONSTER_TAG = "Monster";
+    public const string PLAYER = "Player";
+    public const string MONSTER = "Monster";
+    public const string BOSS = "Boss";
+    public const string ENEMY = "Enemy";
 
-    public const string BOSS_Layer = "Boss";
 
-    //public const string BULLET_TAG = "Bullet";
-    //public const string ITEM_TAG = "Item";
-    //public const string GROUND_Layer = "Ground";
-    public const string TRAP_Layer = "Trap";
-    public const string OBJECT_Layer = "Object";
-    //public const string BOSS_TAG = "Boss";
-    public const string FLOOR_TAG = "Floor";
-    public const string FLOOR_Layer = "Floor";
+    public const string TRAP = "Trap";
+    public const string OBJECT = "Object";
+    public const string FLOOR = "Floor";
+    public const string WALL = "Wall";
+    public const string PLATFORM = "Platform";
 
-    public const string WALL_Layer = "Wall";
+    public const string PROJECTILE = "Projectile";
 
-    public const string PLATFORM_TAG = "Platform";
-
-    //public const string TRAP_Layer = "Trap";
-
-    public const string DEFAULT_Layer = "Default";
+    public const string DEFAULT = "Default";
     
-    public const string MainScene = "TestScene-PDH";
-    public const string StartScene = "StartScene";
+    //public const string MainScene = "TestScene-PDH";
+    //public const string StartScene = "StartScene";
 }

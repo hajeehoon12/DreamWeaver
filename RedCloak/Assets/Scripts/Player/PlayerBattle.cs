@@ -16,6 +16,7 @@ public class PlayerBattle : MonoBehaviour
 
 
     public event Action OnDamage;
+    public event Action<Vector3> OnDamagePos;
     public event Action OnHeal;
     public event Action OnDeath;
     public event Action OnInvincibilityEnd;
@@ -60,6 +61,7 @@ public class PlayerBattle : MonoBehaviour
         if (CharacterManager.Instance.Player.stats.playerHP <= 0f)
         {
             timeSinceLastChange = 0f;
+            OnDamage?.Invoke();
             Debug.Log("Player Dead");
             CallDeath();
             return true;
@@ -80,6 +82,44 @@ public class PlayerBattle : MonoBehaviour
 
         return true;
     }
+
+    public bool ChangeHealth(float change, Vector3 position)
+    {
+        if (timeSinceLastChange < healthChangeDelay) // if not attacked
+        {
+            return false;
+        }
+
+        CharacterManager.Instance.Player.stats.playerHP += change; // health change value
+        CharacterManager.Instance.Player.stats.playerHP = Mathf.Clamp(CharacterManager.Instance.Player.stats.playerHP, 0, CharacterManager.Instance.Player.stats.playerMaxHP); // restrict health range for 0<= health <= maxHealth
+
+        Debug.Log("Player Health : " + change);
+
+        if (CharacterManager.Instance.Player.stats.playerHP <= 0f)
+        {
+            OnDamagePos?.Invoke(position);
+            timeSinceLastChange = 0f;
+            Debug.Log("Player Dead");
+            CallDeath();
+            return true;
+        }
+        if (change >= 0) // when change is positive = Healing character
+        {
+            OnHeal?.Invoke();
+        }
+        else // When Damage to Player
+        {
+            //Debug.Log("Damage Motion called");
+            OnDamagePos?.Invoke(position);
+            timeSinceLastChange = 0f;
+
+
+            // Get Damaged Sound
+        }
+
+        return true;
+    }
+
 
     private void CallDeath()
     {

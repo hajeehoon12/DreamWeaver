@@ -20,7 +20,7 @@ public class BushAttack : MonoBehaviour, IMobAttack
         
         if (hit)
         {
-            hit.collider.GetComponent<PlayerController>().OnGetAttacked();
+            hit.collider.GetComponent<PlayerBattle>().ChangeHealth(-1, transform.position);
         }
 
         return hit;

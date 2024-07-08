@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3071440591042348962}
   m_Layer: 20
   m_Name: GreenSlash
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4850,6 +4850,7 @@ MonoBehaviour:
   flash: {fileID: 1889697189104820, guid: 918bed4b1a6905d4aaa25af94c2caa31, type: 3}
   Detached:
   - {fileID: 1712508192486480}
+  projectileDuration: 1.5
 --- !u!199 &199133798922647740
 ParticleSystemRenderer:
   serializedVersion: 6
