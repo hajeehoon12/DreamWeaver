@@ -13,6 +13,8 @@ public class PlayerProjectile : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject[] Detached;
 
+    public float projectileDuration;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,7 +36,7 @@ public class PlayerProjectile : MonoBehaviour
                 Destroy(flashInstance, flashPsParts.main.duration);
             }
         }
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, projectileDuration);
     }
 
     void FixedUpdate()
@@ -75,7 +77,7 @@ public class PlayerProjectile : MonoBehaviour
 
             if (hit.CompareTag(Define.PROJECTILE))
             {
-                AudioManager.instance.PlayPitchSFX("Parrying", 0.15f);
+                AudioManager.instance.PlayPitchSFX("Parrying", 0.25f);
             }
 
             var hitInstance = Instantiate(hit, pos, rot);
