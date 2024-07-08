@@ -12,6 +12,7 @@ public class UIBar : MonoBehaviour
     [SerializeField] private Slider manaBar;
     [SerializeField] private Slider bossHealthBar;
     //[SerializeField] private Slider maxHealthBar;
+    [SerializeField] private Image ManaBar;
     [SerializeField] private GameObject damageEffect;
     public RectTransform damageEffectRect;
     
@@ -20,6 +21,8 @@ public class UIBar : MonoBehaviour
     public Archer archer;
 
     private float maxBossHealthBarWidth;
+
+    public List<GameObject> heartsFront = new List<GameObject>();
 
     // Start is called before the first frame update
     private void Awake()
@@ -42,13 +45,14 @@ public class UIBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 체력 시스템 추가 후 반영
-        //bossHealthBar.value = monster.currentHealth / monster.maxHealth;
-        
         // 플레이어 마나 시스템 추가 후 반영
 
         //매개변수로 대미지 전달
         //BossSetDamageEffect(5f);
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            ApplyDamage();
+        }
     }
 
     public void SetBossBar(float currentHealth, float maxHealth, float Damage)
@@ -79,16 +83,36 @@ public class UIBar : MonoBehaviour
         GameObject heartInstantiate;
         for(int i = 0; i < healthCount; i++)
         {
-            heartInstantiate = Instantiate(heart);
-            heartInstantiate.transform.SetParent(heartParent.transform);
+            heartInstantiate = Instantiate(heart, heartParent.transform);
+            heartFront = heartInstantiate.transform.Find("GemFront").gameObject;
+            heartsFront.Add(heartFront);
+            //heartInstantiate.transform.SetParent(heartParent.transform);
         }
         // 피격시 GemFront의 setactive를 false로
+    }
+
+    public void ApplyDamage()
+    {
+        Debug.Log("heart");
+        for (int i = heartsFront.Count - 1; i >= 0; i--)
+        {
+            if (heartsFront[i].activeSelf)
+            {
+                heartsFront[i].SetActive(false);
+                break;
+            }
+        }
     }
 
     private void LowHealthEffect()
     {
         //플레이어 체력시스템 참고
 
+    }
+
+    private void SetMana(float currntMana, float maxMana, float useMana)
+    {
+        manaBar.value = currntMana / maxMana;
     }
 
     IEnumerator disableEffect()
