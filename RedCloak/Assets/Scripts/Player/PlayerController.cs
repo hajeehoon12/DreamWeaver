@@ -514,8 +514,8 @@ public class PlayerController : MonoBehaviour
         
         StartCoroutine(ColorChanged());
         StartCoroutine(GetAttackedCheck());
+        UIBar.Instance.ApplyDamage();
 
-        
         rigid.velocity = Vector3.zero;
         transform.position += new Vector3(0, 0.3f, 0);
         rigid.AddForce((Vector3.up + Dir * new Vector3(-2f, 0, 0)) * rigid.mass * knockBackPower, ForceMode2D.Impulse); // Vector3.up + Dir * new Vector3(3f, 0, 0)

@@ -558,9 +558,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &832168363 stripped
+--- !u!224 &775915543 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8445244792488918218, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
+  m_CorrespondingSourceObject: {fileID: 316522279400013440, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
   m_PrefabInstance: {fileID: 861715472}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &846446703
@@ -609,7 +609,7 @@ PrefabInstance:
     - target: {fileID: 6536432000983452440, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
       propertyPath: BossBarPos
       value: 
-      objectReference: {fileID: 832168363}
+      objectReference: {fileID: 775915543}
     - target: {fileID: 6536432000983452440, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
       propertyPath: heartFront
       value: 
