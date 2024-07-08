@@ -99,6 +99,7 @@ public class PlayerController : MonoBehaviour
         canDoubleJump = true;
 
         playerBattle.OnDamage += GetAttacked;
+        playerBattle.OnDamagePos += GetAttacked;
     }
 
     private void FixedUpdate()
@@ -500,6 +501,11 @@ public class PlayerController : MonoBehaviour
         GetAttacked();
     }
 
+    public void OnGetAttacked(Vector3 position)
+    {
+        GetAttacked(position);
+    }
+
     private void GetAttacked() // When Player Get Attacked
     {
         
@@ -512,6 +518,30 @@ public class PlayerController : MonoBehaviour
         if(monDir) Dir = hitDir;
         
         
+        StartCoroutine(ColorChanged());
+        StartCoroutine(GetAttackedCheck());
+        UIBar.Instance.ApplyDamage();
+
+        rigid.velocity = Vector3.zero;
+        transform.position += new Vector3(0, 0.3f, 0);
+        rigid.AddForce((Vector3.up + Dir * new Vector3(-2f, 0, 0)) * rigid.mass * knockBackPower, ForceMode2D.Impulse); // Vector3.up + Dir * new Vector3(3f, 0, 0)
+        //Debug.Log((Vector3.up + Dir * new Vector3(3f, 0, 0)));
+    }
+
+    private void GetAttacked(Vector3 position) // When Player Get Attacked
+    {
+
+
+        if (isAttacked) return;
+        //Debug.Log("Do Red");
+        float knockBackPower = 8f;
+        float Dir = 1;
+
+        
+
+
+        Dir *= position.x - transform.position.x > 0 ? 1 : -1;
+
         StartCoroutine(ColorChanged());
         StartCoroutine(GetAttackedCheck());
         UIBar.Instance.ApplyDamage();

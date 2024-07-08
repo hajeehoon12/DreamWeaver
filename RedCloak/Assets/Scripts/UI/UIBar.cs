@@ -45,7 +45,7 @@ public class UIBar : MonoBehaviour
     private void Update()
     {
         UpdateMana();
-        ApplyDamage();
+        //ApplyDamage();
     }
 
     public void SetBossBar(float currentHealth, float maxHealth, float Damage)
