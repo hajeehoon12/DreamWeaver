@@ -19,7 +19,7 @@ public class RewardChest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(Define.PLAYER_TAG))
+        if (collision.gameObject.CompareTag(Define.PLAYER))
         {
             upArrowIcon.SetActive(true);
         }
@@ -27,7 +27,7 @@ public class RewardChest : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(Define.PLAYER_TAG))
+        if (collision.gameObject.CompareTag(Define.PLAYER))
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
@@ -39,7 +39,7 @@ public class RewardChest : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(Define.PLAYER_TAG))
+        if (collision.gameObject.CompareTag(Define.PLAYER))
         {
             upArrowIcon.SetActive(false);
         }

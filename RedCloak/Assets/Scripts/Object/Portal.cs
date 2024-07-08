@@ -8,7 +8,7 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(Define.PLAYER_TAG))
+        if (collision.CompareTag(Define.PLAYER))
         {
             AudioManager.instance.PlaySFX("Summon", 1f);
             collision.gameObject.transform.position = portalDestination.position;

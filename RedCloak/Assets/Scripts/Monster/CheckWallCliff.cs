@@ -15,7 +15,7 @@ namespace BehaviorDesigner.Runtime.Tasks
 
         public override void OnFixedUpdate()
         {
-            bool ground = Physics2D.Raycast(transform.position, transform.up, -1, 1<<LayerMask.NameToLayer(Define.FLOOR_Layer));
+            bool ground = Physics2D.Raycast(transform.position, transform.up, -1, 1<<LayerMask.NameToLayer(Define.FLOOR));
             if (!ground)
             {
                 current = TaskStatus.Failure;
@@ -23,9 +23,9 @@ namespace BehaviorDesigner.Runtime.Tasks
             }
             
             bool wall = Physics2D.Raycast((Vector2)transform.position + WallRayPos.Value, transform.right, 2f,
-                1 << LayerMask.NameToLayer(Define.FLOOR_Layer));
+                1 << LayerMask.NameToLayer(Define.FLOOR));
             bool cliff = Physics2D.Raycast(transform.position + transform.right, transform.up, -3f,
-                1 << LayerMask.NameToLayer(Define.FLOOR_Layer));
+                1 << LayerMask.NameToLayer(Define.FLOOR));
             
             if (wall || !cliff)
             {

@@ -24,7 +24,7 @@ public class InAttackRange : Action
     public override void OnFixedUpdate()
     {
         if (Physics2D.Raycast((Vector2)transform.position + AttackRayPos.Value, transform.right, AttackDistance.Value,
-                1 << LayerMask.NameToLayer(Define.PLAYER_TAG)))
+                1 << LayerMask.NameToLayer(Define.PLAYER)))
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             current = TaskStatus.Success;

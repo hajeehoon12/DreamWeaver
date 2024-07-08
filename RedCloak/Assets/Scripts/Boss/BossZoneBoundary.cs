@@ -8,6 +8,8 @@ public class BossZoneBoundary : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        if (archer.isBossDie) return;
         if (collision.gameObject.CompareTag("Player"))
         {
             archer.CallArcherBoss();

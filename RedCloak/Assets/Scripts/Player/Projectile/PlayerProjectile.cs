@@ -34,7 +34,7 @@ public class PlayerProjectile : MonoBehaviour
                 Destroy(flashInstance, flashPsParts.main.duration);
             }
         }
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 1.5f);
     }
 
     void FixedUpdate()
@@ -57,29 +57,27 @@ public class PlayerProjectile : MonoBehaviour
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
         Vector3 pos = contact.point + contact.normal * hitOffset;
 
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer(Define.ENEMY) || collision.gameObject.layer == LayerMask.NameToLayer(Define.BOSS))
         {
-            if (collision.transform.gameObject.TryGetComponent(out Monster monster))
+            if (collision.transform.gameObject.TryGetComponent(out IDamage monster))
             {
-                AudioManager.instance.PlayPitchSFX("GreenSlash", 0.15f);
+                AudioManager.instance.PlayPitchSFX("GreenSlash", 0.05f);
                 monster.GetDamage(CharacterManager.Instance.Player.controller.attackRate);
             }
         }
 
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Boss"))
-        {
-            if (collision.transform.gameObject.TryGetComponent(out Archer monster))
-            {
-                AudioManager.instance.PlayPitchSFX("GreenSlash", 0.15f);
-                monster.GetDamage(CharacterManager.Instance.Player.controller.attackRate);
-            }
-        }
 
 
 
         //Spawn hit effect on collision
         if (hit != null)
         {
+
+            if (hit.CompareTag(Define.PROJECTILE))
+            {
+                AudioManager.instance.PlayPitchSFX("Parrying", 0.15f);
+            }
+
             var hitInstance = Instantiate(hit, pos, rot);
             if (UseFirePointRotation) { hitInstance.transform.rotation = gameObject.transform.rotation * Quaternion.Euler(0, 180f, 0); }
             else if (rotationOffset != Vector3.zero) { hitInstance.transform.rotation = Quaternion.Euler(rotationOffset); }
