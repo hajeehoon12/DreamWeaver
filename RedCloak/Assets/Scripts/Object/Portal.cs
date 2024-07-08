@@ -5,10 +5,13 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     [SerializeField] private Transform portalDestination;
-    [SerializeField] private Transform player;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        player.transform.position = portalDestination.position;
+        if (collision.CompareTag(Define.PLAYER_TAG))
+        {
+            AudioManager.instance.PlaySFX("Summon", 1f);
+            collision.gameObject.transform.position = portalDestination.position;
+        }
     }
 }
