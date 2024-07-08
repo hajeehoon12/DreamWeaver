@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace BehaviorDesigner.Runtime.Tasks
@@ -17,10 +15,17 @@ namespace BehaviorDesigner.Runtime.Tasks
 
         public override void OnFixedUpdate()
         {
-            bool wall = Physics2D.Raycast((Vector2)transform.position + WallRayPos.Value, transform.right, 3f,
-                1 << LayerMask.NameToLayer("Floor"));
+            bool ground = Physics2D.Raycast(transform.position, transform.up, -1, 1<<LayerMask.NameToLayer(Define.FLOOR_Layer));
+            if (!ground)
+            {
+                current = TaskStatus.Failure;
+                return;
+            }
+            
+            bool wall = Physics2D.Raycast((Vector2)transform.position + WallRayPos.Value, transform.right, 2f,
+                1 << LayerMask.NameToLayer(Define.FLOOR_Layer));
             bool cliff = Physics2D.Raycast(transform.position + transform.right, transform.up, -3f,
-                1 << LayerMask.NameToLayer("Floor"));
+                1 << LayerMask.NameToLayer(Define.FLOOR_Layer));
             
             if (wall || !cliff)
             {
