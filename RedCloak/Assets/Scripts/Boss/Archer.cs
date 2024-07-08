@@ -60,6 +60,7 @@ public class Archer : MonoBehaviour , IDamage
         //DOTween.To(() => bossHealth, x => bossHealth = x, bossMaxHealth, 2);
         UIBar.Instance.CallBossBar();
         StartCoroutine(ArcherBossStageStart());
+        
         isPhase1 = true;
         isPhase2 = false;
         isPhase3 = false;
@@ -67,7 +68,10 @@ public class Archer : MonoBehaviour , IDamage
 
     IEnumerator ArcherBossStageStart()
     {
-        
+
+        CameraManager.Instance.MakeCameraShake(transform.position, 3f, 0.05f, 0.1f);
+        yield return new WaitForSeconds(1f);
+
         float time = 0f;
 
         while (time < 1)
@@ -81,6 +85,7 @@ public class Archer : MonoBehaviour , IDamage
         Discrimination();
         AudioManager.instance.PlayBGM("SilverBird", 0.15f);
         CameraManager.Instance.ModifyCameraInfo(new Vector2(20, 5), new Vector2(142, -38));
+        spriteRenderer.flipX = false;
     }
 
 
