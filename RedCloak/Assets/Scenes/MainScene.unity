@@ -373,11 +373,6 @@ MonoBehaviour:
   originPos: {x: 0, y: 0, z: 0}
   originRot: {x: 0, y: 0, z: 0, w: 0}
   isCameraShaking: 0
---- !u!1 &633286101 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7593208651645574476, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
-  m_PrefabInstance: {fileID: 861715472}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &642122006
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,11 +553,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &775915543 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 316522279400013440, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
-  m_PrefabInstance: {fileID: 861715472}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &846446703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,26 +584,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1516899574963306285, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 3236992814363474610}
     - target: {fileID: 2344771800529132932, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
       propertyPath: m_Name
       value: MainUI
       objectReference: {fileID: 0}
-    - target: {fileID: 6536432000983452440, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
-      propertyPath: archer
-      value: 
-      objectReference: {fileID: 2005701607047402863}
-    - target: {fileID: 6536432000983452440, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
-      propertyPath: damageBar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6536432000983452440, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
-      propertyPath: BossBarPos
-      value: 
-      objectReference: {fileID: 775915543}
-    - target: {fileID: 6536432000983452440, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
-      propertyPath: heartFront
-      value: 
-      objectReference: {fileID: 633286101}
     - target: {fileID: 6618538432346702134, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
