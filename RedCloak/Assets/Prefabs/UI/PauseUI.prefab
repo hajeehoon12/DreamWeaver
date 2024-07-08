@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 3895993864785280800}
-  resumeBtn: {fileID: 4890129145446003793}
+  optionUI: {fileID: 0}
 --- !u!1 &4055788432348577637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,4 +1003,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3276721130980213316}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 675378735311592950}
+        m_TargetAssemblyTypeName: PauseUI, Assembly-CSharp
+        m_MethodName: clickOptionBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
