@@ -34,11 +34,15 @@ public class UIBar : MonoBehaviour
     }
     void Start()
     {
-        if (damageEffectRect == null)
         BossBarPos.DOMoveY(-50, 0f);
+        //CallBackBossBar();
         //CallBossBar();
-        maxBossHealthBarWidth = bossHealthBar.fillRect.rect.width;
-        
+
+        // 플레이어 체력 가져와서 
+
+        if (damageEffectRect == null)
+            maxBossHealthBarWidth = bossHealthBar.fillRect.rect.width;
+
         SetPlayerHealth();
     }
 
@@ -51,6 +55,7 @@ public class UIBar : MonoBehaviour
 
         //매개변수로 대미지 전달
         //BossSetDamageEffect(5f);
+
     }
 
     public void SetBossBar(float currentHealth, float maxHealth, float Damage)
