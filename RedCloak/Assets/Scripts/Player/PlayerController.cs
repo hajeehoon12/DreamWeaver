@@ -570,6 +570,13 @@ public class PlayerController : MonoBehaviour
         {
             if (Rolling) return;
             playerBattle.ChangeHealth(-1); // get damaged
+
+            if (ghostDash.makeGhost)
+            {
+                DashOff();
+                ghostDash.makeGhost = false;
+            }
+
             monDir = true;
 
             if ((collider.transform.position.x - transform.position.x) > 0)
