@@ -236,7 +236,7 @@ public class Archer : MonoBehaviour , IDamage
 
         if (tempCount == 100)
         {
-            transform.position = new Vector2(Mathf.Clamp(transform.position.x, 115f, 168f), Mathf.Clamp(transform.position.y,-45f, -35f));
+            transform.position = new Vector2(Mathf.Clamp(transform.position.x, 115f, 168f), Mathf.Clamp(transform.position.y,-48f, -35f));
         }
 
         Flip();
