@@ -392,8 +392,8 @@ public class Archer : MonoBehaviour , IDamage
 
     void CallDie()
     {
-        gameObject.layer = LayerMask.NameToLayer("Default");
-        gameObject.tag = "Platform";
+        gameObject.layer = LayerMask.NameToLayer(Define.DEFAULT_Layer);
+        gameObject.tag = Define.PLATFORM_TAG;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         //GetComponent<Rigidbody2D>().gravityScale = 0.5f;
         //Collider2D[] archers = GetComponentsInChildren<Collider2D>();
