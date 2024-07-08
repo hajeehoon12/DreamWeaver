@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 2208139578328645519}
   - component: {fileID: 3413827338280213150}
   - component: {fileID: 5165966789083927058}
-  - component: {fileID: 3842405773424585455}
   - component: {fileID: 2991972539621529740}
   - component: {fileID: 1373824907511523430}
   - component: {fileID: 9130877599629003438}
   - component: {fileID: 3495703153423313105}
   - component: {fileID: -236641468372845196}
+  - component: {fileID: 552253260826641556}
   m_Layer: 7
   m_Name: BushMonster
   m_TagString: Untagged
@@ -112,51 +112,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &3842405773424585455
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7705982329571951312}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.09131232}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.49, y: 0.43}
-    newSize: {x: 0.49, y: 0.26}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.49, y: 0.24737537}
-  m_EdgeRadius: 0
 --- !u!50 &2991972539621529740
 Rigidbody2D:
   serializedVersion: 4
@@ -169,7 +124,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 3.0303483
+  m_Mass: 2.5911894
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -199,8 +154,10 @@ MonoBehaviour:
   GetHit: 0
   maxHealth: 30
   currentHealth: 0
+  light1Prefab: {fileID: 9131188216839003653, guid: 95e4150ec3bfcdf47b91bb60ecfe6518, type: 3}
+  light2Prefab: {fileID: 2643489189189102077, guid: 0ee74d7f447da28429c27628eef9b9ca, type: 3}
   _animator: {fileID: 5165966789083927058}
-  _collider: {fileID: 3842405773424585455}
+  _collider: {fileID: 552253260826641556}
   _rigidbody: {fileID: 2991972539621529740}
   _behavior: {fileID: 3495703153423313105}
 --- !u!114 &9130877599629003438
@@ -280,3 +237,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controller: {fileID: 9130877599629003438}
+--- !u!70 &552253260826641556
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7705982329571951312}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.1}
+  m_Size: {x: 0.5, y: 0.23}
+  m_Direction: 1
