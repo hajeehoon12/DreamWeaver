@@ -13,6 +13,7 @@ public class BossZoneBoundary : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             archer.CallArcherBoss();
+            //StageChangeManager.Instance.SceneChange(1);
         }
     }
 
