@@ -28,7 +28,7 @@ public class Detect : Action
 
     public override void OnFixedUpdate()
     {
-        RaycastHit2D hit = Physics2D.BoxCast((Vector2)transform.position + DetectBoxPos.Value, DetectSize.Value, 0, Vector2.zero, 0, 1 << LayerMask.NameToLayer(Define.PLAYER_TAG));
+        RaycastHit2D hit = Physics2D.BoxCast((Vector2)transform.position + DetectBoxPos.Value, DetectSize.Value, 0, Vector2.zero, 0, 1 << LayerMask.NameToLayer(Define.PLAYER));
         
         current = hit ? TaskStatus.Success : TaskStatus.Failure;
     }
