@@ -11,6 +11,7 @@ public class CharacterManager : MonoBehaviour
             if (_instance == null)
             {
                 _instance = new GameObject("CharacterManager").AddComponent<CharacterManager>();
+                DontDestroyOnLoad(_instance.gameObject);
             }
             return _instance;
         }

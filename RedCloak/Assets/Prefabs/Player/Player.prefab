@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 4585896168959828131}
   - component: {fileID: 4977003069294414928}
   - component: {fileID: 858050897817188504}
-  - component: {fileID: 1741874607840775907}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -132,7 +131,15 @@ MonoBehaviour:
   controller: {fileID: 7443914195730454756}
   battle: {fileID: 0}
   pet: {fileID: 0}
-  stats: {fileID: 0}
+  stats:
+    playerSpeed: 10
+    jumpPower: 15
+    attackDamage: 5
+    playerHP: 40
+    playerMaxHP: 40
+    playerMP: 50
+    playerMaxMP: 50
+    playerGold: 0
 --- !u!114 &7443914195730454756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,26 +308,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0002567172, y: 0.09}
   m_Size: {x: 0.1330568, y: 0.18}
   m_Direction: 0
---- !u!114 &1741874607840775907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8946823807965324558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d5c37ef0d5ea034181632ded81a3723, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 10
-  jumpPower: 15
-  attackDamage: 5
-  playerHP: 4
-  playerMaxHP: 4
-  playerMP: 60
-  playerMaxMP: 60
-  playerGold: 0
 --- !u!1001 &2103363216759769887
 PrefabInstance:
   m_ObjectHideFlags: 0
