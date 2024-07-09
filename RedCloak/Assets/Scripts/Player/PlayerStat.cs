@@ -1,7 +1,9 @@
 using UnityEngine;
 using DG.Tweening;
+using System;
 
-public class PlayerStat : MonoBehaviour
+[System.Serializable]
+public class PlayerStat//:MonoBehaviour
 {
     public float playerSpeed = 10;
 

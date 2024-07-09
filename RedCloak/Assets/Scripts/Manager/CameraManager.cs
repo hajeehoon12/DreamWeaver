@@ -49,9 +49,9 @@ public class CameraManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         shakeCamera = transform;
     }
 
