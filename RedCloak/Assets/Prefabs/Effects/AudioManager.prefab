@@ -1614,7 +1614,9 @@ MonoBehaviour:
   - name: BoxHit
     clip: {fileID: 8300000, guid: 6c684263bdd955e49af19721f6f626b5, type: 3}
   - name: GreenSlash
-    clip: {fileID: 8300000, guid: 84a172ede08115146a4c5dba28b8b668, type: 3}
+    clip: {fileID: 8300000, guid: 447d7c36cd177e2498231fda724be3c1, type: 3}
+  - name: Parrying
+    clip: {fileID: 8300000, guid: 74b266adf80920d4f8e2e022a4fbda0a, type: 3}
   - name: Laser
     clip: {fileID: 8300000, guid: 76a50492379031f499bb274c3bfb1cb0, type: 3}
   - name: Vanish
@@ -1635,6 +1637,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 87aef926da5e9fe4cb13cb0169859f6d, type: 3}
   - name: Boxopen
     clip: {fileID: 8300000, guid: 0b65f9825ea493e4cb9a95afd5f65526, type: 3}
+  - name: Parrying
+    clip: {fileID: 8300000, guid: 74b266adf80920d4f8e2e022a4fbda0a, type: 3}
+  - name: Summon
+    clip: {fileID: 8300000, guid: fdb1141e73441bf4ab755317838d7b56, type: 3}
   bgm:
   - name: SadStory
     clip: {fileID: 8300000, guid: 63866d7c854dc1a4f81291c92f8f4c11, type: 3}
