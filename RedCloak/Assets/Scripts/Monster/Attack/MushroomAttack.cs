@@ -14,7 +14,7 @@ public class MushroomAttack : MonoBehaviour, IMobAttack
         _controller.MobAttack = this;
     }
 
-    public bool Attack()
+    public bool PerformAttack()
     {
         RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + attackRayPos, transform.right, attackRange,
             1 << LayerMask.NameToLayer("Player"));

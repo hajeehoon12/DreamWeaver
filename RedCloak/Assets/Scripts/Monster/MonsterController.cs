@@ -19,7 +19,7 @@ public class MonsterController : MonoBehaviour
     {
         if (MobAttack != null)
         {
-            if (MobAttack.Attack())
+            if (MobAttack.PerformAttack())
             {
                 SetLayerCollisionMatrix(gameObject.layer, LayerMask.NameToLayer(Define.PLAYER), false);
                 StartCoroutine(collisionDelay());
