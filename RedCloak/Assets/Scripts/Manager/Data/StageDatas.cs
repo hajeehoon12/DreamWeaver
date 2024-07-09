@@ -11,12 +11,9 @@ public class StageDatas
         return stageData[stage];
     }
 
-    public void SetStageData()
+    public void SetStageData(int stage, StageData currentStage)
     {
-        for (int i = 0; i < stageData.Count; i++)
-        {
-            stageData[i] = new StageData();
-        }
+        stageData[stage] = currentStage;
     }
 
 
