@@ -10,22 +10,26 @@ public class Detect : Action
 
     private TaskStatus current = TaskStatus.Running;
 
-	public override TaskStatus OnUpdate()
+    private bool init = false;
+
+    public override void OnStart()
+    {
+        if (!init)
+        {
+            Target.Value = CharacterManager.Instance.Player.transform;
+            init = true;
+        }
+    }
+
+    public override TaskStatus OnUpdate()
     {
         return current;
     }
 
     public override void OnFixedUpdate()
     {
-        RaycastHit2D hit = Physics2D.BoxCast((Vector2)transform.position + DetectBoxPos.Value, DetectSize.Value, 0, Vector2.zero, 0, 1 << LayerMask.NameToLayer(Define.PLAYER));
-        if (hit)
-        {
-            Target.Value = hit.transform;
-        }
-        else
-        {
-            Target.Value = null;
-        }
+        RaycastHit2D hit = Physics2D.BoxCast((Vector2)transform.position + DetectBoxPos.Value, DetectSize.Value, 0, Vector2.zero, 0, 1 << LayerMask.NameToLayer(Define.PLAYER_TAG));
+        
         current = hit ? TaskStatus.Success : TaskStatus.Failure;
     }
     
