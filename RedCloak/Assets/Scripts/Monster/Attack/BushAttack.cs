@@ -14,7 +14,7 @@ public class BushAttack : MonoBehaviour, IMobAttack
         _controller.MobAttack = this;
     }
 
-    public bool Attack()
+    public bool PerformAttack()
     {
         RaycastHit2D hit = Physics2D.BoxCast((Vector2)transform.position, detectionSize, 0, Vector2.zero, 0, 1 << LayerMask.NameToLayer("Player"));
         

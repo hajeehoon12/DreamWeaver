@@ -19,7 +19,7 @@ public class MonsterController : MonoBehaviour
     {
         if (MobAttack != null)
         {
-            if (MobAttack.Attack())
+            if (MobAttack.PerformAttack())
             {
                 SetLayerCollisionMatrix(gameObject.layer, LayerMask.NameToLayer(Define.PLAYER), false);
                 StartCoroutine(collisionDelay());
@@ -31,7 +31,7 @@ public class MonsterController : MonoBehaviour
     {
         if ((1 << other.gameObject.layer & 1 << LayerMask.NameToLayer(Define.PLAYER)) != 0)
         {
-            other.gameObject.GetComponent<PlayerBattle>().ChangeHealth(-1);
+            other.gameObject.GetComponent<PlayerBattle>().ChangeHealth(-1, transform.position);
             SetLayerCollisionMatrix(gameObject.layer, other.gameObject.layer, false);
             StartCoroutine(collisionDelay());
         }
