@@ -41,6 +41,7 @@ public class UIBar : MonoBehaviour
         if (damageEffectRect == null)
             maxBossHealthBarWidth = bossHealthBar.fillRect.rect.width;
         SetPlayerHealth();
+        lowHealthEffect.SetActive(false);
     }
     private void Update()
     {
