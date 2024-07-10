@@ -4,7 +4,8 @@ using UnityEngine;
 public enum ItemType
 {
     Goods,
-    Equip
+    Equip,
+    antique
 }
 [CreateAssetMenu(fileName = " Item", menuName = "New Item")]
 public class ItemData : ScriptableObject
@@ -13,9 +14,13 @@ public class ItemData : ScriptableObject
     public string itemName;
     public string description;
     public ItemType type;
+    public Sprite icon;
     //아이콘
     //오브젝트
 
-    [Header("Equip")]
-    public GameObject equipPrefab;
+    [Header("Drop")]
+    public GameObject dropPrefab;
+
+    //[Header("Equip")]
+    //public GameObject equipPrefab;
 }
