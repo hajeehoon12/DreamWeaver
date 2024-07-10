@@ -836,6 +836,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1118069013467383597}
     m_Modifications:
+    - target: {fileID: 625097041624142666, guid: d4ab6c9cc6f41344db6447334fba1f57, type: 3}
+      propertyPath: optionUI
+      value: 
+      objectReference: {fileID: 5094963961977747589, guid: 9a44f8fa683e97d4e9686fb2712da898, type: 3}
+    - target: {fileID: 625097041624142666, guid: d4ab6c9cc6f41344db6447334fba1f57, type: 3}
+      propertyPath: videoSettingUI
+      value: 
+      objectReference: {fileID: 8852255284077244257, guid: d4ab6c9cc6f41344db6447334fba1f57, type: 3}
     - target: {fileID: 4410696003885225925, guid: d4ab6c9cc6f41344db6447334fba1f57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

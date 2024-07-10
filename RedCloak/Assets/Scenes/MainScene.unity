@@ -363,6 +363,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3595066135586017399, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868796570360622172, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: optionUI
+      value: 
+      objectReference: {fileID: 5094963961977747589, guid: 9a44f8fa683e97d4e9686fb2712da898, type: 3}
+    - target: {fileID: 4868796570360622172, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: videoSettingUI
+      value: 
+      objectReference: {fileID: 8852255284077244257, guid: d4ab6c9cc6f41344db6447334fba1f57, type: 3}
     - target: {fileID: 8772425027703382848, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
       propertyPath: m_Name
       value: UICombine
@@ -630,7 +642,7 @@ PrefabInstance:
     - target: {fileID: 1516899574963306285, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 3236992814363474610}
+      objectReference: {fileID: 0}
     - target: {fileID: 1516899574963306285, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
       propertyPath: m_SortingOrder
       value: 500
