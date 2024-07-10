@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &65655987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3179974505085094881, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+  m_PrefabInstance: {fileID: 467067951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &135330376
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,6 +384,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4868796570360622172, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: optionUI
+      value: 
+      objectReference: {fileID: 65655987}
     - target: {fileID: 5835014114067674526, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1094,150 +1103,6 @@ PrefabInstance:
     - target: {fileID: 1633355865338436359, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.size
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[5].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 447d7c36cd177e2498231fda724be3c1, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[6].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 74b266adf80920d4f8e2e022a4fbda0a, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[6].name
-      value: Parrying
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[7].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 76a50492379031f499bb274c3bfb1cb0, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[7].name
-      value: Laser
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[8].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: a3a0b2d411341dc4793c9b49372d4e16, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[8].name
-      value: Vanish
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[9].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: baadb966a927a3f4da3ced91d07d96da, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[9].name
-      value: Appear
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[10].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 04aded3a101245f48a05897e4bb90cb0, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[10].name
-      value: Charge1sec
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[11].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 0d69c1291221b144b878d8814c404642, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[11].name
-      value: ArcherDeath
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[12].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 2c5f72c859500df45a07c00b3d351809, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[12].name
-      value: Violin3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[13].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: d5132024e7adb124f817a95ee59a6dce, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[13].name
-      value: Nervous
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[14].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: eb339c51a2ecb274a9d9eb5812beb64b, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[14].name
-      value: Hidden
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[15].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 87aef926da5e9fe4cb13cb0169859f6d, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[15].name
-      value: Success
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[16].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 0b65f9825ea493e4cb9a95afd5f65526, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[16].name
-      value: Boxopen
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[17].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 74b266adf80920d4f8e2e022a4fbda0a, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[17].name
-      value: Parrying
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[18].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 2f8532eebf2d5484b84dc3e6860f0781, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[18].name
-      value: BushmonAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[19].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: ba5558f1c7c08594ba60f85d53b91915, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[19].name
-      value: MushroomAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[20].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: b41d8e6bd6521f44baeb0b25b90b9ad8, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[20].name
-      value: SlimeAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[21].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 43e29c307afe71246a74b3c049e7ceb2, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[21].name
-      value: Twinkle
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[22].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: b41d8e6bd6521f44baeb0b25b90b9ad8, type: 3}
-    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
-      propertyPath: sfx.Array.data[22].name
-      value: SlimeAttack
       objectReference: {fileID: 0}
     - target: {fileID: 4850818699871077568, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: m_Name
