@@ -32,9 +32,4 @@ public class UIController : MonoBehaviour
             pauseUI.SetActive(true);
         }
     }
-
-    public void ShowSoundSetting()
-    {
-        //UIManager.ChangeMenu()
-    }
 }
