@@ -6,24 +6,7 @@ public class PauseUI : MonoBehaviour
 {
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject optionUI;
-
-    private void OnEnable()
-    {
-        Time.timeScale = 0f;
-    }
-
-    public void Toggle()
-    {
-        if(pauseUI.activeInHierarchy)
-        {
-            pauseUI.SetActive(false);
-        }
-
-        else
-        {
-            pauseUI.SetActive(true);
-        }
-    }
+    [SerializeField] private GameObject optionBtn;
 
     public void clickResumeBtn()
     {
