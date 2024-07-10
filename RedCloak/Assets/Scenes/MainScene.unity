@@ -319,6 +319,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 415175408553074390, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1118069013467383597, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -359,6 +363,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1745443655236904915, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2316630939819279409, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -367,14 +375,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4868796570360622172, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
-      propertyPath: optionUI
-      value: 
-      objectReference: {fileID: 5094963961977747589, guid: 9a44f8fa683e97d4e9686fb2712da898, type: 3}
-    - target: {fileID: 4868796570360622172, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
-      propertyPath: videoSettingUI
-      value: 
-      objectReference: {fileID: 8852255284077244257, guid: d4ab6c9cc6f41344db6447334fba1f57, type: 3}
+    - target: {fileID: 4086717400167138629, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5835014114067674526, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096876391143741415, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178670331343015082, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8626728704334933945, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8772425027703382848, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
       propertyPath: m_Name
       value: UICombine
