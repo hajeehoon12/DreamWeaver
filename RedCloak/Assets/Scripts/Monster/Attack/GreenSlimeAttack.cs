@@ -4,15 +4,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeAttack : MonoBehaviour, IMobAttack
+public class GreenSlimeAttack : MonoBehaviour, IMobAttack
 {
+    [SerializeField] private Animator _animator;
     [SerializeField] private MonsterController _controller;
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private Transform playerTransform;
 
-    private bool onGround;
+    private bool onGround = true;
 
-    private void Start()
+    private void OnEnable()
     {
         _controller.MobAttack = this;
         playerTransform = CharacterManager.Instance.Player.transform;
@@ -36,6 +37,14 @@ public class SlimeAttack : MonoBehaviour, IMobAttack
 
         Vector2 force = _rigidbody.mass * (new Vector2(v_x, v_y) - _rigidbody.velocity);
         _rigidbody.AddForce(force, ForceMode2D.Impulse);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer(Define.FLOOR) && !onGround)
+        {
+            _animator.SetTrigger("Fall");
+        }
     }
 
     private void OnCollisionStay2D(Collision2D other)

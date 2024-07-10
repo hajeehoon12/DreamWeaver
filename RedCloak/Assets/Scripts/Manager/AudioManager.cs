@@ -15,10 +15,12 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] Sound[] sfx = null;
     [SerializeField] Sound[] bgm = null;
+    [SerializeField] Sound[] UI = null;
 
     [SerializeField] public AudioSource bgmPlayer = null;
     [SerializeField] public AudioSource bgmPlayer2 = null;
     [SerializeField] AudioSource[] sfxPlayer = null;
+    //[SerializeField] AudioSource[] UIPlayer = null;
     AudioSource myAudioSource;
 
     private string audioName;
@@ -135,6 +137,46 @@ public class AudioManager : MonoBehaviour
             }
         }
         Debug.Log("No name of SFX :" + p_sfxName);
+        return;
+    }
+
+    public void PlayUI(string p_sfxName)
+    {
+
+        for (int i = 0; i < sfx.Length; i++)
+        {
+            if (p_sfxName == UI[i].name)
+            {
+                myAudioSource.PlayOneShot(UI[i].clip);
+                return;
+            }
+        }
+        Debug.Log("No name of UI :" + p_sfxName);
+        return;
+    }
+
+    public void PlayUI(string p_sfxName, float _volume) // overloading
+    {
+
+        for (int i = 0; i < sfx.Length; i++)
+        {
+            if (p_sfxName == UI[i].name)
+            {
+                for (int j = 0; j < sfxPlayer.Length; j++)
+                {
+
+                    if (!sfxPlayer[j].isPlaying)
+                    {
+                        sfxPlayer[j].clip = UI[i].clip;
+                        sfxPlayer[j].PlayOneShot(UI[i].clip, _volume);
+                        return;
+                    }
+                }
+                Debug.Log("All Audio Player is Used it Needs More");
+                return;
+            }
+        }
+        Debug.Log("No name of UI :" + p_sfxName);
         return;
     }
 

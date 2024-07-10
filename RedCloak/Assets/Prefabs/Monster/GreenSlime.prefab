@@ -59,7 +59,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 4c881a7e8943eff47b81c61f7231e664, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -241,6 +241,7 @@ MonoBehaviour:
   currentHealth: 0
   light1Prefab: {fileID: 9131188216839003653, guid: 95e4150ec3bfcdf47b91bb60ecfe6518, type: 3}
   light2Prefab: {fileID: 2643489189189102077, guid: 0ee74d7f447da28429c27628eef9b9ca, type: 3}
+  _renderer: {fileID: 3877427590003986329}
   _animator: {fileID: 6631939151260634128}
   _collider: {fileID: 6642959639880455360}
   _rigidbody: {fileID: 7629786930697559505}
@@ -270,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e2a9e0c758e2f24bb1f2a23e6a361fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 6631939151260634128}
   _controller: {fileID: 80015517379791951}
   _rigidbody: {fileID: 7629786930697559505}
   playerTransform: {fileID: 0}

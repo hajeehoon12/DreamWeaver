@@ -1063,6 +1063,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.size
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[22].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 81dacc08477c10d4dbba3ea33e996314, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[22].name
+      value: ItemPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[23].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 706ea6aa3c062a14c9a395d2db8ded7e, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[23].name
+      value: ItemThrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[24].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 81dacc08477c10d4dbba3ea33e996314, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[24].name
+      value: ItemPickup
+      objectReference: {fileID: 0}
     - target: {fileID: 4850818699871077568, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -1463,6 +1491,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6486a15360015f4e82dfee031d2d27b, type: 3}
+--- !u!4 &1567381574 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8703397729874264258, guid: 6143f8cc4b4d77740aa1fe178c0efc65, type: 3}
+  m_PrefabInstance: {fileID: 2072373204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!61 &1567447249 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 7928796914912682817, guid: b6486a15360015f4e82dfee031d2d27b, type: 3}
@@ -1674,6 +1707,7 @@ Transform:
   - {fileID: 1629899546}
   - {fileID: 1903233213}
   - {fileID: 766583275}
+  - {fileID: 1567381574}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1878498957
@@ -1911,6 +1945,71 @@ Transform:
   - {fileID: 1363224390}
   m_Father: {fileID: 1281559512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2072373204
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1830713627}
+    m_Modifications:
+    - target: {fileID: 7915175372280272935, guid: 6143f8cc4b4d77740aa1fe178c0efc65, type: 3}
+      propertyPath: gizmoViewMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915175372280272935, guid: 6143f8cc4b4d77740aa1fe178c0efc65, type: 3}
+      propertyPath: showBehaviorDesignerGizmo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703397729874264258, guid: 6143f8cc4b4d77740aa1fe178c0efc65, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -28.141407
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703397729874264258, guid: 6143f8cc4b4d77740aa1fe178c0efc65, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.0074098
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703397729874264258, guid: 6143f8cc4b4d77740aa1fe178c0efc65, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1479.7935
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703397729874264258, guid: 6143f8cc4b4d77740aa1fe178c0efc65, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703397729874264258, guid: 6143f8cc4b4d77740aa1fe178c0efc65, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703397729874264258, guid: 6143f8cc4b4d77740aa1fe178c0efc65, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703397729874264258, guid: 6143f8cc4b4d77740aa1fe178c0efc65, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703397729874264258, guid: 6143f8cc4b4d77740aa1fe178c0efc65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703397729874264258, guid: 6143f8cc4b4d77740aa1fe178c0efc65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703397729874264258, guid: 6143f8cc4b4d77740aa1fe178c0efc65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960870119702648192, guid: 6143f8cc4b4d77740aa1fe178c0efc65, type: 3}
+      propertyPath: m_Name
+      value: OrangeSlime
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6143f8cc4b4d77740aa1fe178c0efc65, type: 3}
 --- !u!1 &2124408561
 GameObject:
   m_ObjectHideFlags: 0
@@ -46800,6 +46899,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3281584798376130774, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c881a7e8943eff47b81c61f7231e664, type: 2}
     - target: {fileID: 8488820794825072302, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: stats.playerHP
       value: 4

@@ -9,7 +9,7 @@ public class MushroomAttack : MonoBehaviour, IMobAttack
     [SerializeField] private Vector2 attackRayPos;
     [SerializeField] private float attackRange;
 
-    private void Start()
+    private void OnEnable()
     {
         _controller.MobAttack = this;
     }

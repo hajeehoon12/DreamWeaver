@@ -580,8 +580,10 @@ public class PlayerController : MonoBehaviour
     {
         float durTime = attackedTime; // invincibleTime; Have To Change
         spriteRenderer.DOColor(Color.red, durTime);
+        //spriteRenderer.material.SetFloat("_FlashAmount", 1.0f);
         yield return new WaitForSeconds(durTime);
         spriteRenderer.DOColor(Color.white, durTime);
+        //spriteRenderer.material.SetFloat("_FlashAmount", 0.0f);
 
     }
 
