@@ -63,7 +63,7 @@ public class Monster : MonoBehaviour, IDamage
 
     public IEnumerator SpawnLight()
     {
-        AudioManager.instance.PlayPitchSFX("Twinkle", 0.2f);
+        AudioManager.instance.PlayPitchSFX("Twinkle", 0.5f);
         light1.transform.position += transform.position;
         light2.transform.position += transform.position;
         light1.SetActive(true);
