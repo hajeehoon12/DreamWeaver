@@ -10,7 +10,7 @@ public class SecretPlace : MonoBehaviour
         if (collision.CompareTag(Define.PLAYER))
         {
             originColor = spriteRenderer.color;
-            spriteRenderer.color = new Color(1, 1, 1, 0.5f);
+            spriteRenderer.color = new Color(1, 1, 1, 0f);
         }
     }
 
