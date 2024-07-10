@@ -6,7 +6,7 @@ public class Breakable : MonoBehaviour
     {
         if (collision.CompareTag(Define.PLAYER))
         {
-            AudioManager.instance.PlaySFX("success", 0.2f);
+            AudioManager.instance.PlaySFX("Success", 0.2f);
             gameObject.SetActive(false);
         }
     }

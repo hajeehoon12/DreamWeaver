@@ -55,6 +55,7 @@ public class AudioManager : MonoBehaviour
                 return;
             }
         }
+        Debug.Log("No name of BGM :" + p_bgmName);
     }
     public void PlayBGM(string p_bgmName, float _volume)
     {
@@ -65,9 +66,10 @@ public class AudioManager : MonoBehaviour
                 bgmPlayer.clip = bgm[i].clip;
                 bgmPlayer.Play();
                 bgmPlayer.volume = _volume;
-                break;
+                return;
             }
         }
+        Debug.Log("No name of BGM :" + p_bgmName);
     }
 
     public void PlayBGM2(string p_bgmName, float _volume)
@@ -79,9 +81,10 @@ public class AudioManager : MonoBehaviour
                 bgmPlayer2.clip = bgm[i].clip;
                 bgmPlayer2.Play();
                 bgmPlayer2.volume = _volume;
-                break;
+                return;
             }
         }
+        Debug.Log("No name of BGM :" + p_bgmName);
     }
 
     public void StopBGM2()
@@ -106,7 +109,7 @@ public class AudioManager : MonoBehaviour
                 return;
             }
         }
-        
+        Debug.Log("No name of SFX :" + p_sfxName);
         return;
     }
 
@@ -131,7 +134,7 @@ public class AudioManager : MonoBehaviour
                 return;
             }
         }
-        Debug.Log(p_sfxName + " There is No name of SFX.");
+        Debug.Log("No name of SFX :" + p_sfxName);
         return;
     }
 
@@ -144,7 +147,7 @@ public class AudioManager : MonoBehaviour
             {
                 for (int j = 0; j < sfxPlayer.Length; j++)
                 {
-                    // SFXPlayer���� ��� ������ ���� Audio Source�� �߰��ߴٸ� 
+                    
                     if (!sfxPlayer[j].isPlaying)
                     {
                         sfxPlayer[j].clip = sfx[i].clip;
@@ -158,7 +161,7 @@ public class AudioManager : MonoBehaviour
                 return;
             }
         }
-        Debug.Log(p_sfxName + " There is No name of SFX.");
+        Debug.Log("No name of SFX :" + p_sfxName);
         return;
     }
 

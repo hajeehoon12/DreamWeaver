@@ -323,10 +323,12 @@ public class PlayerController : MonoBehaviour
     void OnRoll() // When Shift called Do Rolling
     {
         if (!canRoll) return;
+        if (isAttacked) return;
         if (animator.GetBool(isJumping)) return;
 
         if (!Rolling && !Jumping)
         {
+            rigid.velocity = Vector3.zero;
             rigid.gravityScale = playerGravityScale;
             if (dashCoroutine != null) StopCoroutine(dashCoroutine);
             ghostDash.makeGhost = false;

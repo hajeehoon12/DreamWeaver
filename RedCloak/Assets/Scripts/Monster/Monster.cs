@@ -20,7 +20,6 @@ public class Monster : MonoBehaviour, IDamage
     private ParticleSystem light1Particle;
     private GameObject light1;
     private GameObject light2;
-    private Vector2 lightPos = new Vector2(0, 1);
 
     private WaitForSeconds lightDelay = new WaitForSeconds(3f);
     
@@ -64,8 +63,9 @@ public class Monster : MonoBehaviour, IDamage
 
     public IEnumerator SpawnLight()
     {
-        light1.transform.position += transform.position + (Vector3)lightPos;
-        light2.transform.position += transform.position + (Vector3)lightPos;
+        AudioManager.instance.PlayPitchSFX("Twinkle", 0.5f);
+        light1.transform.position += transform.position;
+        light2.transform.position += transform.position;
         light1.SetActive(true);
         yield return lightDelay;
         light2.SetActive(true);
