@@ -207,6 +207,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &172920265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2377424932266865709, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
+  m_PrefabInstance: {fileID: 861715472}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &303163831
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,6 +570,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2377424932266865709, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536432000983452440, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
+      propertyPath: damageeffect
+      value: 
+      objectReference: {fileID: 172920265}
     - target: {fileID: 6618538432346702134, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -607,6 +620,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7540954572010439769, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556232392830710048, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556232392830710048, guid: 35b05763dd5ba244ebafa0aaaeb1c8c2, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -955,7 +976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: sfx.Array.size
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: sfx.Array.data[5].clip
@@ -1060,10 +1081,18 @@ PrefabInstance:
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: sfx.Array.data[18].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 0b65f9825ea493e4cb9a95afd5f65526, type: 3}
+      objectReference: {fileID: 8300000, guid: 8f38ba2422f33b94f9bc5a259f93d9b6, type: 3}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: sfx.Array.data[18].name
-      value: Boxopen
+      value: Negative
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[19].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 74b266adf80920d4f8e2e022a4fbda0a, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[19].name
+      value: Parrying
       objectReference: {fileID: 0}
     - target: {fileID: 4850818699871077568, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: m_Name

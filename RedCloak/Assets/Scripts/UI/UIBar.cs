@@ -60,9 +60,11 @@ public class UIBar : MonoBehaviour
         float fillWidth = bossHealthBar.fillRect.rect.width;
         float endPosition = (bossHealthBar.fillRect.anchoredPosition.x + fillWidth - 10f);
 
+
+
         damageEffectRect.anchoredPosition = new Vector2(endPosition, damageEffectRect.anchoredPosition.y);
 
-        float width = damage % maxHealth;
+        float width = damage % maxHealth * 2;// * 100;
         damageEffectRect.sizeDelta = new Vector2(width, damageEffectRect.sizeDelta.y);
         damageEffect.SetActive(true);
         StartCoroutine(disableEffect());
@@ -132,6 +134,9 @@ public class UIBar : MonoBehaviour
 
     IEnumerator disableEffect()
     {
+        damageEffect.GetComponent<Image>().DOFade(1, 0f);
+        damageEffect.GetComponent<Image>().DOFade(0, 0.5f);
+
         yield return new WaitForSeconds(0.5f);
 
         damageEffect.SetActive(false);
