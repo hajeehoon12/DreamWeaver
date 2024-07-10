@@ -20,6 +20,7 @@ public class SlimeAttack : MonoBehaviour, IMobAttack
 
     public bool PerformAttack()
     {
+        AudioManager.instance.PlaySFX("SlimeAttack", 0.2f);
         float x = (playerTransform.position.x - transform.position.x) / 2;
         Vector2 centerPos = new Vector2(x, 5);
         if (onGround)

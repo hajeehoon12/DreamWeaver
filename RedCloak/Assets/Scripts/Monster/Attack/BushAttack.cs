@@ -16,6 +16,7 @@ public class BushAttack : MonoBehaviour, IMobAttack
 
     public bool PerformAttack()
     {
+        AudioManager.instance.PlaySFX("BushmonAttack", 0.2f);
         RaycastHit2D hit = Physics2D.BoxCast((Vector2)transform.position, detectionSize, 0, Vector2.zero, 0, 1 << LayerMask.NameToLayer("Player"));
         
         if (hit)

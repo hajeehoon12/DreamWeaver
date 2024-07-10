@@ -14,7 +14,7 @@ public class LightEffect : MonoBehaviour
 
     private void Awake()
     {
-
+       
     }
     void Start()
     {
@@ -51,7 +51,7 @@ public class LightEffect : MonoBehaviour
 
     IEnumerator LifeTime()
     {
-
+        //Destroy(gameObject, 2.2f);
         yield return new WaitForSeconds(0.5f);
 
         float interval = 0.2f;
@@ -60,7 +60,7 @@ public class LightEffect : MonoBehaviour
         float time = 0f;
         float totalTime = 3f;
 
-        while (distance > 0.2f || time < 2f)
+        while (distance > 0.2f && time < 2f)
         {
 
             transform.DOKill();
@@ -72,10 +72,11 @@ public class LightEffect : MonoBehaviour
 
 
 
-            transform.DOLocalMove(CharacterManager.Instance.Player.pet.transform.position, 4 * distance / firstDistance);
+            transform.DOLocalMove(CharacterManager.Instance.Player.pet.transform.position, 2 * distance / firstDistance);
 
             yield return new WaitForSeconds(interval);
         }
+        transform.DOLocalMove(CharacterManager.Instance.Player.pet.transform.position, 0.2f);
         //transform.DOKill();
         //CharacterManager.Instance.Player.stats.AddGold(2); Add Gold To Player
         yield return new WaitForSeconds(interval);

@@ -16,6 +16,7 @@ public class MushroomAttack : MonoBehaviour, IMobAttack
 
     public bool PerformAttack()
     {
+        AudioManager.instance.PlaySFX("MushroomAttack", 0.2f);
         RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + attackRayPos, transform.right, attackRange,
             1 << LayerMask.NameToLayer("Player"));
         
