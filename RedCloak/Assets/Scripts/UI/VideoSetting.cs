@@ -10,6 +10,8 @@ using System.Reflection;
 public class VideoSetting : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI currentResolution;
+    [SerializeField] private GameObject optionUI;
+    [SerializeField] private GameObject videoSettingUI;
 
     private int screenWidth;
     private int screenHeight;
@@ -89,5 +91,10 @@ public class VideoSetting : MonoBehaviour
     {
         ResolutionOption resolutionOption = resolutions[index];
         Screen.SetResolution(resolutionOption.width, resolutionOption.height, Screen.fullScreen);
+    }
+
+    public void ChangeMenu()
+    {
+        UIManager.ChangeMenu(videoSettingUI, optionUI);
     }
 }

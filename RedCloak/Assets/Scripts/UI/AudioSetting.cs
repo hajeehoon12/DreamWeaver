@@ -12,6 +12,8 @@ public class AudioSetting : MonoBehaviour
     public Slider bgmSlider;
     public Slider sfxSlider;
 
+    [SerializeField] private GameObject optionUI;
+    [SerializeField] private GameObject soundSettingUI;
 
     private void Start()
     {
@@ -46,6 +48,11 @@ public class AudioSetting : MonoBehaviour
     public void SetSFXVolume(float sliderValue)
     {
         audioMixer.SetFloat("SFX", Mathf.Log10(sliderValue) * 20);
+    }
+
+    public void ChangeMenu()
+    {
+        UIManager.ChangeMenu(soundSettingUI, optionUI);
     }
 }
  

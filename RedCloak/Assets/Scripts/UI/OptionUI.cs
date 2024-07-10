@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class OptionUI : MonoBehaviour
 {
+    [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject optionUI;
     [SerializeField] private GameObject videoSetting;
     [SerializeField] private GameObject audioSetting;
@@ -20,5 +21,11 @@ public class OptionUI : MonoBehaviour
     {
         audioSetting.SetActive(true);
         optionUI.SetActive(false);
+    }
+
+    public void OnClickBack()
+    { 
+        optionUI.SetActive(false);
+        pauseUI.SetActive(true);
     }
 }

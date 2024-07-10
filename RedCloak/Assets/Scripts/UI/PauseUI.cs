@@ -12,19 +12,6 @@ public class PauseUI : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void Toggle()
-    {
-        if(pauseUI.activeInHierarchy)
-        {
-            pauseUI.SetActive(false);
-        }
-
-        else
-        {
-            pauseUI.SetActive(true);
-        }
-    }
-
     public void clickResumeBtn()
     {
         pauseUI.SetActive(false);

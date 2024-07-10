@@ -1,0 +1,34 @@
+{
+    "name": "UIController",
+    "maps": [
+        {
+            "name": "UIController",
+            "id": "ed24f04f-6dae-4fbd-be88-4a48c1984361",
+            "actions": [
+                {
+                    "name": "OpenUI",
+                    "type": "Button",
+                    "id": "d4a1c7cb-543d-4c8f-8330-dfdb0ef5482b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "07e9ef02-d696-4f45-b143-dd58d7141e95",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenUI",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
