@@ -11,7 +11,8 @@ public class Monster : MonoBehaviour, IDamage
 
     [SerializeField] private GameObject light1Prefab;
     [SerializeField] private GameObject light2Prefab;
-    
+
+    [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private Animator _animator;
     [SerializeField] private Collider2D _collider;
     [SerializeField] private Rigidbody2D _rigidbody;
@@ -21,6 +22,7 @@ public class Monster : MonoBehaviour, IDamage
     private GameObject light1;
     private GameObject light2;
 
+    private WaitForSeconds flashDelay = new WaitForSeconds(0.05f);
     private WaitForSeconds lightDelay = new WaitForSeconds(3f);
     
     private void Start()
@@ -44,12 +46,13 @@ public class Monster : MonoBehaviour, IDamage
 
     public void GetDamage(float damage)
     {
+        StartCoroutine(FlashWhite());
         if (currentHealth > damage)
         {
             _behavior.DisableBehavior();
             _behavior.EnableBehavior();
             GetHit = true;
-            _animator.SetTrigger("GetHit");
+            //_animator.SetTrigger("GetHit");
             currentHealth -= damage;
         }
         else
@@ -70,5 +73,12 @@ public class Monster : MonoBehaviour, IDamage
         yield return lightDelay;
         light2.SetActive(true);
         light1Particle.Stop();
+    }
+
+    private IEnumerator FlashWhite()
+    {
+        _renderer.material.SetFloat("_FlashAmount", 1.0f);
+        yield return flashDelay;
+        _renderer.material.SetFloat("_FlashAmount", 0f);
     }
 }
