@@ -9,12 +9,28 @@ public class RewardChest : MonoBehaviour
     [SerializeField] GameObject upArrowIcon;
     public Sprite openedChestSprite;
 
+    public ItemData dropData;
+    public GameObject ItemLight;
+
     public void OpenChest()
     {
         chestIcon.sprite = openedChestSprite;
         AudioManager.instance.PlaySFX("Boxopen", 0.2f);
         upArrowIcon.SetActive(false);
         //GameManager.Instance.spawnManager.SpawnBoxRewardItem(this.transform);
+    }
+
+    public void ThrowItem()
+    {
+        StartCoroutine(ItemLoad());
+    }
+
+    IEnumerator ItemLoad()
+    {
+        yield return new WaitForSeconds(0.2f);
+        GameObject Items = Instantiate(ItemLight, transform.position, Quaternion.identity);
+        Items.GetComponentInParent<Rigidbody2D>().AddForce(new Vector3(0,10,0), ForceMode2D.Impulse);
+        Items.GetComponentInChildren<ItemLight>().RewardData = dropData;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,6 +49,7 @@ public class RewardChest : MonoBehaviour
             {
                 OpenChest();
                 GetComponent<Collider2D>().enabled = false;
+                ThrowItem();
             }
         }
     }

@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ItemLight : MonoBehaviour
+{
+    public ItemData RewardData;
+    public GameObject parent;
+
+    public void GetItem()
+    {
+        //TODO Give RewardData to Player
+        Debug.Log("Give Player : " + RewardData.name);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(Define.PLAYER))
+        {
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                GetItem();
+                Destroy(parent);
+            }
+        }
+    }
+
+}
