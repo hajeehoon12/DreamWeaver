@@ -29,6 +29,7 @@ public class RewardChest : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         GameObject Items = Instantiate(ItemLight, transform.position, Quaternion.identity);
+        AudioManager.instance.PlaySFX("ItemThrow", 0.2f);
         Items.GetComponentInParent<Rigidbody2D>().AddForce(new Vector3(0,10,0), ForceMode2D.Impulse);
         Items.GetComponentInChildren<ItemLight>().RewardData = dropData;
     }
@@ -47,6 +48,7 @@ public class RewardChest : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
+
                 OpenChest();
                 GetComponent<Collider2D>().enabled = false;
                 ThrowItem();

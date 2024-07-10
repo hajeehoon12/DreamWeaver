@@ -20,6 +20,7 @@ public class ItemLight : MonoBehaviour
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 GetItem();
+                AudioManager.instance.PlaySFX("ItemPickup", 0.2f);
                 Destroy(parent);
             }
         }
