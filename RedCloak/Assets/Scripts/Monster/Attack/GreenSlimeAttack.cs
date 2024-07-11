@@ -10,6 +10,11 @@ public class GreenSlimeAttack : MonoBehaviour, IMobAttack
     [SerializeField] private MonsterController _controller;
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private Transform playerTransform;
+    [SerializeField] private bool isElite;
+
+    private PlayerController _playerController;
+    private SpriteRenderer playerDirection;
+    private Animator playerMoving;
 
     private bool onGround = true;
 
@@ -19,10 +24,30 @@ public class GreenSlimeAttack : MonoBehaviour, IMobAttack
         playerTransform = CharacterManager.Instance.Player.transform;
     }
 
+    private void Start()
+    {
+        _playerController = CharacterManager.Instance.Player.GetComponent<PlayerController>();
+        playerDirection = CharacterManager.Instance.Player.GetComponent<SpriteRenderer>();
+        playerMoving = CharacterManager.Instance.Player.GetComponent<Animator>();
+    }
+
     public bool PerformAttack()
     {
         AudioManager.instance.PlaySFX("SlimeAttack", 0.2f);
-        float x = (playerTransform.position.x - transform.position.x) / 2;
+        float predict;
+        
+        if (playerMoving.GetBool("IsRunning") && isElite)
+        {
+            predict = playerDirection.flipX ? -1 : 1;
+            predict *= _playerController.maxSpeed * Time.fixedDeltaTime * 30;
+        }
+        else
+        {
+            predict = 0;
+        }
+        
+        float x = (playerTransform.position.x - transform.position.x + predict) / 2;
+        
         Vector2 centerPos = new Vector2(x, 5);
         if (onGround)
             JumpForce(centerPos);
