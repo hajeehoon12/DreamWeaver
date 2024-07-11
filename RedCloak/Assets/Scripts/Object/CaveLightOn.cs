@@ -17,10 +17,12 @@ public class CaveLightOn : MonoBehaviour
         {
             TurnOnCaveLight();
             isCaveLightOn = true;
+            AudioManager.instance.PlayBGM2("CaveDrop", 0.2f);
         }
         else
         {
             isCaveLightOn = false;
+            AudioManager.instance.StopBGM2();
         }
     }
 
