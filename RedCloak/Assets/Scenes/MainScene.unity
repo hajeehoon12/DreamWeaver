@@ -358,6 +358,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2398593920751439391, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: playerHitEffect
+      value: 
+      objectReference: {fileID: 827066052}
+    - target: {fileID: 7383968756168124744, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8772425027703382848, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
       propertyPath: m_Name
       value: UICombine
@@ -582,6 +590,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2208139578328645519, guid: 13eca320f0e664b44ba0d8b645f0055f, type: 3}
   m_PrefabInstance: {fileID: 766583274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &827066052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7383968756168124744, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+  m_PrefabInstance: {fileID: 467067951}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &846446703
 MonoBehaviour:

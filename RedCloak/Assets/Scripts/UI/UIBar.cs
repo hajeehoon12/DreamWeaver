@@ -12,6 +12,7 @@ public class UIBar : MonoBehaviour
     [SerializeField] private GameObject heartFront;
     [SerializeField] private GameObject damageEffect;
     [SerializeField] private GameObject lowHealthEffect;
+    [SerializeField] private GameObject playerHitEffect;
     [SerializeField] private Slider bossHealthBar;
     //[SerializeField] private Slider maxHealthBar;
     [SerializeField] private Image manaBar;
@@ -68,7 +69,7 @@ public class UIBar : MonoBehaviour
         float width = damage % maxHealth * 2;// * 100;
         damageEffectRect.sizeDelta = new Vector2(width, damageEffectRect.sizeDelta.y);
         damageEffect.SetActive(true);
-        StartCoroutine(disableEffect());
+        StartCoroutine(DisableBossDamageEffect());
     }
 
     public void CallBossBar()
@@ -105,6 +106,7 @@ public class UIBar : MonoBehaviour
         }
 
         LowHealthEffect();
+        StartCoroutine(HitEffectFade());
     }
 
     private void LowHealthEffect()
@@ -133,7 +135,7 @@ public class UIBar : MonoBehaviour
         SetMana(playerCurrnetMana, playerMaxMana);
     }
 
-    IEnumerator disableEffect()
+    IEnumerator DisableBossDamageEffect()
     {
         damageEffect.GetComponent<Image>().DOFade(1, 0f);
         damageEffect.GetComponent<Image>().DOFade(0, 0.5f);
@@ -141,5 +143,21 @@ public class UIBar : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         damageEffect.SetActive(false);
+    }
+
+    IEnumerator HitEffectFade()
+    {
+        playerHitEffect.SetActive(true);
+
+        Image playerHitEffectImage = playerHitEffect.GetComponent<Image>();
+
+        playerHitEffectImage.DOFade(1, 0.3f);
+        yield return new WaitForSeconds(0.3f);
+
+        playerHitEffectImage.DOFade(0, 1f);
+
+        yield return new WaitForSeconds(1f);
+
+        playerHitEffect.SetActive(false);
     }
 }
