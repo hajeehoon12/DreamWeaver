@@ -41,6 +41,7 @@ public class CameraManager : MonoBehaviour
 
     public bool isCameraShaking = false;
 
+    public int stageNum = 0;
     
 
     private void Awake()
@@ -63,6 +64,21 @@ public class CameraManager : MonoBehaviour
 
         screenHeight = Camera.main.orthographicSize;
         screenWidth = screenHeight * Screen.width / Screen.height;
+
+        switch (stageNum)
+        {
+            case 0:
+                break;
+            case 1:
+                CallStage1CameraInfo();
+                break;
+            case 2:
+                CallStage2CameraInfo();
+                break;
+            default:
+                break;
+        
+        }
 
         //mapSize = map.GetComponent<Collider2D>().bounds.extents + new Vector3(0, 2, 0);
     }
