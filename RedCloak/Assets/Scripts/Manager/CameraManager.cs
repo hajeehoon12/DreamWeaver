@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CameraManager : MonoBehaviour
 {
 
@@ -40,6 +41,7 @@ public class CameraManager : MonoBehaviour
 
     public bool isCameraShaking = false;
 
+    
 
     private void Awake()
     {
@@ -109,6 +111,17 @@ public class CameraManager : MonoBehaviour
         center = tempCenter;
     }
 
+    public void CallStage1CameraInfo()
+    {
+        mapSize = new Vector2(220, 40);
+        center = new Vector2(70, -10);
+    }
+
+    public void CallStage2CameraInfo()
+    {
+        mapSize = new Vector2(265, 70);
+        center = new Vector2(112, -165);
+    }
 
 
 
