@@ -31,10 +31,42 @@ public class FadeManager : MonoBehaviour
         StartCoroutine(Fade(0f, 1f));
     }
 
-    private IEnumerator Fade(float startAlpha, float endAlpha)
+    public void FadeIn(float duration)
+    {
+        StartCoroutine(Fade(1f, 0f, duration));
+    }
+
+
+    public void FadeOut(float duration)
+    {
+        StartCoroutine(Fade(0f, 1f, duration));
+    }
+
+    private IEnumerator Fade(float startAlpha, float endAlpha) // , float fadeDurations
     {
         float leadTime = 0f;
         Color color = fadeImage.color;
+
+        //fadeDuration = fadeDurations;
+
+        while (leadTime < fadeDuration)
+        {
+            leadTime += Time.deltaTime;
+            color.a = Mathf.Lerp(startAlpha, endAlpha, leadTime / fadeDuration);
+            fadeImage.color = color;
+            yield return null;
+        }
+
+        color.a = endAlpha;
+        fadeImage.color = color;
+    }
+
+    private IEnumerator Fade(float startAlpha, float endAlpha, float fadeDurations) // ,
+    {
+        float leadTime = 0f;
+        Color color = fadeImage.color;
+
+        //fadeDuration = fadeDurations;
 
         while (leadTime < fadeDuration)
         {

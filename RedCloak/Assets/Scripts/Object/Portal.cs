@@ -1,3 +1,4 @@
+using Demo_Project;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,8 @@ public class Portal : MonoBehaviour
             if (isStartPortal)
             {
                 CameraManager.Instance.CallStage2CameraInfo();
-                StartCoroutine(TeleportAfterFade(collision.gameObject));
+                collision.gameObject.transform.position = portalDestination.position;
+                StartCoroutine(TeleportAfterFade());//collision.gameObject
                 isStartPortal = false;
             }
 
@@ -40,14 +42,12 @@ public class Portal : MonoBehaviour
         }
     }
 
-    private IEnumerator TeleportAfterFade(GameObject player)
+    private IEnumerator TeleportAfterFade()//GameObject player
     {
-        FadeManager.instance.FadeOut();
-        yield return new WaitForSeconds(1f);
+        FadeManager.instance.FadeOut(0f);
+        //yield return new WaitForSeconds(1f);
 
-        player.transform.position = portalDestination.position;
-
-        FadeManager.instance.FadeIn();
+        FadeManager.instance.FadeIn(2f);
         AudioManager.instance.PlaySFX("Success", 0.2f);
         yield return new WaitForSeconds(2f);
 
