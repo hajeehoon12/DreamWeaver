@@ -6,6 +6,11 @@ public class PointLightOn : MonoBehaviour
     public bool isPointLightOn = false;
     [SerializeField] private Light2D pointLight;
 
+
+    private void Start()
+    {
+        pointLight = CharacterManager.Instance.Player.GetComponent<Light2D>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(Define.PLAYER) && !isPointLightOn)

@@ -7,6 +7,11 @@ public class GlobalLightOn : MonoBehaviour
     private bool isGlobalLightOn = true;
     [SerializeField] private Light2D globalLight;
 
+    private void Start()
+    {
+        globalLight = CharacterManager.Instance.Player.GetComponent<Light2D>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(Define.PLAYER) && !isGlobalLightOn)

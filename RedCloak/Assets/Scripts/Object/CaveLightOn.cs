@@ -6,6 +6,11 @@ public class CaveLightOn : MonoBehaviour
     public bool isCaveLightOn = false;
     [SerializeField] private Light2D caveLight;
 
+    private void Start()
+    {
+        caveLight = CharacterManager.Instance.Player.GetComponent<Light2D>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(Define.PLAYER) && !isCaveLightOn)
