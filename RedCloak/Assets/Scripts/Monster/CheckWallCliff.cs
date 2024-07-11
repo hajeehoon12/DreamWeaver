@@ -6,6 +6,7 @@ namespace BehaviorDesigner.Runtime.Tasks
     {
         private TaskStatus current = TaskStatus.Running;
         public SharedVector2 WallRayPos;
+        public SharedFloat WallDistance;
         private bool needFlip;
 
         public override TaskStatus OnUpdate()
@@ -22,7 +23,7 @@ namespace BehaviorDesigner.Runtime.Tasks
                 return;
             }
             
-            bool wall = Physics2D.Raycast((Vector2)transform.position + WallRayPos.Value, transform.right, 2f,
+            bool wall = Physics2D.Raycast((Vector2)transform.position + WallRayPos.Value, transform.right, WallDistance.Value,
                 1 << LayerMask.NameToLayer(Define.FLOOR));
             bool cliff = Physics2D.Raycast(transform.position + transform.right, transform.up, -3f,
                 1 << LayerMask.NameToLayer(Define.FLOOR));
