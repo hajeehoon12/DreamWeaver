@@ -10991,6 +10991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portalDestination: {fileID: 1463787042513075675}
   whichStage: 1
+  isStartPortal: 1
 --- !u!61 &8365134871304271203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29625,6 +29626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portalDestination: {fileID: 5738496258765143219}
   whichStage: 1
+  isStartPortal: 1
 --- !u!61 &5913586485184712790
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55945,6 +55947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portalDestination: {fileID: 1463787042513075675}
   whichStage: 2
+  isStartPortal: 1
 --- !u!61 &8720830295450202455
 BoxCollider2D:
   m_ObjectHideFlags: 0
