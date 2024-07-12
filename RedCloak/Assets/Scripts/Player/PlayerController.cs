@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
     {
         if (CharacterManager.Instance.Player.stats.playerMP <= CharacterManager.Instance.Player.stats.playerMaxMP)
         {
-            CharacterManager.Instance.Player.stats.playerMP = Mathf.Clamp(CharacterManager.Instance.Player.stats.playerMP + Time.deltaTime * 4, 0, CharacterManager.Instance.Player.stats.playerMaxMP);
+            CharacterManager.Instance.Player.stats.playerMP = Mathf.Clamp(CharacterManager.Instance.Player.stats.playerMP + Time.deltaTime * 8, 0, CharacterManager.Instance.Player.stats.playerMaxMP);
         }
         
     }
@@ -323,7 +323,7 @@ public class PlayerController : MonoBehaviour
             {
                 transform.position += new Vector3(0.05f * transform.localScale.x, 0, 0);
             }
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.01f);
         }
         
         yield return null;
