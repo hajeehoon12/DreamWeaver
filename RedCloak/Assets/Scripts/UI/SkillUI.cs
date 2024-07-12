@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class SkillUI : MonoBehaviour
 {
@@ -24,18 +25,27 @@ public class SkillUI : MonoBehaviour
             if(Quaternion.Angle(transform.rotation, rotation) < 0.1f)
             {
                 isRotating = false;
+                CharacterManager.Instance.Player.GetComponentInChildren<PlayerShooting>().isRotating = false;
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.E) && !isRotating)// 
         {
-            StartRotation();
+            StartRotation(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Q) && !isRotating)// 
+        {
+            StartRotation(-1);
         }
     }
 
-    public void StartRotation()
+    public void StartRotation(int num)
     {
-        rotation = Quaternion.Euler(0, 0, transform.eulerAngles.z + targetAngle);
+        rotation = Quaternion.Euler(0, 0, transform.eulerAngles.z + targetAngle * num);
+
+        //transform.DORotateQuaternion(Quaternion.Euler(0,0,transform.eulerAngles.z + targetAngle), 1f);
+
         isRotating = true;
+        CharacterManager.Instance.Player.GetComponentInChildren<PlayerShooting>().isRotating = true;
     }
 }

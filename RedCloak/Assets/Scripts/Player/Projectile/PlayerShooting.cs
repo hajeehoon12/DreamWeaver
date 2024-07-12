@@ -23,6 +23,8 @@ public class PlayerShooting : MonoBehaviour
     //Double-click protection
     private float buttonSaver = 0f;
 
+    public bool isRotating = false;
+
     void Start()
     {
         Counter(0);
@@ -34,12 +36,12 @@ public class PlayerShooting : MonoBehaviour
         fireCountdown -= Time.deltaTime;
 
         //To change projectiles
-        if ((Input.GetKey(KeyCode.Q) && buttonSaver >= 0.4f))// left button
+        if ((Input.GetKey(KeyCode.Q) && !isRotating))// left button
         {
             buttonSaver = 0f;
             Counter(-1);
         }
-        if ((Input.GetKey(KeyCode.E) && buttonSaver >= 0.4f))// right button
+        if ((Input.GetKey(KeyCode.E) && !isRotating))// right button // buttonSaver >= 0.4f
         {
             buttonSaver = 0f;
             Counter(+1);
