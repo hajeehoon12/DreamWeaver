@@ -25,30 +25,12 @@ public class PlayerShooting : MonoBehaviour
 
     void Start()
     {
-        if (Screen.dpi < 1) windowDpi = 1;
-        if (Screen.dpi < 200) windowDpi = 1;
-        else windowDpi = Screen.dpi / 200f;
         Counter(0);
     }
 
     void Update()
     {
-        //Single shoot
-        if (Input.GetButtonDown("Fire1")) // DoFire
-        {
 
-
-        }
-
-        //Fast shooting
-        if (Input.GetMouseButton(1) && fireCountdown <= 0f) // Do Fast Shooting
-        {
-            //GameObject obj = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
-            //obj.transform.localEulerAngles += new Vector3(0, 180, 0);
-            //obj.transform.localScale *= 4;
-            //fireCountdown = 0;
-            //fireCountdown += hSliderValue;
-        }
         fireCountdown -= Time.deltaTime;
 
         //To change projectiles
@@ -64,20 +46,11 @@ public class PlayerShooting : MonoBehaviour
         }
         buttonSaver += Time.deltaTime;
 
-        //To rotate fire point
-        //if (Cam != null)
-        //{
-        //    var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //    transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
-        //}
-        //else
-        // {
-        //    Debug.Log("No camera");
-        //}
     }
 
     public void FireProjectile()
     {
+        if (Prefab == 0) return;
         GameObject obj = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
         obj.transform.localEulerAngles += new Vector3(0, 180, 0);
         obj.transform.localScale *= 4;
@@ -85,6 +58,7 @@ public class PlayerShooting : MonoBehaviour
 
     public void RapidFireProjectile()
     {
+        if (Prefab == 0) return;
         GameObject obj = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
         obj.transform.localEulerAngles += new Vector3(0, 180, 0);
         obj.transform.localScale *= 4;

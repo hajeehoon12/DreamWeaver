@@ -33,20 +33,15 @@ public class Jumping : StateMachineBehaviour
             //    controller.GetComponent<Rigidbody2D>().gravityScale = 3f;
             //}
         }
-
-        if (controller.isLongJump)
-        {
-            controller.rigid.gravityScale = 2f;
-        }
-        else
-        {
-            controller.rigid.gravityScale = 4f;
-        }
+       
+        controller.rigid.gravityScale = controller.isLongJump ? 2.0f : 4.0f;
+        
 
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if(!controller.ghostDash.makeGhost)
         controller.GetComponent<Rigidbody2D>().gravityScale = 2f;    
     }
 

@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     public float jumpPower;
     public Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
-    GhostDash ghostDash;
+    public GhostDash ghostDash;
     public Collider2D playerCollider;
     PlayerBattle playerBattle;
 
@@ -302,6 +302,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator DoingDash() // Do Coroutine During Dash
     {
+        
         while (ghostDash.makeGhost)
         {
             if (spriteRenderer.flipX)
