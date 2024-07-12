@@ -942,7 +942,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1647,11 +1647,24 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b41d8e6bd6521f44baeb0b25b90b9ad8, type: 3}
   - name: Twinkle
     clip: {fileID: 8300000, guid: 43e29c307afe71246a74b3c049e7ceb2, type: 3}
+  - name: ItemPickup
+    clip: {fileID: 8300000, guid: 81dacc08477c10d4dbba3ea33e996314, type: 3}
+  - name: ItemThrow
+    clip: {fileID: 8300000, guid: 706ea6aa3c062a14c9a395d2db8ded7e, type: 3}
+  - name: BubblePop
+    clip: {fileID: 8300000, guid: 55dfd9d34e943a1408b29e1803971993, type: 3}
+  - name: Evil
+    clip: {fileID: 8300000, guid: c3c0552890cc490479e720f38bb83281, type: 3}
   bgm:
   - name: SadStory
     clip: {fileID: 8300000, guid: 63866d7c854dc1a4f81291c92f8f4c11, type: 3}
   - name: SilverBird
     clip: {fileID: 8300000, guid: 6dc511f696d944142898fed68d9d4061, type: 3}
+  - name: CaveDrop
+    clip: {fileID: 8300000, guid: 96292c9e4ba6e5c4d8e8b3acd203b7c5, type: 3}
+  - name: WrongPlace
+    clip: {fileID: 8300000, guid: 4e9bfc1ab3bf1114991c26d6c1e8b0f0, type: 3}
+  UI: []
   bgmPlayer: {fileID: 3854997849801399508}
   bgmPlayer2: {fileID: 5313201296594538622}
   sfxPlayer:
