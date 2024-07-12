@@ -157,6 +157,7 @@ MonoBehaviour:
   maxSpeed: 10
   jumpPower: 15
   rigid: {fileID: 0}
+  ghostDash: {fileID: 0}
   playerCollider: {fileID: 0}
   Rolling: 0
   isGrounded: 1
@@ -186,6 +187,7 @@ MonoBehaviour:
   slopeSpeed: 0.5
   originSlopeSpeed: 0.5
   projectile: {fileID: 4858722134795586189}
+  isLongJump: 0
 --- !u!114 &8648394096373722908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,8 +345,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0, y: -0.00000011920929, z: 0}
-    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+    m_Center: {x: 0.00024998188, y: 0.00014996529, z: 0}
+    m_Extent: {x: 1.00045, y: 1.00035, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -371,6 +373,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6639496726971127151, guid: 5efc3e238418636409fceef0a61616b8, type: 3}
+      propertyPath: Prefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639496726971127151, guid: 5efc3e238418636409fceef0a61616b8, type: 3}
+      propertyPath: Prefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1311559214229084, guid: 5adb03b8fb7ac264d924fdfe7267b625, type: 3}
+    - target: {fileID: 6639496726971127151, guid: 5efc3e238418636409fceef0a61616b8, type: 3}
+      propertyPath: Prefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1249710063744722, guid: b5142b50d0087484da65aa5c35349656, type: 3}
     - target: {fileID: 6799595111446954386, guid: 5efc3e238418636409fceef0a61616b8, type: 3}
       propertyPath: m_Name
       value: PlayerSlash
