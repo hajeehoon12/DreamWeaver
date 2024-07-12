@@ -51,6 +51,15 @@ public class PlayerShooting : MonoBehaviour
     public void FireProjectile()
     {
         if (Prefab == 0) return;
+        else
+        {
+            if (CharacterManager.Instance.Player.stats.playerMP >= 10)
+            {
+                CharacterManager.Instance.Player.stats.playerMP -= 10;
+            }
+            else return;
+        }
+
         GameObject obj = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
         obj.transform.localEulerAngles += new Vector3(0, 180, 0);
         obj.transform.localScale *= 4;
