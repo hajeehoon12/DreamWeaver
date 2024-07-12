@@ -79,6 +79,8 @@ public class PlayerController : MonoBehaviour
 
     public bool isLongJump = false;
 
+    
+
     void Awake()
     {
 
@@ -110,7 +112,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        
+        ManaRegenerate();
         JumpCheck(); // Checking whether can jump
         WallClimb();
 
@@ -124,6 +126,14 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    private void ManaRegenerate()
+    {
+        if (CharacterManager.Instance.Player.stats.playerMP <= CharacterManager.Instance.Player.stats.playerMaxMP)
+        {
+            CharacterManager.Instance.Player.stats.playerMP = Mathf.Clamp(CharacterManager.Instance.Player.stats.playerMP + Time.deltaTime * 4, 0, CharacterManager.Instance.Player.stats.playerMaxMP);
+        }
+        
+    }
 
     private void LongJumpDisc()
     {
@@ -337,6 +347,12 @@ public class PlayerController : MonoBehaviour
         if (!canRoll) return;
         if (isAttacked) return;
         if (animator.GetBool(isJumping)) return;
+
+        if (CharacterManager.Instance.Player.stats.playerMP >= 10)
+        {
+            CharacterManager.Instance.Player.stats.playerMP -= 10;
+        }
+        else return;
 
         if (!Rolling && !Jumping)
         {
