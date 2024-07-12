@@ -651,7 +651,7 @@ public class PlayerController : MonoBehaviour
         if (collider.gameObject.layer == LayerMask.NameToLayer(Define.TRAP))
         {
             if (Rolling) return;
-            GetAttacked();
+            playerBattle.ChangeHealth(-1);
         }
 
 
