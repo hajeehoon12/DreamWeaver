@@ -4,6 +4,7 @@ using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 public class UIBar : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class UIBar : MonoBehaviour
     private float maxBossHealthBarWidth;
     private float playerCurrnetMana;
     private float playerMaxMana;
+    public TMP_Text bossText;
 
     public List<GameObject> heartsFront = new List<GameObject>();
 
@@ -35,7 +37,7 @@ public class UIBar : MonoBehaviour
     }
     void Start()
     {
-        BossBarPos.DOMoveY(-50, 0f);
+        BossBarPos.DOMoveY(-150, 0f);
         //CallBackBossBar();
         //CallBossBar();
 
@@ -72,14 +74,32 @@ public class UIBar : MonoBehaviour
         StartCoroutine(DisableBossDamageEffect());
     }
 
-    public void CallBossBar()
+    public void CallBossBar(string bossName)
     {
         BossBarPos.DOMoveY(50, 1f);
+        StartCoroutine(BossTextChange(bossName));
+
+    }
+
+    IEnumerator BossTextChange(string bossName)
+    {
+        bossText.text = "";
+        yield return new WaitForSeconds(0.1f);
+        string fillName = "";
+        DOTween.To(() => "", str => fillName = str, bossName, 1f);
+        float time = 0;
+        while (time < 1)
+        {
+            bossText.text = fillName;
+            time += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+
     }
 
     public void CallBackBossBar()
     {
-        BossBarPos.DOMoveY(-50, 1f);
+        BossBarPos.DOMoveY(-150, 1f);
     }
 
     private void SetPlayerHealth()

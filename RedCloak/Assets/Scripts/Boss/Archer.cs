@@ -61,7 +61,7 @@ public class Archer : MonoBehaviour , IDamage
         AudioManager.instance.PlaySFX("Nervous", 0.1f);
 
         //DOTween.To(() => bossHealth, x => bossHealth = x, bossMaxHealth, 2);
-        UIBar.Instance.CallBossBar();
+        UIBar.Instance.CallBossBar("Shadow of Forest");
         StartCoroutine(ArcherBossStageStart());
         
         isPhase1 = true;

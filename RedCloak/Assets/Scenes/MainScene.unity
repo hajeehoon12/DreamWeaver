@@ -123,23 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &125976434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333247939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4104cc9a4c4a194cb79acd699ad3df8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &65655987 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3179974505085094881, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
-  m_PrefabInstance: {fileID: 467067951}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &135330376
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,6 +357,18 @@ PrefabInstance:
     - target: {fileID: 2316630939819279409, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398593920751439391, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: bossText
+      value: 
+      objectReference: {fileID: 1205769308}
+    - target: {fileID: 2565975236639982987, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565975236639982987, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8772425027703382848, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
       propertyPath: m_Name
@@ -942,6 +937,17 @@ Transform:
   - {fileID: 642122007}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1205769308 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2565975236639982987, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+  m_PrefabInstance: {fileID: 467067951}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1281559511
 GameObject:
   m_ObjectHideFlags: 0
@@ -27383,6 +27389,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 4942515153668334140}
+    - target: {fileID: 5851826784669889978, guid: f706ea928c2c05044b8d03156496ae96, type: 3}
+      propertyPath: stageNum
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -47364,11 +47374,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -146.5
+      value: 99.5
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -106.3
+      value: 4.9
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.z
