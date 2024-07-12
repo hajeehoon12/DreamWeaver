@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject projectile;
 
+    public bool isLongJump = false;
 
     void Awake()
     {
@@ -105,7 +106,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        
+        LongJumpDisc();
     }
     void Update()
     {
@@ -124,7 +125,17 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
+    private void LongJumpDisc()
+    {
+        if (Input.GetKey(KeyCode.Z))
+        {
+            isLongJump = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.Z))
+        {
+            isLongJump = false;
+        }
+    }
 
 
 

@@ -135,8 +135,8 @@ public class CameraManager : MonoBehaviour
 
     public void CallStage2CameraInfo()
     {
-        mapSize = new Vector2(265, 70);
-        center = new Vector2(112, -165);
+        mapSize = new Vector2(265, 65);
+        center = new Vector2(120, -165);
     }
 
 

@@ -47245,6 +47245,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2506421259291950530, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: m_LightType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506421259291950530, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: m_LocalBounds.m_Center.x
+      value: 0.00024998188
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506421259291950530, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: m_LocalBounds.m_Center.y
+      value: 0.00014996529
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506421259291950530, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.x
+      value: 1.00045
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506421259291950530, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.y
+      value: 1.00035
+      objectReference: {fileID: 0}
     - target: {fileID: 8946823807965324558, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_Name
       value: Player
