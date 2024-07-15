@@ -8,7 +8,6 @@ namespace BehaviorDesigner.Runtime.Tasks
         public SharedVector2 WallRayPos;
         public SharedFloat WallDistance;
         private bool needFlip;
-        private bool ground;
 
         public override TaskStatus OnUpdate()
         {
@@ -17,7 +16,7 @@ namespace BehaviorDesigner.Runtime.Tasks
 
         public override void OnFixedUpdate()
         {
-            ground = Physics2D.Raycast(transform.position, transform.up, -0.1f, 1<<LayerMask.NameToLayer(Define.FLOOR));
+            bool ground = Physics2D.Raycast(transform.position, transform.up, -1, 1<<LayerMask.NameToLayer(Define.FLOOR));
             if (!ground)
             {
                 current = TaskStatus.Failure;
@@ -26,7 +25,7 @@ namespace BehaviorDesigner.Runtime.Tasks
             
             bool wall = Physics2D.Raycast((Vector2)transform.position + WallRayPos.Value, transform.right, WallDistance.Value,
                 1 << LayerMask.NameToLayer(Define.FLOOR));
-            bool cliff = Physics2D.Raycast(transform.position + transform.right, transform.up, -0.1f,
+            bool cliff = Physics2D.Raycast(transform.position + transform.right, transform.up, -3f,
                 1 << LayerMask.NameToLayer(Define.FLOOR));
             
             if (wall || !cliff)

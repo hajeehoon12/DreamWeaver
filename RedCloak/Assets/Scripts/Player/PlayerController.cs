@@ -315,13 +315,19 @@ public class PlayerController : MonoBehaviour
         
         while (ghostDash.makeGhost)
         {
-            if (spriteRenderer.flipX)
+            float dir = spriteRenderer.flipX ? -1 : 1;
+            isWall = Physics2D.Raycast(transform.position + new Vector3(dir * playerCollider.bounds.extents.x, playerCollider.bounds.extents.y), Vector2.right * dir, 0.05f, groundLayerMask);
+            if (!isWall)
             {
-                transform.position -= new Vector3(0.05f * transform.localScale.x, 0, 0);
-            }
-            else
-            {
-                transform.position += new Vector3(0.05f * transform.localScale.x, 0, 0);
+                if (spriteRenderer.flipX)
+                {
+
+                    transform.position -= new Vector3(0.05f * transform.localScale.x, 0, 0);
+                }
+                else
+                {
+                    transform.position += new Vector3(0.05f * transform.localScale.x, 0, 0);
+                }
             }
             yield return new WaitForSeconds(0.01f);
         }
