@@ -79,6 +79,8 @@ public class PlayerController : MonoBehaviour
 
     public bool isLongJump = false;
 
+    public bool cantMove = false;
+
     
 
     void Awake()
@@ -433,6 +435,8 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         Vector3 moveVelocity = Vector3.zero;
+
+        if (cantMove) return;
 
         if (isAttacked)
         {

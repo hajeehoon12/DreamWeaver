@@ -50,6 +50,7 @@ public class Wolf : MonoBehaviour, IDamage
 
     public void CallWolfBoss()
     {
+        CharacterManager.Instance.Player.controller.cantMove = true;
         //BossZoneWall.enabled = true;
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlaySFX("Nervous", 0.1f);
@@ -63,9 +64,9 @@ public class Wolf : MonoBehaviour, IDamage
         isPhase2 = false;
         isPhase3 = false;
 
-        transform.DOMove(new Vector3(306, -146, 0), 3f);
+        transform.DOMove(new Vector3(306, -146, 0), 5f);
 
-        spriteRenderer.DOFade(1, 3f).OnComplete(() =>
+        spriteRenderer.DOFade(1, 5f).OnComplete(() =>
         {
             animator.SetBool(isRun, false);
         });
@@ -74,18 +75,20 @@ public class Wolf : MonoBehaviour, IDamage
     IEnumerator WolfBossStageStart()
     {
 
-        CameraManager.Instance.MakeCameraShake(new Vector3(306, -146, 0), 3f, 0.05f, 0.1f);
-        yield return new WaitForSeconds(1f);
+        CameraManager.Instance.MakeCameraShake(new Vector3(306, -146, 0), 5f, 0.05f, 0.1f);
+        yield return new WaitForSeconds(2f);
 
         float time = 0f;
+        float totalTime = 2f;
 
-        while (time < 1)
+        while (time < totalTime)
         {
-            bossHealth += (bossMaxHealth * Time.deltaTime);
+            bossHealth += (bossMaxHealth * Time.deltaTime * totalTime);
             SetBossBar();
             yield return new WaitForSeconds(Time.deltaTime);
             time += Time.deltaTime;
         }
+        CharacterManager.Instance.Player.controller.cantMove = false;
         //animator.Play("Special Attack", 0, 0f);
         //Discrimination();
         AudioManager.instance.StopBGM();
