@@ -16,7 +16,7 @@ public class GreenSlimeAttack : MonoBehaviour, IMobAttack
     private SpriteRenderer playerDirection;
     private Animator playerMoving;
 
-    private bool onGround;
+    private bool onGround = true;
 
     private void OnEnable()
     {
