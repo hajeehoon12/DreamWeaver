@@ -21,6 +21,7 @@ public class MonsterController : MonoBehaviour
     {
         if (MobAttack != null)
         {
+            OnAttack = true;
             if (MobAttack.PerformAttack() && !collisionOff)
             {
                 collisionOff = true;

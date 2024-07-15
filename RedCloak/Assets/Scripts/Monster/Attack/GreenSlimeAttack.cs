@@ -73,7 +73,7 @@ public class GreenSlimeAttack : MonoBehaviour, IMobAttack
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer(Define.FLOOR))
+        if (other.gameObject.layer == LayerMask.NameToLayer(Define.FLOOR) && Physics2D.Raycast(transform.position, transform.up, -0.1f, 1<<LayerMask.NameToLayer(Define.FLOOR)))
         {
             onGround = true;
         }
