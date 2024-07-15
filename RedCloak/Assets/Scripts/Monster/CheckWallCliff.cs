@@ -26,7 +26,7 @@ namespace BehaviorDesigner.Runtime.Tasks
             
             bool wall = Physics2D.Raycast((Vector2)transform.position + WallRayPos.Value, transform.right, WallDistance.Value,
                 1 << LayerMask.NameToLayer(Define.FLOOR));
-            bool cliff = Physics2D.Raycast(transform.position + transform.right, transform.up, -3f,
+            bool cliff = Physics2D.Raycast(transform.position + transform.right, transform.up, -0.1f,
                 1 << LayerMask.NameToLayer(Define.FLOOR));
             
             if (wall || !cliff)
