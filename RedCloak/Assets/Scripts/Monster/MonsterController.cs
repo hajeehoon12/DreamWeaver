@@ -1,27 +1,32 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {
-    [SerializeField] private float invincibleTime;
-    
     private WaitForSeconds invincible;
     public IMobAttack MobAttack;
 
+    private bool collisionOff = false;
+    public bool OnAttack { get; set; } = false;
+
     private void Start()
     {
-        invincible = new WaitForSeconds(invincibleTime);
+        invincible = new WaitForSeconds(CharacterManager.Instance.Player.battle.healthChangeDelay);
     }
 
     public void Attack()
     {
         if (MobAttack != null)
         {
-            if (MobAttack.PerformAttack())
+            OnAttack = true;
+            if (MobAttack.PerformAttack() && !collisionOff)
             {
-                SetLayerCollisionMatrix(gameObject.layer, LayerMask.NameToLayer(Define.PLAYER), false);
+                collisionOff = true;
+                //SetLayerCollisionMatrix(LayerMask.NameToLayer(Define.PLAYER),LayerMask.NameToLayer(Define.ENEMY),false);
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.PLAYER),LayerMask.NameToLayer(Define.ENEMY), true);
                 StartCoroutine(collisionDelay());
             }
         }
@@ -29,10 +34,12 @@ public class MonsterController : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if ((1 << other.gameObject.layer & 1 << LayerMask.NameToLayer(Define.PLAYER)) != 0)
+        if (!collisionOff && (1 << other.gameObject.layer & 1 << LayerMask.NameToLayer(Define.PLAYER)) != 0)
         {
+            collisionOff = true;
             other.gameObject.GetComponent<PlayerBattle>().ChangeHealth(-1, transform.position);
-            SetLayerCollisionMatrix(gameObject.layer, other.gameObject.layer, false);
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.PLAYER),LayerMask.NameToLayer(Define.ENEMY), true);
+            //SetLayerCollisionMatrix(LayerMask.NameToLayer(Define.PLAYER),LayerMask.NameToLayer(Define.ENEMY),false);
             StartCoroutine(collisionDelay());
         }
     }
@@ -49,6 +56,8 @@ public class MonsterController : MonoBehaviour
     private IEnumerator collisionDelay()
     {
         yield return invincible;
-        SetLayerCollisionMatrix(7,11,true);
+        //SetLayerCollisionMatrix(LayerMask.NameToLayer(Define.PLAYER),LayerMask.NameToLayer(Define.ENEMY),true);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.PLAYER),LayerMask.NameToLayer(Define.ENEMY), false);
+        collisionOff = false;
     }
 }
