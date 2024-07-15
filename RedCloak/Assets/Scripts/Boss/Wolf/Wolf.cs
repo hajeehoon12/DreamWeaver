@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Wolf : MonoBehaviour
+public class Wolf : MonoBehaviour, IDamage
 {
     private static readonly int isNextPhase = Animator.StringToHash("IsNextPhase");
     private static readonly int isJump = Animator.StringToHash("IsJump");
@@ -21,11 +21,18 @@ public class Wolf : MonoBehaviour
 
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private Collider2D wolfCol;
+
+    public bool isBossDie = false;
+
+    public GameObject wolfZone1;
+    public GameObject wolfZone2;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        wolfCol = GetComponent<Collider2D>();
     }
 
     private void Update()
@@ -80,5 +87,55 @@ public class Wolf : MonoBehaviour
         UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, 0);
     }
 
+    public void GetDamage(float damage)
+    {
+
+        if (bossHealth > damage)
+        {
+            bossHealth -= damage;
+            Debug.Log($"남은 보스 체력 : {bossHealth}");
+            if (bossHealth < (bossMaxHealth * 2 / 3) && isPhase1)
+            {
+                isPhase1 = false;
+                isPhase2 = true;
+            }
+
+            if (bossHealth < (bossMaxHealth * 1 / 3) && isPhase2)
+            {
+                isPhase1 = false;
+                isPhase3 = true;
+                isPhase2 = false;
+
+            }
+
+            UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, damage);
+            StartCoroutine(ColorChanged());
+        }
+        else
+        {
+            if (isBossDie) return;
+            UIBar.Instance.SetBossBar(0, bossMaxHealth, bossHealth);
+            CallDie();
+            wolfCol.enabled = true;
+        }
+    }
+
+    IEnumerator ColorChanged()
+    {
+        float durTime = 0.2f; // invincibleTime; Have To Change
+        spriteRenderer.DOColor(Color.red, durTime);
+        yield return new WaitForSeconds(durTime);
+        spriteRenderer.DOColor(Color.white, durTime);
+
+    }
+
+    void CallDie()
+    {
+        UIBar.Instance.CallBackBossBar();
+        animator.SetBool(isDead, true);
+        isBossDie = true;
+
+        //TODO Boss Die
+    }
 
 }

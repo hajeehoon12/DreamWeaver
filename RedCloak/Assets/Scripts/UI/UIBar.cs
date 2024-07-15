@@ -68,7 +68,7 @@ public class UIBar : MonoBehaviour
 
         damageEffectRect.anchoredPosition = new Vector2(endPosition, damageEffectRect.anchoredPosition.y);
 
-        float width = damage % maxHealth * 2;// * 100;
+        float width = damage % maxHealth * 3;// * 100;
         damageEffectRect.sizeDelta = new Vector2(width, damageEffectRect.sizeDelta.y);
         damageEffect.SetActive(true);
         StartCoroutine(DisableBossDamageEffect());
