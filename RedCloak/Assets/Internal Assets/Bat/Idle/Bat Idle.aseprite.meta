@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 5014526664264f847a9329ca55cfe586
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Bat Idle_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: -1.24}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 172
+      y: 113
+      width: 56
+      height: 25
+    spriteID: 66c97610b46293948a1a7784b0f21a04
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 172, y: 113}
+  - name: Bat Idle_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.90909094}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 113
+      width: 48
+      height: 33
+    spriteID: 24f406e95427b74449917b11b616818b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 113}
+  - name: Bat Idle_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -1.4583333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 49
+      width: 70
+      height: 24
+    spriteID: 43b6ba3c5b9dc444fa3cbda273a3f30b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 49}
+  - name: Bat Idle_Frame_3
+    originalName: 
+    pivot: {x: 0.50000006, y: -1.625}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 184
+      y: 4
+      width: 68
+      height: 24
+    spriteID: ac9fdf0a59c21f34b86df89b3e8f7d86
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 184, y: 4}
+  - name: Bat Idle_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -0.83783776}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 52
+      height: 37
+    spriteID: 2b013bffbe19f3242b4a960dd158af33
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Bat Idle_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -1.24}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 154
+      width: 56
+      height: 25
+    spriteID: df4790c979cfb3d45ad9163dbc01af6c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 154}
+  - name: Bat Idle_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: -0.90909094}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 113
+      width: 48
+      height: 33
+    spriteID: 2d983e1a5c6896d47b826354f7a9e603
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 113}
+  - name: Bat Idle_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: -1.4583333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 82
+      y: 49
+      width: 70
+      height: 24
+    spriteID: 52ab61db0861b2f4792db0e5f2112c89
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 82, y: 49}
+  - name: Bat Idle_Frame_8
+    originalName: 
+    pivot: {x: 0.50000006, y: -1.625}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 81
+      width: 68
+      height: 24
+    spriteID: edfdb71e8eccfd6419190d2c029f56f0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 81}
+  - name: Bat Idle_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: -0.83783776}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 4
+      width: 52
+      height: 37
+    spriteID: d6bd328cd78123c48815bf39917ea3d3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 64, y: 4}
+  - name: Bat Idle_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: -1.24}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 154
+      width: 56
+      height: 25
+    spriteID: 4435d027db927ed4dbc2ef2406ad00be
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 154}
+  - name: Bat Idle_Frame_11
+    originalName: 
+    pivot: {x: 0.5, y: -0.90909094}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 116
+      y: 113
+      width: 48
+      height: 33
+    spriteID: 4886429dbf58ab546b0ec0d986f7bf4e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 116, y: 113}
+  - name: Bat Idle_Frame_12
+    originalName: 
+    pivot: {x: 0.5, y: -1.4583333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 49
+      width: 70
+      height: 24
+    spriteID: 3284b1d14ab27244aaa3d58bcc9a99b6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 160, y: 49}
+  - name: Bat Idle_Frame_13
+    originalName: 
+    pivot: {x: 0.50000006, y: -1.625}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 81
+      width: 68
+      height: 24
+    spriteID: 514b41c58a9a25b49adad4d700b2b646
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 80, y: 81}
+  - name: Bat Idle_Frame_14
+    originalName: 
+    pivot: {x: 0.5, y: -0.83783776}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 124
+      y: 4
+      width: 52
+      height: 37
+    spriteID: 793da2101b513664083c337963a2eb33
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 124, y: 4}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -664423805
+    name: Bat Idle
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Bat Idle_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 12
+        y: 31
+        width: 56
+        height: 25
+      spriteId: 66c97610b46293948a1a7784b0f21a04
+    - name: Bat Idle_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 16
+        y: 30
+        width: 48
+        height: 33
+      spriteId: 24f406e95427b74449917b11b616818b
+    - name: Bat Idle_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 5
+        y: 35
+        width: 70
+        height: 24
+      spriteId: 43b6ba3c5b9dc444fa3cbda273a3f30b
+    - name: Bat Idle_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 6
+        y: 39
+        width: 68
+        height: 24
+      spriteId: ac9fdf0a59c21f34b86df89b3e8f7d86
+    - name: Bat Idle_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 14
+        y: 31
+        width: 52
+        height: 37
+      spriteId: 2b013bffbe19f3242b4a960dd158af33
+    - name: Bat Idle_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 12
+        y: 31
+        width: 56
+        height: 25
+      spriteId: df4790c979cfb3d45ad9163dbc01af6c
+    - name: Bat Idle_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 16
+        y: 30
+        width: 48
+        height: 33
+      spriteId: 2d983e1a5c6896d47b826354f7a9e603
+    - name: Bat Idle_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 5
+        y: 35
+        width: 70
+        height: 24
+      spriteId: 52ab61db0861b2f4792db0e5f2112c89
+    - name: Bat Idle_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 6
+        y: 39
+        width: 68
+        height: 24
+      spriteId: edfdb71e8eccfd6419190d2c029f56f0
+    - name: Bat Idle_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 14
+        y: 31
+        width: 52
+        height: 37
+      spriteId: d6bd328cd78123c48815bf39917ea3d3
+    - name: Bat Idle_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 12
+        y: 31
+        width: 56
+        height: 25
+      spriteId: 4435d027db927ed4dbc2ef2406ad00be
+    - name: Bat Idle_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 16
+        y: 30
+        width: 48
+        height: 33
+      spriteId: 4886429dbf58ab546b0ec0d986f7bf4e
+    - name: Bat Idle_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 5
+        y: 35
+        width: 70
+        height: 24
+      spriteId: 3284b1d14ab27244aaa3d58bcc9a99b6
+    - name: Bat Idle_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 6
+        y: 39
+        width: 68
+        height: 24
+      spriteId: 514b41c58a9a25b49adad4d700b2b646
+    - name: Bat Idle_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 14
+        y: 31
+        width: 52
+        height: 37
+      spriteId: 793da2101b513664083c337963a2eb33
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 80, y: 80}
