@@ -35,6 +35,11 @@ public class Wolf : MonoBehaviour, IDamage
         wolfCol = GetComponent<Collider2D>();
     }
 
+    private void Start()
+    {
+        animator.SetBool(isDead, true);
+    }
+
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.P))
@@ -48,7 +53,8 @@ public class Wolf : MonoBehaviour, IDamage
         //BossZoneWall.enabled = true;
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlaySFX("Nervous", 0.1f);
-
+        animator.SetBool(isDead, false);
+        animator.SetBool(isRun, true);
         //DOTween.To(() => bossHealth, x => bossHealth = x, bossMaxHealth, 2);
         UIBar.Instance.CallBossBar("Cave Wolf");
         StartCoroutine(WolfBossStageStart());
@@ -56,12 +62,19 @@ public class Wolf : MonoBehaviour, IDamage
         isPhase1 = true;
         isPhase2 = false;
         isPhase3 = false;
+
+        transform.DOMove(new Vector3(306, -146, 0), 3f);
+
+        spriteRenderer.DOFade(1, 3f).OnComplete(() =>
+        {
+            animator.SetBool(isRun, false);
+        });
     }
 
     IEnumerator WolfBossStageStart()
     {
 
-        CameraManager.Instance.MakeCameraShake(transform.position, 3f, 0.05f, 0.1f);
+        CameraManager.Instance.MakeCameraShake(new Vector3(306, -146, 0), 3f, 0.05f, 0.1f);
         yield return new WaitForSeconds(1f);
 
         float time = 0f;
@@ -134,7 +147,7 @@ public class Wolf : MonoBehaviour, IDamage
         UIBar.Instance.CallBackBossBar();
         animator.SetBool(isDead, true);
         isBossDie = true;
-
+        AudioManager.instance.StopBGM();
         //TODO Boss Die
     }
 
