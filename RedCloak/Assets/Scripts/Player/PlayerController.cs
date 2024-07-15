@@ -79,6 +79,8 @@ public class PlayerController : MonoBehaviour
 
     public bool isLongJump = false;
 
+    public bool cantMove = false;
+
     
 
     void Awake()
@@ -107,11 +109,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (cantMove) return;
         Move();
         LongJumpDisc();
     }
     void Update()
     {
+        if (cantMove) return;
         ManaRegenerate();
         JumpCheck(); // Checking whether can jump
         WallClimb();
@@ -286,6 +290,7 @@ public class PlayerController : MonoBehaviour
 
     void OnDash() // when C keyboard input do dash
     {
+        if (cantMove) return;
         if (!canDash) return;
         if (Rolling) return;
         if (animator.GetBool(isWallClimbing)) return;
@@ -350,6 +355,7 @@ public class PlayerController : MonoBehaviour
 
     void OnRoll() // When Shift called Do Rolling
     {
+        if (cantMove) return;
         if (!canRoll) return;
         if (isAttacked) return;
         if (animator.GetBool(isJumping)) return;
@@ -433,6 +439,8 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         Vector3 moveVelocity = Vector3.zero;
+
+        if (cantMove) return;
 
         if (isAttacked)
         {
