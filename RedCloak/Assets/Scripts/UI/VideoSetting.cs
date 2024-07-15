@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Reflection;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class VideoSetting : MonoBehaviour
 {
@@ -16,7 +17,6 @@ public class VideoSetting : MonoBehaviour
     [SerializeField] private Toggle vSyncToggle;
     [SerializeField] private Toggle fullScreenToggle;
 
-
     private int screenWidth;
     private int screenHeight;
     private int index = 0;
@@ -25,7 +25,7 @@ public class VideoSetting : MonoBehaviour
     {
         CurrentResolution();
         InitVSync();
-        Debug.Log(QualitySettings.vSyncCount);
+        InitFullScreen();
     }
 
     private void InitVSync()
@@ -33,11 +33,21 @@ public class VideoSetting : MonoBehaviour
         vSyncToggle.isOn = QualitySettings.vSyncCount > 0;
     }
 
+    private void InitFullScreen()
+    {
+        fullScreenToggle.isOn = Screen.fullScreen;
+    }
+
     public void VsyncOption(bool isOn)
     {
         QualitySettings.vSyncCount = isOn ? 1 : 0;
-        Debug.Log(QualitySettings.vSyncCount);
     }
+
+    public void FullScreen(bool isOn)
+    {
+        Screen.fullScreen = isOn;
+    }
+
 
     private struct ResolutionOption
     {
@@ -107,11 +117,11 @@ public class VideoSetting : MonoBehaviour
     private void SetResolution()
     {
         ResolutionOption resolutionOption = resolutions[index];
-        Screen.SetResolution(resolutionOption.width, resolutionOption.height, Screen.fullScreen);
+        Screen.SetResolution(resolutionOption.width, resolutionOption.height, fullScreenToggle.isOn);
     }
 
     public void ChangeMenu()
     {
-        UIManager.ChangeMenu(videoSettingUI, optionUI);
+        UIManager.Instance.ChangeMenu(videoSettingUI, optionUI);
     }
 }
