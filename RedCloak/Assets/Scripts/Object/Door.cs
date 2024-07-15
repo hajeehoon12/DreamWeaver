@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] private GameObject door;
-    [SerializeField] private Archer archerBoss;
+    //[SerializeField] private GameObject door;
+    //[SerializeField] private Archer archerBoss;
 
     private void OpenDoor()
     {
