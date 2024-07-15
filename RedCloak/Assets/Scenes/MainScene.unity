@@ -1067,6 +1067,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2663063120111417120, guid: 634799d70c9ab4e47ba332fc151967f8, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2663063120111417120, guid: 634799d70c9ab4e47ba332fc151967f8, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
       value: -38.753998
       objectReference: {fileID: 0}
@@ -1120,6 +1124,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3287901364739508251, guid: 634799d70c9ab4e47ba332fc151967f8, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3287901364739508251, guid: 634799d70c9ab4e47ba332fc151967f8, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3287901364739508251, guid: 634799d70c9ab4e47ba332fc151967f8, type: 3}
