@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -9,7 +10,6 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        Screen.fullScreen = true;
     }
 
     public void ChangeMenu(GameObject currentUI, GameObject targetUI)
