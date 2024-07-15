@@ -55,9 +55,9 @@ public class PlayerShooting : MonoBehaviour
         if (Prefab == 0) return;
         else
         {
-            if (CharacterManager.Instance.Player.stats.playerMP >= 10)
+            if (CharacterManager.Instance.Player.stats.playerMP >= 5)
             {
-                CharacterManager.Instance.Player.stats.playerMP -= 10;
+                CharacterManager.Instance.Player.stats.playerMP -= 5;
             }
             else return;
         }
