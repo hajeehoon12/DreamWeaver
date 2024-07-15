@@ -52,7 +52,7 @@ public class Wolf : MonoBehaviour, IDamage
         //DOTween.To(() => bossHealth, x => bossHealth = x, bossMaxHealth, 2);
         UIBar.Instance.CallBossBar("Cave Wolf");
         StartCoroutine(WolfBossStageStart());
-
+        CameraManager.Instance.ModifyCameraInfo(new Vector2(20, 10), new Vector2(308, -145));
         isPhase1 = true;
         isPhase2 = false;
         isPhase3 = false;

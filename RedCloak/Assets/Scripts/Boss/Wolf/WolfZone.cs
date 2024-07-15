@@ -9,6 +9,8 @@ public class WolfZone : MonoBehaviour
 
     float xPos = 0;
 
+    public GameObject[] childWall;
+
     private void Awake()
     {
         collider2d = GetComponent<Collider2D>();
@@ -32,6 +34,9 @@ public class WolfZone : MonoBehaviour
                 wolf.CallWolfBoss();
                 collider2d.isTrigger = false;
                 collision.gameObject.transform.position += new Vector3(4, 0, 0);
+                gameObject.layer = LayerMask.NameToLayer(Define.FLOOR);
+                childWall[0].layer = LayerMask.NameToLayer(Define.FLOOR);
+                childWall[1].layer = LayerMask.NameToLayer(Define.FLOOR);
             }
         }
     }
