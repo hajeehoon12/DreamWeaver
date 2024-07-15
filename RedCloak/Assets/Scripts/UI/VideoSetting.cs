@@ -6,12 +6,16 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEditor;
 using System.Reflection;
+using UnityEngine.UI;
 
 public class VideoSetting : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI currentResolution;
     [SerializeField] private GameObject optionUI;
     [SerializeField] private GameObject videoSettingUI;
+    [SerializeField] private Toggle vSyncToggle;
+    [SerializeField] private Toggle fullScreenToggle;
+
 
     private int screenWidth;
     private int screenHeight;
@@ -20,6 +24,19 @@ public class VideoSetting : MonoBehaviour
     private void Start()
     {
         CurrentResolution();
+        InitVSync();
+        Debug.Log(QualitySettings.vSyncCount);
+    }
+
+    private void InitVSync()
+    {
+        vSyncToggle.isOn = QualitySettings.vSyncCount > 0;
+    }
+
+    public void VsyncOption(bool isOn)
+    {
+        QualitySettings.vSyncCount = isOn ? 1 : 0;
+        Debug.Log(QualitySettings.vSyncCount);
     }
 
     private struct ResolutionOption

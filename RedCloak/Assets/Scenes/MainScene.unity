@@ -358,22 +358,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2398593920751439391, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
-      propertyPath: bossText
+    - target: {fileID: 6608563226563591825, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 1205769308}
-    - target: {fileID: 2565975236639982987, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
-      propertyPath: m_enableWordWrapping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2565975236639982987, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4243451854263870958, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
-      propertyPath: speed
-      value: 20
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1706112055}
+    - target: {fileID: 7766609523396682921, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1706112055}
+    - target: {fileID: 7994604106879646250, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1706112055}
     - target: {fileID: 8772425027703382848, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
       propertyPath: m_Name
       value: UICombine
@@ -941,17 +937,6 @@ Transform:
   - {fileID: 642122007}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1205769308 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2565975236639982987, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
-  m_PrefabInstance: {fileID: 467067951}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1281559511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2069,6 +2054,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5740518965123380974, guid: b6486a15360015f4e82dfee031d2d27b, type: 3}
   m_PrefabInstance: {fileID: 1547284524}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1706112055 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4401349786345831442, guid: f706ea928c2c05044b8d03156496ae96, type: 3}
+  m_PrefabInstance: {fileID: 3157351928526619091}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1712718255
 GameObject:

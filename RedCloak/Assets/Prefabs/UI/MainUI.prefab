@@ -5767,6 +5767,7 @@ MonoBehaviour:
   manaBar: {fileID: 5262891585752537189}
   BossBarPos: {fileID: 316522279400013440}
   damageEffectRect: {fileID: 7556232392830710048}
+  bossText: {fileID: 6369139710776852620}
   heartsFront: []
 --- !u!1 &2377424932266865709
 GameObject:
@@ -6155,7 +6156,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -6164,7 +6165,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -12218,7 +12219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetAngle: 60
-  speed: 50
+  speed: 20
 --- !u!1 &6633338823242027168
 GameObject:
   m_ObjectHideFlags: 0
