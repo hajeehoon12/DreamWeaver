@@ -33,12 +33,20 @@ public class WolfZone : MonoBehaviour
             {
                 wolf.CallWolfBoss();
                 collider2d.isTrigger = false;
-                collision.gameObject.transform.position += new Vector3(4, 0, 0);
+                StartCoroutine(TransferChar(collision.gameObject));
                 gameObject.layer = LayerMask.NameToLayer(Define.FLOOR);
                 childWall[0].layer = LayerMask.NameToLayer(Define.FLOOR);
                 childWall[1].layer = LayerMask.NameToLayer(Define.FLOOR);
+                collision.transform.position = new Vector3(xPos, collision.transform.position.y, collision.transform.position.z);
             }
         }
     }
 
+
+    IEnumerator TransferChar(GameObject player)
+    {
+        yield return new WaitForSeconds(4f);
+        player.transform.position = new Vector3(xPos+4, player.transform.position.y, player.transform.position.z);
+
+    }
 }

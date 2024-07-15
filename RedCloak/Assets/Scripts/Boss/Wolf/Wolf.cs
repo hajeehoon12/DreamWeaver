@@ -83,7 +83,7 @@ public class Wolf : MonoBehaviour, IDamage
 
         while (time < totalTime)
         {
-            bossHealth += (bossMaxHealth * Time.deltaTime * totalTime);
+            bossHealth += (bossMaxHealth * Time.deltaTime / totalTime);
             SetBossBar();
             yield return new WaitForSeconds(Time.deltaTime);
             time += Time.deltaTime;
@@ -93,7 +93,7 @@ public class Wolf : MonoBehaviour, IDamage
         //Discrimination();
         AudioManager.instance.StopBGM();
         AudioManager.instance.StopBGM2();
-        AudioManager.instance.PlayBGM("Wolf", 0.1f);
+        AudioManager.instance.PlayBGM("Wolf", 0.05f);
         //CameraManager.Instance.ModifyCameraInfo(new Vector2(20, 5), new Vector2(142, -38));
         spriteRenderer.flipX = false;
     }
