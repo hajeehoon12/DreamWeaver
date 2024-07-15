@@ -31,7 +31,7 @@ public class WolfZone : MonoBehaviour
             {
                 wolf.CallWolfBoss();
                 collider2d.isTrigger = false;
-                collision.gameObject.transform.position += new Vector3(1, 0, 0);
+                collision.gameObject.transform.position += new Vector3(4, 0, 0);
             }
         }
     }
