@@ -70,15 +70,16 @@ public class Wolf : MonoBehaviour, IDamage
     {
         lightening.SetActive(true);
         isStageStart = true;
-     
+        CameraManager.Instance.ModifyCameraInfo(new Vector2(20, 10), new Vector2(308, -145));
         animator.SetBool(isDead, false);
         AudioManager.instance.PlaySFX("Howling", 0.1f);
+        AudioManager.instance.PlaySFX("Nervous", 0.1f);
         CharacterManager.Instance.Player.controller.cantMove = true;
         
         AudioManager.instance.StopBGM();
-        AudioManager.instance.PlaySFX("Nervous", 0.1f);
+        
 
-        CameraManager.Instance.ModifyCameraInfo(new Vector2(20, 10), new Vector2(308, -145));
+        
         StartCoroutine(WolfStageOn());
     }
 
@@ -94,13 +95,24 @@ public class Wolf : MonoBehaviour, IDamage
         isPhase3 = false;
 
         transform.DOMove(new Vector3(306, -146, 0), 3f);
-        AudioManager.instance.PlayPitchSFX("ShockWave", 0.2f);
+        StartCoroutine(ShockWave(3f));
         transform.DOScale(10, 3f);
         spriteRenderer.DOFade(1, 3f).OnComplete(() =>
         {
             animator.SetBool(isRun, false);
             transparentWall.SetActive(false);
         });
+    }
+
+    IEnumerator ShockWave(float totalTime)
+    {
+        float time = 0f;
+        while (time < totalTime)
+        {
+            AudioManager.instance.PlayPitchSFX("ShockWave", 0.2f);
+            time += 0.2f;
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 
     IEnumerator WolfBossStageStart()
@@ -149,10 +161,11 @@ public class Wolf : MonoBehaviour, IDamage
             switch (count%2)
             {
                 case 0:
-                    JumpDashAttack();
+                    Jump();
+                    
                     break;
                 case 1:
-                    Jump();
+                    JumpDashAttack();
                     break;
                 default:
                     break;
@@ -211,7 +224,7 @@ public class Wolf : MonoBehaviour, IDamage
         Vector3 secondPos = (firstPos- new Vector3(0, wolfCol.bounds.extents.y) + CharacterManager.Instance.Player.transform.position) / 2 + new Vector3(0, 8, 0)+ new Vector3(0, wolfCol.bounds.extents.y);
         Vector3 thirdPos = CharacterManager.Instance.Player.transform.position + new Vector3(0, wolfCol.bounds.extents.y+0.35f);
         transform.DOPath(new[] { secondPos, firstPos + 2*Vector3.up , secondPos, thirdPos,secondPos, thirdPos - Vector3.up }, 1.5f, PathType.CubicBezier).SetEase(Ease.OutCubic).OnComplete(() => {
-
+            //
             //animator.SetBool(isJump, false);
             Discrimination();
         });
