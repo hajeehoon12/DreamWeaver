@@ -170,16 +170,23 @@ public class Wolf : MonoBehaviour, IDamage
     void Jump()
     {
         animator.SetBool(isRun, false);
-        animator.SetBool(isJump, true);
-
+        animator.SetBool(isDashAttack, true);
+        StartCoroutine(ChargeSound());
         transform.DOMove(CharacterManager.Instance.Player.transform.position+new Vector3(0,wolfCol.bounds.extents.y), 1f).SetEase(Ease.InBack).OnComplete(() =>
         {
-            animator.SetBool(isJump, false);
+            animator.SetBool(isDashAttack, false);
             Discrimination();
         }
         );
 
         //Discrimination();
+    }
+
+    IEnumerator ChargeSound()
+    {
+        yield return new WaitForSeconds(0.15f);
+        AudioManager.instance.PlaySFX("ChargeAttack", 0.1f);
+
     }
 
 
