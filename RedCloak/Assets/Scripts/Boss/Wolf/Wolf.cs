@@ -35,11 +35,15 @@ public class Wolf : MonoBehaviour, IDamage
 
     public WolfZone wolfZone;
 
+    private ParticleSystem shockWave;
+
     public bool isStageStart = false;
 
     [SerializeField] private LayerMask floorLayerMask;
 
     private int count = 0;
+
+    private int comboCount = 0;
 
     private void Awake()
     {
@@ -47,12 +51,14 @@ public class Wolf : MonoBehaviour, IDamage
         spriteRenderer = GetComponent<SpriteRenderer>();
         wolfCol = GetComponent<Collider2D>();
         rigid = GetComponent<Rigidbody2D>();
+        shockWave = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Start()
     {
         animator.SetBool(isDead, true);
         lightening.SetActive(false);
+        shockWave.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -77,7 +83,7 @@ public class Wolf : MonoBehaviour, IDamage
         isStageStart = true;
         CameraManager.Instance.ModifyCameraInfo(new Vector2(20, 10), new Vector2(308, -145));
         animator.SetBool(isDead, false);
-        AudioManager.instance.PlaySFX("Howling", 0.1f);
+        AudioManager.instance.PlayWolf("Howling", 0.1f);
         AudioManager.instance.PlaySFX("Nervous", 0.1f);
         CharacterManager.Instance.Player.controller.cantMove = true;
         
@@ -91,6 +97,7 @@ public class Wolf : MonoBehaviour, IDamage
     IEnumerator WolfStageOn()
     {
         yield return new WaitForSeconds(1f);
+        shockWave.gameObject.SetActive(true);
         animator.SetBool(isRun, true);
         UIBar.Instance.CallBossBar("Thunder Wolf");
         StartCoroutine(WolfBossStageStart());
@@ -106,6 +113,7 @@ public class Wolf : MonoBehaviour, IDamage
         {
             animator.SetBool(isRun, false);
             transparentWall.SetActive(false);
+            shockWave.gameObject.SetActive(false);
         });
     }
 
@@ -114,7 +122,7 @@ public class Wolf : MonoBehaviour, IDamage
         float time = 0f;
         while (time < totalTime)
         {
-            AudioManager.instance.PlayPitchSFX("ShockWave", 0.2f);
+            AudioManager.instance.PlayWolf("ShockWave", 0.2f);
             time += 0.2f;
             yield return new WaitForSeconds(0.2f);
         }
@@ -163,13 +171,15 @@ public class Wolf : MonoBehaviour, IDamage
             //animator.SetBool(isRun, true);
             yield return new WaitForSeconds(2f);
             //animator.SetBool(isRun, false);
-            switch (count%2)
+            switch (count%3)
             {
                 case 0:
-                    Jump();
-                    
+                    ThreeSlash();
                     break;
                 case 1:
+                    Jump();
+                    break;
+                case 2:
                     JumpDashAttack();
                     break;
                 default:
@@ -204,12 +214,34 @@ public class Wolf : MonoBehaviour, IDamage
         count++;
     }
 
+    void ThreeSlash()
+    {
+        comboCount = 0;
+        animator.SetBool(isAttack, true);
+        AudioManager.instance.PlayBGM2("WolfMulti", 0.2f);
+    
+    }
+
+    public void Combo()
+    {
+        comboCount++;
+
+        if (comboCount == 2)
+        {
+            AudioManager.instance.StopBGM2();
+            animator.SetBool(isAttack, false);
+            Discrimination();
+        }
+        
+    }
+
 
 
     void JumpDashAttack()
     {
         animator.SetBool(isRun, false);
         animator.SetBool(isDashAttack, true);
+        AudioManager.instance.PlayWolf("ShockWave", 0.2f);
         StartCoroutine(ChargeSound());
         transform.DOMove(CharacterManager.Instance.Player.transform.position+new Vector3(0,wolfCol.bounds.extents.y), 1f).SetEase(Ease.InBack).OnComplete(() =>
         {
@@ -224,18 +256,20 @@ public class Wolf : MonoBehaviour, IDamage
     {
         animator.SetBool(isRun, false);
         animator.SetBool(isJump, true);
-
+        shockWave.gameObject.SetActive(true);
+        AudioManager.instance.PlayWolf("ShockWave", 0.2f);
         Vector3 firstPos = transform.position;
         Vector3 secondPos = (firstPos- new Vector3(0, wolfCol.bounds.extents.y) + CharacterManager.Instance.Player.transform.position) / 2 + new Vector3(0, 8, 0)+ new Vector3(0, wolfCol.bounds.extents.y);
 
-        RaycastHit2D hit = Physics2D.Raycast(CharacterManager.Instance.Player.transform.position+new Vector3(0, 0.5f, 0), new Vector2(0, -1), 10f,floorLayerMask);
+        RaycastHit2D hit = Physics2D.Raycast(CharacterManager.Instance.Player.transform.position+new Vector3(0, 0.5f, 0), new Vector2(0, -1), 20f,floorLayerMask);
         Debug.Log(hit.point);
-        AudioManager.instance.PlaySFX("WindJump", 0.25f);
+        AudioManager.instance.PlayWolf("WindJump", 0.25f);
         Vector3 thirdPos = new Vector3(hit.point.x, hit.point.y , 0) + new Vector3(0, wolfCol.bounds.extents.y+0.35f);
         transform.DOPath(new[] { secondPos, firstPos + 2*Vector3.up , secondPos, thirdPos,secondPos, thirdPos - Vector3.up }, 1.5f, PathType.CubicBezier).SetEase(Ease.OutCubic).OnComplete(() => {
             //
             //animator.SetBool(isJump, false);
             Discrimination();
+            shockWave.gameObject.SetActive(false);
         });
         
         //Discrimination();
@@ -245,7 +279,7 @@ public class Wolf : MonoBehaviour, IDamage
     IEnumerator ChargeSound()
     {
         yield return new WaitForSeconds(0.15f);
-        AudioManager.instance.PlaySFX("ChargeAttack", 0.1f);
+        AudioManager.instance.PlayWolf("ChargeAttack", 0.1f);
 
     }
 

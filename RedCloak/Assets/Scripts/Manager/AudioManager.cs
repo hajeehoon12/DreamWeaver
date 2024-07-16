@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] Sound[] sfx = null;
     [SerializeField] Sound[] bgm = null;
     [SerializeField] Sound[] UI = null;
+    [SerializeField] Sound[] Wolf = null;
 
     [SerializeField] public AudioSource bgmPlayer = null;
     [SerializeField] public AudioSource bgmPlayer2 = null;
@@ -139,6 +140,48 @@ public class AudioManager : MonoBehaviour
         Debug.Log("No name of SFX :" + p_sfxName);
         return;
     }
+
+    public void PlayWolf(string p_sfxName)
+    {
+
+        for (int i = 0; i < sfx.Length; i++)
+        {
+            if (p_sfxName == Wolf[i].name)
+            {
+                myAudioSource.PlayOneShot(Wolf[i].clip);
+                return;
+            }
+        }
+        Debug.Log("No name of Wolf :" + p_sfxName);
+        return;
+    }
+
+    public void PlayWolf(string p_sfxName, float _volume) // overloading
+    {
+
+        for (int i = 0; i < sfx.Length; i++)
+        {
+            if (p_sfxName == Wolf[i].name)
+            {
+                for (int j = 0; j < sfxPlayer.Length; j++)
+                {
+
+                    if (!sfxPlayer[j].isPlaying)
+                    {
+                        sfxPlayer[j].clip = Wolf[i].clip;
+                        sfxPlayer[j].PlayOneShot(Wolf[i].clip, _volume);
+                        return;
+                    }
+                }
+                Debug.Log("All Audio Player is Used it Needs More");
+                return;
+            }
+        }
+        Debug.Log("No name of Wolf :" + p_sfxName);
+        return;
+    }
+
+
 
     public void PlayUI(string p_sfxName)
     {
