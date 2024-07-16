@@ -22,46 +22,64 @@ public class Wolf : MonoBehaviour, IDamage
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Collider2D wolfCol;
+    private Rigidbody2D rigid;
 
     public bool isBossDie = false;
 
     public GameObject wolfZone1;
     public GameObject wolfZone2;
 
+    public GameObject lightening;
+
     public GameObject transparentWall;
+
+    public bool isStageStart = false;
+
+    private int count = 0;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         wolfCol = GetComponent<Collider2D>();
+        rigid = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
     {
         animator.SetBool(isDead, true);
+        lightening.SetActive(false);
     }
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.P))
+        if (isStageStart)
         {
-            CallWolfBoss();
+            LookPlayer();
         }
     }
 
+    void LookPlayer()
+    {
+        spriteRenderer.flipX = (CharacterManager.Instance.Player.transform.position.x > transform.position.x) ? true : false;
+    }
+
+
+
     public void CallWolfBoss()
     {
+        lightening.SetActive(true);
+        isStageStart = true;
         animator.SetBool(isRun, true);
         animator.SetBool(isDead, false);
         AudioManager.instance.PlaySFX("Howling", 0.1f);
         CharacterManager.Instance.Player.controller.cantMove = true;
-        //BossZoneWall.enabled = true;
+        
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlaySFX("Nervous", 0.1f);
         
         
-        //DOTween.To(() => bossHealth, x => bossHealth = x, bossMaxHealth, 2);
+        
         UIBar.Instance.CallBossBar("Cave Wolf");
         StartCoroutine(WolfBossStageStart());
         CameraManager.Instance.ModifyCameraInfo(new Vector2(20, 10), new Vector2(308, -145));
@@ -95,14 +113,77 @@ public class Wolf : MonoBehaviour, IDamage
             time += Time.deltaTime;
         }
         CharacterManager.Instance.Player.controller.cantMove = false;
-        //animator.Play("Special Attack", 0, 0f);
-        //Discrimination();
+        
+        
         AudioManager.instance.StopBGM();
         AudioManager.instance.StopBGM2();
         AudioManager.instance.PlayBGM("Wolf", 0.05f);
-        //CameraManager.Instance.ModifyCameraInfo(new Vector2(20, 5), new Vector2(142, -38));
+        
         spriteRenderer.flipX = false;
+
+        Discrimination();
     }
+
+    void Discrimination()
+    {
+        if (isBossDie) return;
+        StartCoroutine(Iteration());
+    }
+
+    IEnumerator Iteration()
+    {
+
+        if (isPhase1)
+        {
+            yield return new WaitForSeconds(2f);
+            Jump();
+            
+        }
+
+        if (isPhase2)
+        {
+            yield return new WaitForSeconds(1f);
+            
+        }
+
+        if (isPhase3)
+        {
+
+            yield return new WaitForSeconds(0.5f);
+            //Flip();
+            switch (count % 2)
+            {
+                case 0:
+                    
+                    break;
+                case 1:
+                    
+                    break;
+            }
+        }
+
+        count++;
+    }
+
+
+
+    void Jump()
+    {
+        animator.SetBool(isRun, false);
+        animator.SetBool(isJump, true);
+
+        transform.DOMove(CharacterManager.Instance.Player.transform.position+new Vector3(0,wolfCol.bounds.extents.y), 1f).SetEase(Ease.InBack).OnComplete(() =>
+        {
+            animator.SetBool(isJump, false);
+            Discrimination();
+        }
+        );
+
+        //Discrimination();
+    }
+
+
+
 
     void SetBossBar()
     {
@@ -136,6 +217,7 @@ public class Wolf : MonoBehaviour, IDamage
         else
         {
             if (isBossDie) return;
+            isStageStart = false;
             UIBar.Instance.SetBossBar(0, bossMaxHealth, bossHealth);
             CallDie();
             wolfCol.enabled = true;
@@ -154,10 +236,12 @@ public class Wolf : MonoBehaviour, IDamage
     void CallDie()
     {
         UIBar.Instance.CallBackBossBar();
+        gameObject.layer = LayerMask.NameToLayer(Define.DEAD);
         animator.SetBool(isDead, true);
+        lightening.SetActive(false);
         isBossDie = true;
         AudioManager.instance.StopBGM();
-        //TODO Boss Die
+        
     }
 
 }
