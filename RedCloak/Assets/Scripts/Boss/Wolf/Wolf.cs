@@ -22,61 +22,109 @@ public class Wolf : MonoBehaviour, IDamage
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Collider2D wolfCol;
+    private Rigidbody2D rigid;
 
     public bool isBossDie = false;
 
     public GameObject wolfZone1;
     public GameObject wolfZone2;
 
+    public GameObject lightening;
+
+    public GameObject transparentWall;
+
+    public WolfZone wolfZone;
+
+    public bool isStageStart = false;
+
+    [SerializeField] private LayerMask floorLayerMask;
+
+    private int count = 0;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         wolfCol = GetComponent<Collider2D>();
+        rigid = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
     {
         animator.SetBool(isDead, true);
+        lightening.SetActive(false);
     }
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.P))
+        if (isStageStart)
         {
-            CallWolfBoss();
+            LookPlayer();
         }
     }
 
+    void LookPlayer()
+    {
+        if (isBossDie) return;
+        spriteRenderer.flipX = (CharacterManager.Instance.Player.transform.position.x > transform.position.x) ? true : false;
+    }
+
+
+
     public void CallWolfBoss()
     {
-        CharacterManager.Instance.Player.controller.cantMove = true;
-        //BossZoneWall.enabled = true;
-        AudioManager.instance.StopBGM();
-        AudioManager.instance.PlaySFX("Nervous", 0.1f);
-        animator.SetBool(isDead, false);
-        animator.SetBool(isRun, true);
-        //DOTween.To(() => bossHealth, x => bossHealth = x, bossMaxHealth, 2);
-        UIBar.Instance.CallBossBar("Cave Wolf");
-        StartCoroutine(WolfBossStageStart());
+        lightening.SetActive(true);
+        isStageStart = true;
         CameraManager.Instance.ModifyCameraInfo(new Vector2(20, 10), new Vector2(308, -145));
+        animator.SetBool(isDead, false);
+        AudioManager.instance.PlaySFX("Howling", 0.1f);
+        AudioManager.instance.PlaySFX("Nervous", 0.1f);
+        CharacterManager.Instance.Player.controller.cantMove = true;
+        
+        AudioManager.instance.StopBGM();
+
+        CameraManager.Instance.MakeCameraShake(new Vector3(306, -146, 0), 6f, 0.05f, 0.1f);
+
+        StartCoroutine(WolfStageOn());
+    }
+
+    IEnumerator WolfStageOn()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool(isRun, true);
+        UIBar.Instance.CallBossBar("Thunder Wolf");
+        StartCoroutine(WolfBossStageStart());
+        
         isPhase1 = true;
         isPhase2 = false;
         isPhase3 = false;
 
-        transform.DOMove(new Vector3(306, -146, 0), 5f);
-
-        spriteRenderer.DOFade(1, 5f).OnComplete(() =>
+        transform.DOMove(new Vector3(306, -146, 0), 3f);
+        StartCoroutine(ShockWave(3f));
+        transform.DOScale(10, 3f);
+        spriteRenderer.DOFade(1, 3f).OnComplete(() =>
         {
             animator.SetBool(isRun, false);
+            transparentWall.SetActive(false);
         });
+    }
+
+    IEnumerator ShockWave(float totalTime)
+    {
+        float time = 0f;
+        while (time < totalTime)
+        {
+            AudioManager.instance.PlayPitchSFX("ShockWave", 0.2f);
+            time += 0.2f;
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 
     IEnumerator WolfBossStageStart()
     {
 
-        CameraManager.Instance.MakeCameraShake(new Vector3(306, -146, 0), 5f, 0.05f, 0.1f);
-        yield return new WaitForSeconds(2f);
+        
+        yield return new WaitForSeconds(1f);
 
         float time = 0f;
         float totalTime = 2f;
@@ -89,14 +137,120 @@ public class Wolf : MonoBehaviour, IDamage
             time += Time.deltaTime;
         }
         CharacterManager.Instance.Player.controller.cantMove = false;
-        //animator.Play("Special Attack", 0, 0f);
-        //Discrimination();
+        
+        
         AudioManager.instance.StopBGM();
         AudioManager.instance.StopBGM2();
         AudioManager.instance.PlayBGM("Wolf", 0.05f);
-        //CameraManager.Instance.ModifyCameraInfo(new Vector2(20, 5), new Vector2(142, -38));
+        
         spriteRenderer.flipX = false;
+
+        Discrimination();
     }
+
+    void Discrimination()
+    {
+        if (isBossDie) return;
+        StartCoroutine(Iteration());
+    }
+
+    IEnumerator Iteration()
+    {
+
+        if (isPhase1)
+        {
+            animator.SetBool(isJump, false);
+            //animator.SetBool(isRun, true);
+            yield return new WaitForSeconds(2f);
+            //animator.SetBool(isRun, false);
+            switch (count%2)
+            {
+                case 0:
+                    Jump();
+                    
+                    break;
+                case 1:
+                    JumpDashAttack();
+                    break;
+                default:
+                    break;
+            }
+            
+            
+        }
+
+        if (isPhase2)
+        {
+            yield return new WaitForSeconds(1f);
+            
+        }
+
+        if (isPhase3)
+        {
+
+            yield return new WaitForSeconds(0.5f);
+            //Flip();
+            switch (count % 2)
+            {
+                case 0:
+                    
+                    break;
+                case 1:
+                    
+                    break;
+            }
+        }
+
+        count++;
+    }
+
+
+
+    void JumpDashAttack()
+    {
+        animator.SetBool(isRun, false);
+        animator.SetBool(isDashAttack, true);
+        StartCoroutine(ChargeSound());
+        transform.DOMove(CharacterManager.Instance.Player.transform.position+new Vector3(0,wolfCol.bounds.extents.y), 1f).SetEase(Ease.InBack).OnComplete(() =>
+        {
+            animator.SetBool(isDashAttack, false);
+            Discrimination();
+        }
+        );
+        //Discrimination();
+    }
+
+    void Jump()
+    {
+        animator.SetBool(isRun, false);
+        animator.SetBool(isJump, true);
+
+        Vector3 firstPos = transform.position;
+        Vector3 secondPos = (firstPos- new Vector3(0, wolfCol.bounds.extents.y) + CharacterManager.Instance.Player.transform.position) / 2 + new Vector3(0, 8, 0)+ new Vector3(0, wolfCol.bounds.extents.y);
+
+        RaycastHit2D hit = Physics2D.Raycast(CharacterManager.Instance.Player.transform.position+new Vector3(0, 0.5f, 0), new Vector2(0, -1), 10f,floorLayerMask);
+        Debug.Log(hit.point);
+        AudioManager.instance.PlaySFX("WindJump", 0.25f);
+        Vector3 thirdPos = new Vector3(hit.point.x, hit.point.y , 0) + new Vector3(0, wolfCol.bounds.extents.y+0.35f);
+        transform.DOPath(new[] { secondPos, firstPos + 2*Vector3.up , secondPos, thirdPos,secondPos, thirdPos - Vector3.up }, 1.5f, PathType.CubicBezier).SetEase(Ease.OutCubic).OnComplete(() => {
+            //
+            //animator.SetBool(isJump, false);
+            Discrimination();
+        });
+        
+        //Discrimination();
+    }
+
+
+    IEnumerator ChargeSound()
+    {
+        yield return new WaitForSeconds(0.15f);
+        AudioManager.instance.PlaySFX("ChargeAttack", 0.1f);
+
+    }
+
+
+
 
     void SetBossBar()
     {
@@ -114,6 +268,9 @@ public class Wolf : MonoBehaviour, IDamage
             {
                 isPhase1 = false;
                 isPhase2 = true;
+                animator.SetBool(isJump , false);
+                animator.SetBool(isRun, false);
+                animator.SetTrigger(isNextPhase);
             }
 
             if (bossHealth < (bossMaxHealth * 1 / 3) && isPhase2)
@@ -121,7 +278,9 @@ public class Wolf : MonoBehaviour, IDamage
                 isPhase1 = false;
                 isPhase3 = true;
                 isPhase2 = false;
-
+                animator.SetBool(isJump, false);
+                animator.SetBool(isRun, false);
+                animator.SetTrigger(isNextPhase);
             }
 
             UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, damage);
@@ -130,6 +289,7 @@ public class Wolf : MonoBehaviour, IDamage
         else
         {
             if (isBossDie) return;
+            isStageStart = false;
             UIBar.Instance.SetBossBar(0, bossMaxHealth, bossHealth);
             CallDie();
             wolfCol.enabled = true;
@@ -148,10 +308,15 @@ public class Wolf : MonoBehaviour, IDamage
     void CallDie()
     {
         UIBar.Instance.CallBackBossBar();
+        gameObject.layer = LayerMask.NameToLayer(Define.DEAD);
+        animator.Play("Death", -1, 0f);
+        animator.SetTrigger(isNextPhase);
         animator.SetBool(isDead, true);
+        lightening.SetActive(false);
         isBossDie = true;
+        wolfZone.RemoveWall();
         AudioManager.instance.StopBGM();
-        //TODO Boss Die
+        
     }
 
 }
