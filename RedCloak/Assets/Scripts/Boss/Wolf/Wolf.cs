@@ -28,6 +28,8 @@ public class Wolf : MonoBehaviour, IDamage
     public GameObject wolfZone1;
     public GameObject wolfZone2;
 
+    public GameObject transparentWall;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -50,12 +52,15 @@ public class Wolf : MonoBehaviour, IDamage
 
     public void CallWolfBoss()
     {
+        animator.SetBool(isRun, true);
+        animator.SetBool(isDead, false);
+        AudioManager.instance.PlaySFX("Howling", 0.1f);
         CharacterManager.Instance.Player.controller.cantMove = true;
         //BossZoneWall.enabled = true;
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlaySFX("Nervous", 0.1f);
-        animator.SetBool(isDead, false);
-        animator.SetBool(isRun, true);
+        
+        
         //DOTween.To(() => bossHealth, x => bossHealth = x, bossMaxHealth, 2);
         UIBar.Instance.CallBossBar("Cave Wolf");
         StartCoroutine(WolfBossStageStart());
@@ -64,11 +69,12 @@ public class Wolf : MonoBehaviour, IDamage
         isPhase2 = false;
         isPhase3 = false;
 
-        transform.DOMove(new Vector3(306, -146, 0), 5f);
-
-        spriteRenderer.DOFade(1, 5f).OnComplete(() =>
+        transform.DOMove(new Vector3(306, -146, 0), 4f);
+        transform.DOScale(10, 4f);
+        spriteRenderer.DOFade(1, 4f).OnComplete(() =>
         {
             animator.SetBool(isRun, false);
+            transparentWall.SetActive(false);
         });
     }
 
@@ -76,7 +82,7 @@ public class Wolf : MonoBehaviour, IDamage
     {
 
         CameraManager.Instance.MakeCameraShake(new Vector3(306, -146, 0), 5f, 0.05f, 0.1f);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         float time = 0f;
         float totalTime = 2f;
