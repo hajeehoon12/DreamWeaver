@@ -33,6 +33,8 @@ public class Wolf : MonoBehaviour, IDamage
 
     public GameObject transparentWall;
 
+    public WolfZone wolfZone;
+
     public bool isStageStart = false;
 
     [SerializeField] private LayerMask floorLayerMask;
@@ -80,9 +82,9 @@ public class Wolf : MonoBehaviour, IDamage
         CharacterManager.Instance.Player.controller.cantMove = true;
         
         AudioManager.instance.StopBGM();
-        
 
-        
+        CameraManager.Instance.MakeCameraShake(new Vector3(306, -146, 0), 6f, 0.05f, 0.1f);
+
         StartCoroutine(WolfStageOn());
     }
 
@@ -121,7 +123,7 @@ public class Wolf : MonoBehaviour, IDamage
     IEnumerator WolfBossStageStart()
     {
 
-        CameraManager.Instance.MakeCameraShake(new Vector3(306, -146, 0), 5f, 0.05f, 0.1f);
+        
         yield return new WaitForSeconds(1f);
 
         float time = 0f;
@@ -308,9 +310,11 @@ public class Wolf : MonoBehaviour, IDamage
         UIBar.Instance.CallBackBossBar();
         gameObject.layer = LayerMask.NameToLayer(Define.DEAD);
         animator.Play("Death", -1, 0f);
+        animator.SetTrigger(isNextPhase);
         animator.SetBool(isDead, true);
         lightening.SetActive(false);
         isBossDie = true;
+        wolfZone.RemoveWall();
         AudioManager.instance.StopBGM();
         
     }

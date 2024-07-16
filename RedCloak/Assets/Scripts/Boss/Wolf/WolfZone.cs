@@ -50,6 +50,13 @@ public class WolfZone : MonoBehaviour
         }
     }
 
+    public void RemoveWall()
+    {
+        
+        CameraManager.Instance.CallStage2CameraInfo();
+        gameObject.SetActive(false);
+
+    }
 
     IEnumerator TransferChar(GameObject player)
     {
