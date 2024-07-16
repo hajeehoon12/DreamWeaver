@@ -63,6 +63,7 @@ public class Wolf : MonoBehaviour, IDamage
 
     void LookPlayer()
     {
+        if (isBossDie) return;
         spriteRenderer.flipX = (CharacterManager.Instance.Player.transform.position.x > transform.position.x) ? true : false;
     }
 
@@ -89,7 +90,7 @@ public class Wolf : MonoBehaviour, IDamage
     {
         yield return new WaitForSeconds(1f);
         animator.SetBool(isRun, true);
-        UIBar.Instance.CallBossBar("Cave Wolf");
+        UIBar.Instance.CallBossBar("Thunder Wolf");
         StartCoroutine(WolfBossStageStart());
         
         isPhase1 = true;
@@ -265,6 +266,9 @@ public class Wolf : MonoBehaviour, IDamage
             {
                 isPhase1 = false;
                 isPhase2 = true;
+                animator.SetBool(isJump , false);
+                animator.SetBool(isRun, false);
+                animator.SetTrigger(isNextPhase);
             }
 
             if (bossHealth < (bossMaxHealth * 1 / 3) && isPhase2)
@@ -272,7 +276,9 @@ public class Wolf : MonoBehaviour, IDamage
                 isPhase1 = false;
                 isPhase3 = true;
                 isPhase2 = false;
-
+                animator.SetBool(isJump, false);
+                animator.SetBool(isRun, false);
+                animator.SetTrigger(isNextPhase);
             }
 
             UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, damage);
@@ -301,6 +307,7 @@ public class Wolf : MonoBehaviour, IDamage
     {
         UIBar.Instance.CallBackBossBar();
         gameObject.layer = LayerMask.NameToLayer(Define.DEAD);
+        animator.Play("Death", -1, 0f);
         animator.SetBool(isDead, true);
         lightening.SetActive(false);
         isBossDie = true;
