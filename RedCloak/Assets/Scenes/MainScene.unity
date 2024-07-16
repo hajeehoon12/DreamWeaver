@@ -2882,7 +2882,7 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
+  m_UseAutoMass: 1
   m_Mass: 4.6027274
   m_LinearDrag: 0
   m_AngularDrag: 0.05
@@ -2917,6 +2917,9 @@ MonoBehaviour:
   lightening: {fileID: 53162700}
   transparentWall: {fileID: 1951860591}
   isStageStart: 0
+  floorLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &1205769308 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2565975236639982987, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
@@ -3363,7 +3366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: sfx.Array.size
-      value: 29
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: bgm.Array.data[1].clip
@@ -3404,10 +3407,18 @@ PrefabInstance:
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: sfx.Array.data[29].clip
       value: 
-      objectReference: {fileID: 8300000, guid: f384f70e0579778479d94c14d0aca6d1, type: 3}
+      objectReference: {fileID: 8300000, guid: f667532ba347bc548ac4ff2f054a90ab, type: 3}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: sfx.Array.data[29].name
-      value: ChargeAttack
+      value: WindJump
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[30].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ba2cca52c5f7644c9e9fe80076eebf1, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[30].name
+      value: WolfMulti
       objectReference: {fileID: 0}
     - target: {fileID: 4850818699871077568, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: m_Name

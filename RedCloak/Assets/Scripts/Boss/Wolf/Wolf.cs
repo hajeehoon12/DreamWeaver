@@ -35,6 +35,8 @@ public class Wolf : MonoBehaviour, IDamage
 
     public bool isStageStart = false;
 
+    [SerializeField] private LayerMask floorLayerMask;
+
     private int count = 0;
 
     private void Awake()
@@ -222,7 +224,11 @@ public class Wolf : MonoBehaviour, IDamage
 
         Vector3 firstPos = transform.position;
         Vector3 secondPos = (firstPos- new Vector3(0, wolfCol.bounds.extents.y) + CharacterManager.Instance.Player.transform.position) / 2 + new Vector3(0, 8, 0)+ new Vector3(0, wolfCol.bounds.extents.y);
-        Vector3 thirdPos = CharacterManager.Instance.Player.transform.position + new Vector3(0, wolfCol.bounds.extents.y+0.35f);
+
+        RaycastHit2D hit = Physics2D.Raycast(CharacterManager.Instance.Player.transform.position+new Vector3(0, 0.5f, 0), new Vector2(0, -1), 10f,floorLayerMask);
+        Debug.Log(hit.point);
+        AudioManager.instance.PlaySFX("WindJump", 0.25f);
+        Vector3 thirdPos = new Vector3(hit.point.x, hit.point.y , 0) + new Vector3(0, wolfCol.bounds.extents.y+0.35f);
         transform.DOPath(new[] { secondPos, firstPos + 2*Vector3.up , secondPos, thirdPos,secondPos, thirdPos - Vector3.up }, 1.5f, PathType.CubicBezier).SetEase(Ease.OutCubic).OnComplete(() => {
             //
             //animator.SetBool(isJump, false);
