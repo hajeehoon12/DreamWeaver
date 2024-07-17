@@ -38,7 +38,7 @@ public class Wolf : MonoBehaviour, IDamage
 
     public WolfZone wolfZone;
 
-    public Collider2D wolfUpper;
+    //public Collider2D wolfUpper;
 
     private ParticleSystem shockWave;
 
@@ -397,7 +397,7 @@ public class Wolf : MonoBehaviour, IDamage
             UIBar.Instance.SetBossBar(0, bossMaxHealth, bossHealth);
             CallDie();
             wolfCol.enabled = true;
-            wolfUpper.enabled = false;
+            //wolfUpper.enabled = false;
         }
     }
 
