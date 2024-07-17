@@ -22,12 +22,7 @@ public class UIController : MonoBehaviour
 
     public void Toggle()
     {
-        if (pauseUI.activeInHierarchy)
-        {
-            pauseUI.SetActive(false);
-        }
-
-        else
+        if (!pauseUI.activeInHierarchy)
         {
             pauseUI.SetActive(true);
         }
