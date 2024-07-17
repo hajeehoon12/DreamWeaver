@@ -10,11 +10,18 @@ public class WolfZone : MonoBehaviour
     float xPos = 0;
 
     public GameObject[] childWall;
+    public GameObject sakura;
 
     private void Awake()
     {
         collider2d = GetComponent<Collider2D>();
         //wolf = GetComponentInParent<Wolf>();
+        
+    }
+
+    private void Start()
+    {
+        sakura.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,10 +45,18 @@ public class WolfZone : MonoBehaviour
                 childWall[0].layer = LayerMask.NameToLayer(Define.FLOOR);
                 childWall[1].layer = LayerMask.NameToLayer(Define.FLOOR);
                 collision.transform.position = new Vector3(xPos, collision.transform.position.y, collision.transform.position.z);
+                sakura.SetActive(true);
             }
         }
     }
 
+    public void RemoveWall()
+    {
+        
+        CameraManager.Instance.CallStage2CameraInfo();
+        gameObject.SetActive(false);
+
+    }
 
     IEnumerator TransferChar(GameObject player)
     {

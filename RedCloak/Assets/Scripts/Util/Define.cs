@@ -8,6 +8,7 @@ public class Define
     public const string MONSTER = "Monster";
     public const string BOSS = "Boss";
     public const string ENEMY = "Enemy";
+    public const string DEAD = "Dead";
 
 
     public const string TRAP = "Trap";

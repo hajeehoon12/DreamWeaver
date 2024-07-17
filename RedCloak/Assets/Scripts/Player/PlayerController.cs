@@ -235,7 +235,7 @@ public class PlayerController : MonoBehaviour
         shootProjectile?.FireProjectile();
 
         
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, playerCollider.bounds.extents.y, 0), new Vector2(1, 0) * CheckDir, 3f, enemyLayerMask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, playerCollider.bounds.extents.y, 0), new Vector2(1, 0) * CheckDir, 3.5f, enemyLayerMask);
         {
             if (hit.collider != null)
             {
