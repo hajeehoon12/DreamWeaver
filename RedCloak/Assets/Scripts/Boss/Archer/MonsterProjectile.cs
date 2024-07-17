@@ -53,6 +53,8 @@ public class MonsterProjectile : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         speed = 0;
 
+        //Debug.Log(collision.gameObject.name);
+
         ContactPoint2D contact = collision.contacts[0];
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
         Vector3 pos = contact.point + contact.normal * hitOffset;
@@ -79,6 +81,7 @@ public class MonsterProjectile : MonoBehaviour
         //Spawn hit effect on collision
         if (hit != null)
         {
+            //hit.gameObject.la
             var hitInstance = Instantiate(hit, pos, rot);
             if (UseFirePointRotation) { hitInstance.transform.rotation = gameObject.transform.rotation * Quaternion.Euler(0, 180f, 0); }
             else if (rotationOffset != Vector3.zero) { hitInstance.transform.rotation = Quaternion.Euler(rotationOffset); }

@@ -38,11 +38,15 @@ public class Wolf : MonoBehaviour, IDamage
 
     public WolfZone wolfZone;
 
+    public Collider2D wolfUpper;
+
     private ParticleSystem shockWave;
 
     public bool isStageStart = false;
 
     [SerializeField] private LayerMask floorLayerMask;
+
+    public GameObject electricWave;
 
     private int count = 0;
 
@@ -179,10 +183,11 @@ public class Wolf : MonoBehaviour, IDamage
             switch (count%3)
             {
                 case 0:
-                    ThreeSlash();
+                    ThreeSlash();                  
                     break;
                 case 1:
                     Jump();
+                    ElectricWave();
                     break;
                 case 2:
                     JumpDashAttack();
@@ -218,6 +223,16 @@ public class Wolf : MonoBehaviour, IDamage
 
         count++;
     }
+
+    void ElectricWave()
+    {
+        GameObject elecProjectile;
+        if (spriteRenderer.flipX) elecProjectile = Instantiate(electricWave, rightAttack.transform);
+        else elecProjectile = Instantiate(electricWave, leftAttack.transform);
+        elecProjectile.transform.LookAt(CharacterManager.Instance.Player.transform.position);
+        //elecProjectile.transform.DOScale(8 * elecProjectile.transform.localScale.x, 2f);
+    }
+
 
     void ThreeSlash()
     {
@@ -381,6 +396,7 @@ public class Wolf : MonoBehaviour, IDamage
             UIBar.Instance.SetBossBar(0, bossMaxHealth, bossHealth);
             CallDie();
             wolfCol.enabled = true;
+            wolfUpper.enabled = false;
         }
     }
 
@@ -398,13 +414,14 @@ public class Wolf : MonoBehaviour, IDamage
         UIBar.Instance.CallBackBossBar();
         gameObject.layer = LayerMask.NameToLayer(Define.DEAD);
         animator.Play("Death", -1, 0f);
+  
         animator.SetTrigger(isNextPhase);
         animator.SetBool(isDead, true);
         lightening.SetActive(false);
         isBossDie = true;
         wolfZone.RemoveWall();
-        AudioManager.instance.StopBGM();
-        
+        AudioManager.instance.StopBGM();   
     }
+
 
 }
