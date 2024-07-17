@@ -116,7 +116,8 @@ public class Wolf : MonoBehaviour, IDamage
         isPhase3 = false;
 
         transform.DOMove(new Vector3(306, -146, 0), 3f);
-        StartCoroutine(ShockWave(3f));
+        //StartCoroutine(ShockWave(3f));
+        AudioManager.instance.PlayWolf("Thunder", 0.1f);
         transform.DOScale(10, 3f);
         spriteRenderer.DOFade(1, 3f).OnComplete(() =>
         {
@@ -263,8 +264,8 @@ public class Wolf : MonoBehaviour, IDamage
     {
         float dist = Vector3.Distance(transform.position, CharacterManager.Instance.Player.transform.position);
 
-        Debug.Log(dist);
-        if (dist < 5 && comboCount < 1)
+        //Debug.Log(dist);
+        if (dist < 5.5f && comboCount < 1)
         {
             comboCount++;
             ThreeSlash();
@@ -331,7 +332,7 @@ public class Wolf : MonoBehaviour, IDamage
         Vector3 secondPos = (firstPos- new Vector3(0, wolfCol.bounds.extents.y) + CharacterManager.Instance.Player.transform.position) / 2 + new Vector3(0, 8, 0)+ new Vector3(0, wolfCol.bounds.extents.y);
 
         RaycastHit2D hit = Physics2D.Raycast(CharacterManager.Instance.Player.transform.position+new Vector3(0, 0.5f, 0), new Vector2(0, -1), 20f,floorLayerMask);
-        Debug.Log(hit.point);
+        //Debug.Log(hit.point);
         AudioManager.instance.PlayWolf("WindJump", 0.25f);
         Vector3 thirdPos = new Vector3(hit.point.x, hit.point.y , 0) + new Vector3(0, wolfCol.bounds.extents.y+0.35f);
         transform.DOPath(new[] { secondPos, firstPos + 2*Vector3.up , secondPos, thirdPos,secondPos, thirdPos - Vector3.up }, 1.5f, PathType.CubicBezier).SetEase(Ease.OutCubic).OnComplete(() => {
@@ -420,7 +421,9 @@ public class Wolf : MonoBehaviour, IDamage
         lightening.SetActive(false);
         isBossDie = true;
         wolfZone.RemoveWall();
-        AudioManager.instance.StopBGM();   
+        AudioManager.instance.StopBGM();
+        AudioManager.instance.PlaySFX("Success", 0.05f);
+        AudioManager.instance.PlayBGM("SadStory", 0.05f);
     }
 
 
