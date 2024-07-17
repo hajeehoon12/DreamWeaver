@@ -29,6 +29,9 @@ public class Wolf : MonoBehaviour, IDamage
     public GameObject wolfZone1;
     public GameObject wolfZone2;
 
+    public Collider2D rightAttack;
+    public Collider2D leftAttack;
+
     public GameObject lightening;
 
     public GameObject transparentWall;
@@ -59,6 +62,8 @@ public class Wolf : MonoBehaviour, IDamage
         animator.SetBool(isDead, true);
         lightening.SetActive(false);
         shockWave.gameObject.SetActive(false);
+        rightAttack.enabled = false;
+        leftAttack.enabled = false;
     }
 
     private void Update()
@@ -216,23 +221,71 @@ public class Wolf : MonoBehaviour, IDamage
 
     void ThreeSlash()
     {
-        comboCount = 0;
+        //comboCount = 0;
         animator.SetBool(isAttack, true);
-        AudioManager.instance.PlayBGM2("WolfMulti", 0.2f);
-    
+        AudioManager.instance.PlayWolf("WolfMulti", 0.2f);
+
+
+        StartCoroutine(SlashMove());
     }
 
-    public void Combo()
+    IEnumerator SlashMove()
     {
-        comboCount++;
+        float dir = CharacterManager.Instance.Player.transform.position.x > transform.position.x ? 1f : -1f;
 
-        if (comboCount == 2)
+        float time = 0f;
+
+        while (time < 0.9f)
         {
-            AudioManager.instance.StopBGM2();
+            transform.position += new Vector3(Time.deltaTime * 10 * dir,0);
+
+            time += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+    }
+
+    public void DoCombo()
+    {
+        float dist = Vector3.Distance(transform.position, CharacterManager.Instance.Player.transform.position);
+
+        Debug.Log(dist);
+        if (dist < 5 && comboCount < 1)
+        {
+            comboCount++;
+            ThreeSlash();
+        }
+        else
+        {
+            comboCount = 0;
             animator.SetBool(isAttack, false);
             Discrimination();
         }
-        
+    }
+
+    void Combo()
+    {
+        StartCoroutine(Combos());
+    }
+
+    IEnumerator Combos()
+    {
+        float dir = spriteRenderer.flipX ? 1f : -1f;
+        float time = 0f;
+
+        if (dir == 1f) rightAttack.enabled = true;
+        else leftAttack.enabled = true;
+
+        while (time < 0.1f)
+        {
+            transform.position += new Vector3(Time.deltaTime * 20 * dir, 0);
+            time += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+
+        if (dir == 1f) rightAttack.enabled = false;
+        else leftAttack.enabled = false;
+
+
     }
 
 
@@ -241,12 +294,13 @@ public class Wolf : MonoBehaviour, IDamage
     {
         animator.SetBool(isRun, false);
         animator.SetBool(isDashAttack, true);
-        AudioManager.instance.PlayWolf("ShockWave", 0.2f);
+        //AudioManager.instance.PlayWolf("ShockWave", 0.2f);
         StartCoroutine(ChargeSound());
         transform.DOMove(CharacterManager.Instance.Player.transform.position+new Vector3(0,wolfCol.bounds.extents.y), 1f).SetEase(Ease.InBack).OnComplete(() =>
         {
             animator.SetBool(isDashAttack, false);
             Discrimination();
+            StartCoroutine(Combos());
         }
         );
         //Discrimination();
