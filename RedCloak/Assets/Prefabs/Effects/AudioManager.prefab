@@ -1636,7 +1636,7 @@ MonoBehaviour:
   - name: Success
     clip: {fileID: 8300000, guid: 87aef926da5e9fe4cb13cb0169859f6d, type: 3}
   - name: Boxopen
-    clip: {fileID: 8300000, guid: 0b65f9825ea493e4cb9a95afd5f65526, type: 3}
+    clip: {fileID: 8300000, guid: 9fd0428f832839844becf6a6f4e4872a, type: 3}
   - name: Parrying
     clip: {fileID: 8300000, guid: 74b266adf80920d4f8e2e022a4fbda0a, type: 3}
   - name: BushmonAttack
@@ -1659,12 +1659,31 @@ MonoBehaviour:
   - name: SadStory
     clip: {fileID: 8300000, guid: 63866d7c854dc1a4f81291c92f8f4c11, type: 3}
   - name: SilverBird
-    clip: {fileID: 8300000, guid: 6dc511f696d944142898fed68d9d4061, type: 3}
+    clip: {fileID: 8300000, guid: 0b52a5e7113227d468dec133025cc3d7, type: 3}
   - name: CaveDrop
     clip: {fileID: 8300000, guid: 96292c9e4ba6e5c4d8e8b3acd203b7c5, type: 3}
   - name: WrongPlace
     clip: {fileID: 8300000, guid: 4e9bfc1ab3bf1114991c26d6c1e8b0f0, type: 3}
+  - name: Wolf
+    clip: {fileID: 8300000, guid: 9db496ab8481c8544b794c739944abd0, type: 3}
   UI: []
+  Wolf:
+  - name: ChargeAttack
+    clip: {fileID: 8300000, guid: f384f70e0579778479d94c14d0aca6d1, type: 3}
+  - name: Howling
+    clip: {fileID: 8300000, guid: bedb5488f50998442b57b9b07838838b, type: 3}
+  - name: ShockWave
+    clip: {fileID: 8300000, guid: 6b66171a5a451044681cb8bba9fc044a, type: 3}
+  - name: SuperSpeed
+    clip: {fileID: 8300000, guid: 54bed9bc830bfb248b2fd2063d6e33a4, type: 3}
+  - name: WindJump
+    clip: {fileID: 8300000, guid: f667532ba347bc548ac4ff2f054a90ab, type: 3}
+  - name: WindJump
+    clip: {fileID: 8300000, guid: f667532ba347bc548ac4ff2f054a90ab, type: 3}
+  - name: WolfMulti
+    clip: {fileID: 8300000, guid: 9ba2cca52c5f7644c9e9fe80076eebf1, type: 3}
+  - name: Thunder
+    clip: {fileID: 8300000, guid: ca1d415e36efdca4f9b46bc3544fd71d, type: 3}
   bgmPlayer: {fileID: 3854997849801399508}
   bgmPlayer2: {fileID: 5313201296594538622}
   sfxPlayer:
@@ -1991,7 +2010,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

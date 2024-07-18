@@ -277,7 +277,7 @@ public class Wolf : MonoBehaviour, IDamage
                     ElectricWave();
                     break;
                 default:
-                    Phase3Start();
+                    //Phase3Start();
                     break;
 
             }

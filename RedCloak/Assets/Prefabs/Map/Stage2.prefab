@@ -16267,7 +16267,7 @@ Transform:
   m_GameObject: {fileID: 6744205590654745315}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.22, y: 11.9, z: 300}
+  m_LocalPosition: {x: 19.33, y: 12.23, z: 300}
   m_LocalScale: {x: 0.6208924, y: 0.8668, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28313,6 +28313,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 277017454159340554}
     m_Modifications:
+    - target: {fileID: 182038566946992025, guid: fbeef1a92bcf0a844a07c2480c17f721, type: 3}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 438314931768900166, guid: fbeef1a92bcf0a844a07c2480c17f721, type: 3}
       propertyPath: m_Creator
       value: 
@@ -28484,6 +28488,10 @@ PrefabInstance:
     - target: {fileID: 3442682998355938184, guid: fbeef1a92bcf0a844a07c2480c17f721, type: 3}
       propertyPath: m_SortingOrder
       value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541599222080186335, guid: fbeef1a92bcf0a844a07c2480c17f721, type: 3}
+      propertyPath: m_Layer
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 3612496645955743261, guid: fbeef1a92bcf0a844a07c2480c17f721, type: 3}
       propertyPath: m_SortingOrder
@@ -28732,6 +28740,10 @@ PrefabInstance:
     - target: {fileID: 4979964455133204410, guid: fbeef1a92bcf0a844a07c2480c17f721, type: 3}
       propertyPath: m_SortingOrder
       value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021209039630654622, guid: fbeef1a92bcf0a844a07c2480c17f721, type: 3}
+      propertyPath: m_Layer
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5101777174174777434, guid: fbeef1a92bcf0a844a07c2480c17f721, type: 3}
       propertyPath: m_Creator
@@ -29489,7 +29501,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 47360959
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
@@ -29569,7 +29581,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 47360959
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
@@ -29666,7 +29678,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 47360959
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0

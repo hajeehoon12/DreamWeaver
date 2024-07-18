@@ -190,16 +190,6 @@ CompositeCollider2D:
         Y: -26122132
       - X: -387539680
         Y: -26122132
-  - m_Collider: {fileID: 3492331588976523790}
-    m_ColliderPaths:
-    - - X: 186528544
-        Y: 236958480
-      - X: -447485568
-        Y: 236958560
-      - X: -447485568
-        Y: 216391664
-      - X: 186528544
-        Y: 216391584
   - m_Collider: {fileID: 1343713238457421040}
     m_ColliderPaths:
     - - X: 202215488
@@ -212,21 +202,13 @@ CompositeCollider2D:
         Y: -56885376
   m_CompositePaths:
     m_Paths:
+    - - {x: -38.753998, y: -2.6122131}
+      - {x: -38.753998, y: 36.76999}
+      - {x: -40.031494, y: 36.769962}
+      - {x: -40.031467, y: -2.6122131}
     - - {x: 20.22152, y: -5.6885376}
       - {x: 20.22152, y: 33.693665}
       - {x: 18.529613, y: 33.693634}
-      - {x: 18.529585, y: 23.695848}
-      - {x: -38.753967, y: 23.695885}
-      - {x: -38.753998, y: 36.76999}
-      - {x: -40.031494, y: 36.769962}
-      - {x: -40.031525, y: 23.695856}
-      - {x: -44.748558, y: 23.695827}
-      - {x: -44.748528, y: 21.639166}
-      - {x: -40.031494, y: 21.639135}
-      - {x: -40.031467, y: -2.6122131}
-      - {x: -38.753967, y: -2.612184}
-      - {x: -38.75394, y: 21.639166}
-      - {x: 18.529613, y: 21.63913}
       - {x: 18.529642, y: -5.6885376}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
@@ -249,6 +231,7 @@ MonoBehaviour:
   - {fileID: 1793629120159528671}
   - {fileID: 6812102366661269847}
   sakura: {fileID: 5347921969190763622}
+  rain: {fileID: 3252619572490346500}
 --- !u!1 &4435556333366883917
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8742116050765702569
 Transform:
   m_ObjectHideFlags: 0
@@ -275,7 +258,7 @@ Transform:
   m_GameObject: {fileID: 4435556333366883917}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.23, y: 2.26, z: 0}
+  m_LocalPosition: {x: -1.23, y: 3.41, z: 0}
   m_LocalScale: {x: 0.44022113, y: 5.976754, z: 1.6099}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -425,11 +408,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2730119015595115739, guid: 6408a79494917404fad19e69569c0f79, type: 3}
       propertyPath: InitialModule.startSizeY.scalar
-      value: 0.3
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735132739055740740, guid: 6408a79494917404fad19e69569c0f79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4735132739055740740, guid: 6408a79494917404fad19e69569c0f79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.08
+      value: 3.24
       objectReference: {fileID: 0}
     - target: {fileID: 5198939441833780672, guid: 6408a79494917404fad19e69569c0f79, type: 3}
       propertyPath: m_Name
@@ -488,6 +475,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6408a79494917404fad19e69569c0f79, type: 3}
+--- !u!198 &3252619572490346500 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2730119015595115739, guid: 6408a79494917404fad19e69569c0f79, type: 3}
+  m_PrefabInstance: {fileID: 630772792263124191}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9135940880636739778 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8505493544906105885, guid: 6408a79494917404fad19e69569c0f79, type: 3}
