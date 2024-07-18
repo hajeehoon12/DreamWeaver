@@ -261,6 +261,7 @@ public class Wolf : MonoBehaviour, IDamage
             switch (count % 4)
             {
                 case 0:
+                    yield return new WaitForSeconds(0.5f);
                     Phase3Start();
                     break;
                 case 1:
@@ -357,7 +358,7 @@ public class Wolf : MonoBehaviour, IDamage
         if (dir == 1f) rightAttack.enabled = true;
         else leftAttack.enabled = true;
 
-        while (time < 0.1f)
+        while (time < 0.1f/AnimSpeed)
         {
             transform.position += new Vector3(Time.deltaTime * 20 * dir, 0);
             time += Time.deltaTime;
@@ -384,12 +385,19 @@ public class Wolf : MonoBehaviour, IDamage
         transform.DOMove(CharacterManager.Instance.Player.transform.position+new Vector3(0,wolfCol.bounds.extents.y), 1f/AnimSpeed).SetEase(Ease.InBack).OnComplete(() =>
         {
             animator.SetBool(isDashAttack, false);
-            Discrimination();
+            
             StartCoroutine(Combos());
             wolfGhost.makeGhost = false;
         }
         );
+        StartCoroutine(WaitDisc(1));
         //Discrimination();
+    }
+
+    IEnumerator WaitDisc(float waitTime)
+    { 
+        yield return new WaitForSeconds(waitTime);
+        Discrimination();
     }
 
     void Jump()
@@ -437,7 +445,7 @@ public class Wolf : MonoBehaviour, IDamage
         animator.SetBool(isJump, false);
         animator.SetBool(isRun, false);
         animator.SetBool(isAttack, false);
-        animator.SetBool(isDashAttack, false);
+        //animator.SetBool(isDashAttack, false);
         animator.SetTrigger(isNextPhase);
         Discrimination();
     }
@@ -476,8 +484,8 @@ public class Wolf : MonoBehaviour, IDamage
                 isPhase1 = false;
                 isPhase3 = true;
                 isPhase2 = false;
-
-
+                AnimSpeed = 1.2f;
+                animator.SetFloat(animSpeed, AnimSpeed);
 
                 AnimatorInit();
 
@@ -543,6 +551,7 @@ public class Wolf : MonoBehaviour, IDamage
 
     void Phase3Start()
     {
+        if (isBossDie) return;
         if (ComboCoroutine != null)
         {
             animator.SetBool(isAttack, false);
