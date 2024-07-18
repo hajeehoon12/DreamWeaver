@@ -79,6 +79,8 @@ public class PlayerController : MonoBehaviour
 
     public bool isLongJump = false;
 
+    public bool cantMove = false;
+
     
 
     void Awake()
@@ -107,11 +109,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (cantMove) return;
         Move();
         LongJumpDisc();
     }
     void Update()
     {
+        if (cantMove) return;
         ManaRegenerate();
         JumpCheck(); // Checking whether can jump
         WallClimb();
@@ -231,7 +235,7 @@ public class PlayerController : MonoBehaviour
         shootProjectile?.FireProjectile();
 
         
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, playerCollider.bounds.extents.y, 0), new Vector2(1, 0) * CheckDir, 3f, enemyLayerMask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, playerCollider.bounds.extents.y, 0), new Vector2(1, 0) * CheckDir, 3.7f, enemyLayerMask);
         {
             if (hit.collider != null)
             {
@@ -286,6 +290,7 @@ public class PlayerController : MonoBehaviour
 
     void OnDash() // when C keyboard input do dash
     {
+        if (cantMove) return;
         if (!canDash) return;
         if (Rolling) return;
         if (animator.GetBool(isWallClimbing)) return;
@@ -315,13 +320,19 @@ public class PlayerController : MonoBehaviour
         
         while (ghostDash.makeGhost)
         {
-            if (spriteRenderer.flipX)
+            float dir = spriteRenderer.flipX ? -1 : 1;
+            isWall = Physics2D.Raycast(transform.position + new Vector3(dir * playerCollider.bounds.extents.x, playerCollider.bounds.extents.y), Vector2.right * dir, 0.05f, groundLayerMask);
+            if (!isWall)
             {
-                transform.position -= new Vector3(0.05f * transform.localScale.x, 0, 0);
-            }
-            else
-            {
-                transform.position += new Vector3(0.05f * transform.localScale.x, 0, 0);
+                if (spriteRenderer.flipX)
+                {
+
+                    transform.position -= new Vector3(0.05f * transform.localScale.x, 0, 0);
+                }
+                else
+                {
+                    transform.position += new Vector3(0.05f * transform.localScale.x, 0, 0);
+                }
             }
             yield return new WaitForSeconds(0.01f);
         }
@@ -344,6 +355,7 @@ public class PlayerController : MonoBehaviour
 
     void OnRoll() // When Shift called Do Rolling
     {
+        if (cantMove) return;
         if (!canRoll) return;
         if (isAttacked) return;
         if (animator.GetBool(isJumping)) return;
@@ -427,6 +439,8 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         Vector3 moveVelocity = Vector3.zero;
+
+        if (cantMove) return;
 
         if (isAttacked)
         {

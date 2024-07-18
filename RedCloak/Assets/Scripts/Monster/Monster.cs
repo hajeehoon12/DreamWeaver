@@ -49,6 +49,8 @@ public class Monster : MonoBehaviour, IDamage
         StartCoroutine(FlashWhite());
         if (currentHealth > damage)
         {
+            _behavior.DisableBehavior();
+            _behavior.EnableBehavior();
             GetHit = true;
             //_animator.SetTrigger("GetHit");
             currentHealth -= damage;

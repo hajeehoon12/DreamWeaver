@@ -26,6 +26,7 @@ public class SkillUI : MonoBehaviour
             {
                 isRotating = false;
                 CharacterManager.Instance.Player.GetComponentInChildren<PlayerShooting>().isRotating = false;
+
             }
         }
 
@@ -47,5 +48,14 @@ public class SkillUI : MonoBehaviour
 
         isRotating = true;
         CharacterManager.Instance.Player.GetComponentInChildren<PlayerShooting>().isRotating = true;
+
+        if (num == 1)
+        {
+            CharacterManager.Instance.Player.GetComponentInChildren<PlayerShooting>().UpCount();
+        }
+        else
+        {
+            CharacterManager.Instance.Player.GetComponentInChildren<PlayerShooting>().DownCount();
+        }
     }
 }

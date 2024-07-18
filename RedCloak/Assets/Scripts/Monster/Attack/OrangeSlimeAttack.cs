@@ -16,7 +16,7 @@ public class OrangeSlimeAttack : MonoBehaviour, IMobAttack
     [SerializeField] private float meeleRange;
 
     private IMobAttack attack;
-    public bool isMeele { get; set; }
+    public bool isMeele;
 
     private void Start()
     {
@@ -34,7 +34,7 @@ public class OrangeSlimeAttack : MonoBehaviour, IMobAttack
         {
             attack = jump;
         }
-        
+
         bool result = attack.PerformAttack();
         
         return result;
