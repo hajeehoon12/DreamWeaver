@@ -65,6 +65,8 @@ public class Wolf : MonoBehaviour, IDamage
 
     private Coroutine ComboCoroutine;
 
+    private bool isPhase2Start = false;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -207,14 +209,15 @@ public class Wolf : MonoBehaviour, IDamage
             switch (count%3)
             {
                 case 0:
-                    ThreeSlash();                  
+                    JumpDashAttack();
                     break;
                 case 1:
-                    Jump();
-                    ElectricWave();
+                    ThreeSlash();
                     break;
                 case 2:
-                    JumpDashAttack();
+                    Jump();
+                    ElectricWave();
+
                     break;
                 default:
                     break;
@@ -225,6 +228,8 @@ public class Wolf : MonoBehaviour, IDamage
 
         if (isPhase2)
         {
+            if (!isPhase2Start) yield break;
+
             animator.SetBool(isJump, false);
             animator.SetBool(isRun, false);
             yield return new WaitForSeconds(1f);
@@ -509,13 +514,21 @@ public class Wolf : MonoBehaviour, IDamage
 
     void Phase2Start()
     {
-        StopCoroutine(mainCoroutine);
-        if(ComboCoroutine != null) StopCoroutine(ComboCoroutine);
+        isPhase2Start = true;
+        if(mainCoroutine != null) StopCoroutine(mainCoroutine);
+        if (ComboCoroutine != null)
+        {
+            animator.SetBool(isAttack, false);
+            StopCoroutine(ComboCoroutine);
+        }
+
         animator.Play("Thunder", -1, 0f);
         AudioManager.instance.PlayWolf("Howling", 0.1f);
         isInvincible = true;
+
         shouting.SetActive(true);
         animator.SetBool(thunder, true);
+
         StartCoroutine(Phase2Howling());
     }
 
@@ -530,15 +543,24 @@ public class Wolf : MonoBehaviour, IDamage
 
     void Phase3Start()
     {
-        if (ComboCoroutine != null) StopCoroutine(ComboCoroutine);
+        if (ComboCoroutine != null)
+        {
+            animator.SetBool(isAttack, false);
+            StopCoroutine(ComboCoroutine);
+        }
+
         shockWave.gameObject.SetActive(true);
+        
         animator.Play("Thunder", -1, 0f);
+        AudioManager.instance.PlayWolf("Howling", 0.1f);
         isInvincible = true;
+
         CameraManager.Instance.ModifyCameraInfo(new Vector2(10, 10), new Vector2(308, -145));
         CameraManager.Instance.ChangeFOV(9);
+
         shouting.SetActive(true);
         animator.SetBool(thunder, true);
-        AudioManager.instance.PlayWolf("Howling", 0.1f);
+        
         StartCoroutine(Phase3Thunder());
     }
 
