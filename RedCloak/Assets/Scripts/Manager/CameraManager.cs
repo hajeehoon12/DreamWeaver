@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 
 public class CameraManager : MonoBehaviour
@@ -42,6 +43,8 @@ public class CameraManager : MonoBehaviour
     public bool isCameraShaking = false;
 
     public int stageNum = 0;
+
+    private float currentfov = 0;
     
 
     private void Awake()
@@ -141,9 +144,21 @@ public class CameraManager : MonoBehaviour
 
     public void ChangeFOV(float fov)
     {
-        this.GetComponent<Camera>().fieldOfView = fov;
+        currentfov = GetComponent<Camera>().fieldOfView;
+        DOTween.To(() => currentfov, x => currentfov =x, fov, 1f);
+        StartCoroutine(ChangingFOV());
     }
 
+    IEnumerator ChangingFOV()
+    {
+        float time = 0f;
+        while (time < 1f)
+        {
+            GetComponent<Camera>().fieldOfView = currentfov;
+            time += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+    }
 
 
     public void MakeCameraShake(Vector3 cameraPos, float duration, float Position, float Rotation)
