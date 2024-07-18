@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
     private float lastWallJumpTime = 0.3f;
     private float wallJumpDelayTime = 0.3f;
 
-    public float attackedTime = 0.2f;
+    public float attackedTime = 0.4f;
 
     public float slopeSpeed = 0.5f;
     public float originSlopeSpeed = 0.5f;

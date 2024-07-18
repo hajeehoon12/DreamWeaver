@@ -7,7 +7,7 @@ public class PlayerBattle : MonoBehaviour
 {
 
 
-    public float healthChangeDelay = 0.5f;
+    public float healthChangeDelay = 0.8f;
 
 
     private float timeSinceLastChange = float.MaxValue; // time calculate from last hit
@@ -56,13 +56,13 @@ public class PlayerBattle : MonoBehaviour
         CharacterManager.Instance.Player.stats.playerHP += change; // health change value
         CharacterManager.Instance.Player.stats.playerHP = Mathf.Clamp(CharacterManager.Instance.Player.stats.playerHP, 0, CharacterManager.Instance.Player.stats.playerMaxHP); // restrict health range for 0<= health <= maxHealth
 
-        Debug.Log("Player Health : " + change);
+        //Debug.Log("Player Health : " + change);
 
         if (CharacterManager.Instance.Player.stats.playerHP <= 0f)
         {
             timeSinceLastChange = 0f;
             OnDamage?.Invoke();
-            Debug.Log("Player Dead");
+            //Debug.Log("Player Dead");
             CallDeath();
             return true;
         }

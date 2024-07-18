@@ -2827,6 +2827,7 @@ GameObject:
   - component: {fileID: 1195017023}
   - component: {fileID: 1195017022}
   - component: {fileID: 1195017024}
+  - component: {fileID: 1195017025}
   m_Layer: 8
   m_Name: Wolf
   m_TagString: Monster
@@ -3010,7 +3011,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3f48f6f0a5f0ea44a4cbe5b1c1b872b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossMaxHealth: 500
+  isPhase1: 0
+  isPhase2: 0
+  isPhase3: 0
+  bossMaxHealth: 200
   isBossDie: 0
   wolfZone1: {fileID: 0}
   wolfZone2: {fileID: 0}
@@ -3024,6 +3028,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   electricWave: {fileID: 1032096471364102, guid: 9eb95a18065b70742be8155ce918903c, type: 3}
+--- !u!114 &1195017025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195017018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52c2d78efdeffa4f92308bf2802f4bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostDelay: 0.05
+  fadeDuration: 0.4
+  ghost: {fileID: 5785987680709450409, guid: 90f68a13d6bbdd947ac2357370814a78, type: 3}
+  makeGhost: 0
 --- !u!114 &1205769308 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2565975236639982987, guid: 33abd9c5db381e24e9c22b6b079243a5, type: 3}
@@ -3584,6 +3604,10 @@ PrefabInstance:
       propertyPath: Wolf.Array.data[7].name
       value: Thunder
       objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[16].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9fd0428f832839844becf6a6f4e4872a, type: 3}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: sfx.Array.data[26].clip
       value: 

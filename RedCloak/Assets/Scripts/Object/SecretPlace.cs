@@ -11,6 +11,7 @@ public class SecretPlace : MonoBehaviour
         {
             originColor = spriteRenderer.color;
             spriteRenderer.color = new Color(1, 1, 1, 0f);
+            AudioManager.instance.PlaySFX("Success", 0.15f);
         }
     }
 
