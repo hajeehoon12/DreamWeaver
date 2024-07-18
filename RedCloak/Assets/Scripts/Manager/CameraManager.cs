@@ -139,6 +139,11 @@ public class CameraManager : MonoBehaviour
         center = new Vector2(120, -165);
     }
 
+    public void ChangeFOV(float fov)
+    {
+        this.GetComponent<Camera>().fieldOfView = fov;
+    }
+
 
 
     public void MakeCameraShake(Vector3 cameraPos, float duration, float Position, float Rotation)

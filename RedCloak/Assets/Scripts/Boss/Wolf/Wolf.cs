@@ -11,6 +11,8 @@ public class Wolf : MonoBehaviour, IDamage
     private static readonly int isDashAttack = Animator.StringToHash("IsDashAttack");
     private static readonly int isDead = Animator.StringToHash("IsDead");
     private static readonly int isAttack = Animator.StringToHash("IsAttack");
+    private static readonly int animSpeed = Animator.StringToHash("AnimSpeed");
+    private static readonly int thunder = Animator.StringToHash("Thunder");
 
     public bool isPhase1 = false;
     public bool isPhase2 = false;
@@ -55,6 +57,12 @@ public class Wolf : MonoBehaviour, IDamage
 
     public Coroutine mainCoroutine;
 
+    public float AnimSpeed = 1.0f;
+
+    private bool isInvincible = false;
+
+    public GameObject shouting;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -72,6 +80,7 @@ public class Wolf : MonoBehaviour, IDamage
         shockWave.gameObject.SetActive(false);
         rightAttack.enabled = false;
         leftAttack.enabled = false;
+        shouting.SetActive(false);
     }
 
     private void Update()
@@ -245,11 +254,15 @@ public class Wolf : MonoBehaviour, IDamage
             switch (count % 2)
             {
                 case 0:
-                    
+                    Phase3Start();
                     break;
                 case 1:
-                    
+                    Phase3Start();
                     break;
+                default:
+                    Phase3Start();
+                    break;
+
             }
         }
 
@@ -278,17 +291,23 @@ public class Wolf : MonoBehaviour, IDamage
 
     IEnumerator SlashMove()
     {
+
+        if (!isPhase1) wolfGhost.makeGhost = true;
         float dir = CharacterManager.Instance.Player.transform.position.x > transform.position.x ? 1f : -1f;
 
         float time = 0f;
 
-        while (time < 0.9f)
+
+
+        while (time < 0.9f/AnimSpeed)
         {
-            transform.position += new Vector3(Time.deltaTime * 10 * dir,0);
+            transform.position += new Vector3(Time.deltaTime * 10 * AnimSpeed * dir,0);
 
             time += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
+            
         }
+        wolfGhost.makeGhost = false;
     }
 
     public void DoCombo()
@@ -339,14 +358,14 @@ public class Wolf : MonoBehaviour, IDamage
 
     void JumpDashAttack()
     {
-        wolfGhost.makeGhost = true;
+        if (!isPhase1) wolfGhost.makeGhost = true;
         animator.SetBool(isRun, false);
         animator.SetBool(isAttack, false);
         animator.SetBool(isJump, false);
         animator.SetBool(isDashAttack, true);
         //AudioManager.instance.PlayWolf("ShockWave", 0.2f);
         StartCoroutine(ChargeSound());
-        transform.DOMove(CharacterManager.Instance.Player.transform.position+new Vector3(0,wolfCol.bounds.extents.y), 1f).SetEase(Ease.InBack).OnComplete(() =>
+        transform.DOMove(CharacterManager.Instance.Player.transform.position+new Vector3(0,wolfCol.bounds.extents.y), 1f/AnimSpeed).SetEase(Ease.InBack).OnComplete(() =>
         {
             animator.SetBool(isDashAttack, false);
             Discrimination();
@@ -359,7 +378,7 @@ public class Wolf : MonoBehaviour, IDamage
 
     void Jump()
     {
-        wolfGhost.makeGhost = true;
+        if(!isPhase1) wolfGhost.makeGhost = true;
         animator.SetBool(isRun, false);
         animator.SetBool(isJump, true);
         shockWave.gameObject.SetActive(true);
@@ -371,7 +390,7 @@ public class Wolf : MonoBehaviour, IDamage
         //Debug.Log(hit.point);
         AudioManager.instance.PlayWolf("WindJump", 0.25f);
         Vector3 thirdPos = new Vector3(hit.point.x, hit.point.y , 0) + new Vector3(0, wolfCol.bounds.extents.y+0.35f);
-        transform.DOPath(new[] { secondPos, firstPos + 2*Vector3.up , secondPos, thirdPos,secondPos, thirdPos - Vector3.up }, 1.5f, PathType.CubicBezier).SetEase(Ease.OutCubic).OnComplete(() => {
+        transform.DOPath(new[] { secondPos, firstPos + 2*Vector3.up , secondPos, thirdPos,secondPos, thirdPos - Vector3.up }, 1.5f/AnimSpeed, PathType.CubicBezier).SetEase(Ease.OutCubic).OnComplete(() => {
             //
             //animator.SetBool(isJump, false);
             Discrimination();
@@ -385,13 +404,26 @@ public class Wolf : MonoBehaviour, IDamage
 
     IEnumerator ChargeSound()
     {
-        yield return new WaitForSeconds(0.15f);
+        yield return null;
+
+        if (isPhase1)
+        {
+            yield return new WaitForSeconds(0.15f);
+        }
         AudioManager.instance.PlayWolf("ChargeAttack", 0.1f);
 
     }
 
 
-
+    void AnimatorInit()
+    {
+        animator.SetBool(isJump, false);
+        animator.SetBool(isRun, false);
+        animator.SetBool(isAttack, false);
+        animator.SetBool(isDashAttack, false);
+        animator.SetTrigger(isNextPhase);
+        Discrimination();
+    }
 
     void SetBossBar()
     {
@@ -400,6 +432,7 @@ public class Wolf : MonoBehaviour, IDamage
 
     public void GetDamage(float damage)
     {
+        if (isInvincible) return;
 
         if (bossHealth > damage)
         {
@@ -410,10 +443,12 @@ public class Wolf : MonoBehaviour, IDamage
                 isPhase1 = false;
                 isPhase2 = true;
                 isPhase3 = false;
-                animator.SetBool(isJump , false);
-                animator.SetBool(isRun, false);
-                animator.SetBool(isDashAttack, false);
-                animator.SetTrigger(isNextPhase);
+
+                AnimatorInit();
+                Phase2Start();
+
+                AnimSpeed = 1.2f;
+                animator.SetFloat(animSpeed, AnimSpeed);
                 //Debug.Log("next phase");
                 //StopCoroutine(mainCoroutine);
                 //mainCoroutine = StartCoroutine(Iteration());
@@ -424,10 +459,10 @@ public class Wolf : MonoBehaviour, IDamage
                 isPhase1 = false;
                 isPhase3 = true;
                 isPhase2 = false;
-                animator.SetBool(isJump, false);
-                animator.SetBool(isRun, false);
-                animator.SetBool(isDashAttack, false);
-                animator.SetTrigger(isNextPhase);
+
+                AnimatorInit();
+
+                wolfZone.RainOn();
                 //Debug.Log("next phase");
                 //StopCoroutine(mainCoroutine);
                 //mainCoroutine = StartCoroutine(Iteration());
@@ -439,8 +474,10 @@ public class Wolf : MonoBehaviour, IDamage
         else
         {
             if (isBossDie) return;
+
             isStageStart = false;
             UIBar.Instance.SetBossBar(0, bossMaxHealth, bossHealth);
+            wolfZone.RainOff();
             CallDie();
             wolfCol.enabled = true;
             //wolfUpper.enabled = false;
@@ -455,6 +492,62 @@ public class Wolf : MonoBehaviour, IDamage
         spriteRenderer.DOColor(Color.white, durTime);
 
     }
+
+    void Phase2Start()
+    {
+        StopCoroutine(mainCoroutine);
+        animator.Play("Thunder", -1, 0f);
+        AudioManager.instance.PlayWolf("Howling", 0.1f);
+        isInvincible = true;
+        shouting.SetActive(true);
+        animator.SetBool(thunder, true);
+        StartCoroutine(Phase2Howling());
+    }
+
+    IEnumerator Phase2Howling()
+    {
+        yield return new WaitForSeconds(3f);
+        animator.SetBool(thunder, false);
+        shouting.SetActive(false);
+        isInvincible = false;
+        Discrimination();
+    }
+
+    void Phase3Start()
+    {
+        shockWave.gameObject.SetActive(true);
+        animator.Play("Thunder", -1, 0f);
+        isInvincible = true;
+        CameraManager.Instance.ModifyCameraInfo(new Vector2(10, 10), new Vector2(308, -145));
+        CameraManager.Instance.ChangeFOV(9);
+        shouting.SetActive(true);
+        animator.SetBool(thunder, true);
+        AudioManager.instance.PlayWolf("Howling", 0.1f);
+        StartCoroutine(Phase3Thunder());
+    }
+
+    IEnumerator Phase3Thunder()
+    {
+
+        yield return new WaitForSeconds(3f);
+        shouting.SetActive(false);
+        AudioManager.instance.PlayWolf("Thunder", 0.5f);
+        animator.SetBool(thunder, false);
+        animator.SetBool(isDashAttack, true);
+        wolfGhost.makeGhost = true;
+        transform.DOMove(new Vector3(304, -100, 0) + new Vector3(0, wolfCol.bounds.extents.y), 1f / AnimSpeed).SetEase(Ease.InBack);
+    }
+
+
+    void Phase3End()
+    {
+        shockWave.gameObject.SetActive(false);
+        wolfGhost.makeGhost = false;
+        isInvincible = false;
+        CameraManager.Instance.ModifyCameraInfo(new Vector2(20, 10), new Vector2(308, -145));
+        CameraManager.Instance.ChangeFOV(6);
+    }
+
 
     void CallDie()
     {
@@ -471,6 +564,7 @@ public class Wolf : MonoBehaviour, IDamage
         AudioManager.instance.PlaySFX("Success", 0.05f);
         AudioManager.instance.PlayBGM("SadStory", 0.05f);
     }
+
 
 
 }
