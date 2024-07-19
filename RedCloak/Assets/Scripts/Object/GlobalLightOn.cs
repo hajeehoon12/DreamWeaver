@@ -18,6 +18,7 @@ public class GlobalLightOn : MonoBehaviour
         {
             globalLight.lightType = Light2D.LightType.Global;
             isGlobalLightOn = true;
+            AudioManager.instance.StopBGM2();
         }
         else
         {

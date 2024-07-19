@@ -529,9 +529,10 @@ public class Wolf : MonoBehaviour, IDamage
             animator.SetBool(isAttack, false);
             StopCoroutine(ComboCoroutine);
         }
+        StopAllCoroutines();
 
         animator.Play("Thunder", -1, 0f);
-        AudioManager.instance.PlayWolf("Howling", 0.1f);
+        AudioManager.instance.PlayWolf("Howling", 0.15f);
         isInvincible = true;
 
         shouting.SetActive(true);

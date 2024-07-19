@@ -634,9 +634,22 @@ public class PlayerController : MonoBehaviour
         if (collider.gameObject.CompareTag(Define.MONSTER))
         {
             if (Rolling) return;
+            //StartCoroutine(CollisionDelay(LayerMask.NameToLayer(Define.MONSTER)));
             playerBattle.ChangeHealth(-1); // get damaged
         }
         //Debug.Log("Trigger detected with " + collider.gameObject.name);
+    }
+
+    public void OnCollisionDelay(LayerMask LayerName)
+    {
+        StartCoroutine(CollisionDelay(LayerName));
+    }
+
+    IEnumerator CollisionDelay(LayerMask LayerName)
+    {
+        Physics2D.IgnoreLayerCollision(LayerName, LayerMask.NameToLayer(Define.PLAYER), true);
+        yield return new WaitForSeconds(playerBattle.healthChangeDelay);
+        Physics2D.IgnoreLayerCollision(LayerName, LayerMask.NameToLayer(Define.PLAYER), false);
     }
 
     private void OnCollisionStay2D(Collision2D collider) // Jump and wall Climb check
@@ -644,7 +657,11 @@ public class PlayerController : MonoBehaviour
 
         if (collider.gameObject.CompareTag(Define.MONSTER) || collider.gameObject.layer == LayerMask.NameToLayer(Define.BOSS))
         {
+            
+
             if (Rolling) return;
+            //StartCoroutine(CollisionDelay(LayerMask.NameToLayer(Define.BOSS)));
+            //StartCoroutine(CollisionDelay(LayerMask.NameToLayer(Define.MONSTER)));
             playerBattle.ChangeHealth(-1); // get damaged
 
             if (ghostDash.makeGhost)
@@ -664,7 +681,9 @@ public class PlayerController : MonoBehaviour
         //collision.
         if (collider.gameObject.layer == LayerMask.NameToLayer(Define.TRAP))
         {
+            
             if (Rolling) return;
+            //StartCoroutine(CollisionDelay(LayerMask.NameToLayer(Define.TRAP)));
             playerBattle.ChangeHealth(-1);
         }
 

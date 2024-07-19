@@ -46,6 +46,11 @@ public class PlayerBattle : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        OnDamage += OnCollisionDelay;
+    }
+
     public bool ChangeHealth(float change)
     {
         if (timeSinceLastChange < healthChangeDelay) // if not attacked
@@ -81,6 +86,24 @@ public class PlayerBattle : MonoBehaviour
         }
 
         return true;
+    }
+
+    public void OnCollisionDelay()
+    {
+        StartCoroutine(CollisionDelay());
+    }
+
+    IEnumerator CollisionDelay()
+    {
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.TRAP), LayerMask.NameToLayer(Define.PLAYER), true);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.ENEMY), LayerMask.NameToLayer(Define.PLAYER), true);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.BOSS), LayerMask.NameToLayer(Define.PLAYER), true);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.MONSTERPROJECTILE), LayerMask.NameToLayer(Define.PLAYER), true);
+        yield return new WaitForSeconds(healthChangeDelay);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.TRAP), LayerMask.NameToLayer(Define.PLAYER), false);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.ENEMY), LayerMask.NameToLayer(Define.PLAYER), false);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.BOSS), LayerMask.NameToLayer(Define.PLAYER), false);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.MONSTERPROJECTILE), LayerMask.NameToLayer(Define.PLAYER), false);
     }
 
     public bool ChangeHealth(float change, Vector3 position)
