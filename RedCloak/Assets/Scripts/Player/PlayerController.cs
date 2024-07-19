@@ -368,6 +368,7 @@ public class PlayerController : MonoBehaviour
 
         if (!Rolling && !Jumping)
         {
+            playerBattle.OnCollisionDelay();
             rigid.velocity = Vector3.zero;
             rigid.gravityScale = playerGravityScale;
             if (dashCoroutine != null) StopCoroutine(dashCoroutine);
