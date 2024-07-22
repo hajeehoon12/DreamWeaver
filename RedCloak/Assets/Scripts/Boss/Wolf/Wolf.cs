@@ -41,6 +41,8 @@ public class Wolf : MonoBehaviour, IDamage
 
     public WolfZone wolfZone;
 
+    public GameObject Tornado;
+
     //public Collider2D wolfUpper;
 
     private ParticleSystem shockWave;
@@ -85,6 +87,7 @@ public class Wolf : MonoBehaviour, IDamage
         rightAttack.enabled = false;
         leftAttack.enabled = false;
         shouting.SetActive(false);
+        
     }
 
     private void Update()
@@ -199,7 +202,7 @@ public class Wolf : MonoBehaviour, IDamage
     {
         //Debug.Log("Start");
 
-
+        
         if (isPhase1)
         {
             animator.SetBool(isJump, false);
@@ -258,21 +261,25 @@ public class Wolf : MonoBehaviour, IDamage
 
             yield return new WaitForSeconds(0.5f);
             //Flip();
-            switch (count % 4)
+            switch (count % 7)
             {
                 case 0:
                     yield return new WaitForSeconds(0.5f);
                     Phase3Start();
                     break;
                 case 1:
+                case 4:
+                    
                     ThreeSlash();
                     ElectricWave();
                     break;
                 case 2:
+                case 5:
                     Jump();
                     ElectricWave();
                     break;
                 case 3:
+                case 6:
                     JumpDashAttack();
                     ElectricWave();
                     break;
@@ -583,7 +590,27 @@ public class Wolf : MonoBehaviour, IDamage
         animator.SetBool(thunder, false);
         animator.SetBool(isDashAttack, true);
         wolfGhost.makeGhost = true;
-        transform.DOMove(new Vector3(304, -100, 0) + new Vector3(0, wolfCol.bounds.extents.y), 1f / AnimSpeed).SetEase(Ease.InBack).OnComplete(() =>
+
+        Vector3 Dest = new Vector3(306, -100, 0);
+        switch (Random.Range(0, 3))
+        {
+            case 0:
+                Dest = new Vector3(306, -100, 0);
+                break;
+            case 1:
+                Dest = new Vector3(294, -100, 0);
+                break;
+            case 2:
+                Dest = new Vector3(319, -100, 0);
+                break;
+            default:
+                Dest = new Vector3(306, -100, 0);
+                break;
+
+        }
+
+
+        transform.DOMove(Dest + new Vector3(0, wolfCol.bounds.extents.y), 1f / AnimSpeed).SetEase(Ease.InBack).OnComplete(() =>
         {
             rigid.gravityScale = 0f;
             StartCoroutine(ShootThunderBolt());
@@ -596,16 +623,19 @@ public class Wolf : MonoBehaviour, IDamage
     {
         yield return null;
 
+        
         for (int i = 0; i < 10; i++)
         {
             ThunderBolt();
             yield return new WaitForSeconds(0.3f);
         }
-       
+        CreateTornado();
+
         rigid.gravityScale = 3f;
         animator.SetBool(isDashAttack, false);
 
         yield return new WaitForSeconds(1f);
+        
 
         isInvincible = false;
         Phase3End();
@@ -614,9 +644,30 @@ public class Wolf : MonoBehaviour, IDamage
         Discrimination();
     }
 
+    void CreateTornado()
+    {
+        GameObject Tornados = Instantiate(Tornado);
+        Tornados.transform.position = new Vector3(270, -130, 0);
+        Tornados.transform.DOMoveX(340, 2f).SetEase(Ease.InSine);
+        Tornados.transform.DOMoveY(-155, 2f).SetEase(Ease.OutQuad).OnComplete(() =>
+        { 
+            Destroy(Tornados, 0.1f);
+        }
+        );
+
+        GameObject Tornados2 = Instantiate(Tornado);
+        Tornados2.transform.position = new Vector3(340, -130, 0);
+        Tornados2.transform.DOMoveX(270, 2f).SetEase(Ease.InSine);
+        Tornados2.transform.DOMoveY(-155, 2f).SetEase(Ease.OutQuad).OnComplete(() =>
+        {
+            Destroy(Tornados2, 0.1f);
+        }
+        );
+    }
+
     void ThunderBolt()
     {
-        Debug.Log("Thunder!!");
+        //Debug.Log("Thunder!!");
         AudioManager.instance.PlayWolf("Thunder", 0.2f);
         GameObject elecProjectile;
        

@@ -3024,6 +3024,7 @@ MonoBehaviour:
   lightening: {fileID: 53162700}
   transparentWall: {fileID: 1951860591}
   wolfZone: {fileID: 7885933421116790580}
+  Tornado: {fileID: 32033610114601931, guid: 542c3de69d0bf8c48bdacd3740ea0ec1, type: 3}
   isStageStart: 0
   floorLayerMask:
     serializedVersion: 2
@@ -50557,11 +50558,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 279.88
+      value: 274.29
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -146.9
+      value: -146.13
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.z
