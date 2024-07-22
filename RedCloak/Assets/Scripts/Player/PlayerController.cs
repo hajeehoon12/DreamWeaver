@@ -630,6 +630,16 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.CompareTag(Define.MONSTER))
+        {
+            if (Rolling) return;
+            //StartCoroutine(CollisionDelay(LayerMask.NameToLayer(Define.MONSTER)));
+            playerBattle.ChangeHealth(-1); // get damaged
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag(Define.MONSTER))
