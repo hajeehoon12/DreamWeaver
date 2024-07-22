@@ -674,6 +674,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 2109611157}
   map: {fileID: 0}
+  Sky: {fileID: 0}
+  Cave: {fileID: 0}
   cameraPosition: {x: 0, y: 5, z: -200}
   center: {x: 0, y: 0}
   tempCenter: {x: 0, y: 0}
@@ -1131,11 +1133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -58.87
+      value: 86
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -425.64
+      value: -384
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16182,15 +16184,19 @@ PrefabInstance:
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1093286627168059826, guid: 451e32576e1ab0943800330293401abc, type: 3}
+      propertyPath: m_Creator
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1096428967828935474, guid: 451e32576e1ab0943800330293401abc, type: 3}
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1397820171422795186, guid: 451e32576e1ab0943800330293401abc, type: 3}
+    - target: {fileID: 1191159702346291242, guid: 451e32576e1ab0943800330293401abc, type: 3}
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1651978597900525060, guid: 451e32576e1ab0943800330293401abc, type: 3}
+    - target: {fileID: 1397820171422795186, guid: 451e32576e1ab0943800330293401abc, type: 3}
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
@@ -16202,15 +16208,15 @@ PrefabInstance:
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 2720825045164640240, guid: 451e32576e1ab0943800330293401abc, type: 3}
-      propertyPath: m_Creator
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3034588816095039680, guid: 451e32576e1ab0943800330293401abc, type: 3}
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3051403373147852783, guid: 451e32576e1ab0943800330293401abc, type: 3}
+      propertyPath: m_Creator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263456884389866267, guid: 451e32576e1ab0943800330293401abc, type: 3}
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
@@ -16222,7 +16228,7 @@ PrefabInstance:
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 4417828022248272113, guid: 451e32576e1ab0943800330293401abc, type: 3}
+    - target: {fileID: 4393179249294707262, guid: 451e32576e1ab0943800330293401abc, type: 3}
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
@@ -16231,10 +16237,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5076410895357169611, guid: 451e32576e1ab0943800330293401abc, type: 3}
-      propertyPath: m_Creator
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5410577559519075545, guid: 451e32576e1ab0943800330293401abc, type: 3}
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
@@ -16254,10 +16256,6 @@ PrefabInstance:
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6461893746494847893, guid: 451e32576e1ab0943800330293401abc, type: 3}
-      propertyPath: m_Creator
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6563298180738607077, guid: 451e32576e1ab0943800330293401abc, type: 3}
       propertyPath: m_Creator
       value: 
@@ -16270,10 +16268,6 @@ PrefabInstance:
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 7058585858307062375, guid: 451e32576e1ab0943800330293401abc, type: 3}
-      propertyPath: m_Creator
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7192119801851340696, guid: 451e32576e1ab0943800330293401abc, type: 3}
       propertyPath: m_Creator
       value: 
@@ -16282,15 +16276,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map_Dungeon
       objectReference: {fileID: 0}
-    - target: {fileID: 7230295159511836280, guid: 451e32576e1ab0943800330293401abc, type: 3}
+    - target: {fileID: 7231216797755933193, guid: 451e32576e1ab0943800330293401abc, type: 3}
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8059423682581319922, guid: 451e32576e1ab0943800330293401abc, type: 3}
-      propertyPath: m_Creator
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8177157143541732818, guid: 451e32576e1ab0943800330293401abc, type: 3}
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}

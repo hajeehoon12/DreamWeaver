@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class SwingEffect : MonoBehaviour
 {
-    private float shakeDuration = 0.5f;
-    private float returnDuration = 0.5f;
+    private float shakeDuration = 1f;
+    private float returnDuration = 1f;
 
     private Quaternion originalRotation;
     private Coroutine shakeCoroutine;
