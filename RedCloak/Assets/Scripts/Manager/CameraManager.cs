@@ -6,14 +6,14 @@ using DG.Tweening;
 
 public class CameraManager : MonoBehaviour
 {
-
-
     public static CameraManager Instance;
 
     public Transform _player;
     //public MeshRenderer render;
 
     public GameObject map;
+    public GameObject Sky;
+    public GameObject Cave;
 
     private Vector2 _firstPos;
 
@@ -78,6 +78,9 @@ public class CameraManager : MonoBehaviour
             case 2:
                 CallStage2CameraInfo();
                 break;
+            case 3:
+                CallStage3CameraInfo();
+                break;
             default:
                 break;
         
@@ -134,12 +137,27 @@ public class CameraManager : MonoBehaviour
     {
         mapSize = new Vector2(220, 40);
         center = new Vector2(70, -10);
+
+        Sky.gameObject.SetActive(true);
+        Cave.gameObject.SetActive(false);
     }
 
     public void CallStage2CameraInfo()
     {
         mapSize = new Vector2(265, 65);
         center = new Vector2(120, -165);
+
+        Sky.gameObject.SetActive(true);
+        Cave.gameObject.SetActive(false);
+    }
+
+    public void CallStage3CameraInfo()
+    {
+        mapSize = new Vector2(260, 120);
+        center = new Vector2(180, -380);
+
+        Sky.gameObject.SetActive(false);
+        Cave.gameObject.SetActive(true);
     }
 
     public void ChangeFOV(float fov)
