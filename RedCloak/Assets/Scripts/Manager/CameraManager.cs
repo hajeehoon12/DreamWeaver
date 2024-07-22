@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Rendering.Universal;
 
 
 public class CameraManager : MonoBehaviour
@@ -135,6 +136,9 @@ public class CameraManager : MonoBehaviour
 
     public void CallStage1CameraInfo()
     {
+        AudioManager.instance.StopBGM();
+        AudioManager.instance.PlayBGM("SadStory", 0.05f);
+
         mapSize = new Vector2(220, 40);
         center = new Vector2(70, -10);
 
@@ -144,6 +148,9 @@ public class CameraManager : MonoBehaviour
 
     public void CallStage2CameraInfo()
     {
+        AudioManager.instance.StopBGM();
+        AudioManager.instance.PlayBGM("Chloe", 0.10f);
+
         mapSize = new Vector2(265, 65);
         center = new Vector2(120, -165);
 
@@ -153,6 +160,11 @@ public class CameraManager : MonoBehaviour
 
     public void CallStage3CameraInfo()
     {
+        CharacterManager.Instance.Player.GetComponent<Light2D>().lightType = Light2D.LightType.Global;
+
+        AudioManager.instance.StopBGM();
+        AudioManager.instance.PlayBGM("Time", 0.1f);
+
         mapSize = new Vector2(260, 120);
         center = new Vector2(180, -380);
 

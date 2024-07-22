@@ -44,7 +44,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlayBGM("SadStory", 0.05f);
+        //PlayBGM("SadStory", 0.05f);
     }
 
     public void PlayBGM(string p_bgmName)

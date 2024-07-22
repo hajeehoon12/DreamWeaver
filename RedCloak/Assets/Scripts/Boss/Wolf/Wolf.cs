@@ -704,7 +704,7 @@ public class Wolf : MonoBehaviour, IDamage
         wolfZone.RemoveWall();
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlaySFX("Success", 0.05f);
-        AudioManager.instance.PlayBGM("SadStory", 0.05f);
+        AudioManager.instance.PlayBGM("Chloe", 0.1f);
     }
 
 
