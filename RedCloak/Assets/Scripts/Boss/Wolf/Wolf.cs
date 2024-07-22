@@ -649,7 +649,7 @@ public class Wolf : MonoBehaviour, IDamage
         GameObject Tornados = Instantiate(Tornado);
         Tornados.transform.position = new Vector3(270, -130, 0);
         Tornados.transform.DOMoveX(340, 2f).SetEase(Ease.InSine);
-        Tornados.transform.DOMoveY(-155, 2f).SetEase(Ease.OutQuad).OnComplete(() =>
+        Tornados.transform.DOMoveY(-160, 2f).SetEase(Ease.OutQuad).OnComplete(() =>
         { 
             Destroy(Tornados, 0.1f);
         }
@@ -658,7 +658,7 @@ public class Wolf : MonoBehaviour, IDamage
         GameObject Tornados2 = Instantiate(Tornado);
         Tornados2.transform.position = new Vector3(340, -130, 0);
         Tornados2.transform.DOMoveX(270, 2f).SetEase(Ease.InSine);
-        Tornados2.transform.DOMoveY(-155, 2f).SetEase(Ease.OutQuad).OnComplete(() =>
+        Tornados2.transform.DOMoveY(-160, 2f).SetEase(Ease.OutQuad).OnComplete(() =>
         {
             Destroy(Tornados2, 0.1f);
         }
