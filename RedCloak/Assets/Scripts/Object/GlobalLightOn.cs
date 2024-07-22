@@ -25,4 +25,14 @@ public class GlobalLightOn : MonoBehaviour
             isGlobalLightOn = false;
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag(Define.PLAYER) && !isGlobalLightOn)
+        {
+            globalLight.lightType = Light2D.LightType.Global;
+            isGlobalLightOn = true;
+            AudioManager.instance.StopBGM2();
+        }
+    }
 }
