@@ -26,6 +26,16 @@ public class CaveLightOn : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag(Define.PLAYER) && !isCaveLightOn)
+        {
+            TurnOnCaveLight();
+            isCaveLightOn = true;
+            AudioManager.instance.PlayBGM2("CaveDrop", 0.2f);
+        }
+    }
+
     private void TurnOnCaveLight()
     {
         caveLight.lightType = Light2D.LightType.Freeform;
