@@ -34,6 +34,9 @@ public class Portal : MonoBehaviour
                 case 2:
                     CameraManager.Instance.CallStage2CameraInfo();
                     break;
+                case 3:
+                    CameraManager.Instance.CallStage3CameraInfo();
+                    break;
                 default:
                     break;
             

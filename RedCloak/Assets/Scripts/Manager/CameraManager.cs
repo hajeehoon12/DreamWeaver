@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.Rendering.Universal;
 
 
 public class CameraManager : MonoBehaviour
 {
-
-
     public static CameraManager Instance;
 
     public Transform _player;
     //public MeshRenderer render;
 
     public GameObject map;
+    public GameObject Sky;
+    public GameObject Cave;
 
     private Vector2 _firstPos;
 
@@ -42,6 +44,8 @@ public class CameraManager : MonoBehaviour
     public bool isCameraShaking = false;
 
     public int stageNum = 0;
+
+    private float currentfov = 0;
     
 
     private void Awake()
@@ -74,6 +78,9 @@ public class CameraManager : MonoBehaviour
                 break;
             case 2:
                 CallStage2CameraInfo();
+                break;
+            case 3:
+                CallStage3CameraInfo();
                 break;
             default:
                 break;
@@ -129,16 +136,59 @@ public class CameraManager : MonoBehaviour
 
     public void CallStage1CameraInfo()
     {
+        AudioManager.instance.StopBGM();
+        AudioManager.instance.PlayBGM("SadStory", 0.05f);
+
         mapSize = new Vector2(220, 40);
         center = new Vector2(70, -10);
+
+        Sky.gameObject.SetActive(true);
+        Cave.gameObject.SetActive(false);
     }
 
     public void CallStage2CameraInfo()
     {
+        AudioManager.instance.StopBGM();
+        AudioManager.instance.PlayBGM("Chloe", 0.10f);
+
         mapSize = new Vector2(265, 65);
         center = new Vector2(120, -165);
+
+        Sky.gameObject.SetActive(true);
+        Cave.gameObject.SetActive(false);
     }
 
+    public void CallStage3CameraInfo()
+    {
+        CharacterManager.Instance.Player.GetComponent<Light2D>().lightType = Light2D.LightType.Global;
+
+        AudioManager.instance.StopBGM();
+        AudioManager.instance.PlayBGM("Time", 0.1f);
+
+        mapSize = new Vector2(260, 120);
+        center = new Vector2(180, -380);
+
+        Sky.gameObject.SetActive(false);
+        Cave.gameObject.SetActive(true);
+    }
+
+    public void ChangeFOV(float fov)
+    {
+        currentfov = GetComponent<Camera>().fieldOfView;
+        DOTween.To(() => currentfov, x => currentfov =x, fov, 1f);
+        StartCoroutine(ChangingFOV());
+    }
+
+    IEnumerator ChangingFOV()
+    {
+        float time = 0f;
+        while (time < 1f)
+        {
+            GetComponent<Camera>().fieldOfView = currentfov;
+            time += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+    }
 
 
     public void MakeCameraShake(Vector3 cameraPos, float duration, float Position, float Rotation)

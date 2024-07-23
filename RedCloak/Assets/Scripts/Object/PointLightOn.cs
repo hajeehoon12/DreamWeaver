@@ -17,13 +17,19 @@ public class PointLightOn : MonoBehaviour
         {
             TurnOnPointLight();
             isPointLightOn = true;
-            AudioManager.instance.PlaySFX("Evil", 0.2f);
-            AudioManager.instance.StopBGM();
-            AudioManager.instance.PlayBGM("WrongPlace", 0.2f);
         }
         else
         {
             isPointLightOn = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag(Define.PLAYER) && !isPointLightOn)
+        {
+            TurnOnPointLight();
+            isPointLightOn = true;
         }
     }
 
@@ -35,5 +41,8 @@ public class PointLightOn : MonoBehaviour
         pointLight.intensity = 1.0f;
         pointLight.pointLightOuterRadius = 6f;
         pointLight.pointLightInnerAngle = 4f;
+        AudioManager.instance.PlaySFX("Evil", 0.2f);
+        AudioManager.instance.StopBGM();
+        AudioManager.instance.PlayBGM("WrongPlace", 0.2f);
     }
 }

@@ -18,6 +18,7 @@ public class Define
     public const string PLATFORM = "Platform";
 
     public const string PROJECTILE = "Projectile";
+    public const string MONSTERPROJECTILE = "MonsterProjectile";
 
     public const string DEFAULT = "Default";
     

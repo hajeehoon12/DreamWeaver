@@ -10,6 +10,8 @@ public class CheckPlayerPos : Action
 
 	public override TaskStatus OnUpdate()
     {
+        if (Target.Value == null)
+            Target.Value = CharacterManager.Instance.Player.transform;
         Vector2 directionToPlayer = (Target.Value.position - transform.position);
         Vector2 forward = transform.right;
 

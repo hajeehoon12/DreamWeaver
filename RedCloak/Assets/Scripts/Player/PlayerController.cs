@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
     private float lastWallJumpTime = 0.3f;
     private float wallJumpDelayTime = 0.3f;
 
-    public float attackedTime = 0.2f;
+    public float attackedTime = 0.4f;
 
     public float slopeSpeed = 0.5f;
     public float originSlopeSpeed = 0.5f;
@@ -235,7 +235,7 @@ public class PlayerController : MonoBehaviour
         shootProjectile?.FireProjectile();
 
         
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, playerCollider.bounds.extents.y, 0), new Vector2(1, 0) * CheckDir, 3.5f, enemyLayerMask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, playerCollider.bounds.extents.y, 0), new Vector2(1, 0) * CheckDir, 3.7f, enemyLayerMask);
         {
             if (hit.collider != null)
             {
@@ -368,6 +368,7 @@ public class PlayerController : MonoBehaviour
 
         if (!Rolling && !Jumping)
         {
+            playerBattle.OnCollisionDelay();
             rigid.velocity = Vector3.zero;
             rigid.gravityScale = playerGravityScale;
             if (dashCoroutine != null) StopCoroutine(dashCoroutine);
@@ -629,14 +630,37 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.CompareTag(Define.MONSTER))
+        {
+            if (Rolling) return;
+            //StartCoroutine(CollisionDelay(LayerMask.NameToLayer(Define.MONSTER)));
+            playerBattle.ChangeHealth(-1); // get damaged
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag(Define.MONSTER))
         {
             if (Rolling) return;
+            //StartCoroutine(CollisionDelay(LayerMask.NameToLayer(Define.MONSTER)));
             playerBattle.ChangeHealth(-1); // get damaged
         }
         //Debug.Log("Trigger detected with " + collider.gameObject.name);
+    }
+
+    public void OnCollisionDelay(LayerMask LayerName)
+    {
+        StartCoroutine(CollisionDelay(LayerName));
+    }
+
+    IEnumerator CollisionDelay(LayerMask LayerName)
+    {
+        Physics2D.IgnoreLayerCollision(LayerName, LayerMask.NameToLayer(Define.PLAYER), true);
+        yield return new WaitForSeconds(playerBattle.healthChangeDelay);
+        Physics2D.IgnoreLayerCollision(LayerName, LayerMask.NameToLayer(Define.PLAYER), false);
     }
 
     private void OnCollisionStay2D(Collision2D collider) // Jump and wall Climb check
@@ -644,7 +668,11 @@ public class PlayerController : MonoBehaviour
 
         if (collider.gameObject.CompareTag(Define.MONSTER) || collider.gameObject.layer == LayerMask.NameToLayer(Define.BOSS))
         {
+            
+
             if (Rolling) return;
+            //StartCoroutine(CollisionDelay(LayerMask.NameToLayer(Define.BOSS)));
+            //StartCoroutine(CollisionDelay(LayerMask.NameToLayer(Define.MONSTER)));
             playerBattle.ChangeHealth(-1); // get damaged
 
             if (ghostDash.makeGhost)
@@ -664,7 +692,9 @@ public class PlayerController : MonoBehaviour
         //collision.
         if (collider.gameObject.layer == LayerMask.NameToLayer(Define.TRAP))
         {
+            
             if (Rolling) return;
+            //StartCoroutine(CollisionDelay(LayerMask.NameToLayer(Define.TRAP)));
             playerBattle.ChangeHealth(-1);
         }
 

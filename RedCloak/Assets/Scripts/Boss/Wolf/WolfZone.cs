@@ -11,6 +11,7 @@ public class WolfZone : MonoBehaviour
 
     public GameObject[] childWall;
     public GameObject sakura;
+    public ParticleSystem rain;
 
     private void Awake()
     {
@@ -64,4 +65,17 @@ public class WolfZone : MonoBehaviour
         player.transform.position = new Vector3(xPos+4, player.transform.position.y, player.transform.position.z);
 
     }
+
+    public void RainOn()
+    {
+        AudioManager.instance.PlayWolf("Thunder", 0.5f);
+        rain.Play();
+        sakura.SetActive(false);
+    }
+    public void RainOff() 
+    { 
+        rain.Stop(); 
+        sakura.SetActive(true);
+    }
+
 }

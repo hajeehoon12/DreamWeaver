@@ -25,6 +25,8 @@ public class HS_DemoShooting2D : MonoBehaviour
     //Double-click protection
     private float buttonSaver = 0f;
 
+    
+
     void Start()
     {
         if (Screen.dpi < 1) windowDpi = 1;
@@ -38,7 +40,7 @@ public class HS_DemoShooting2D : MonoBehaviour
         //Single shoot
         if (Input.GetButtonDown("Fire1")) // DoFire
         {
-            
+            FireProjectile();
             
         }
 
@@ -67,15 +69,15 @@ public class HS_DemoShooting2D : MonoBehaviour
         buttonSaver += Time.deltaTime;
 
         //To rotate fire point
-        //if (Cam != null)
-        //{
-        //    var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //    transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
-        //}
-        //else
-        // {
-        //    Debug.Log("No camera");
-        //}
+        if (Cam != null)
+        {
+            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
+        }
+        else
+        {
+            Debug.Log("No camera");
+        }
     }
 
     public void FireProjectile()

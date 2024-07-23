@@ -26,7 +26,6 @@ public class InAttackRange : Action
         if (Physics2D.Raycast((Vector2)transform.position + AttackRayPos.Value, transform.right, AttackDistance.Value,
                 1 << LayerMask.NameToLayer(Define.PLAYER)))
         {
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             current = TaskStatus.Success;
         }
         else

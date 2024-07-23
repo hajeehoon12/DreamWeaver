@@ -49,9 +49,8 @@ public class GreenSlimeAttack : MonoBehaviour, IMobAttack
         float x = (playerTransform.position.x - transform.position.x + predict) / 2;
         
         Vector2 centerPos = new Vector2(x, 5);
-        if (onGround)
-            JumpForce(centerPos);
-        return true;
+        JumpForce(centerPos);
+        return false;
     }
 
     private void JumpForce(Vector2 maxHeightPos)
@@ -74,7 +73,7 @@ public class GreenSlimeAttack : MonoBehaviour, IMobAttack
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer(Define.FLOOR))
+        if (other.gameObject.layer == LayerMask.NameToLayer(Define.FLOOR) && Physics2D.Raycast(transform.position, transform.up, -0.1f, 1<<LayerMask.NameToLayer(Define.FLOOR)))
         {
             onGround = true;
         }
