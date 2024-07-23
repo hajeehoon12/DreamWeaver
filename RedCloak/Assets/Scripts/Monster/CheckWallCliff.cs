@@ -4,6 +4,7 @@ namespace BehaviorDesigner.Runtime.Tasks
 {
     public class CheckWallCliff : Action
     {
+        [SerializeField] private LayerMask wallLayer;
         private TaskStatus current = TaskStatus.Running;
         public SharedVector2 WallRayPos;
         public SharedFloat WallDistance;
@@ -17,7 +18,7 @@ namespace BehaviorDesigner.Runtime.Tasks
 
         public override void OnFixedUpdate()
         {
-            ground = Physics2D.Raycast(transform.position, transform.up, -0.1f, 1<<LayerMask.NameToLayer(Define.FLOOR));
+            ground = Physics2D.Raycast(transform.position, transform.up, -0.1f, wallLayer);
             if (!ground)
             {
                 current = TaskStatus.Failure;
@@ -25,9 +26,9 @@ namespace BehaviorDesigner.Runtime.Tasks
             }
             
             bool wall = Physics2D.Raycast((Vector2)transform.position + WallRayPos.Value, transform.right, WallDistance.Value,
-                1 << LayerMask.NameToLayer(Define.FLOOR));
+                wallLayer);
             bool cliff = Physics2D.Raycast(transform.position + transform.right, transform.up, -0.1f,
-                1 << LayerMask.NameToLayer(Define.FLOOR));
+                wallLayer);
             
             if (wall || !cliff)
             {
