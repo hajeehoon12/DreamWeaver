@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class Inventory : MonoBehaviour
 {
@@ -16,14 +18,20 @@ public class Inventory : MonoBehaviour
     public TextMeshProUGUI itemName;
     public TextMeshProUGUI itemDescription;
 
-
-    // 선택 버튼으로 장착?
-
     private int curEquipIndex;
 
     private void Start()
     {
-        
+        CharacterManager.Instance.Player.addItem += AddItem;
+        slots = new ItemSlot[slotPanel.childCount];
+
+        for(int i = 0; i < slots.Length; i++)
+        {
+            slots[i] = slotPanel.GetChild(i).GetComponent<ItemSlot>();
+            slots[i].index = i;
+            slots[i].inventory = this;
+            slots[i].Clear();
+        }
     }
 
     public bool IsOpen()
@@ -33,7 +41,54 @@ public class Inventory : MonoBehaviour
 
     public void AddItem()
     {
-        //플레이어가 가지고 있는 아이템 데이터 가져오기
+        Debug.Log("additem");
+        ItemData data = CharacterManager.Instance.Player.itemData;
 
+        ItemSlot emptySlot = GetEmptySlot();
+
+        if(emptySlot != null )
+        {
+            emptySlot.item = data;
+            UpdateInventory();
+            CharacterManager.Instance.Player.itemData = null;
+            return;
+        }
+    }
+
+    ItemSlot GetEmptySlot()
+    {
+        for(int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].item == null)
+            {
+                return slots[i];
+            }
+        }
+
+        return null;
+    }
+
+    public void UpdateInventory()
+    {
+        for(int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].item != null)
+            {
+                slots[i].SetItem();
+            }
+
+            else
+            {
+                slots[i].Clear();
+            }
+        }
+    }
+
+    private void ClearSelectItem()
+    {
+        selectedItem = null;
+
+        itemName.text = string.Empty;
+        itemDescription.text = string.Empty;
     }
 }

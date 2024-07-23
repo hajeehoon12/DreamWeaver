@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour
 {
-    // 아이템 데이터 가져오기
+    public ItemData item;
     public Inventory inventory;
     public Button button;
-    //public Image icon;
+    public Image icon;
     public TextMeshProUGUI text;
     // 장착 테두리 모양 고민해보기
     private Outline outline;
@@ -22,5 +22,15 @@ public class ItemSlot : MonoBehaviour
         outline = GetComponent<Outline>();
     }
 
-    
+    public void SetItem()
+    {
+        icon.gameObject.SetActive(true);
+        icon.sprite = item.icon;
+    }
+
+    public void Clear()
+    {
+        item = null;
+        icon.gameObject.SetActive(false);
+    }
 }
