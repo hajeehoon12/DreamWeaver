@@ -124,6 +124,8 @@ public class PlayerBattle : MonoBehaviour
             timeSinceLastChange = 0f;
             Debug.Log("Player Dead");
             CallDeath();
+
+            
             return true;
         }
         if (change >= 0) // when change is positive = Healing character
@@ -146,6 +148,15 @@ public class PlayerBattle : MonoBehaviour
 
     private void CallDeath()
     {
+        CameraManager.Instance.SelectStage();
+        CharacterManager.Instance.Player.stats.playerHP = CharacterManager.Instance.Player.stats.playerMaxHP;
+        transform.position = CharacterManager.Instance.Player.controller.StartPoint;
+        UIBar.Instance.SetCurrentHP();
+        AudioManager.instance.PlaySFX("HeartUp", 0.2f);
+        FadeManager.instance.FadeOut(0f);
+
+        FadeManager.instance.FadeIn(2f);
+        //OnDamage?.Invoke();
         OnDeath?.Invoke();
     }
 

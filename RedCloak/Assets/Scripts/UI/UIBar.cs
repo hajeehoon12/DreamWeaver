@@ -128,6 +128,17 @@ public class UIBar : MonoBehaviour
         StartCoroutine(HitEffectFade());
     }
 
+    public void SetCurrentHP()
+    {
+        float currntPlayerHealth = CharacterManager.Instance.Player.stats.playerHP;
+
+        for (int i = heartsFront.Count - 1; i >= 0; i--)
+        {
+            heartsFront[i].SetActive(i < currntPlayerHealth);
+        }
+    }
+
+
     private void LowHealthEffect()
     {
         if(CharacterManager.Instance.Player.stats.playerHP == 1)

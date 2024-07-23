@@ -11,9 +11,9 @@ public class PlayerStat//:MonoBehaviour
 
     public float attackDamage = 5;
 
-    public float playerHP = 40; // temp for test default is 4
+    public float playerHP = 10; // temp for test default is 4
 
-    public float playerMaxHP = 40; // temp for test default is 4
+    public float playerMaxHP = 10; // temp for test default is 4
 
     public float playerMP = 50; // temp
 
