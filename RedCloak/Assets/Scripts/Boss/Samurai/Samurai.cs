@@ -33,6 +33,13 @@ public class Samurai : MonoBehaviour, IDamage
         //CallSamurai();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+            CallSamurai();
+        }
+    }
     public void CallSamurai()
     {
        
@@ -42,6 +49,8 @@ public class Samurai : MonoBehaviour, IDamage
 
     IEnumerator SamuraiStageOn()
     {
+        isStageStart = true;
+        CameraManager.Instance.ModifyCameraInfo(new Vector2(38, 10), new Vector2(268, -478));
         CharacterManager.Instance.Player.controller.cantMove = true;
 
 
