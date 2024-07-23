@@ -17,6 +17,7 @@ public class CaveLightOn : MonoBehaviour
         {
             TurnOnCaveLight();
             isCaveLightOn = true;
+            AudioManager.instance.StopBGM();
             AudioManager.instance.PlayBGM2("CaveDrop", 0.2f);
         }
         else
@@ -32,6 +33,7 @@ public class CaveLightOn : MonoBehaviour
         {
             TurnOnCaveLight();
             isCaveLightOn = true;
+            AudioManager.instance.StopBGM();
             AudioManager.instance.PlayBGM2("CaveDrop", 0.2f);
         }
     }
