@@ -41,7 +41,6 @@ public class Inventory : MonoBehaviour
 
     public void AddItem()
     {
-        Debug.Log("additem");
         ItemData data = CharacterManager.Instance.Player.itemData;
 
         ItemSlot emptySlot = GetEmptySlot();
