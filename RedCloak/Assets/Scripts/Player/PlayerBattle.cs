@@ -152,6 +152,7 @@ public class PlayerBattle : MonoBehaviour
         CharacterManager.Instance.Player.stats.playerHP = CharacterManager.Instance.Player.stats.playerMaxHP;
         transform.position = CharacterManager.Instance.Player.controller.StartPoint;
         UIBar.Instance.SetCurrentHP();
+        AudioManager.instance.PlaySFX("HeartUp", 0.2f);
         FadeManager.instance.FadeOut(0f);
 
         FadeManager.instance.FadeIn(2f);
