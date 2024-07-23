@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerBattle : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class PlayerBattle : MonoBehaviour
     public event Action OnInvincibilityEnd;
 
     public bool onInvincible = false;
+
+    public bool isDead = false;
 
 
     public float MaxHealth => CharacterManager.Instance.Player.stats.playerMaxHP;
@@ -148,16 +151,13 @@ public class PlayerBattle : MonoBehaviour
 
     private void CallDeath()
     {
-        CameraManager.Instance.SelectStage();
-        CharacterManager.Instance.Player.stats.playerHP = CharacterManager.Instance.Player.stats.playerMaxHP;
-        transform.position = CharacterManager.Instance.Player.controller.StartPoint;
-        UIBar.Instance.SetCurrentHP();
-        AudioManager.instance.PlaySFX("HeartUp", 0.2f);
-        FadeManager.instance.FadeOut(0f);
-
-        FadeManager.instance.FadeIn(2f);
+        if (isDead) return;
+        isDead = true;
+        CharacterManager.Instance.CallDeath();
         //OnDamage?.Invoke();
         OnDeath?.Invoke();
     }
+
+    
 
 }
