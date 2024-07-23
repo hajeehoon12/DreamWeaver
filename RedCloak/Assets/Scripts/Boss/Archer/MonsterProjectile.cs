@@ -20,6 +20,7 @@ public class MonsterProjectile : MonoBehaviour
         {
             //Instantiate flash effect on projectile position
             var flashInstance = Instantiate(flash, transform.position, Quaternion.identity);
+            flashInstance.transform.localScale = transform.localScale;
             flashInstance.transform.forward = gameObject.transform.forward;
 
             //Destroy flash effect depending on particle Duration time
@@ -83,6 +84,7 @@ public class MonsterProjectile : MonoBehaviour
         {
             //hit.gameObject.la
             var hitInstance = Instantiate(hit, pos, rot);
+            hitInstance.transform.localScale = transform.localScale;
             if (UseFirePointRotation) { hitInstance.transform.rotation = gameObject.transform.rotation * Quaternion.Euler(0, 180f, 0); }
             else if (rotationOffset != Vector3.zero) { hitInstance.transform.rotation = Quaternion.Euler(rotationOffset); }
             else { hitInstance.transform.LookAt(contact.point + contact.normal); }

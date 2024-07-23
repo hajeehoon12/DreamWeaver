@@ -6,7 +6,8 @@ public class SavePoint : MonoBehaviour, IDamage
         //저장하기 메세지 보여주기
         Debug.Log("저장하기");
 
-        CharacterManager.Instance.Player.controller.StartPoint = this.transform.position;
+        CharacterManager.Instance.SavePoint = this.transform.position;
+        CameraManager.Instance.SaveStage();
 
     }
 

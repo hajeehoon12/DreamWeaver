@@ -1,8 +1,14 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System;
+using System.Collections;
 
 public class CharacterManager : MonoBehaviour
 {
     private static CharacterManager _instance;
+
+    public Vector3 SavePoint;
+    public bool isLoadScene = true;
 
     public static CharacterManager Instance
     {
@@ -39,4 +45,42 @@ public class CharacterManager : MonoBehaviour
             }
         }
     }
+
+    private void Start()
+    {
+        SavePoint = transform.position;
+    }
+
+    public void CallDeath()
+    {
+        FadeManager.instance.FadeOut(1f);
+        
+        
+        StartCoroutine(CallSave());
+    }
+
+    IEnumerator CallSave()
+    {
+        isLoadScene = false;
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        yield return new WaitUntil(() => isLoadScene);
+
+        CameraManager.Instance.SelectStage();
+        CharacterManager.Instance.Player.stats.playerHP = Player.stats.playerMaxHP;
+        
+        
+        Player.transform.position = SavePoint;
+        UIBar.Instance.SetCurrentHP();
+        AudioManager.instance.PlaySFX("HeartUp", 0.2f);
+        
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.TRAP), LayerMask.NameToLayer(Define.PLAYER), false);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.ENEMY), LayerMask.NameToLayer(Define.PLAYER), false);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.BOSS), LayerMask.NameToLayer(Define.PLAYER), false);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.MONSTERPROJECTILE), LayerMask.NameToLayer(Define.PLAYER), false);
+        
+    }
+    
+
 }

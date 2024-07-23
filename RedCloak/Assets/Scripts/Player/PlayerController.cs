@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour
     public bool cantMove = false;
 
     public Vector3 StartPoint;
+    
 
     
 
@@ -133,6 +134,9 @@ public class PlayerController : MonoBehaviour
         FallDoubleCheck();
         
     }
+
+ 
+
 
     private void ManaRegenerate()
     {

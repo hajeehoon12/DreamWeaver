@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
         controller = GetComponent<PlayerController>();
         //stats = GetComponent<PlayerStat>();
         battle = GetComponent<PlayerBattle>();
+        
 
 
     }
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        CharacterManager.Instance.isLoadScene = true;
         pet = GameObject.Find("PetLight").GetComponent<Pet>();
         StageChangeManager.Instance.SaveScene();
     }
