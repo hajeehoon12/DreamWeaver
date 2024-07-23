@@ -4097,6 +4097,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.size
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: bgm.Array.data[5].clip
       value: 
       objectReference: {fileID: 8300000, guid: efc464260b64b274790a0cceb9f80221, type: 3}
@@ -4127,6 +4131,22 @@ PrefabInstance:
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: bgm.Array.data[8].name
       value: StarSky
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[27].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f0ac7bdf6d553f24a90fff1c46341990, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[27].name
+      value: Save
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[28].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 10c5f8cc39dc58e4a9f3d80130066a14, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: sfx.Array.data[28].name
+      value: ElevatorButton
       objectReference: {fileID: 0}
     - target: {fileID: 4850818699871077568, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: m_Name
@@ -51484,7 +51504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -144.2
+      value: -145
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.z

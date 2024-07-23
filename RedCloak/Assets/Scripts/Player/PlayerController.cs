@@ -81,6 +81,8 @@ public class PlayerController : MonoBehaviour
 
     public bool cantMove = false;
 
+    public Vector3 StartPoint;
+
     
 
     void Awake()
@@ -105,6 +107,8 @@ public class PlayerController : MonoBehaviour
 
         playerBattle.OnDamage += GetAttacked;
         playerBattle.OnDamagePos += GetAttacked;
+
+        StartPoint = transform.position;
     }
 
     private void FixedUpdate()
