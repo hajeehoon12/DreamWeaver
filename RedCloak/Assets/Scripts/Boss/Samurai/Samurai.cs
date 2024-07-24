@@ -7,8 +7,8 @@ using DG.Tweening;
 public class Samurai : MonoBehaviour, IDamage
 {
     private static readonly int isBaldo = Animator.StringToHash("IsBaldo");
-    //private static readonly int isJump = Animator.StringToHash("IsJump");
-    //private static readonly int isRun = Animator.StringToHash("IsRun");
+    private static readonly int isDefend = Animator.StringToHash("IsDefend");
+    private static readonly int revenge = Animator.StringToHash("Revenge");
     //private static readonly int isDashAttack = Animator.StringToHash("IsDashAttack");
     //private static readonly int isDead = Animator.StringToHash("IsDead");
     //private static readonly int isAttack = Animator.StringToHash("IsAttack");
@@ -41,7 +41,12 @@ public class Samurai : MonoBehaviour, IDamage
     Vector3 Right = new Vector3(0, 180, 0);
     Vector3 Left = new Vector3(0, 0, 0);
 
+    public GameObject AttackRange;
     public GameObject SpinBlade;
+    public GameObject ChargeEffect;
+    public GameObject Baldo;
+
+    public bool isDefending = false;
 
     private void Awake()
     {
@@ -52,6 +57,9 @@ public class Samurai : MonoBehaviour, IDamage
     private void Start()
     {
         bossHealth = 0;
+        AttackRange.SetActive(false);
+        Baldo.SetActive(false);
+        ChargeEffect.SetActive(false);
         //CallSamurai();
     }
 
@@ -67,7 +75,12 @@ public class Samurai : MonoBehaviour, IDamage
             CallSamurai();
         }
 
-        animator.SetBool(isBaldo, true); // temp
+        //animator.SetBool(isBaldo, true); // temp
+        if (Input.GetKeyUp(KeyCode.G))
+        {
+            animator.SetBool(isDefend, true);
+        }
+        
     }
 
     void LookPlayer()
@@ -144,19 +157,20 @@ public class Samurai : MonoBehaviour, IDamage
            
             yield return new WaitForSeconds(1.5f);
 
-            switch (count % 3)
+            switch (count % 1)
             {
                 case 0:
-                    ThrowSpinBlade();
+                    CounterAttack();
                     break;
                 case 1:
-                   
+                    CounterAttack();
                     break;
                 case 2:
-                    
 
+                    //DefendEnd();
                     break;
                 default:
+                    CounterAttack();
                     break;
             }
 
@@ -219,7 +233,67 @@ public class Samurai : MonoBehaviour, IDamage
     void ThrowSpinBlade()
     {
         GameObject spinProjectile = Instantiate(SpinBlade);
+
+        
     }
+
+    void CounterAttack()
+    {
+        animator.SetBool(isDefend, true);
+    }
+
+    void DefendStart()
+    {
+        isDefending = true;
+    }
+
+    void DefendEnd()
+    {
+        isDefending = false;
+        Discrimination();
+    }
+
+    void DoCounterAttack()
+    {
+        isDefending = false;
+        animator.SetTrigger(revenge);
+    }
+
+    void DoAttack()
+    { 
+        AttackRange.SetActive(true);
+    }
+
+    void AttackEnd()
+    {
+        AttackRange.SetActive(false);
+    }
+
+
+    void StartCharging()
+    {
+        ChargeEffect.SetActive(true);
+        AudioManager.instance.PlaySamurai("Baldo", 0.2f);
+        Baldo.SetActive(false);
+    }
+
+    void EndCharging()
+    {
+        ChargeEffect.SetActive(false);
+    }
+
+    void BaldoEffect()
+    {
+        AudioManager.instance.PlaySamurai("BaldoEnd", 0.5f);
+        Baldo.SetActive(true);
+    }
+
+    void BaldoDamage()
+    {
+        if(!CharacterManager.Instance.Player.controller.Rolling && Vector3.Distance(transform.position, CharacterManager.Instance.Player.transform.position) < 28f)
+        CharacterManager.Instance.Player.battle.ChangeHealth(-1);
+    }
+
 
 
     void SetBossBar()
@@ -230,6 +304,12 @@ public class Samurai : MonoBehaviour, IDamage
     public void GetDamage(float damage)
     {
         if (isInvincible) return;
+
+        if (isDefending)
+        {
+            DoCounterAttack();
+            return;
+        }
 
         if (bossHealth > damage)
         {

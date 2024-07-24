@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] Sound[] bgm = null;
     [SerializeField] Sound[] UI = null;
     [SerializeField] Sound[] Wolf = null;
+    [SerializeField] Sound[] Samurai = null;
 
     [SerializeField] public AudioSource bgmPlayer = null;
     [SerializeField] public AudioSource bgmPlayer2 = null;
@@ -181,6 +182,45 @@ public class AudioManager : MonoBehaviour
         return;
     }
 
+    public void PlaySamurai(string p_sfxName)
+    {
+
+        for (int i = 0; i < sfx.Length; i++)
+        {
+            if (p_sfxName == Samurai[i].name)
+            {
+                myAudioSource.PlayOneShot(Samurai[i].clip);
+                return;
+            }
+        }
+        Debug.Log("No name of Samurai :" + p_sfxName);
+        return;
+    }
+
+    public void PlaySamurai(string p_sfxName, float _volume) // overloading
+    {
+
+        for (int i = 0; i < sfx.Length; i++)
+        {
+            if (p_sfxName == Samurai[i].name)
+            {
+                for (int j = 0; j < sfxPlayer.Length; j++)
+                {
+
+                    if (!sfxPlayer[j].isPlaying)
+                    {
+                        sfxPlayer[j].clip = Samurai[i].clip;
+                        sfxPlayer[j].PlayOneShot(Samurai[i].clip, _volume);
+                        return;
+                    }
+                }
+                Debug.Log("All Audio Player is Used it Needs More");
+                return;
+            }
+        }
+        Debug.Log("No name of Samurai :" + p_sfxName);
+        return;
+    }
 
 
     public void PlayUI(string p_sfxName)
