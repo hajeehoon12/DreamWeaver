@@ -161,6 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2554903592891442964}
   - component: {fileID: 675378735311592950}
+  - component: {fileID: 5586340058814524899}
   m_Layer: 0
   m_Name: PauseUI
   m_TagString: Untagged
@@ -198,6 +199,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 3895993864785280800}
   optionUI: {fileID: 0}
+  pauseUICanvasGroup: {fileID: 5586340058814524899}
+  playerInputAction: {fileID: -944628639613478452, guid: 44296f91a2b2fd84aaea2b9b73fe2112, type: 3}
+--- !u!225 &5586340058814524899
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3895993864785280800}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4055788432348577637
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,7 +875,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7036143576864309561}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

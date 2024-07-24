@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -14,10 +15,11 @@ public class Inventory : MonoBehaviour
 
     [Header("Selected Item")]
     private ItemSlot selectedItem;
-    private int selectedItemIndex;
     public TextMeshProUGUI itemName;
     public TextMeshProUGUI itemDescription;
+    public Image selectImage;
 
+    private int selectedItemIndex;
     private int curEquipIndex;
 
     private void Start()
@@ -81,6 +83,18 @@ public class Inventory : MonoBehaviour
                 slots[i].Clear();
             }
         }
+    }
+
+    public void SelectItem(int index)
+    {
+        if (slots[index].item == null) return;
+
+        selectedItem = slots[index];
+        selectedItemIndex = index;
+
+        itemName.text = selectedItem.item.itemName;
+        itemDescription.text = selectedItem.item.description;
+        selectImage.sprite = selectedItem.item.icon;
     }
 
     private void ClearSelectItem()

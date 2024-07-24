@@ -33,4 +33,9 @@ public class ItemSlot : MonoBehaviour
         item = null;
         icon.gameObject.SetActive(false);
     }
+
+    public void OnClick()
+    {
+        inventory.SelectItem(index);
+    }
 }
