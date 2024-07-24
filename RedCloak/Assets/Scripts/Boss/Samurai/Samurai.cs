@@ -6,6 +6,16 @@ using DG.Tweening;
 
 public class Samurai : MonoBehaviour, IDamage
 {
+    private static readonly int isBaldo = Animator.StringToHash("IsBaldo");
+    //private static readonly int isJump = Animator.StringToHash("IsJump");
+    //private static readonly int isRun = Animator.StringToHash("IsRun");
+    //private static readonly int isDashAttack = Animator.StringToHash("IsDashAttack");
+    //private static readonly int isDead = Animator.StringToHash("IsDead");
+    //private static readonly int isAttack = Animator.StringToHash("IsAttack");
+    //private static readonly int animSpeed = Animator.StringToHash("AnimSpeed");
+    //private static readonly int thunder = Animator.StringToHash("Thunder");
+
+
     private float bossHealth = 0;
     public float bossMaxHealth;
 
@@ -21,6 +31,11 @@ public class Samurai : MonoBehaviour, IDamage
 
     SpriteRenderer spriteRenderer;
     Animator animator;
+
+    private int count = 0;
+
+    Coroutine mainCoroutine;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -35,11 +50,26 @@ public class Samurai : MonoBehaviour, IDamage
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.P))
+        if (isStageStart)
+        {
+            LookPlayer();
+        }
+
+        if (Input.GetKeyUp(KeyCode.P)) // temp
         {
             CallSamurai();
         }
+
+        animator.SetBool(isBaldo, true); // temp
     }
+
+    void LookPlayer()
+    {
+        if (isBossDie) return;
+        spriteRenderer.flipX = (CharacterManager.Instance.Player.transform.position.x > transform.position.x) ? false : true;
+    }
+
+
     public void CallSamurai()
     {
        
@@ -72,6 +102,99 @@ public class Samurai : MonoBehaviour, IDamage
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlayBGM("StarSky", 0.2f);
         CharacterManager.Instance.Player.controller.cantMove = false;
+
+        Discrimination();
+    }
+
+    void Discrimination()
+    {
+        if (isBossDie) return;
+
+        if (mainCoroutine != null)
+        {
+            //Debug.Log("Stop");
+            StopCoroutine(mainCoroutine);
+        }
+        mainCoroutine = StartCoroutine(Iteration());
+    }
+
+    IEnumerator Iteration()
+    {
+        if (isPhase1)
+        {
+           
+            yield return new WaitForSeconds(1.5f);
+
+            switch (count % 3)
+            {
+                case 0:
+                    
+                    break;
+                case 1:
+                   
+                    break;
+                case 2:
+                    
+
+                    break;
+                default:
+                    break;
+            }
+
+
+        }
+
+        if (isPhase2)
+        {
+            
+            yield return new WaitForSeconds(1f);
+
+            switch (count % 3)
+            {
+                case 0:
+                    
+                    break;
+                case 1:
+                    
+                    break;
+                case 2:
+                   
+                    break;
+                default:
+                    break;
+            }
+
+
+        }
+
+        if (isPhase3)
+        {
+            yield return new WaitForSeconds(0.5f);
+           
+            switch (count % 7)
+            {
+                case 0:
+                    yield return new WaitForSeconds(0.5f);
+                   
+                    break;
+                case 1:
+                case 4:
+                    
+                    break;
+                case 2:
+                case 5:
+                    
+                    break;
+                case 3:
+                case 6:
+                    
+                    break;
+                default:
+                    //Phase3Start();
+                    break;
+            }
+        }
+        count++;
     }
 
     void SetBossBar()
