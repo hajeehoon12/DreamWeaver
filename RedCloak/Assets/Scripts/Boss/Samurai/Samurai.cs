@@ -21,9 +21,9 @@ public class Samurai : MonoBehaviour, IDamage
 
     private bool isInvincible = false;
 
-    private bool isPhase1 = false;
-    private bool isPhase2 = false;
-    private bool isPhase3 = false;
+    public bool isPhase1 = false;
+    public bool isPhase2 = false;
+    public bool isPhase3 = false;
 
     public bool isBossDie = false;
 
@@ -75,7 +75,7 @@ public class Samurai : MonoBehaviour, IDamage
             CallSamurai();
         }
 
-        //animator.SetBool(isBaldo, true); // temp
+        
         if (Input.GetKeyUp(KeyCode.G))
         {
             animator.SetBool(isDefend, true);
@@ -134,7 +134,7 @@ public class Samurai : MonoBehaviour, IDamage
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlayBGM("StarSky", 0.2f);
         CharacterManager.Instance.Player.controller.cantMove = false;
-
+        isPhase1 = true;
         Discrimination();
     }
 
@@ -157,13 +157,13 @@ public class Samurai : MonoBehaviour, IDamage
            
             yield return new WaitForSeconds(1.5f);
 
-            switch (count % 1)
+            switch (count % 2)
             {
                 case 0:
                     CounterAttack();
                     break;
                 case 1:
-                    CounterAttack();
+                    BalDo();
                     break;
                 case 2:
 
@@ -247,15 +247,17 @@ public class Samurai : MonoBehaviour, IDamage
         isDefending = true;
     }
 
-    void DefendEnd()
+    public void DefendEnd()
     {
         isDefending = false;
+        animator.SetBool(isDefend, false);
         Discrimination();
     }
 
     void DoCounterAttack()
     {
         isDefending = false;
+        animator.SetBool(isDefend, false);
         animator.SetTrigger(revenge);
     }
 
@@ -269,6 +271,15 @@ public class Samurai : MonoBehaviour, IDamage
         AttackRange.SetActive(false);
     }
 
+    void BalDo()
+    {
+        animator.SetBool(isBaldo, true);
+    }
+
+    public void BalDoEnd()
+    {
+        animator.SetBool(isBaldo, false);
+    }
 
     void StartCharging()
     {
