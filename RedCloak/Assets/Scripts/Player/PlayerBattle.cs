@@ -151,6 +151,9 @@ public class PlayerBattle : MonoBehaviour
 
     private void CallDeath()
     {
+        if(!isDead) return; // temp for test
+
+
         if (isDead) return;
         isDead = true;
         CharacterManager.Instance.CallDeath();

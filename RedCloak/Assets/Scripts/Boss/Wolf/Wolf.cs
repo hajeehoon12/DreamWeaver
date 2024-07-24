@@ -258,7 +258,6 @@ public class Wolf : MonoBehaviour, IDamage
 
         if (isPhase3)
         {
-
             yield return new WaitForSeconds(0.5f);
             //Flip();
             switch (count % 7)
@@ -268,8 +267,7 @@ public class Wolf : MonoBehaviour, IDamage
                     Phase3Start();
                     break;
                 case 1:
-                case 4:
-                    
+                case 4:                  
                     ThreeSlash();
                     ElectricWave();
                     break;
@@ -286,10 +284,8 @@ public class Wolf : MonoBehaviour, IDamage
                 default:
                     //Phase3Start();
                     break;
-
             }
         }
-
         count++;
     }
 
