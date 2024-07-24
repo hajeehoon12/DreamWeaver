@@ -28,13 +28,6 @@ public class Monster : MonoBehaviour, IDamage
     private void Start()
     {
         currentHealth = maxHealth;
-
-        light1 = Instantiate(light1Prefab);
-        light2 = Instantiate(light2Prefab);
-
-        light1Particle = light1.GetComponent<ParticleSystem>();
-        light1.SetActive(false);
-        light2.SetActive(false);
     }
 
     private void OnEnable()
@@ -64,13 +57,18 @@ public class Monster : MonoBehaviour, IDamage
 
     public IEnumerator SpawnLight()
     {
+        light1 = ObjectPool.Instance.GetFromPool(Define.OP_MonsterLightOut);
+        light2 = ObjectPool.Instance.GetFromPool(Define.OP_MonsterLight);
+        light1.transform.position = transform.position;
+        light2.transform.position = transform.position + new Vector3(0, 0.5f);
+        light1Particle = light1.GetComponent<ParticleSystem>();
+        
         AudioManager.instance.PlayPitchSFX("Twinkle", 0.5f);
-        light1.transform.position += transform.position;
-        light2.transform.position += transform.position;
         light1.SetActive(true);
         yield return lightDelay;
         light2.SetActive(true);
         light1Particle.Stop();
+        ObjectPool.Instance.ReleaseToPool(Define.OP_MonsterLightOut, light1);
     }
 
     private IEnumerator FlashWhite()
