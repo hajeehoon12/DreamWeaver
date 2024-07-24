@@ -36,6 +36,13 @@ public class Samurai : MonoBehaviour, IDamage
 
     Coroutine mainCoroutine;
 
+    private bool isFlip = false;
+
+    Vector3 Right = new Vector3(0, 180, 0);
+    Vector3 Left = new Vector3(0, 0, 0);
+
+    public GameObject SpinBlade;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -66,7 +73,19 @@ public class Samurai : MonoBehaviour, IDamage
     void LookPlayer()
     {
         if (isBossDie) return;
-        spriteRenderer.flipX = (CharacterManager.Instance.Player.transform.position.x > transform.position.x) ? false : true;
+
+       
+        //spriteRenderer.flipX = (CharacterManager.Instance.Player.transform.position.x > transform.position.x) ? false : true;
+
+        if (CharacterManager.Instance.Player.transform.position.x > transform.position.x)
+        {
+            transform.localEulerAngles = Left;
+        }
+        else
+        {
+            transform.localEulerAngles = Right;
+        }
+
     }
 
 
@@ -128,7 +147,7 @@ public class Samurai : MonoBehaviour, IDamage
             switch (count % 3)
             {
                 case 0:
-                    
+                    ThrowSpinBlade();
                     break;
                 case 1:
                    
@@ -196,6 +215,12 @@ public class Samurai : MonoBehaviour, IDamage
         }
         count++;
     }
+
+    void ThrowSpinBlade()
+    {
+        GameObject spinProjectile = Instantiate(SpinBlade);
+    }
+
 
     void SetBossBar()
     {
