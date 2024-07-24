@@ -640,6 +640,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
+        //Debug.Log("particle!!");
         if (other.CompareTag(Define.MONSTER))
         {
             if (Rolling) return;
@@ -647,6 +648,7 @@ public class PlayerController : MonoBehaviour
             playerBattle.ChangeHealth(-1); // get damaged
         }
     }
+
 
     void OnTriggerEnter2D(Collider2D collider)
     {
