@@ -45,6 +45,8 @@ public class CameraManager : MonoBehaviour
 
     public int stageNum = 0;
 
+    public int saveStage;
+
     private float currentfov = 0;
     
 
@@ -68,8 +70,32 @@ public class CameraManager : MonoBehaviour
 
         screenHeight = Camera.main.orthographicSize;
         screenWidth = screenHeight * Screen.width / Screen.height;
+        saveStage = stageNum;
+        SelectStage();
 
-        switch (stageNum)
+        //mapSize = map.GetComponent<Collider2D>().bounds.extents + new Vector3(0, 2, 0);
+    }
+
+    private void Update()
+    {
+        if (isCameraShaking) return;
+
+        transform.position = _player.position + cameraPosition;//_player.position + cameraPosition;
+        //render.material.mainTextureOffset = new Vector2((_firstPos.x - _player.position.x) / 300, 0);
+
+        LimitCameraArea();
+    }
+
+    public void SaveStage()
+    { 
+        saveStage = stageNum;
+    }
+
+    public void SelectStage()
+    {
+
+
+        switch (saveStage)
         {
             case 0:
                 break;
@@ -84,20 +110,8 @@ public class CameraManager : MonoBehaviour
                 break;
             default:
                 break;
-        
+
         }
-
-        //mapSize = map.GetComponent<Collider2D>().bounds.extents + new Vector3(0, 2, 0);
-    }
-
-    private void Update()
-    {
-        if (isCameraShaking) return;
-
-        transform.position = _player.position + cameraPosition;//_player.position + cameraPosition;
-        //render.material.mainTextureOffset = new Vector2((_firstPos.x - _player.position.x) / 300, 0);
-
-        LimitCameraArea();
     }
 
     void LimitCameraArea()

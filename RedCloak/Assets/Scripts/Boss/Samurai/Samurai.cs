@@ -30,7 +30,7 @@ public class Samurai : MonoBehaviour, IDamage
     private void Start()
     {
         bossHealth = 0;
-        CallSamurai();
+        //CallSamurai();
     }
 
     public void CallSamurai()

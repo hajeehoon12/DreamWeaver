@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerBattle : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class PlayerBattle : MonoBehaviour
     public event Action OnInvincibilityEnd;
 
     public bool onInvincible = false;
+
+    public bool isDead = false;
 
 
     public float MaxHealth => CharacterManager.Instance.Player.stats.playerMaxHP;
@@ -124,6 +127,8 @@ public class PlayerBattle : MonoBehaviour
             timeSinceLastChange = 0f;
             Debug.Log("Player Dead");
             CallDeath();
+
+            
             return true;
         }
         if (change >= 0) // when change is positive = Healing character
@@ -146,7 +151,13 @@ public class PlayerBattle : MonoBehaviour
 
     private void CallDeath()
     {
+        if (isDead) return;
+        isDead = true;
+        CharacterManager.Instance.CallDeath();
+        //OnDamage?.Invoke();
         OnDeath?.Invoke();
     }
+
+    
 
 }

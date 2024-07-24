@@ -177,10 +177,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   map: {fileID: 0}
+  Sky: {fileID: 6648325522633820383}
+  Cave: {fileID: 7832921525200057486}
   cameraPosition: {x: 0, y: 5, z: -200}
-  center: {x: 70, y: -10}
+  center: {x: 180, y: -380}
   tempCenter: {x: 0, y: 0}
-  mapSize: {x: 220, y: 40}
+  mapSize: {x: 260, y: 120}
   tempMapSize: {x: 0, y: 0}
   shakeCamera: {fileID: 4442600419664338997}
   shakeRotate: 0
@@ -283,7 +285,7 @@ GameObject:
   - component: {fileID: 6404469613511926061}
   - component: {fileID: 2336454332109103732}
   m_Layer: 11
-  m_Name: sky 3
+  m_Name: Camera_Sky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -365,6 +367,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 4442600419664338997}
     m_Modifications:
     - target: {fileID: 2690211235021398090, guid: e502d59bebce25545b69d5dbd9e046f9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.84915
+      objectReference: {fileID: 0}
+    - target: {fileID: 2690211235021398090, guid: e502d59bebce25545b69d5dbd9e046f9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.84915
+      objectReference: {fileID: 0}
+    - target: {fileID: 2690211235021398090, guid: e502d59bebce25545b69d5dbd9e046f9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6983
+      objectReference: {fileID: 0}
+    - target: {fileID: 2690211235021398090, guid: e502d59bebce25545b69d5dbd9e046f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -374,7 +388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2690211235021398090, guid: e502d59bebce25545b69d5dbd9e046f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -63.934
       objectReference: {fileID: 0}
     - target: {fileID: 2690211235021398090, guid: e502d59bebce25545b69d5dbd9e046f9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -420,5 +434,10 @@ PrefabInstance:
 --- !u!4 &996336704912706860 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2690211235021398090, guid: e502d59bebce25545b69d5dbd9e046f9, type: 3}
+  m_PrefabInstance: {fileID: 2920089754868804966}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7832921525200057486 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4914023718251469288, guid: e502d59bebce25545b69d5dbd9e046f9, type: 3}
   m_PrefabInstance: {fileID: 2920089754868804966}
   m_PrefabAsset: {fileID: 0}

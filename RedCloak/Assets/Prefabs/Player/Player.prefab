@@ -188,6 +188,8 @@ MonoBehaviour:
   originSlopeSpeed: 0.5
   projectile: {fileID: 4858722134795586189}
   isLongJump: 0
+  cantMove: 0
+  StartPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &8648394096373722908
 MonoBehaviour:
   m_ObjectHideFlags: 0
