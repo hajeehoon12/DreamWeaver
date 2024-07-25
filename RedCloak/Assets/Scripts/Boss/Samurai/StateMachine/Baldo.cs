@@ -19,6 +19,7 @@ public class Baldo : StateMachineBehaviour
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         samurai.BalDoEnd();
+        samurai.Discrimination();
     }
 
 }
