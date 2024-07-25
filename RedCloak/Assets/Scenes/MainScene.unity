@@ -2388,87 +2388,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6648325522633820383, guid: f706ea928c2c05044b8d03156496ae96, type: 3}
   m_PrefabInstance: {fileID: 3157351928526619091}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &887119851
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1764308443362498, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_Name
-      value: Sword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1764308443362498, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_Layer
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 268.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -483.49002
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114194830351093922, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: speed
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
 --- !u!1 &904812700 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8867112169225384458, guid: eb6d0f5990227344c8a802f3493bb92a, type: 3}
@@ -7173,7 +7092,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!4 &490939765145949551
 Transform:
@@ -47417,6 +47336,7 @@ MonoBehaviour:
   ChargeEffect: {fileID: 3345326014841344389}
   Baldo: {fileID: 904812700}
   SwordAura: {fileID: 615845354}
+  MagicSword: {fileID: 1764308443362498, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
   isDefending: 0
 --- !u!82 &6291928312123800168
 AudioSource:
@@ -57954,6 +57874,5 @@ SceneRoots:
   - {fileID: 7522227567789225974}
   - {fileID: 1060297531}
   - {fileID: 991686350}
-  - {fileID: 887119851}
   - {fileID: 7270083601109027359}
   - {fileID: 1645233415}
