@@ -9,7 +9,7 @@ public class Samurai : MonoBehaviour, IDamage
     private static readonly int isBaldo = Animator.StringToHash("IsBaldo");
     private static readonly int isDefend = Animator.StringToHash("IsDefend");
     private static readonly int revenge = Animator.StringToHash("Revenge");
-    //private static readonly int isDashAttack = Animator.StringToHash("IsDashAttack");
+    private static readonly int isSpinBlade = Animator.StringToHash("IsSpinBlade");
     //private static readonly int isDead = Animator.StringToHash("IsDead");
     //private static readonly int isAttack = Animator.StringToHash("IsAttack");
     //private static readonly int animSpeed = Animator.StringToHash("AnimSpeed");
@@ -48,6 +48,8 @@ public class Samurai : MonoBehaviour, IDamage
 
     public bool isDefending = false;
 
+    Player player;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -60,6 +62,7 @@ public class Samurai : MonoBehaviour, IDamage
         AttackRange.SetActive(false);
         Baldo.SetActive(false);
         ChargeEffect.SetActive(false);
+        player = CharacterManager.Instance.Player.GetComponent<Player>();
         //CallSamurai();
     }
 
@@ -93,10 +96,12 @@ public class Samurai : MonoBehaviour, IDamage
         if (CharacterManager.Instance.Player.transform.position.x > transform.position.x)
         {
             transform.localEulerAngles = Left;
+            isFlip = false;
         }
         else
         {
             transform.localEulerAngles = Right;
+            isFlip = true;
         }
 
     }
@@ -138,7 +143,7 @@ public class Samurai : MonoBehaviour, IDamage
         Discrimination();
     }
 
-    void Discrimination()
+    public void Discrimination()
     {
         if (isBossDie) return;
 
@@ -157,7 +162,7 @@ public class Samurai : MonoBehaviour, IDamage
            
             yield return new WaitForSeconds(1.5f);
 
-            switch (count % 2)
+            switch (count % 3)
             {
                 case 0:
                     CounterAttack();
@@ -166,7 +171,7 @@ public class Samurai : MonoBehaviour, IDamage
                     BalDo();
                     break;
                 case 2:
-
+                    BackStepAttack();
                     //DefendEnd();
                     break;
                 default:
@@ -232,10 +237,25 @@ public class Samurai : MonoBehaviour, IDamage
 
     void ThrowSpinBlade()
     {
-        GameObject spinProjectile = Instantiate(SpinBlade);
+        float Dir = isFlip ? -1f : 1f;
 
-        
+        GameObject spinProjectile = Instantiate(SpinBlade, transform.position + new Vector3(0, 1.5f, 0) + Dir * new Vector3(3, 0, 0), Quaternion.identity);
+
+        spinProjectile.transform.DOMove(player.transform.position  , 2f).SetEase(Ease.InExpo);
+        Destroy(spinProjectile, 3f);
     }
+
+    public void BackStepAttackEnd()
+    {
+        animator.SetBool(isSpinBlade, false);
+    }
+
+
+    void BackStepAttack()
+    {
+        animator.SetBool(isSpinBlade, true);
+    }
+
 
     void CounterAttack()
     {
@@ -251,7 +271,7 @@ public class Samurai : MonoBehaviour, IDamage
     {
         isDefending = false;
         animator.SetBool(isDefend, false);
-        Discrimination();
+        
     }
 
     void DoCounterAttack()
@@ -301,6 +321,7 @@ public class Samurai : MonoBehaviour, IDamage
 
     void BaldoDamage()
     {
+        Debug.Log("Attack!!");
         if(!CharacterManager.Instance.Player.controller.Rolling && Vector3.Distance(transform.position, CharacterManager.Instance.Player.transform.position) < 28f)
         CharacterManager.Instance.Player.battle.ChangeHealth(-1);
     }

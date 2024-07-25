@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 
-public class Defend : StateMachineBehaviour
+public class SpinBlade : StateMachineBehaviour
 {
     Samurai samurai;
 
@@ -18,7 +18,7 @@ public class Defend : StateMachineBehaviour
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        samurai.DefendEnd();
+        samurai.BackStepAttackEnd();
         samurai.Discrimination();
     }
 
