@@ -1507,6 +1507,93 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8144054375101918104, guid: bcbcbf1a1ee9a3d4ab552d2d5ab64c34, type: 3}
   m_PrefabInstance: {fileID: 552714492}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &615845353
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7270083601109027359}
+    m_Modifications:
+    - target: {fileID: 8578324374039086665, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.05000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578324374039086665, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.05000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578324374039086665, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.05000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578324374039086665, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578324374039086665, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.12280071
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578324374039086665, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578324374039086665, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578324374039086665, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578324374039086665, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578324374039086665, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578324374039086665, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578324374039086665, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578324374039086665, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578324374039086710, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+      propertyPath: m_Name
+      value: SwordAura2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578324374039086711, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578324374039086711, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+--- !u!1 &615845354 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8578324374039086710, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+  m_PrefabInstance: {fileID: 615845353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &615845355 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8578324374039086665, guid: 18eb2182f5d87564ebd5910cd6e1ef2d, type: 3}
+  m_PrefabInstance: {fileID: 615845353}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &642122006
 GameObject:
   m_ObjectHideFlags: 0
@@ -4548,7 +4635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Samurai.Array.size
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: bgm.Array.data[5].clip
@@ -4582,6 +4669,10 @@ PrefabInstance:
       propertyPath: bgm.Array.data[8].name
       value: StarSky
       objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Wolf.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e4079f59277b1224cb8c115fe9d715c4, type: 3}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: sfx.Array.data[27].clip
       value: 
@@ -4621,6 +4712,54 @@ PrefabInstance:
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Samurai.Array.data[1].name
       value: BaldoEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e07e44bdb1be9da49a66c8535bf968bc, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[2].name
+      value: BackStepSlash
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4914aead75280c745bd446926a204fc8, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[3].name
+      value: SpinBlade
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: b74557e43a9fe284fb8a3d333f16cbae, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[4].name
+      value: CounterAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e39875060e877fe46bc881ef8fc93dd4, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[5].name
+      value: DefendSuccess
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e50e3fa8374c4884f94bece427232e67, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[6].name
+      value: Defense
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 43f0347ed4d7dab4cb370c20a12c23ab, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[7].name
+      value: Boomerang
       objectReference: {fileID: 0}
     - target: {fileID: 4850818699871077568, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: m_Name
@@ -47268,12 +47407,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossMaxHealth: 500
+  isPhase1: 0
+  isPhase2: 0
+  isPhase3: 0
   isBossDie: 0
   isStageStart: 0
   AttackRange: {fileID: 6511103370722532522}
   SpinBlade: {fileID: 1934679622906788240, guid: 0a8c649ae29febc4a9b83f030c1a02a1, type: 3}
   ChargeEffect: {fileID: 3345326014841344389}
   Baldo: {fileID: 904812700}
+  SwordAura: {fileID: 615845354}
   isDefending: 0
 --- !u!82 &6291928312123800168
 AudioSource:
@@ -52514,6 +52657,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 872889316045959138}
+  - {fileID: 615845355}
   - {fileID: 2672631199630666704}
   - {fileID: 7263965540185241307}
   - {fileID: 1271208622}
