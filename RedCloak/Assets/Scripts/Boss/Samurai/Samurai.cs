@@ -31,10 +31,12 @@ public class Samurai : MonoBehaviour, IDamage
 
     SpriteRenderer spriteRenderer;
     Animator animator;
+    GhostDash ghostDash;
 
     private int count = 0;
 
     Coroutine mainCoroutine;
+    Coroutine tempCoroutine;
 
     private bool isFlip = false;
 
@@ -45,6 +47,7 @@ public class Samurai : MonoBehaviour, IDamage
     public GameObject SpinBlade;
     public GameObject ChargeEffect;
     public GameObject Baldo;
+    public GameObject SwordAura;
 
     public bool isDefending = false;
 
@@ -54,6 +57,7 @@ public class Samurai : MonoBehaviour, IDamage
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        ghostDash = GetComponent<GhostDash>();
     }
 
     private void Start()
@@ -62,6 +66,7 @@ public class Samurai : MonoBehaviour, IDamage
         AttackRange.SetActive(false);
         Baldo.SetActive(false);
         ChargeEffect.SetActive(false);
+        SwordAura.SetActive(false);
         player = CharacterManager.Instance.Player.GetComponent<Player>();
         //CallSamurai();
     }
@@ -116,6 +121,8 @@ public class Samurai : MonoBehaviour, IDamage
 
     IEnumerator SamuraiStageOn()
     {
+        AudioManager.instance.PlaySFX("Nervous", 0.1f);
+        AudioManager.instance.StopBGM();
         isStageStart = true;
         CameraManager.Instance.ModifyCameraInfo(new Vector2(38, 10), new Vector2(268, -478));
         CharacterManager.Instance.Player.controller.cantMove = true;
@@ -238,10 +245,15 @@ public class Samurai : MonoBehaviour, IDamage
     void ThrowSpinBlade()
     {
         float Dir = isFlip ? -1f : 1f;
-
+        AudioManager.instance.PlaySamurai("SpinBlade", 0.2f);
         GameObject spinProjectile = Instantiate(SpinBlade, transform.position + new Vector3(0, 1.5f, 0) + Dir * new Vector3(3, 0, 0), Quaternion.identity);
 
-        spinProjectile.transform.DOMove(player.transform.position  , 2f).SetEase(Ease.InExpo);
+        spinProjectile.transform.DOMove(player.transform.position  , 1f).SetEase(Ease.InExpo).OnComplete(() =>
+        {
+            AudioManager.instance.PlaySamurai("Boomerang", 0.3f);
+            spinProjectile.transform.DOMove(transform.position + new Vector3(-Dir * 8, 12, 0), 1.5f).SetEase(Ease.InExpo);
+        }
+        );
         Destroy(spinProjectile, 3f);
     }
 
@@ -254,7 +266,49 @@ public class Samurai : MonoBehaviour, IDamage
     void BackStepAttack()
     {
         animator.SetBool(isSpinBlade, true);
+        AudioManager.instance.PlaySamurai("BackStepSlash", 0.2f);
     }
+
+    void BackStepStart()
+    {
+        float Dir = isFlip ? -1f : 1f;
+        SwordAuraOn();
+        ghostDash.makeGhost = true;
+        tempCoroutine = StartCoroutine(DoingBackDash(Dir));
+        
+        
+    }
+
+    IEnumerator DoingBackDash(float Dir)
+    {
+        float time = 0f;
+        float timeElapsed = 0.05f;
+        while (time < 0.3f)
+        {
+            transform.DOMoveX(transform.position.x + -Dir * 1.5f, timeElapsed);
+            yield return new WaitForSeconds(timeElapsed);
+            time += timeElapsed;
+        }
+    }
+
+    void BackStepEnd()
+    {
+        SwordAuraOff();
+        if (tempCoroutine != null) StopCoroutine(tempCoroutine);
+        ghostDash.makeGhost = false;
+    }
+
+    void SwordAuraOn()
+    {
+        SwordAura.SetActive(true);
+    }
+
+    void SwordAuraOff()
+    {
+        SwordAura.SetActive(false);
+    }
+
+
 
 
     void CounterAttack()
@@ -267,6 +321,11 @@ public class Samurai : MonoBehaviour, IDamage
         isDefending = true;
     }
 
+    void DefenseSound()
+    {
+        AudioManager.instance.PlaySamurai("Defense", 0.15f);
+    }
+
     public void DefendEnd()
     {
         isDefending = false;
@@ -276,13 +335,15 @@ public class Samurai : MonoBehaviour, IDamage
 
     void DoCounterAttack()
     {
+        AudioManager.instance.PlaySamurai("DefendSuccess", 0.2f);
         isDefending = false;
         animator.SetBool(isDefend, false);
         animator.SetTrigger(revenge);
     }
 
     void DoAttack()
-    { 
+    {
+        AudioManager.instance.PlaySamurai("CounterAttack", 0.2f);
         AttackRange.SetActive(true);
     }
 
