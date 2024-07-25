@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 4275669200269430}
   - component: {fileID: 198587663974982988}
   - component: {fileID: 199396539617275340}
-  - component: {fileID: 114194830351093922}
+  - component: {fileID: -7378408747024398333}
   - component: {fileID: 5175179020013535582}
   - component: {fileID: -8756525744042840033}
   m_Layer: 0
-  m_Name: Sword
+  m_Name: MagicSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4904,7 +4904,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &114194830351093922
+--- !u!114 &-7378408747024398333
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4913,15 +4913,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1764308443362498}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5e49040cdee09a4fbfb8cd6d0cc243d, type: 3}
+  m_Script: {fileID: 11500000, guid: 25f823ef72cb93e4e9e7c1f261dfc803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
   hitOffset: 0.05
-  UseFirePointRotation: 1
+  UseFirePointRotation: 0
   rotationOffset: {x: 0, y: 0, z: 0}
   hit: {fileID: 1105495686751570, guid: 4328596502e67c1468c5794bdd5067b4, type: 3}
-  flash: {fileID: 0}
+  flash: {fileID: 1367524815892938, guid: 32a3c46d530a0cf44a4d7e0600005d14, type: 3}
   Detached: []
 --- !u!50 &5175179020013535582
 Rigidbody2D:

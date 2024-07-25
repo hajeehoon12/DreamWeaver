@@ -11,7 +11,7 @@ public class Samurai : MonoBehaviour, IDamage
     private static readonly int revenge = Animator.StringToHash("Revenge");
     private static readonly int isSpinBlade = Animator.StringToHash("IsSpinBlade");
     //private static readonly int isDead = Animator.StringToHash("IsDead");
-    //private static readonly int isAttack = Animator.StringToHash("IsAttack");
+    private static readonly int isAttack = Animator.StringToHash("IsAttack");
     //private static readonly int animSpeed = Animator.StringToHash("AnimSpeed");
     //private static readonly int thunder = Animator.StringToHash("Thunder");
 
@@ -48,6 +48,7 @@ public class Samurai : MonoBehaviour, IDamage
     public GameObject ChargeEffect;
     public GameObject Baldo;
     public GameObject SwordAura;
+    public GameObject MagicSword;
 
     public bool isDefending = false;
 
@@ -169,10 +170,11 @@ public class Samurai : MonoBehaviour, IDamage
            
             yield return new WaitForSeconds(1.5f);
 
-            switch (count % 3)
+            switch (count % 4)
             {
                 case 0:
-                    CounterAttack();
+                    DoNormalAttack();
+                    
                     break;
                 case 1:
                     BalDo();
@@ -180,6 +182,9 @@ public class Samurai : MonoBehaviour, IDamage
                 case 2:
                     BackStepAttack();
                     //DefendEnd();
+                    break;
+                case 3:
+                    CounterAttack();
                     break;
                 default:
                     CounterAttack();
@@ -242,6 +247,16 @@ public class Samurai : MonoBehaviour, IDamage
         count++;
     }
 
+    void DoNormalAttack()
+    {
+        animator.SetBool(isAttack, true);
+    }
+
+    public void NormalAttackEnd()
+    {
+        animator.SetBool(isAttack, false);
+    }
+
     void ThrowSpinBlade()
     {
         float Dir = isFlip ? -1f : 1f;
@@ -275,19 +290,18 @@ public class Samurai : MonoBehaviour, IDamage
         SwordAuraOn();
         ghostDash.makeGhost = true;
         tempCoroutine = StartCoroutine(DoingBackDash(Dir));
-        
-        
+  
     }
 
     IEnumerator DoingBackDash(float Dir)
     {
         float time = 0f;
-        float timeElapsed = 0.05f;
+        //float timeElapsed = 0.05f;
         while (time < 0.3f)
         {
-            transform.DOMoveX(transform.position.x + -Dir * 1.5f, timeElapsed);
-            yield return new WaitForSeconds(timeElapsed);
-            time += timeElapsed;
+            transform.position += new Vector3(-Dir * Time.deltaTime * 25f, 0, 0);
+            yield return new WaitForSeconds(Time.deltaTime);
+            time += Time.deltaTime;
         }
     }
 
