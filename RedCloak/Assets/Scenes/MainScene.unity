@@ -4233,7 +4233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Samurai.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: bgm.Array.data[5].clip
@@ -4270,7 +4270,7 @@ PrefabInstance:
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Wolf.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: e4079f59277b1224cb8c115fe9d715c4, type: 3}
+      objectReference: {fileID: 8300000, guid: f384f70e0579778479d94c14d0aca6d1, type: 3}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: sfx.Array.data[27].clip
       value: 
@@ -4358,6 +4358,14 @@ PrefabInstance:
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Samurai.Array.data[7].name
       value: Boomerang
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: b7da3a0c3f1926044bcb3cd4b2632c68, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[8].name
+      value: WindDash
       objectReference: {fileID: 0}
     - target: {fileID: 4850818699871077568, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: m_Name
@@ -46813,13 +46821,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17af337c7b7bdd84bbc2cd998cc56881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossMaxHealth: 500
+  bossMaxHealth: 900
   isPhase1: 0
   isPhase2: 0
   isPhase3: 0
   isBossDie: 0
   isStageStart: 0
+  ghostDash: {fileID: 0}
   isFlip: 0
+  canFlip: 1
   AttackRange: {fileID: 6511103370722532522}
   SpinBlade: {fileID: 1934679622906788240, guid: 0a8c649ae29febc4a9b83f030c1a02a1, type: 3}
   ChargeEffect: {fileID: 3345326014841344389}
@@ -46827,6 +46837,7 @@ MonoBehaviour:
   SwordAura: {fileID: 8578324373559692191}
   MagicSword: {fileID: 1764308443362498, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
   isDefending: 0
+  animSpeed: 1
 --- !u!82 &6291928312123800168
 AudioSource:
   m_ObjectHideFlags: 0
@@ -46934,6 +46945,7 @@ GameObject:
   - component: {fileID: 872889316045959138}
   - component: {fileID: 1949238991674748873}
   - component: {fileID: 2168574936579946355}
+  - component: {fileID: 6511103370722532523}
   m_Layer: 8
   m_Name: AttackRange
   m_TagString: Untagged
@@ -46941,6 +46953,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6511103370722532523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6511103370722532522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 669d28b58e973064e974de896c18869a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &6669067333685040200
 ParticleSystem:
   m_ObjectHideFlags: 0

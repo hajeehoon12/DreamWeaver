@@ -15,6 +15,7 @@ public class Samurai : MonoBehaviour, IDamage
     private static readonly int isRun = Animator.StringToHash("IsRun");
     //private static readonly int thunder = Animator.StringToHash("Thunder");
     private static readonly int isDashAttack = Animator.StringToHash("IsDashAttack");
+    private static readonly int isDash = Animator.StringToHash("IsDash");
 
 
     private float bossHealth = 0;
@@ -169,6 +170,8 @@ public class Samurai : MonoBehaviour, IDamage
 
     IEnumerator Iteration()
     {
+
+        canFlip = true;
         if (isPhase1)
         {
             
@@ -184,7 +187,7 @@ public class Samurai : MonoBehaviour, IDamage
                     break;
                 case 2:
                     BackStepAttack();
-                    //DefendEnd();
+                    
                     break;
                 case 3:
                     CounterAttack();
@@ -205,19 +208,22 @@ public class Samurai : MonoBehaviour, IDamage
 
         if (isPhase2)
         {
-            
+            Debug.Log("phase2");
             yield return new WaitForSeconds(1f);
 
-            switch (count % 3)
+            switch (count % 4)
             {
                 case 0:
-                    
+                    BackStepAttack(); // BackStepAttack + DoDashAttack();
                     break;
                 case 1:
-                    
+                    DoDash(); // DoDash + NormalAttack;
                     break;
                 case 2:
-                   
+                    BalDo();
+                    break;
+                case 3:
+                    CounterAttack();
                     break;
                 default:
                     break;
@@ -256,8 +262,22 @@ public class Samurai : MonoBehaviour, IDamage
         count++;
     }
 
-    void DoDashAttack()
+    void DoDash()
     {
+        animator.SetBool(isDash, true);
+        AudioManager.instance.PlaySamurai("WindDash", 0.2f);
+    }
+
+    public void DashEnd()
+    {
+        animator.SetBool(isDash, false);
+        DoNormalAttack();
+    }
+
+
+    public void DoDashAttack()
+    {
+        AudioManager.instance.PlayWolf("ChargeAttack", 0.2f);
         animator.SetBool(isDashAttack, true);
         ghostDash.makeGhost = true;
     }
@@ -267,7 +287,8 @@ public class Samurai : MonoBehaviour, IDamage
         canFlip = false;
         float Dir = isFlip ? -1f : 1f;
         float Destination;
-        Destination = transform.position.x + 30 * Dir;
+        float Dist = isPhase1 ? 30f : 40f;
+        Destination = transform.position.x + Dist * Dir;
         Destination = Mathf.Clamp(Destination, 232, 305);
         transform.DOMoveX(Destination, 1.33f / animSpeed).OnComplete(() =>
         {
@@ -309,7 +330,7 @@ public class Samurai : MonoBehaviour, IDamage
     }
 
 
-    void DoNormalAttack()
+    public void DoNormalAttack()
     {
         animator.SetBool(isAttack, true);
         SwordAuraOn();
@@ -459,7 +480,7 @@ public class Samurai : MonoBehaviour, IDamage
 
     void BaldoDamage()
     {
-        Debug.Log("Attack!!");
+        //Debug.Log("Attack!!");
         if(!CharacterManager.Instance.Player.controller.Rolling && Vector3.Distance(transform.position, CharacterManager.Instance.Player.transform.position) < 28f)
         CharacterManager.Instance.Player.battle.ChangeHealth(-1);
     }
@@ -474,6 +495,7 @@ public class Samurai : MonoBehaviour, IDamage
     public void GetDamage(float damage)
     {
         if (isInvincible) return;
+        if (!isStageStart) return;
 
         if (isDefending)
         {
@@ -484,7 +506,7 @@ public class Samurai : MonoBehaviour, IDamage
         if (bossHealth > damage)
         {
             bossHealth -= damage;
-            Debug.Log($"남은 보스 체력 : {bossHealth}");
+            //Debug.Log($"남은 보스 체력 : {bossHealth}");
             if (bossHealth < (bossMaxHealth * 2 / 3) && isPhase1)
             {
                 isPhase1 = false;
@@ -514,7 +536,7 @@ public class Samurai : MonoBehaviour, IDamage
             if (isBossDie) return;
             if (isPhase3) isBossDie = true;
 
-            isStageStart = false;
+            
             UIBar.Instance.SetBossBar(0, bossMaxHealth, bossHealth);
            
             CallDie();
@@ -532,8 +554,9 @@ public class Samurai : MonoBehaviour, IDamage
     }
 
     void CallDie()
-    { 
-        
+    {
+        isStageStart = false;
+        if(mainCoroutine != null) StopCoroutine(mainCoroutine);
     }
 
 }

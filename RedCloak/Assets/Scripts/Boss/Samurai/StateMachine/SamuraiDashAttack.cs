@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
 
-public class SpinBlade : StateMachineBehaviour
+public class SamuraiDashAttack : StateMachineBehaviour
 {
     Samurai samurai;
+    //float Dir;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -16,13 +16,14 @@ public class SpinBlade : StateMachineBehaviour
 
     }
 
+
+
+
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        samurai.BackStepAttackEnd();
-
-        if (samurai.isPhase1) samurai.Discrimination();
-        else samurai.DoDashAttack();
-
+        samurai.canFlip = true;
+        samurai.ghostDash.makeGhost = false;
+        samurai.DashAttackEnd();
 
     }
 

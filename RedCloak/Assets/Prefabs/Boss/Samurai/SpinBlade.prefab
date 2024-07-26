@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7743358523535492501}
   - component: {fileID: 4844761069949512264}
   - component: {fileID: 519862553883848291}
+  - component: {fileID: 2585040732087427668}
   m_Layer: 19
   m_Name: SpinBlade
   m_TagString: Monster
@@ -121,6 +122,18 @@ CapsuleCollider2D:
   m_Offset: {x: -0.009952921, y: 0.036252797}
   m_Size: {x: 0.9463647, y: 0.9026403}
   m_Direction: 1
+--- !u!114 &2585040732087427668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934679622906788240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 669d28b58e973064e974de896c18869a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2183457563009579407
 PrefabInstance:
   m_ObjectHideFlags: 0
