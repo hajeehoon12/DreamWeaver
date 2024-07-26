@@ -6,12 +6,16 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEditor;
 using System.Reflection;
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class VideoSetting : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI currentResolution;
     [SerializeField] private GameObject optionUI;
     [SerializeField] private GameObject videoSettingUI;
+    [SerializeField] private Toggle vSyncToggle;
+    [SerializeField] private Toggle fullScreenToggle;
 
     private int screenWidth;
     private int screenHeight;
@@ -20,7 +24,32 @@ public class VideoSetting : MonoBehaviour
     private void Start()
     {
         CurrentResolution();
+        InitVSync();
+        InitFullScreen();
     }
+
+    private void InitVSync()
+    {
+        vSyncToggle.isOn = QualitySettings.vSyncCount > 0;
+        Debug.Log($"Init{QualitySettings.vSyncCount}");
+    }
+
+    private void InitFullScreen()
+    {
+        fullScreenToggle.isOn = Screen.fullScreen;
+    }
+
+    public void VsyncOption(bool isOn)
+    {
+        QualitySettings.vSyncCount = isOn ? 1 : 0;
+        Debug.Log(QualitySettings.vSyncCount);
+    }
+
+    public void FullScreen(bool isOn)
+    {
+        Screen.fullScreen = isOn;
+    }
+
 
     private struct ResolutionOption
     {
@@ -90,11 +119,11 @@ public class VideoSetting : MonoBehaviour
     private void SetResolution()
     {
         ResolutionOption resolutionOption = resolutions[index];
-        Screen.SetResolution(resolutionOption.width, resolutionOption.height, Screen.fullScreen);
+        Screen.SetResolution(resolutionOption.width, resolutionOption.height, fullScreenToggle.isOn);
     }
 
     public void ChangeMenu()
     {
-        UIManager.ChangeMenu(videoSettingUI, optionUI);
+        UIManager.Instance.ChangeMenu(videoSettingUI, optionUI);
     }
 }

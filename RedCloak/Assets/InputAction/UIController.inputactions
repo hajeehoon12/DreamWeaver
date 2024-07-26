@@ -6,9 +6,18 @@
             "id": "ed24f04f-6dae-4fbd-be88-4a48c1984361",
             "actions": [
                 {
-                    "name": "OpenUI",
+                    "name": "Pause",
                     "type": "Button",
                     "id": "d4a1c7cb-543d-4c8f-8330-dfdb0ef5482b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Inventory",
+                    "type": "Button",
+                    "id": "4e81f748-8e63-4171-895b-a8123881b84d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -23,7 +32,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "OpenUI",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "99a63827-7e81-41d4-a177-eec2a9d5d706",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

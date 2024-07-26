@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -12,18 +15,25 @@ public class Inventory : MonoBehaviour
 
     [Header("Selected Item")]
     private ItemSlot selectedItem;
-    private int selectedItemIndex;
     public TextMeshProUGUI itemName;
     public TextMeshProUGUI itemDescription;
+    public Image selectImage;
 
-
-    // 선택 버튼으로 장착?
-
+    private int selectedItemIndex;
     private int curEquipIndex;
 
     private void Start()
     {
-        
+        CharacterManager.Instance.Player.addItem += AddItem;
+        slots = new ItemSlot[slotPanel.childCount];
+
+        for(int i = 0; i < slots.Length; i++)
+        {
+            slots[i] = slotPanel.GetChild(i).GetComponent<ItemSlot>();
+            slots[i].index = i;
+            slots[i].inventory = this;
+            slots[i].Clear();
+        }
     }
 
     public bool IsOpen()
@@ -33,7 +43,65 @@ public class Inventory : MonoBehaviour
 
     public void AddItem()
     {
-        //플레이어가 가지고 있는 아이템 데이터 가져오기
+        ItemData data = CharacterManager.Instance.Player.itemData;
 
+        ItemSlot emptySlot = GetEmptySlot();
+
+        if(emptySlot != null )
+        {
+            emptySlot.item = data;
+            UpdateInventory();
+            CharacterManager.Instance.Player.itemData = null;
+            return;
+        }
+    }
+
+    ItemSlot GetEmptySlot()
+    {
+        for(int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].item == null)
+            {
+                return slots[i];
+            }
+        }
+
+        return null;
+    }
+
+    public void UpdateInventory()
+    {
+        for(int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].item != null)
+            {
+                slots[i].SetItem();
+            }
+
+            else
+            {
+                slots[i].Clear();
+            }
+        }
+    }
+
+    public void SelectItem(int index)
+    {
+        if (slots[index].item == null) return;
+
+        selectedItem = slots[index];
+        selectedItemIndex = index;
+
+        itemName.text = selectedItem.item.itemName;
+        itemDescription.text = selectedItem.item.description;
+        selectImage.sprite = selectedItem.item.icon;
+    }
+
+    private void ClearSelectItem()
+    {
+        selectedItem = null;
+
+        itemName.text = string.Empty;
+        itemDescription.text = string.Empty;
     }
 }

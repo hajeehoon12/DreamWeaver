@@ -25,4 +25,6 @@ public class Define
     
     //public const string MainScene = "TestScene-PDH";
     //public const string StartScene = "StartScene";
+    public const string OP_MonsterLightOut = "MonsterLightOut";
+    public const string OP_MonsterLight = "MonsterLight";
 }

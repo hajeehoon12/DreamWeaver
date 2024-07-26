@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class SkillUI : MonoBehaviour
 {
+    [SerializeField] private GameObject skillGroup;
     [SerializeField] private float targetAngle = 60.0f;
     [SerializeField] private float speed = 50f;
 
@@ -13,16 +14,16 @@ public class SkillUI : MonoBehaviour
 
     private void Start()
     {
-        rotation = Quaternion.Euler(0, targetAngle, 0);
+        rotation = Quaternion.Euler(0, 0, targetAngle);
     }
 
     private void Update()
     {
         if(isRotating)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * speed);
+            skillGroup.transform.rotation = Quaternion.Lerp(skillGroup.transform.rotation, rotation, Time.deltaTime * speed);
 
-            if(Quaternion.Angle(transform.rotation, rotation) < 0.1f)
+            if(Quaternion.Angle(skillGroup.transform.rotation, rotation) < 0.1f)
             {
                 isRotating = false;
                 CharacterManager.Instance.Player.GetComponentInChildren<PlayerShooting>().isRotating = false;
@@ -42,8 +43,8 @@ public class SkillUI : MonoBehaviour
 
     public void StartRotation(int num)
     {
-        rotation = Quaternion.Euler(0, 0, transform.eulerAngles.z + targetAngle * num);
-
+        skillGroup.transform.rotation = Quaternion.Euler(0, 0, skillGroup.transform.eulerAngles.z + targetAngle * num);
+        
         //transform.DORotateQuaternion(Quaternion.Euler(0,0,transform.eulerAngles.z + targetAngle), 1f);
 
         isRotating = true;

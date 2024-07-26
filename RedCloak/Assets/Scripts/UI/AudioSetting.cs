@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -52,7 +51,7 @@ public class AudioSetting : MonoBehaviour
 
     public void ChangeMenu()
     {
-        UIManager.ChangeMenu(soundSettingUI, optionUI);
+        UIManager.Instance.ChangeMenu(soundSettingUI, optionUI);
     }
 }
  

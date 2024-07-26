@@ -1,6 +1,8 @@
+using BehaviorDesigner.Runtime.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class Player : MonoBehaviour
     public PlayerBattle battle;
     public Pet pet;
     public PlayerStat stats;
+    public ItemData itemData;
+    public System.Action addItem;
 
     private void Awake()
     {

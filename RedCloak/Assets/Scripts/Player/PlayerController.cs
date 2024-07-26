@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
         JumpCheck(); // Checking whether can jump
         WallClimb();
 
-
+        if(PauseUI.isPause) return;
         if (Input.GetMouseButtonDown(0))
         {
             OnClick();

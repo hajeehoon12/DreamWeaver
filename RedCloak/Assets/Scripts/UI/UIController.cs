@@ -6,30 +6,35 @@ using UnityEngine.InputSystem;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private GameObject pauseUI;
+    [SerializeField] private GameObject inventory;
 
     private void Start()
     {
         pauseUI.SetActive(false);
+        inventory.SetActive(false);
     }
 
-    public void OnOpenUI(InputAction.CallbackContext callbackContext)
+    public void OnPauseUI(InputAction.CallbackContext callbackContext)
     {
         if(callbackContext.phase == InputActionPhase.Started)
         {
-            Toggle();
+            Toggle(pauseUI);
         }
     }
 
-    public void Toggle()
+    public void OnInventory(InputAction.CallbackContext callbackContext)
     {
-        if (pauseUI.activeInHierarchy)
+        if(callbackContext.phase == InputActionPhase.Started)
         {
-            pauseUI.SetActive(false);
+            Toggle(inventory);
         }
+    }
 
-        else
+    public void Toggle(GameObject uiElement)
+    {
+        if (!uiElement.activeInHierarchy)
         {
-            pauseUI.SetActive(true);
+            uiElement.SetActive(true);
         }
     }
 }
