@@ -236,8 +236,9 @@ public class Samurai : MonoBehaviour, IDamage
         {
             CallMagicSword();
             yield return new WaitForSeconds(0.1f);
-           
-            switch (Random.Range(0,6))
+            float randomSeed = Random.Range(0f, 6f);
+
+            switch ((int)randomSeed)
             {
                 case 0:
                     BackStepAttack(); // BackStepAttack + DoDashAttack();
@@ -260,7 +261,7 @@ public class Samurai : MonoBehaviour, IDamage
                     DoNormalAttack();
                     break;
                 case 6:
-                    DoDashAttack();
+                    DoDashAttack(); // if too hard it will be gone
                     break;
                 default:
                     //Phase3Start();
@@ -591,6 +592,12 @@ public class Samurai : MonoBehaviour, IDamage
     {
         isStageStart = false;
         if(mainCoroutine != null) StopCoroutine(mainCoroutine);
+        ChargeEffect.SetActive(false);
+        SwordAura.SetActive(false);
+        AudioManager.instance.StopBGM();
+        AudioManager.instance.PlaySFX("Success", 0.05f);
+        AudioManager.instance.PlayBGM("Time", 0.1f);
+        //AudioManager.instance.PlaySFX()
     }
 
 }
