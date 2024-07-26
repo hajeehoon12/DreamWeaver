@@ -20,7 +20,7 @@ public class SpinBlade : StateMachineBehaviour
     {
         samurai.BackStepAttackEnd();
 
-        if (samurai.isPhase1) samurai.Discrimination();
+        if (!samurai.isPhase2) samurai.Discrimination();
         else samurai.DoDashAttack();
 
 

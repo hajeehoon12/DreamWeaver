@@ -187,10 +187,11 @@ public class Samurai : MonoBehaviour, IDamage
                     BalDo();
                     break;
                 case 2:
-                    BackStepAttack();        
+                    CounterAttack();
+                           
                     break;
                 case 3:
-                    CounterAttack();
+                    BackStepAttack();
                     break;
                 case 4:
                     Running();
@@ -234,9 +235,9 @@ public class Samurai : MonoBehaviour, IDamage
         if (isPhase3)
         {
             CallMagicSword();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
            
-            switch (count % 5)
+            switch (Random.Range(0,6))
             {
                 case 0:
                     BackStepAttack(); // BackStepAttack + DoDashAttack();
@@ -257,6 +258,9 @@ public class Samurai : MonoBehaviour, IDamage
                     break;
                 case 5:
                     DoNormalAttack();
+                    break;
+                case 6:
+                    DoDashAttack();
                     break;
                 default:
                     //Phase3Start();
@@ -344,7 +348,7 @@ public class Samurai : MonoBehaviour, IDamage
         RunStart();
         yield return new WaitForSeconds(1.5f);
         RunEnd();
-        if (isPhase1) Discrimination();
+        if (!isPhase2) Discrimination();
         else BalDo();
     }
 
@@ -566,7 +570,7 @@ public class Samurai : MonoBehaviour, IDamage
             if (isBossDie) return;
             if (isPhase3) isBossDie = true;
 
-            
+            animator.Play("Death", -1, 0f);
             UIBar.Instance.SetBossBar(0, bossMaxHealth, bossHealth);
            
             CallDie();
