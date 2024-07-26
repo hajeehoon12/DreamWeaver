@@ -174,12 +174,13 @@ public class Samurai : MonoBehaviour, IDamage
         canFlip = true;
         if (isPhase1)
         {
-            
+            CallMagicSword();
             yield return new WaitForSeconds(1.5f);
             
             switch (count % 6)
             {
                 case 0:
+                    
                     DoDashAttack();
                     break;
                 case 1:
@@ -217,10 +218,10 @@ public class Samurai : MonoBehaviour, IDamage
                     BackStepAttack(); // BackStepAttack + DoDashAttack();
                     break;
                 case 1:
-                    DoDash(); // DoDash + NormalAttack;
+                    DoDash(); // DoDash + NormalAttack();
                     break;
                 case 2:
-                    BalDo();
+                    Running(); // Running + BalDo();
                     break;
                 case 3:
                     CounterAttack();
@@ -228,7 +229,6 @@ public class Samurai : MonoBehaviour, IDamage
                 default:
                     break;
             }
-
 
         }
 
@@ -239,7 +239,7 @@ public class Samurai : MonoBehaviour, IDamage
             switch (count % 7)
             {
                 case 0:
-                    yield return new WaitForSeconds(0.5f);
+                    
                    
                     break;
                 case 1:
@@ -261,6 +261,25 @@ public class Samurai : MonoBehaviour, IDamage
         }
         count++;
     }
+
+    void CallMagicSword()
+    {
+        Debug.Log("MagicSword!!");
+        GameObject magicSword = Instantiate(MagicSword, AttackRange.transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+        magicSword.transform.localEulerAngles = new Vector3(0, 90, 0);
+    }
+
+    IEnumerator ChasingSword(GameObject magicSword)
+    {
+        float time = 0f;
+        while (time < 20f)
+        {
+            //magicSword.transform.LookAt(player.transform);
+            yield return new WaitForSeconds(Time.deltaTime);
+            time += Time.deltaTime;
+        }
+    }
+
 
     void DoDash()
     {
@@ -315,7 +334,8 @@ public class Samurai : MonoBehaviour, IDamage
         RunStart();
         yield return new WaitForSeconds(1.5f);
         RunEnd();
-        Discrimination();
+        if (isPhase1) Discrimination();
+        else BalDo();
     }
 
 

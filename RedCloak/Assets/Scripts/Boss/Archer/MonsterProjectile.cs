@@ -35,7 +35,7 @@ public class MonsterProjectile : MonoBehaviour
                 Destroy(flashInstance, flashPsParts.main.duration);
             }
         }
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 20);
     }
 
     void FixedUpdate()
