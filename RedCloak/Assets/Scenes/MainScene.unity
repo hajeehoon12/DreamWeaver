@@ -3318,80 +3318,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 496139213113542282, guid: ff0d8666f8ababc47b3521fb4c47eb86, type: 3}
   m_PrefabInstance: {fileID: 1208819673}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1214346156
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 7270083601109027359}
-    m_Modifications:
-    - target: {fileID: 1764308443362498, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_Name
-      value: MagicSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.467
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198587663974982988, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: moveWithTransform
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198587663974982988, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: ShapeModule.m_Rotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198587663974982988, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-      propertyPath: InitialModule.gravitySource
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
---- !u!4 &1214346157 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4275669200269430, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
-  m_PrefabInstance: {fileID: 1214346156}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1253088507
 GameObject:
   m_ObjectHideFlags: 0
@@ -4307,7 +4233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Samurai.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: bgm.Array.data[5].clip
@@ -4439,6 +4365,22 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: b7da3a0c3f1926044bcb3cd4b2632c68, type: 3}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Samurai.Array.data[8].name
+      value: WindDash
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[9].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b84479efcab7e6419705815c596f8c4, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[9].name
+      value: MagicSword
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[10].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: b7da3a0c3f1926044bcb3cd4b2632c68, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Samurai.Array.data[10].name
       value: WindDash
       objectReference: {fileID: 0}
     - target: {fileID: 4850818699871077568, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
@@ -46909,7 +46851,7 @@ MonoBehaviour:
   ChargeEffect: {fileID: 3345326014841344389}
   Baldo: {fileID: 904812700}
   SwordAura: {fileID: 8578324373559692191}
-  MagicSword: {fileID: 1764308443362498, guid: 36e16734800262140b1ac100fe5dd29e, type: 3}
+  MagicSword: {fileID: 8567388042569332850, guid: e85d291c31ef9514e9dfaf586a6f0c7a, type: 3}
   isDefending: 0
   animSpeed: 1
 --- !u!82 &6291928312123800168
@@ -52168,7 +52110,6 @@ Transform:
   - {fileID: 2672631199630666704}
   - {fileID: 7263965540185241307}
   - {fileID: 1271208622}
-  - {fileID: 1214346157}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7522227567789225974

@@ -13,19 +13,20 @@ public class SamuraiRun : StateMachineBehaviour
         {
             samurai = animator.GetComponent<Samurai>();
         }
-
+        Dir = samurai.isFlip ? -1 : 1;
+        samurai.canFlip = false;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Dir = samurai.isFlip ? -1 : 1;
+        
         samurai.transform.position += new Vector3(Dir * Time.deltaTime * 15, 0, 0);
     }
 
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       
+        samurai.canFlip = true;
     }
 
 }

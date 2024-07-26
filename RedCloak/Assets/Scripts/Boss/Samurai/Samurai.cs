@@ -174,7 +174,7 @@ public class Samurai : MonoBehaviour, IDamage
         canFlip = true;
         if (isPhase1)
         {
-            CallMagicSword();
+           
             yield return new WaitForSeconds(1.5f);
             
             switch (count % 6)
@@ -187,8 +187,7 @@ public class Samurai : MonoBehaviour, IDamage
                     BalDo();
                     break;
                 case 2:
-                    BackStepAttack();
-                    
+                    BackStepAttack();        
                     break;
                 case 3:
                     CounterAttack();
@@ -209,7 +208,7 @@ public class Samurai : MonoBehaviour, IDamage
 
         if (isPhase2)
         {
-            Debug.Log("phase2");
+            //Debug.Log("phase2");
             yield return new WaitForSeconds(1f);
 
             switch (count % 4)
@@ -234,25 +233,30 @@ public class Samurai : MonoBehaviour, IDamage
 
         if (isPhase3)
         {
+            CallMagicSword();
             yield return new WaitForSeconds(0.5f);
            
-            switch (count % 7)
+            switch (count % 5)
             {
                 case 0:
-                    
-                   
+                    BackStepAttack(); // BackStepAttack + DoDashAttack();
                     break;
                 case 1:
-                case 4:
-                    
+                    DoDash(); // DoDash + NormalAttack();
+
                     break;
                 case 2:
-                case 5:
-                    
+                    Running(); // Running + BalDo();
+
                     break;
                 case 3:
-                case 6:
-                    
+                    CounterAttack();
+                    break;
+                case 4:
+                    BalDo();
+                    break;
+                case 5:
+                    DoNormalAttack();
                     break;
                 default:
                     //Phase3Start();
@@ -264,9 +268,15 @@ public class Samurai : MonoBehaviour, IDamage
 
     void CallMagicSword()
     {
-        Debug.Log("MagicSword!!");
-        GameObject magicSword = Instantiate(MagicSword, AttackRange.transform.position + new Vector3(0, 2, 0), Quaternion.identity);
-        magicSword.transform.localEulerAngles = new Vector3(0, 90, 0);
+        AudioManager.instance.PlaySamurai("MagicSword", 0.5f);
+        float Dir = isFlip ? 1f : -1f;
+        //Debug.Log("MagicSword!!");
+        //GameObject magicSword = Instantiate(MagicSword, transform.position + new Vector3(0,5, 0), Quaternion.identity);
+         // GameObject magicSword = Instantiate(MagicSword, transform);
+        //magicSword.transform.position += new Vector3(0, 5, 0);
+        GameObject magicSword = Instantiate(MagicSword, transform.position + new Vector3(5 * Dir, 5, 0), Quaternion.identity);
+        //magicSword.transform.localEulerAngles = new Vector3(0, 90, 0);
+        //StartCoroutine(ChasingSword(magicSword));
     }
 
     IEnumerator ChasingSword(GameObject magicSword)
@@ -274,7 +284,7 @@ public class Samurai : MonoBehaviour, IDamage
         float time = 0f;
         while (time < 20f)
         {
-            //magicSword.transform.LookAt(player.transform);
+            magicSword.transform.LookAt(player.transform);
             yield return new WaitForSeconds(Time.deltaTime);
             time += Time.deltaTime;
         }
