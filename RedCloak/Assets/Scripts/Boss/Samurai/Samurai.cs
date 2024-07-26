@@ -12,8 +12,9 @@ public class Samurai : MonoBehaviour, IDamage
     private static readonly int isSpinBlade = Animator.StringToHash("IsSpinBlade");
     //private static readonly int isDead = Animator.StringToHash("IsDead");
     private static readonly int isAttack = Animator.StringToHash("IsAttack");
-    //private static readonly int animSpeed = Animator.StringToHash("AnimSpeed");
+    private static readonly int isRun = Animator.StringToHash("IsRun");
     //private static readonly int thunder = Animator.StringToHash("Thunder");
+    private static readonly int isDashAttack = Animator.StringToHash("IsDashAttack");
 
 
     private float bossHealth = 0;
@@ -31,14 +32,15 @@ public class Samurai : MonoBehaviour, IDamage
 
     SpriteRenderer spriteRenderer;
     Animator animator;
-    GhostDash ghostDash;
+    public GhostDash ghostDash;
 
     private int count = 0;
 
     Coroutine mainCoroutine;
     Coroutine tempCoroutine;
 
-    private bool isFlip = false;
+    public bool isFlip = false;
+    public bool canFlip = true;
 
     Vector3 Right = new Vector3(0, 180, 0);
     Vector3 Left = new Vector3(0, 0, 0);
@@ -51,6 +53,8 @@ public class Samurai : MonoBehaviour, IDamage
     public GameObject MagicSword;
 
     public bool isDefending = false;
+
+    public float animSpeed = 1.0f;
 
     Player player;
 
@@ -74,7 +78,7 @@ public class Samurai : MonoBehaviour, IDamage
 
     private void Update()
     {
-        if (isStageStart)
+        if (isStageStart && canFlip)
         {
             LookPlayer();
         }
@@ -145,7 +149,7 @@ public class Samurai : MonoBehaviour, IDamage
             time += Time.deltaTime;
         }
         AudioManager.instance.StopBGM();
-        AudioManager.instance.PlayBGM("StarSky", 0.2f);
+        AudioManager.instance.PlayBGM("StarSky", 0.15f);
         CharacterManager.Instance.Player.controller.cantMove = false;
         isPhase1 = true;
         Discrimination();
@@ -167,14 +171,13 @@ public class Samurai : MonoBehaviour, IDamage
     {
         if (isPhase1)
         {
-           
+            
             yield return new WaitForSeconds(1.5f);
-
-            switch (count % 4)
+            
+            switch (count % 6)
             {
                 case 0:
-                    DoNormalAttack();
-                    
+                    DoDashAttack();
                     break;
                 case 1:
                     BalDo();
@@ -185,6 +188,12 @@ public class Samurai : MonoBehaviour, IDamage
                     break;
                 case 3:
                     CounterAttack();
+                    break;
+                case 4:
+                    Running();
+                    break;
+                case 5:
+                    DoNormalAttack();
                     break;
                 default:
                     CounterAttack();
@@ -247,9 +256,63 @@ public class Samurai : MonoBehaviour, IDamage
         count++;
     }
 
+    void DoDashAttack()
+    {
+        animator.SetBool(isDashAttack, true);
+        ghostDash.makeGhost = true;
+    }
+
+    void DoingDash()
+    {
+        canFlip = false;
+        float Dir = isFlip ? -1f : 1f;
+        float Destination;
+        Destination = transform.position.x + 30 * Dir;
+        Destination = Mathf.Clamp(Destination, 232, 305);
+        transform.DOMoveX(Destination, 1.33f / animSpeed).OnComplete(() =>
+        {
+            ghostDash.makeGhost = false;
+
+        }
+        );
+    }
+
+    public void DashAttackEnd()
+    {
+        animator.SetBool(isDashAttack, false);
+        Discrimination();
+    }
+
+
+    void Running()
+    {
+        StartCoroutine(RunningPattern());
+    }
+
+    IEnumerator RunningPattern()
+    {
+        RunStart();
+        yield return new WaitForSeconds(1.5f);
+        RunEnd();
+        Discrimination();
+    }
+
+
+    void RunStart()
+    {
+        animator.SetBool(isRun, true);
+    }
+
+    void RunEnd()
+    {
+        animator.SetBool(isRun, false);
+    }
+
+
     void DoNormalAttack()
     {
         animator.SetBool(isAttack, true);
+        SwordAuraOn();
     }
 
     public void NormalAttackEnd()
