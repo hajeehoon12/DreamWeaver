@@ -19,9 +19,12 @@ public class Define
 
     public const string PROJECTILE = "Projectile";
     public const string MONSTERPROJECTILE = "MonsterProjectile";
+    public const string PLAYERPROJECTILE = "PlayerProjectile";
 
     public const string DEFAULT = "Default";
     
     //public const string MainScene = "TestScene-PDH";
     //public const string StartScene = "StartScene";
+    public const string OP_MonsterLightOut = "MonsterLightOut";
+    public const string OP_MonsterLight = "MonsterLight";
 }

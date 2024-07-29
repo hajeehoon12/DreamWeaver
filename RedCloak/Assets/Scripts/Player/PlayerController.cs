@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
- 
+
 
 
     private void ManaRegenerate()
@@ -534,6 +534,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void MakeIdle()
+    {
+        animator.SetBool(isRunning, false);
+        animator.SetBool(isAttacking, false);
+        animator.SetBool(isRolling, false);
+        animator.SetBool(isWallClimbing, false);
+        animator.SetBool(isFalling, false);
+        animator.SetBool(isJumping, false);
+    }
+
 
 
     IEnumerator DoJump() // Give Power
@@ -634,12 +644,16 @@ public class PlayerController : MonoBehaviour
         //spriteRenderer.material.SetFloat("_FlashAmount", 1.0f);
         yield return new WaitForSeconds(durTime);
         spriteRenderer.DOColor(Color.white, durTime);
+
+        yield return new WaitForSeconds(durTime);
+        rigid.velocity = Vector3.zero;
         //spriteRenderer.material.SetFloat("_FlashAmount", 0.0f);
 
     }
 
     private void OnParticleCollision(GameObject other)
     {
+        //Debug.Log("particle!!");
         if (other.CompareTag(Define.MONSTER))
         {
             if (Rolling) return;
@@ -647,6 +661,7 @@ public class PlayerController : MonoBehaviour
             playerBattle.ChangeHealth(-1); // get damaged
         }
     }
+
 
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -703,7 +718,10 @@ public class PlayerController : MonoBehaviour
             
             if (Rolling) return;
             //StartCoroutine(CollisionDelay(LayerMask.NameToLayer(Define.TRAP)));
-            playerBattle.ChangeHealth(-1);
+            playerBattle.ChangeHealth(-1, "trap");
+            canDoubleJump = true;
+            //animator.SetBool(isFalling, false);
+            //Falling = false;
         }
 
 

@@ -48,7 +48,7 @@ public class CharacterManager : MonoBehaviour
 
     private void Start()
     {
-        SavePoint = transform.position;
+        SavePoint = Player.transform.position;
     }
 
     public void CallDeath()

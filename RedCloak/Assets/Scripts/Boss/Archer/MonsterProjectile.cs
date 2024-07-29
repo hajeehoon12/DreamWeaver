@@ -1,3 +1,4 @@
+using Demo_Project;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,10 @@ public class MonsterProjectile : MonoBehaviour
     public GameObject flash;
     private Rigidbody2D rb;
     public GameObject[] Detached;
+    public float LifeTime;
+    //public bool isGuided = false;
+
+    Player player;
 
     void Start()
     {
@@ -35,7 +40,13 @@ public class MonsterProjectile : MonoBehaviour
                 Destroy(flashInstance, flashPsParts.main.duration);
             }
         }
-        Destroy(gameObject, 5);
+
+        //if (isGuided)
+        //{ 
+        //    player = CharacterManager.Instance.Player.GetComponent<Player>();
+        //}
+        
+        Destroy(gameObject, LifeTime);
     }
 
     void FixedUpdate()
@@ -45,6 +56,13 @@ public class MonsterProjectile : MonoBehaviour
             rb.velocity = transform.forward * speed; // no minus
             //transform.position += transform.forward * (speed * Time.deltaTime);         
         }
+
+        //if (isGuided)
+        //{
+            
+        //    transform.LookAt(player.transform);
+            
+        //}
     }
 
     //https ://docs.unity3d.com/ScriptReference/Rigidbody.OnCollisionEnter.html
