@@ -534,6 +534,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void MakeIdle()
+    {
+        animator.SetBool(isRunning, false);
+        animator.SetBool(isAttacking, false);
+        animator.SetBool(isRolling, false);
+        animator.SetBool(isWallClimbing, false);
+        animator.SetBool(isFalling, false);
+        animator.SetBool(isJumping, false);
+    }
+
 
 
     IEnumerator DoJump() // Give Power
@@ -634,6 +644,9 @@ public class PlayerController : MonoBehaviour
         //spriteRenderer.material.SetFloat("_FlashAmount", 1.0f);
         yield return new WaitForSeconds(durTime);
         spriteRenderer.DOColor(Color.white, durTime);
+
+        yield return new WaitForSeconds(durTime);
+        rigid.velocity = Vector3.zero;
         //spriteRenderer.material.SetFloat("_FlashAmount", 0.0f);
 
     }

@@ -7,6 +7,11 @@ public class SamuraiZone : MonoBehaviour
     public Samurai samurai;
     public bool enterZone = false;
 
+    public void EndStageBoss()
+    { 
+        gameObject.SetActive(false);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
 

@@ -53,6 +53,8 @@ public class Samurai : MonoBehaviour, IDamage
     public GameObject SwordAura;
     public GameObject MagicSword;
 
+    public SamuraiZone samuraiZone;
+
     public bool isDefending = false;
 
     public float animSpeed = 1.0f;
@@ -82,17 +84,6 @@ public class Samurai : MonoBehaviour, IDamage
         if (isStageStart && canFlip)
         {
             LookPlayer();
-        }
-
-        if (Input.GetKeyUp(KeyCode.P)) // temp
-        {
-            CallSamurai();
-        }
-
-        
-        if (Input.GetKeyUp(KeyCode.G))
-        {
-            animator.SetBool(isDefend, true);
         }
         
     }
@@ -127,15 +118,18 @@ public class Samurai : MonoBehaviour, IDamage
 
     IEnumerator SamuraiStageOn()
     {
+        CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(14, 10, 0), 3f, 0.05f, 0.1f);
         AudioManager.instance.PlaySFX("Nervous", 0.1f);
         AudioManager.instance.StopBGM();
         isStageStart = true;
-        CameraManager.Instance.ModifyCameraInfo(new Vector2(38, 10), new Vector2(268, -478));
+        CameraManager.Instance.ModifyCameraInfo(new Vector2(34, 10), new Vector2(268, -478));
         CharacterManager.Instance.Player.controller.cantMove = true;
+        CharacterManager.Instance.Player.controller.MakeIdle();
 
 
-        
+
         yield return new WaitForSeconds(1f);
+        AudioManager.instance.PlaySamurai("SamuraiStage", 0.15f);
 
         UIBar.Instance.CallBossBar("Samurai");
 
@@ -235,7 +229,7 @@ public class Samurai : MonoBehaviour, IDamage
         if (isPhase3)
         {
             CallMagicSword();
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.3f);
             float randomSeed = Random.Range(0f, 6f);
 
             switch ((int)randomSeed)
@@ -560,6 +554,7 @@ public class Samurai : MonoBehaviour, IDamage
                 isPhase2 = false;
                 
                 
+                
             }
 
             UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, damage);
@@ -572,6 +567,7 @@ public class Samurai : MonoBehaviour, IDamage
             if (isPhase3) isBossDie = true;
 
             animator.Play("Death", -1, 0f);
+            AudioManager.instance.PlaySamurai("SamuraiDie", 0.15f);
             UIBar.Instance.SetBossBar(0, bossMaxHealth, bossHealth);
            
             CallDie();
@@ -594,10 +590,19 @@ public class Samurai : MonoBehaviour, IDamage
         if(mainCoroutine != null) StopCoroutine(mainCoroutine);
         ChargeEffect.SetActive(false);
         SwordAura.SetActive(false);
-        AudioManager.instance.StopBGM();
+        
         AudioManager.instance.PlaySFX("Success", 0.05f);
-        AudioManager.instance.PlayBGM("Time", 0.1f);
+        
+        ClearAfter();
         //AudioManager.instance.PlaySFX()
+    }
+
+    void ClearAfter()
+    {
+        samuraiZone.EndStageBoss();
+        this.gameObject.layer = LayerMask.NameToLayer(Define.PLAYERPROJECTILE);
+        SwordAuraOff();
+        CameraManager.Instance.CallStage3CameraInfo();
     }
 
 }
