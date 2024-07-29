@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
- 
+
 
 
     private void ManaRegenerate()
