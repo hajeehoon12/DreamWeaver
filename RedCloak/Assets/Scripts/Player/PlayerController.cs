@@ -718,7 +718,10 @@ public class PlayerController : MonoBehaviour
             
             if (Rolling) return;
             //StartCoroutine(CollisionDelay(LayerMask.NameToLayer(Define.TRAP)));
-            playerBattle.ChangeHealth(-1);
+            playerBattle.ChangeHealth(-1, "trap");
+            canDoubleJump = true;
+            //animator.SetBool(isFalling, false);
+            //Falling = false;
         }
 
 
