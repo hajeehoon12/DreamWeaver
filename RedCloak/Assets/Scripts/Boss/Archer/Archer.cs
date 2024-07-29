@@ -40,6 +40,9 @@ public class Archer : MonoBehaviour , IDamage
     float lastAvoidTime = 0f;
     float lastSkillTime = 0f;
 
+    float skillTime1 = 10f;
+    float skillTime2 = 15f;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -95,12 +98,12 @@ public class Archer : MonoBehaviour , IDamage
 
     private void Update()
     {
-        if (lastAvoidTime <= 5)
+        if (lastAvoidTime <= skillTime1)
         {
             lastAvoidTime += Time.deltaTime;
         }
 
-        if(lastSkillTime <= 10)
+        if(lastSkillTime <= skillTime2)
         {
             lastSkillTime += Time.deltaTime;
         }
@@ -304,9 +307,9 @@ public class Archer : MonoBehaviour , IDamage
 
     void Appear()
     {
-        if (lastSkillTime >= 15)
+        if (lastSkillTime >= skillTime2)
         {
-            if (isPhase3 && skillPhase3 < 15)
+            if (isPhase3 && skillPhase3 < 7)
             {
                 animator.Play("Special Attack", -1, 0f);
 
@@ -335,7 +338,7 @@ public class Archer : MonoBehaviour , IDamage
     IEnumerator AvoidAttack()
     {
         animator.StopPlayback();
-        animator.Play("Special Attack", 0, 0.1f);
+        animator.Play("Special Attack", 0, 0f);
         yield return new WaitForSeconds(0.2f);
         //AppearPos();
         //
@@ -347,9 +350,9 @@ public class Archer : MonoBehaviour , IDamage
     {
         if (!isPhase1)
         {
-            if (lastAvoidTime >=10)
+            if (lastAvoidTime >= skillTime1)
             {
-                lastAvoidTime -= 10;
+                lastAvoidTime -= skillTime1;
                 
                 StartCoroutine(AvoidAttack());
                 return;
@@ -372,7 +375,7 @@ public class Archer : MonoBehaviour , IDamage
                 isPhase1 = false;
                 isPhase3 = true;
                 isPhase2 = false;
-                lastSkillTime = 10;
+                lastSkillTime = skillTime2;
                 Appear();
             }
 
