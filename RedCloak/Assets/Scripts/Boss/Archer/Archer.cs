@@ -27,7 +27,7 @@ public class Archer : MonoBehaviour , IDamage
 
     public Collider2D BossZoneWall;
 
-    Vector2[] appearPos = { new Vector2(15, 0), new Vector2(-15, 0), new Vector2(14, 2), new Vector2(13, 4), new Vector2(12, 6), new Vector2(-12, 6), new Vector2(-13, 4), new Vector2(-14, 2),new Vector2(-14, -2), new Vector2(14, -2) };
+    Vector2[] appearPos = { new Vector2(15, 0), new Vector2(-15, 0), new Vector2(14, 1), new Vector2(13, 2), new Vector2(12, 3), new Vector2(-12, 3), new Vector2(-13, 2), new Vector2(-14, 1),new Vector2(-14, -1), new Vector2(14, -1) };
 
     public bool isPhase1 = true;
     public bool isPhase2 = false;
@@ -39,6 +39,9 @@ public class Archer : MonoBehaviour , IDamage
 
     float lastAvoidTime = 0f;
     float lastSkillTime = 0f;
+
+    float skillTime1 = 10f;
+    float skillTime2 = 15f;
 
     private void Awake()
     {
@@ -95,12 +98,12 @@ public class Archer : MonoBehaviour , IDamage
 
     private void Update()
     {
-        if (lastAvoidTime <= 5)
+        if (lastAvoidTime <= skillTime1)
         {
             lastAvoidTime += Time.deltaTime;
         }
 
-        if(lastSkillTime <= 10)
+        if(lastSkillTime <= skillTime2)
         {
             lastSkillTime += Time.deltaTime;
         }
@@ -118,7 +121,7 @@ public class Archer : MonoBehaviour , IDamage
         
         if (isPhase1)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             //Flip();
             switch (count % 2)
             {
@@ -133,7 +136,7 @@ public class Archer : MonoBehaviour , IDamage
 
         if (isPhase2)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             // Flip();
             switch (count % 2)
             {
@@ -149,7 +152,7 @@ public class Archer : MonoBehaviour , IDamage
         if (isPhase3)
         {
            
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             //Flip();
             switch (count % 2)
             {
@@ -304,9 +307,9 @@ public class Archer : MonoBehaviour , IDamage
 
     void Appear()
     {
-        if (lastSkillTime >= 10)
+        if (lastSkillTime >= skillTime2)
         {
-            if (isPhase3 && skillPhase3 < 10)
+            if (isPhase3 && skillPhase3 < 7)
             {
                 animator.Play("Special Attack", -1, 0f);
 
@@ -335,7 +338,7 @@ public class Archer : MonoBehaviour , IDamage
     IEnumerator AvoidAttack()
     {
         animator.StopPlayback();
-        animator.Play("Special Attack", 0, 0.1f);
+        animator.Play("Special Attack", 0, 0f);
         yield return new WaitForSeconds(0.2f);
         //AppearPos();
         //
@@ -347,9 +350,9 @@ public class Archer : MonoBehaviour , IDamage
     {
         if (!isPhase1)
         {
-            if (lastAvoidTime >=5)
+            if (lastAvoidTime >= skillTime1)
             {
-                lastAvoidTime -= 5;
+                lastAvoidTime -= skillTime1;
                 
                 StartCoroutine(AvoidAttack());
                 return;
@@ -372,7 +375,7 @@ public class Archer : MonoBehaviour , IDamage
                 isPhase1 = false;
                 isPhase3 = true;
                 isPhase2 = false;
-                lastSkillTime = 10;
+                lastSkillTime = skillTime2;
                 Appear();
             }
 
