@@ -27,7 +27,7 @@ public class Archer : MonoBehaviour , IDamage
 
     public Collider2D BossZoneWall;
 
-    Vector2[] appearPos = { new Vector2(15, 0), new Vector2(-15, 0), new Vector2(14, 2), new Vector2(13, 4), new Vector2(12, 6), new Vector2(-12, 6), new Vector2(-13, 4), new Vector2(-14, 2),new Vector2(-14, -2), new Vector2(14, -2) };
+    Vector2[] appearPos = { new Vector2(15, 0), new Vector2(-15, 0), new Vector2(14, 1), new Vector2(13, 2), new Vector2(12, 3), new Vector2(-12, 3), new Vector2(-13, 2), new Vector2(-14, 1),new Vector2(-14, -1), new Vector2(14, -1) };
 
     public bool isPhase1 = true;
     public bool isPhase2 = false;
@@ -118,7 +118,7 @@ public class Archer : MonoBehaviour , IDamage
         
         if (isPhase1)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             //Flip();
             switch (count % 2)
             {
@@ -133,7 +133,7 @@ public class Archer : MonoBehaviour , IDamage
 
         if (isPhase2)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             // Flip();
             switch (count % 2)
             {
@@ -149,7 +149,7 @@ public class Archer : MonoBehaviour , IDamage
         if (isPhase3)
         {
            
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             //Flip();
             switch (count % 2)
             {
@@ -304,9 +304,9 @@ public class Archer : MonoBehaviour , IDamage
 
     void Appear()
     {
-        if (lastSkillTime >= 10)
+        if (lastSkillTime >= 15)
         {
-            if (isPhase3 && skillPhase3 < 10)
+            if (isPhase3 && skillPhase3 < 15)
             {
                 animator.Play("Special Attack", -1, 0f);
 
@@ -347,9 +347,9 @@ public class Archer : MonoBehaviour , IDamage
     {
         if (!isPhase1)
         {
-            if (lastAvoidTime >=5)
+            if (lastAvoidTime >=10)
             {
-                lastAvoidTime -= 5;
+                lastAvoidTime -= 10;
                 
                 StartCoroutine(AvoidAttack());
                 return;
