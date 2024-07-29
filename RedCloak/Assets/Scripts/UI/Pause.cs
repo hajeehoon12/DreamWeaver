@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class PauseUI : MonoBehaviour
+public class Pause : MonoBehaviour
 {
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject optionUI;
@@ -29,8 +29,7 @@ public class PauseUI : MonoBehaviour
 
     public void clickOptionBtn()
     {
-        pauseUI.SetActive(false);
-        optionUI.SetActive(true);
+        UIManager.Instance.OpenUI(optionUI);
     }
 
     IEnumerator FadeOut()
@@ -44,7 +43,7 @@ public class PauseUI : MonoBehaviour
         EnablePlayerInput();
         isPause = false;
 
-        pauseUI.SetActive(false);
+        UIManager.Instance.CloseCurrentUI();
     }
 
     private void DisablePlayerInput()

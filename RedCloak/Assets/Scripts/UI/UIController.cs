@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,7 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject inventory;
+    //[SerializeField] private List<GameObject> settingUI;
 
     private void Start()
     {
@@ -18,7 +20,21 @@ public class UIController : MonoBehaviour
     {
         if(callbackContext.phase == InputActionPhase.Started)
         {
-            Toggle(pauseUI);
+            if(UIManager.Instance.currentUI != null && UIManager.Instance.currentUI != pauseUI)
+            {
+                UIManager.Instance.CloseCurrentUI();
+                return;
+            }
+
+            if(UIManager.Instance.IsUIOpen(pauseUI))
+            {
+                UIManager.Instance.CloseCurrentUI();
+            }
+
+            else
+            {
+                UIManager.Instance.OpenUI(pauseUI);
+            }
         }
     }
 
@@ -26,15 +42,15 @@ public class UIController : MonoBehaviour
     {
         if(callbackContext.phase == InputActionPhase.Started)
         {
-            Toggle(inventory);
-        }
-    }
+            if(UIManager.Instance.IsUIOpen(inventory))
+            {
+                UIManager.Instance.CloseCurrentUI();
+            }
 
-    public void Toggle(GameObject uiElement)
-    {
-        if (!uiElement.activeInHierarchy)
-        {
-            uiElement.SetActive(true);
+            else
+            {
+                UIManager.Instance.OpenUI(inventory);
+            }
         }
     }
 }
