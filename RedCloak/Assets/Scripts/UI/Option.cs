@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OptionUI : MonoBehaviour
+public class Option : MonoBehaviour
 {
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject optionUI;
@@ -13,19 +13,16 @@ public class OptionUI : MonoBehaviour
 
     public void OnClickVideoSetting()
     {
-        videoSetting.SetActive(true);
-        optionUI.SetActive(false);
+        UIManager.Instance.OpenUI(videoSetting);
     }
 
     public void OnClickAudioSetting()
     {
-        audioSetting.SetActive(true);
-        optionUI.SetActive(false);
+        UIManager.Instance.OpenUI(audioSetting);
     }
 
     public void OnClickBack()
-    { 
-        optionUI.SetActive(false);
-        pauseUI.SetActive(true);
+    {
+        UIManager.Instance.OpenUI(pauseUI);
     }
 }

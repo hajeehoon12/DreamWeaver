@@ -49,9 +49,9 @@ public class AudioSetting : MonoBehaviour
         audioMixer.SetFloat("SFX", Mathf.Log10(sliderValue) * 20);
     }
 
-    public void ChangeMenu()
+    public void OnClickBack()
     {
-        UIManager.Instance.ChangeMenu(soundSettingUI, optionUI);
+        UIManager.Instance.OpenUI(optionUI);
     }
 }
  
