@@ -179,8 +179,8 @@ public class CameraManager : MonoBehaviour
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlayBGM("Time", 0.1f);
 
-        mapSize = new Vector2(260, 120);
-        center = new Vector2(180, -380);
+        mapSize = new Vector2(270, 120);
+        center = new Vector2(178, -380);
 
         Sky.gameObject.SetActive(false);
         Cave.gameObject.SetActive(true);
