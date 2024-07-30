@@ -8049,7 +8049,7 @@ SpriteShapeRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -50
+  m_SortingOrder: -51
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 2800000, guid: 84fac78d64130d9429a80f032222bcae, type: 3}
@@ -16395,7 +16395,8 @@ GameObject:
   - component: {fileID: 1423752614429327408}
   - component: {fileID: 809697355763401805}
   - component: {fileID: 280043981061256008}
-  - component: {fileID: 3678456383775756567}
+  - component: {fileID: 3923246834897630834}
+  - component: {fileID: 8097708131596529856}
   m_Layer: 0
   m_Name: Portal9_StartPosition
   m_TagString: Untagged
@@ -16483,7 +16484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portalDestination: {fileID: 4612971291594375564}
-  whichStage: 2
+  whichStage: 5
   isStartPortal: 1
 --- !u!61 &280043981061256008
 BoxCollider2D:
@@ -16530,7 +16531,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.93, y: 0.78}
   m_EdgeRadius: 0
---- !u!114 &3678456383775756567
+--- !u!114 &3923246834897630834
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16539,11 +16540,60 @@ MonoBehaviour:
   m_GameObject: {fileID: 3694398262213106646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 910dd033657d7c543b884b7964f75d10, type: 3}
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPointLightOn: 0
-  pointLight: {fileID: 0}
+  m_ComponentVersion: 1
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_LightVolumeIntensity: 1
+  m_LightVolumeIntensityEnabled: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensity: 0.75
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 2
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &8097708131596529856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3694398262213106646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f613864c0a1a51349abf99581c606bdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalLight: {fileID: 0}
 --- !u!1 &3778160736087058542
 GameObject:
   m_ObjectHideFlags: 0
@@ -35528,7 +35578,7 @@ Transform:
   m_GameObject: {fileID: 6886713146762546653}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -199, y: -162, z: 0}
+  m_LocalPosition: {x: -195, y: -156, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -43330,7 +43380,7 @@ Transform:
   m_GameObject: {fileID: 8754092508671176162}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -275, y: -159, z: 0}
+  m_LocalPosition: {x: -275, y: -151, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
