@@ -48,7 +48,7 @@ public class CaveLightOn : MonoBehaviour
         }
         else if (CameraManager.Instance.stageNum == 4)
         {
-            caveLight.shapeLightFalloffSize = 1.3f;
+            caveLight.shapeLightFalloffSize = 1f;
         }
     }
 }
