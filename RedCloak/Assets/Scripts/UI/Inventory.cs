@@ -44,14 +44,20 @@ public class Inventory : MonoBehaviour
     public void AddItem()
     {
         ItemData data = CharacterManager.Instance.Player.itemData;
-
         ItemSlot emptySlot = GetEmptySlot();
+        UIManager.Instance.itemPopup.PopupGetItem();
 
-        if(emptySlot != null )
+        if (emptySlot != null )
         {
             emptySlot.item = data;
             UpdateInventory();
             CharacterManager.Instance.Player.itemData = null;
+            return;
+        }
+
+        if(data == null)
+        {
+            Debug.Log("AddItem data is null");
             return;
         }
     }

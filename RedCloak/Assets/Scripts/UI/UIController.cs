@@ -8,7 +8,6 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject inventory;
-    //[SerializeField] private List<GameObject> settingUI;
 
     private void Start()
     {
@@ -51,6 +50,14 @@ public class UIController : MonoBehaviour
             {
                 UIManager.Instance.OpenUI(inventory);
             }
+        }
+    }
+
+    public void ClosePopup(InputAction.CallbackContext callbackContext)
+    {
+        if(callbackContext.phase == InputActionPhase.Started && UIManager.Instance.itemPopup.isContinue == true)
+        {
+            UIManager.Instance.itemPopup.ClosePopup();
         }
     }
 }
