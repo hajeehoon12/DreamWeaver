@@ -30,8 +30,16 @@ public class BlurEffect : MonoBehaviour
     {
         if (collision.collider.CompareTag(Define.PLAYER))
         {
+            if (collisionTime <= 3f)
+            {
+                isRelease = false;
+            }
+            else
+            {
+                isRelease = true;
+            }
+
             isColliding = false;
-            isRelease = true;
             collisionTime = 0f;
         }
     }
@@ -58,7 +66,7 @@ public class BlurEffect : MonoBehaviour
 
             if (releaseTime > 8f)
             {
-                AudioManager.instance.PlayPitchSFX("PlatformOn", 0.4f);
+                AudioManager.instance.PlayPitchSFX("PlatformOn", 0.2f);
                 spriteRenderer.enabled = true;
                 boxCollider.enabled = true;
                 isRelease = false;
