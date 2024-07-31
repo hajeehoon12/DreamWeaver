@@ -122,8 +122,8 @@ public class VideoSetting : MonoBehaviour
         Screen.SetResolution(resolutionOption.width, resolutionOption.height, fullScreenToggle.isOn);
     }
 
-    public void ChangeMenu()
+    public void OnClickBack()
     {
-        UIManager.Instance.ChangeMenu(videoSettingUI, optionUI);
+        UIManager.Instance.OpenUI(optionUI);
     }
 }
