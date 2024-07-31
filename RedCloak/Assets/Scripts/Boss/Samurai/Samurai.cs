@@ -599,7 +599,6 @@ public class Samurai : MonoBehaviour, IDamage
 
     void ClearAfter()
     {
-        UIBar.Instance.CallBackBossBar();
         samuraiZone.EndStageBoss();
         this.gameObject.layer = LayerMask.NameToLayer(Define.PLAYERPROJECTILE);
         SwordAuraOff();

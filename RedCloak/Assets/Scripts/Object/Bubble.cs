@@ -10,7 +10,6 @@ public class Bubble : MonoBehaviour
         {
             AudioManager.instance.PlayPitchSFX("BubblePop", 0.2f);
             gameObject.SetActive(false);
-            StartCoroutine(Regenerate());
         }
     }
 
