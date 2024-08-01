@@ -135,7 +135,7 @@ public class Wolf : MonoBehaviour, IDamage
         isPhase2 = false;
         isPhase3 = false;
 
-        transform.DOMove(new Vector3(306, -146, 0), 3f);
+        transform.DOMove(new Vector3(306, -150, 0), 3f);
         //StartCoroutine(ShockWave(3f));
         AudioManager.instance.PlayWolf("Thunder", 0.5f);
         transform.DOScale(10, 3f);

@@ -59,6 +59,12 @@ public class HolyKnight : MonoBehaviour, IDamage
         {
             LookPlayer();
         }
+
+        if (Input.GetKeyUp(KeyCode.V))
+        {
+            CallHolyStage();
+        }
+
     }
 
     void LookPlayer()
@@ -78,6 +84,66 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     }
 
+    void CallHolyStage()
+    {
+        StartCoroutine(HolyStageOn());
+    }
+
+
+    IEnumerator HolyStageOn()
+    {
+        CameraManager.Instance.MakeCameraShake(transform.position , 3f, 0.05f, 0.1f);
+        AudioManager.instance.PlaySFX("Nervous", 0.1f);
+        AudioManager.instance.StopBGM();
+        isStageStart = true;
+        CameraManager.Instance.ModifyCameraInfo(new Vector2(31, 11), new Vector2(8, -275));
+        CharacterManager.Instance.Player.controller.cantMove = true;
+        CharacterManager.Instance.Player.controller.MakeIdle();
+
+
+
+        yield return new WaitForSeconds(1f);
+        //AudioManager.instance.PlayHoly("Winter", 0.15f);
+
+        UIBar.Instance.CallBossBar("HolyKnight");
+
+        float time = 0f;
+        float totalTime = 2f;
+
+        while (time < totalTime)
+        {
+            bossHealth += (bossMaxHealth * Time.deltaTime / totalTime);
+            SetBossBar();
+            yield return new WaitForSeconds(Time.deltaTime);
+            time += Time.deltaTime;
+        }
+        AudioManager.instance.StopBGM();
+        AudioManager.instance.PlayBGM("Winter", 0.15f);
+        CharacterManager.Instance.Player.controller.cantMove = false;
+        isPhase1 = true;
+        Discrimination();
+    }
+
+    public void Discrimination()
+    {
+        if (isBossDie) return;
+
+        if (mainCoroutine != null)
+        {
+            //Debug.Log("Stop");
+            StopCoroutine(mainCoroutine);
+        }
+        //mainCoroutine = StartCoroutine(Iteration());
+    }
+
+
+
+
+
+    void SetBossBar()
+    {
+        UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, 0);
+    }
 
 
     public void GetDamage(float damage)

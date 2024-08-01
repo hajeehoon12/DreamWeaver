@@ -88,10 +88,10 @@ public class Samurai : MonoBehaviour, IDamage
             LookPlayer();
         }
 
-        if (Input.GetKeyUp(KeyCode.V))
-        {
-            door.OpenDoor();
-        }
+        //if (Input.GetKeyUp(KeyCode.V))
+        //{
+        //    door.OpenDoor();
+        //}
 
         
     }
