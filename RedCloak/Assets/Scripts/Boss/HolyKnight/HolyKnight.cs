@@ -24,7 +24,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     Animator animator;
     public GhostDash ghostDash;
 
-    private int count = 0;
+    //private int count = 0;
 
     Coroutine mainCoroutine;
     Coroutine tempCoroutine;
