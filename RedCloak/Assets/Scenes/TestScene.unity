@@ -55616,6 +55616,63 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1001 &1556420785
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6983055722796898541, guid: 9dab8d57f53083147811151d4156d003, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.720001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983055722796898541, guid: 9dab8d57f53083147811151d4156d003, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4400004
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983055722796898541, guid: 9dab8d57f53083147811151d4156d003, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983055722796898541, guid: 9dab8d57f53083147811151d4156d003, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983055722796898541, guid: 9dab8d57f53083147811151d4156d003, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983055722796898541, guid: 9dab8d57f53083147811151d4156d003, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983055722796898541, guid: 9dab8d57f53083147811151d4156d003, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983055722796898541, guid: 9dab8d57f53083147811151d4156d003, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983055722796898541, guid: 9dab8d57f53083147811151d4156d003, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983055722796898541, guid: 9dab8d57f53083147811151d4156d003, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358250869516467202, guid: 9dab8d57f53083147811151d4156d003, type: 3}
+      propertyPath: m_Name
+      value: FloorSlime1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9dab8d57f53083147811151d4156d003, type: 3}
 --- !u!1 &1635548047
 GameObject:
   m_ObjectHideFlags: 0
@@ -55993,6 +56050,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85120b8c09715424f965c419cbd9647e, type: 3}
+--- !u!1001 &1943549340
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 572810870886277507, guid: 85bc13391abc81743a89f8ef3dde65b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 572810870886277507, guid: 85bc13391abc81743a89f8ef3dde65b9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 572810870886277507, guid: 85bc13391abc81743a89f8ef3dde65b9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 572810870886277507, guid: 85bc13391abc81743a89f8ef3dde65b9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 572810870886277507, guid: 85bc13391abc81743a89f8ef3dde65b9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 572810870886277507, guid: 85bc13391abc81743a89f8ef3dde65b9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 572810870886277507, guid: 85bc13391abc81743a89f8ef3dde65b9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 572810870886277507, guid: 85bc13391abc81743a89f8ef3dde65b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 572810870886277507, guid: 85bc13391abc81743a89f8ef3dde65b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 572810870886277507, guid: 85bc13391abc81743a89f8ef3dde65b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2435982089840284852, guid: 85bc13391abc81743a89f8ef3dde65b9, type: 3}
+      propertyPath: m_Name
+      value: FloorSlime2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 85bc13391abc81743a89f8ef3dde65b9, type: 3}
 --- !u!1 &2098247063
 GameObject:
   m_ObjectHideFlags: 0
@@ -71146,6 +71260,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: YellowGolem2
       objectReference: {fileID: 0}
+    - target: {fileID: 3938703521470237942, guid: 0a88275f5a003df4dbb015859888f8c1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4732189821670763535, guid: 0a88275f5a003df4dbb015859888f8c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.06
@@ -81726,3 +81844,5 @@ SceneRoots:
   - {fileID: 2098247065}
   - {fileID: 1424917281}
   - {fileID: 4241684966558427529}
+  - {fileID: 1556420785}
+  - {fileID: 1943549340}

@@ -5,13 +5,20 @@ public class Door : MonoBehaviour
     //[SerializeField] private GameObject door;
     //[SerializeField] private Archer archerBoss;
 
-    private void OpenDoor()
+    private static readonly int isDoorOpen = Animator.StringToHash("IsDoorOpen");
+    Animator animator;
+
+    private void Awake()
     {
-        //if (archerBoss.isBossDie)
-        //{
-        //    AudioManager.instance.PlaySFX("BoxOpen", 1f);
-        //    door.SetActive(false);
-        //}
+        animator = GetComponent<Animator>();
+    }
+
+    public void OpenDoor()
+    {
+        animator.SetBool(isDoorOpen, true);
+        CameraManager.Instance.MakeCameraShake(transform.position, 4f, 0.1f, 0.1f);
+        AudioManager.instance.PlaySFX("DoorOpen", 0.2f);
+        AudioManager.instance.PlaySamurai("EarthQuake", 0.2f);
     }
 
     //private void OnTriggerEnter2D(Collider2D collision)

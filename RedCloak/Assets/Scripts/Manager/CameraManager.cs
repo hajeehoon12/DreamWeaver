@@ -179,7 +179,7 @@ public class CameraManager : MonoBehaviour
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlayBGM("Time", 0.1f);
 
-        mapSize = new Vector2(260, 120);
+        mapSize = new Vector2(266, 120);
         center = new Vector2(180, -380);
 
         Sky.gameObject.SetActive(false);

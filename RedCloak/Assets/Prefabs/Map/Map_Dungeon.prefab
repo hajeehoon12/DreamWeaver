@@ -28705,6 +28705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 501604372950089147}
   - component: {fileID: 5772917985135832338}
+  - component: {fileID: 1957080435636687217}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -28750,6 +28751,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1957080435636687217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3971213124344204670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73856c98f0d733d41a5c2253d11055ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3976257024939954600
 GameObject:
   m_ObjectHideFlags: 0
@@ -34338,8 +34351,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.00030004978, y: 0.00014996529, z: 0}
-    m_Extent: {x: 2.9903998, y: 2.99065, z: 0}
+    m_Center: {x: -0.00075006485, y: 0.0000500679, z: 0}
+    m_Extent: {x: 2.99015, y: 2.99085, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

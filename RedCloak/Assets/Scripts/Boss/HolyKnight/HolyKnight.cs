@@ -48,6 +48,35 @@ public class HolyKnight : MonoBehaviour, IDamage
         player = CharacterManager.Instance.Player;
     }
 
+    private void Start()
+    {
+        isStageStart = true;
+    }
+
+    private void Update()
+    {
+        if (isStageStart && canFlip)
+        {
+            LookPlayer();
+        }
+    }
+
+    void LookPlayer()
+    {
+        if (isBossDie) return;
+
+        if (CharacterManager.Instance.Player.transform.position.x > transform.position.x)
+        {
+            transform.localEulerAngles = Left;
+            isFlip = false;
+        }
+        else
+        {
+            transform.localEulerAngles = Right;
+            isFlip = true;
+        }
+
+    }
 
 
 
