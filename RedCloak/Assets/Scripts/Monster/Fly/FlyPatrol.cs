@@ -21,7 +21,6 @@ public class FlyPatrol : Action
 
 	public override TaskStatus OnUpdate()
     {
-        Debug.DrawRay((Vector2)transform.position + RayPosition.Value, (destination.Value - (Vector2)transform.position).normalized * RayDistance.Value, Color.red);
         return current;
     }
 
