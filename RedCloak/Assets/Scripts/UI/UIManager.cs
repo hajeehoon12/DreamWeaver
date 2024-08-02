@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
     public ItemPopup itemPopup;
+    public ChanageStage changeStage;
+    public MiniMap miniMap;
 
     public GameObject currentUI;
 

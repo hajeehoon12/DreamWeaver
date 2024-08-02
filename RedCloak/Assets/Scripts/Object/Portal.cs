@@ -41,12 +41,12 @@ public class Portal : MonoBehaviour
                     break;
             
             }
-
         }
     }
 
     private IEnumerator TeleportAfterFade()//GameObject player
     {
+        MiniMapChange();
         FadeManager.instance.FadeOut(0f);
         //yield return new WaitForSeconds(1f);
 
@@ -55,5 +55,36 @@ public class Portal : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         isStartPortal = true;
+
+        ShowStageName();
+    }
+
+    private void ShowStageName()
+    {
+        string stageName = "";
+        switch(whichStage)
+        {
+            case 1:
+                stageName = "Stage 1";
+                break;
+            case 2:
+                stageName = "Stage 2";
+                break;
+            case 3:
+                stageName = "Stage 3";
+                break;
+            default:
+                break;
+        }
+
+        if(!string.IsNullOrEmpty(stageName))
+        {
+            UIManager.Instance.changeStage.FadeInStageUI(1f, stageName);
+        }
+    }
+
+    private void MiniMapChange()
+    {
+        UIManager.Instance.miniMap.SetMinimap(whichStage);
     }
 }

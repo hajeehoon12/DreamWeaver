@@ -1,3 +1,4 @@
+using BehaviorDesigner.Runtime.Tasks.Unity.UnityGameObject;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject inventory;
+    [SerializeField] private GameObject miniMap;
 
     private void Start()
     {
@@ -58,6 +60,19 @@ public class UIController : MonoBehaviour
         if(callbackContext.phase == InputActionPhase.Started && UIManager.Instance.itemPopup.isContinue == true)
         {
             UIManager.Instance.itemPopup.ClosePopup();
+        }
+    }
+
+    public void OnMiniMap(InputAction.CallbackContext callbackContext)
+    {
+        if(miniMap.activeInHierarchy)
+        {
+            miniMap.SetActive(false);
+        }
+
+        else
+        {
+            miniMap.SetActive(true);
         }
     }
 }
