@@ -54,7 +54,7 @@ public class WolfZone : MonoBehaviour
     public void RemoveWall()
     {
         
-        CameraManager.Instance.CallStage2CameraInfo();
+        CameraManager.Instance.CallStage2CameraInfo("Wolf");
         gameObject.SetActive(false);
 
     }

@@ -431,7 +431,7 @@ public class Archer : MonoBehaviour , IDamage
         AudioManager.instance.StopBGM();
 
 
-        CameraManager.Instance.CallStage1CameraInfo();
+        CameraManager.Instance.CallStage1CameraInfo("archer");
 
         bool isGround = false;
         while (!isGround)

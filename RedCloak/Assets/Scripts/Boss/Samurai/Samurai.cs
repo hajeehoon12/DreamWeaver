@@ -607,9 +607,10 @@ public class Samurai : MonoBehaviour, IDamage
 
     void ClearAfter()
     {
-        samuraiZone.EndStageBoss();
+        samuraiZone.RemoveWall();
         this.gameObject.layer = LayerMask.NameToLayer(Define.PLAYERPROJECTILE);
         SwordAuraOff();
+        
         CameraManager.Instance.CallStage3CameraInfo();
         StartCoroutine(DoorOpen());
     }

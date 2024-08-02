@@ -168,6 +168,20 @@ public class CameraManager : MonoBehaviour
         Sky.gameObject.SetActive(true);
         Cave.gameObject.SetActive(false);
     }
+    public void CallStage1CameraInfo(string boss)
+    {
+        AudioManager.instance.StopBGM();
+        AudioManager.instance.PlayBGM("SadStory", 0.05f);
+
+        mapSize = new Vector2(220, 40);
+        center = new Vector2(70, -10);
+
+        //UIManager.Instance.changeStage.FadeInStageUI(3f, "Forest of the Beginning");
+        StartCoroutine(StageUI("Stage Boss Clear!"));
+
+        Sky.gameObject.SetActive(true);
+        Cave.gameObject.SetActive(false);
+    }
 
     public void CallStage2CameraInfo()
     {
@@ -178,6 +192,21 @@ public class CameraManager : MonoBehaviour
         center = new Vector2(120, -165);
 
         StartCoroutine(StageUI("Sky GrassLand"));
+
+        Sky.gameObject.SetActive(true);
+        Cave.gameObject.SetActive(false);
+    }
+
+    public void CallStage2CameraInfo(string boss)
+    {
+        AudioManager.instance.StopBGM();
+        AudioManager.instance.PlayBGM("Chloe", 0.10f);
+
+        mapSize = new Vector2(265, 65);
+        center = new Vector2(120, -165);
+
+        //StartCoroutine(StageUI("Sky GrassLand"));
+        StartCoroutine(StageUI("Stage Boss Clear!"));
 
         Sky.gameObject.SetActive(true);
         Cave.gameObject.SetActive(false);
@@ -200,6 +229,24 @@ public class CameraManager : MonoBehaviour
         Cave.gameObject.SetActive(true);
     }
 
+    public void CallStage3CameraInfo(string boss)
+    {
+        CharacterManager.Instance.Player.GetComponent<Light2D>().lightType = Light2D.LightType.Global;
+
+        AudioManager.instance.StopBGM();
+        AudioManager.instance.PlayBGM("Time", 0.1f);
+
+        //UIManager.Instance.changeStage.FadeInStageUI(3f, "Crystal Cave");
+        //StartCoroutine(StageUI("Crystal Cave"));
+        StartCoroutine(StageUI("Stage Boss Clear!"));
+
+        mapSize = new Vector2(266, 120);
+        center = new Vector2(180, -380);
+
+        Sky.gameObject.SetActive(false);
+        Cave.gameObject.SetActive(true);
+    }
+
     public void CallStage4CameraInfo()
     {
         CharacterManager.Instance.Player.GetComponent<Light2D>().lightType = Light2D.LightType.Global;
@@ -212,6 +259,24 @@ public class CameraManager : MonoBehaviour
 
         //UIManager.Instance.changeStage.FadeInStageUI(3f, "The Mountain");
         StartCoroutine(StageUI("The Mountain"));
+
+        Sky.gameObject.SetActive(true);
+        Cave.gameObject.SetActive(false);
+    }
+
+    public void CallStage4CameraInfo(string boss)
+    {
+        CharacterManager.Instance.Player.GetComponent<Light2D>().lightType = Light2D.LightType.Global;
+
+        AudioManager.instance.StopBGM();
+        AudioManager.instance.PlayBGM("Time", 0.1f);
+
+        mapSize = new Vector2(280, 220);
+        center = new Vector2(-350, -20);
+
+        //UIManager.Instance.changeStage.FadeInStageUI(3f, "The Mountain");
+        //StartCoroutine(StageUI("The Mountain"));
+        StartCoroutine(StageUI("Stage Boss Clear!"));
 
         Sky.gameObject.SetActive(true);
         Cave.gameObject.SetActive(false);

@@ -6,6 +6,19 @@ public class SamuraiZone : MonoBehaviour
 {
     public Samurai samurai;
     public bool enterZone = false;
+    Collider2D collider2d;
+
+    float yPos = 0;
+
+    private void Awake()
+    {
+        collider2d = GetComponent<Collider2D>();
+    }
+
+    private void Start()
+    {
+        collider2d.isTrigger = true;
+    }
 
     public void EndStageBoss()
     { 
@@ -14,12 +27,28 @@ public class SamuraiZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        yPos = collision.transform.position.y;
 
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
         if (samurai.isBossDie) return;
-        if (collision.gameObject.CompareTag("Player") && !enterZone)
+
+
+        if (collision.gameObject.CompareTag("Player") && !enterZone && yPos > collision.transform.position.y)
         {
             samurai.CallSamurai();
             enterZone = true;
+            collider2d.isTrigger = false;
         }
     }
+
+    public void RemoveWall()
+    {
+        CameraManager.Instance.CallStage3CameraInfo("Samurai");
+        gameObject.SetActive(false);
+    }
+
 }
