@@ -12,7 +12,7 @@ public class MiniMap : MonoBehaviour
 
     private void Start()
     {
-        SetMinimap(1);
+        SetMinimap(CameraManager.Instance.stageNum);
     }
 
     private void LateUpdate()
