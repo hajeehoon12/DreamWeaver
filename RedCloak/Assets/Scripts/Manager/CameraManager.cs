@@ -213,8 +213,8 @@ public class CameraManager : MonoBehaviour
         //UIManager.Instance.changeStage.FadeInStageUI(3f, "The Mountain");
         StartCoroutine(StageUI("The Mountain"));
 
-        Sky.gameObject.SetActive(false);
-        Cave.gameObject.SetActive(true);
+        Sky.gameObject.SetActive(true);
+        Cave.gameObject.SetActive(false);
     }
 
 
