@@ -110,10 +110,16 @@ public class UIBar : MonoBehaviour
         }
     }
 
-    public void UpdateMaxHP()
+    public void UpdateMaxHP(int addMaxHP)
     {
-        GameObject heartInstantiate = Instantiate(heart, heartParent.transform);
-        heartsFront.Add(heartFront);
+        GameObject heartInstantiate;
+        for (int i = 0; i < addMaxHP; i++)
+        {
+            heartInstantiate = Instantiate(heart, heartParent.transform);
+            heartFront = heartInstantiate.transform.Find("GemFront").gameObject;
+            heartsFront.Add(heartFront);
+            //heartInstantiate.transform.SetParent(heartParent.transform);
+        }
     }
 
     public void ApplyDamage()
