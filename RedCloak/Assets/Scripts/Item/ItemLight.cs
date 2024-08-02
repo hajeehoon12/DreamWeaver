@@ -13,6 +13,34 @@ public class ItemLight : MonoBehaviour
         Debug.Log("Give Player : " + RewardData.name);
         CharacterManager.Instance.Player.itemData = RewardData;
         CharacterManager.Instance.Player.addItem?.Invoke();
+
+        if (RewardData.type == ItemType.Antique)
+        {
+            switch (RewardData.itemName)
+            {
+                case "airShoes":
+                    //TODO CanMake PlayerDash
+                    break;
+                case "":
+                    break;
+                default:
+                    break;
+            
+            }
+        }
+
+        if (RewardData.type == ItemType.Health)
+        {
+            ItemManager.Instance.healthPartNum++;
+        }
+
+
+
+
+        
+        ItemManager.Instance.synchroniztion();
+        
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)

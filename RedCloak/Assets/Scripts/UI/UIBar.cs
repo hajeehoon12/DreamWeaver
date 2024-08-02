@@ -101,10 +101,10 @@ public class UIBar : MonoBehaviour
         BossBarPos.DOMoveY(-150, 1f);
     }
 
-    private void SetPlayerHealth()
+    public void SetPlayerHealth()
     {
-        //int healthCount = (int)CharacterManager.Instance.Player.stats.playerMaxHP;
-        int healthCount = 4;
+        int healthCount = (int)CharacterManager.Instance.Player.stats.playerMaxHP;
+        //int healthCount = (int)CharacterManager.Instance.Player.stats.playerHP;
         GameObject heartInstantiate;
         for(int i = 0; i < healthCount; i++)
         {

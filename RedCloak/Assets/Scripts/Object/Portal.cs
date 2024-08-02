@@ -65,17 +65,17 @@ public class Portal : MonoBehaviour
 
     private void ShowStageName()
     {
-        string stageName = "";
+        //string stageName = "";
         switch(whichStage)
         {
             case 1:
-                stageName = "Stage 1";
+                //stageName = "Stage 1";
                 break;
             case 2:
-                stageName = "Stage 2";
+                //stageName = "Stage 2";
                 break;
             case 3:
-                stageName = "Stage 3";
+                //stageName = "Stage 3";
                 break;
             default:
                 break;

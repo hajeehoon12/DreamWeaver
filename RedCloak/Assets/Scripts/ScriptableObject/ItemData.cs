@@ -5,7 +5,8 @@ public enum ItemType
 {
     Goods,
     Equip,
-    antique
+    Antique,
+    Health
 }
 [CreateAssetMenu(fileName = " Item", menuName = "New Item")]
 public class ItemData : ScriptableObject
