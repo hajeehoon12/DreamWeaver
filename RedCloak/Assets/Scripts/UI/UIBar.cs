@@ -29,11 +29,6 @@ public class UIBar : MonoBehaviour
     public List<GameObject> heartsFront = new List<GameObject>();
 
     // Start is called before the first frame update
-    private void Awake()
-    {
-        Instance = this;
-
-    }
     void Start()
     {
         BossBarPos.DOMoveY(-150, 0f);
@@ -113,6 +108,12 @@ public class UIBar : MonoBehaviour
             heartsFront.Add(heartFront);
             //heartInstantiate.transform.SetParent(heartParent.transform);
         }
+    }
+
+    public void UpdateMaxHP()
+    {
+        GameObject heartInstantiate = Instantiate(heart, heartParent.transform);
+        heartsFront.Add(heartFront);
     }
 
     public void ApplyDamage()

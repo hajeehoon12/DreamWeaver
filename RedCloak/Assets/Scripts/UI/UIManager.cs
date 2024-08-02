@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public ItemPopup itemPopup;
     public ChanageStage changeStage;
     public MiniMap miniMap;
+    public UIBar uiBar;
 
     public GameObject currentUI;
 
