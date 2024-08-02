@@ -1659,6 +1659,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 10c5f8cc39dc58e4a9f3d80130066a14, type: 3}
   - name: Save
     clip: {fileID: 8300000, guid: f0ac7bdf6d553f24a90fff1c46341990, type: 3}
+  - name: HeartUp
+    clip: {fileID: 8300000, guid: d3465e81a4fc52f46a010d8b5384bb28, type: 3}
+  - name: DoorOpen
+    clip: {fileID: 8300000, guid: e4e3b0827598aaf45b70fb68f71de21d, type: 3}
+  - name: PlatformOn
+    clip: {fileID: 8300000, guid: 27224868daeda4fbeb1647b99d0d0ddb, type: 3}
+  - name: PlatformOff
+    clip: {fileID: 8300000, guid: 92f3c515d69bb401796ca7ecf47f1e33, type: 3}
   bgm:
   - name: SadStory
     clip: {fileID: 8300000, guid: 63866d7c854dc1a4f81291c92f8f4c11, type: 3}
@@ -1676,6 +1684,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 3a7156642ee645f4da1b5edb74ec8cb8, type: 3}
   - name: StarSky
     clip: {fileID: 8300000, guid: 958c134eed26f1849a022e49b17d48e6, type: 3}
+  - name: Winter
+    clip: {fileID: 8300000, guid: 97d3ff2fc37a6b741a9a342bf7be25f0, type: 3}
   UI: []
   Wolf:
   - name: ChargeAttack
@@ -1694,6 +1704,36 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 9ba2cca52c5f7644c9e9fe80076eebf1, type: 3}
   - name: Thunder
     clip: {fileID: 8300000, guid: ca1d415e36efdca4f9b46bc3544fd71d, type: 3}
+  Samurai:
+  - name: Baldo
+    clip: {fileID: 8300000, guid: 7c0526158f0eec340a6fc5f98a2fcbfe, type: 3}
+  - name: BaldoEnd
+    clip: {fileID: 8300000, guid: 2851f7d2f5171d042af649cf85969ac6, type: 3}
+  - name: BackStepSlash
+    clip: {fileID: 8300000, guid: e07e44bdb1be9da49a66c8535bf968bc, type: 3}
+  - name: SpinBlade
+    clip: {fileID: 8300000, guid: 4914aead75280c745bd446926a204fc8, type: 3}
+  - name: CounterAttack
+    clip: {fileID: 8300000, guid: b74557e43a9fe284fb8a3d333f16cbae, type: 3}
+  - name: DefendSuccess
+    clip: {fileID: 8300000, guid: e39875060e877fe46bc881ef8fc93dd4, type: 3}
+  - name: Defense
+    clip: {fileID: 8300000, guid: e50e3fa8374c4884f94bece427232e67, type: 3}
+  - name: Boomerang
+    clip: {fileID: 8300000, guid: 43f0347ed4d7dab4cb370c20a12c23ab, type: 3}
+  - name: WindDash
+    clip: {fileID: 8300000, guid: b7da3a0c3f1926044bcb3cd4b2632c68, type: 3}
+  - name: MagicSword
+    clip: {fileID: 8300000, guid: 1b84479efcab7e6419705815c596f8c4, type: 3}
+  - name: SamuraiStage
+    clip: {fileID: 8300000, guid: 72b761f7688d57d4baadcdf87c5df25f, type: 3}
+  - name: SamuraiDie
+    clip: {fileID: 8300000, guid: 9bb904b9543d68044aac6f162fa9564c, type: 3}
+  - name: EarthQuake
+    clip: {fileID: 8300000, guid: 0ce0fdb6bde9cde4186073f8f8a8a7f2, type: 3}
+  Holy:
+  - name: Winter
+    clip: {fileID: 8300000, guid: af93db27d2d964b448dbc70f313a0980, type: 3}
   bgmPlayer: {fileID: 3854997849801399508}
   bgmPlayer2: {fileID: 5313201296594538622}
   sfxPlayer:
