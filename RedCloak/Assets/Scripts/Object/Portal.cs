@@ -81,10 +81,10 @@ public class Portal : MonoBehaviour
                 break;
         }
 
-        if(!string.IsNullOrEmpty(stageName))
-        {
-            UIManager.Instance.changeStage.FadeInStageUI(1f, stageName);
-        }
+        //if(!string.IsNullOrEmpty(stageName))
+        //{
+        //    UIManager.Instance.changeStage.FadeInStageUI(1f, stageName);
+        //}
     }
 
     private void MiniMapChange()
