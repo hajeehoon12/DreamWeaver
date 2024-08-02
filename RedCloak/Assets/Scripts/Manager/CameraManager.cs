@@ -148,6 +148,12 @@ public class CameraManager : MonoBehaviour
         center = tempCenter;
     }
 
+    IEnumerator StageUI(string name)
+    {
+        yield return new WaitForSeconds(1f);
+        UIManager.Instance.changeStage.FadeInStageUI(3f, name);
+    }
+
     public void CallStage1CameraInfo()
     {
         AudioManager.instance.StopBGM();
@@ -156,7 +162,8 @@ public class CameraManager : MonoBehaviour
         mapSize = new Vector2(220, 40);
         center = new Vector2(70, -10);
 
-        UIManager.Instance.changeStage.FadeInStageUI(3f, "Forest of the Beginning");
+        //UIManager.Instance.changeStage.FadeInStageUI(3f, "Forest of the Beginning");
+        StartCoroutine(StageUI("Forest of the Beginning"));
 
         Sky.gameObject.SetActive(true);
         Cave.gameObject.SetActive(false);
@@ -170,7 +177,7 @@ public class CameraManager : MonoBehaviour
         mapSize = new Vector2(265, 65);
         center = new Vector2(120, -165);
 
-        UIManager.Instance.changeStage.FadeInStageUI(3f, "Sky GrassLand");
+        StartCoroutine(StageUI("Sky GrassLand"));
 
         Sky.gameObject.SetActive(true);
         Cave.gameObject.SetActive(false);
@@ -183,7 +190,8 @@ public class CameraManager : MonoBehaviour
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlayBGM("Time", 0.1f);
 
-        UIManager.Instance.changeStage.FadeInStageUI(3f, "Crystal Cave");
+        //UIManager.Instance.changeStage.FadeInStageUI(3f, "Crystal Cave");
+        StartCoroutine(StageUI("Crystal Cave"));
 
         mapSize = new Vector2(266, 120);
         center = new Vector2(180, -380);
@@ -202,7 +210,8 @@ public class CameraManager : MonoBehaviour
         mapSize = new Vector2(280, 220);
         center = new Vector2(-350, -20);
 
-        UIManager.Instance.changeStage.FadeInStageUI(3f, "The Mountain");
+        //UIManager.Instance.changeStage.FadeInStageUI(3f, "The Mountain");
+        StartCoroutine(StageUI("The Mountain"));
 
         Sky.gameObject.SetActive(false);
         Cave.gameObject.SetActive(true);
