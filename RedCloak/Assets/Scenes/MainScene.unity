@@ -3925,14 +3925,6 @@ PrefabInstance:
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 4826110422572609915, guid: b71cd38855b49ff459dca211cf70852f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4826110422572609915, guid: b71cd38855b49ff459dca211cf70852f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4930090520256972792, guid: b71cd38855b49ff459dca211cf70852f, type: 3}
       propertyPath: m_Creator
       value: 
@@ -4014,6 +4006,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b71cd38855b49ff459dca211cf70852f, type: 3}
+--- !u!114 &1060297532 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3118824955062432635, guid: b71cd38855b49ff459dca211cf70852f, type: 3}
+  m_PrefabInstance: {fileID: 1060297531}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73856c98f0d733d41a5c2253d11055ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1089292824
 GameObject:
   m_ObjectHideFlags: 0
@@ -8328,6 +8331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6f225aa7be1fc4c8c786e47dae90eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holy: {fileID: 1775333348}
+  enterZone: 0
 --- !u!1 &1775333343
 GameObject:
   m_ObjectHideFlags: 0
@@ -8504,6 +8509,8 @@ MonoBehaviour:
   canFlip: 1
   isDefending: 0
   animSpeed: 1
+  zone: {fileID: 1758135442}
+  door: {fileID: 898779970}
 --- !u!1 &1784869112
 GameObject:
   m_ObjectHideFlags: 0
@@ -34912,7 +34919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5851826784669889978, guid: f706ea928c2c05044b8d03156496ae96, type: 3}
       propertyPath: stageNum
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5851826784669889978, guid: f706ea928c2c05044b8d03156496ae96, type: 3}
       propertyPath: mapSize.x
@@ -40170,7 +40177,7 @@ PrefabInstance:
     - target: {fileID: 7744592783375949890, guid: 53d9e5b4d5d69a04197021854a803011, type: 3}
       propertyPath: door
       value: 
-      objectReference: {fileID: 898779970}
+      objectReference: {fileID: 1060297532}
     - target: {fileID: 7744592783375949890, guid: 53d9e5b4d5d69a04197021854a803011, type: 3}
       propertyPath: samuraiZone
       value: 
@@ -55176,11 +55183,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34.6
+      value: 214.08
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -289.2
+      value: -163.66
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.z

@@ -39,6 +39,10 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     public float animSpeed = 1.0f;
 
+    public HolyKnightZone zone;
+
+    public Door door;
+
     Player player;
 
     private void Awake()
@@ -84,7 +88,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     }
 
-    void CallHolyStage()
+    public void CallHolyStage()
     {
         StartCoroutine(HolyStageOn());
     }
@@ -92,7 +96,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     IEnumerator HolyStageOn()
     {
-        CameraManager.Instance.MakeCameraShake(transform.position , 3f, 0.05f, 0.1f);
+        CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(5, 5, 0) , 3f, 0.05f, 0.1f);
         AudioManager.instance.PlaySFX("Nervous", 0.1f);
         AudioManager.instance.StopBGM();
         isStageStart = true;
@@ -225,6 +229,8 @@ public class HolyKnight : MonoBehaviour, IDamage
     {
         //samuraiZone.EndStageBoss();
         this.gameObject.layer = LayerMask.NameToLayer(Define.PLAYERPROJECTILE);
+        zone.RemoveWall();
+        door.OpenDoor();
         //SwordAuraOff();
         CameraManager.Instance.CallStage3CameraInfo();
     }
