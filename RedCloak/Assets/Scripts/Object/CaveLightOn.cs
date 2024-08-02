@@ -41,5 +41,14 @@ public class CaveLightOn : MonoBehaviour
     private void TurnOnCaveLight()
     {
         caveLight.lightType = Light2D.LightType.Freeform;
+
+        if (CameraManager.Instance.stageNum == 2)
+        {
+            caveLight.shapeLightFalloffSize = 0.6f;
+        }
+        else if (CameraManager.Instance.stageNum == 4)
+        {
+            caveLight.shapeLightFalloffSize = 1f;
+        }
     }
 }

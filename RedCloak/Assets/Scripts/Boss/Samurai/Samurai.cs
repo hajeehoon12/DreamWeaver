@@ -61,6 +61,8 @@ public class Samurai : MonoBehaviour, IDamage
 
     Player player;
 
+    public Door door;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -85,6 +87,12 @@ public class Samurai : MonoBehaviour, IDamage
         {
             LookPlayer();
         }
+
+        //if (Input.GetKeyUp(KeyCode.V))
+        //{
+        //    door.OpenDoor();
+        //}
+
         
     }
 
@@ -603,6 +611,13 @@ public class Samurai : MonoBehaviour, IDamage
         this.gameObject.layer = LayerMask.NameToLayer(Define.PLAYERPROJECTILE);
         SwordAuraOff();
         CameraManager.Instance.CallStage3CameraInfo();
+        StartCoroutine(DoorOpen());
+    }
+
+    IEnumerator DoorOpen()
+    {
+        yield return new WaitForSeconds(2f);
+        door.OpenDoor();
     }
 
 }

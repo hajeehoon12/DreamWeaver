@@ -40,7 +40,7 @@ public class PointLightOn : MonoBehaviour
         pointLight.pointLightOuterAngle = 360f;
         pointLight.intensity = 1.0f;
         pointLight.pointLightOuterRadius = 6f;
-        pointLight.pointLightInnerAngle = 4f;
+        pointLight.pointLightInnerRadius = 3f;
         AudioManager.instance.PlaySFX("Evil", 0.2f);
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlayBGM("WrongPlace", 0.2f);

@@ -5,12 +5,10 @@ using UnityEngine;
 public class Monster : MonoBehaviour, IDamage
 {
     public bool GetHit = false;
+    [SerializeField] private bool invincible;
     
     public float maxHealth;
     public float currentHealth;
-
-    [SerializeField] private GameObject light1Prefab;
-    [SerializeField] private GameObject light2Prefab;
 
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private Animator _animator;
@@ -39,6 +37,8 @@ public class Monster : MonoBehaviour, IDamage
 
     public void GetDamage(float damage)
     {
+        if (invincible)
+            return;
         StartCoroutine(FlashWhite());
         if (currentHealth > damage)
         {

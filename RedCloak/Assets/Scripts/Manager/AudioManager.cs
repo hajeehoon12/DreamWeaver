@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] Sound[] UI = null;
     [SerializeField] Sound[] Wolf = null;
     [SerializeField] Sound[] Samurai = null;
+    [SerializeField] Sound[] Holy = null;
 
     [SerializeField] public AudioSource bgmPlayer = null;
     [SerializeField] public AudioSource bgmPlayer2 = null;
@@ -219,6 +220,46 @@ public class AudioManager : MonoBehaviour
             }
         }
         Debug.Log("No name of Samurai :" + p_sfxName);
+        return;
+    }
+
+    public void PlayHoly(string p_sfxName)
+    {
+
+        for (int i = 0; i < sfx.Length; i++)
+        {
+            if (p_sfxName == Holy[i].name)
+            {
+                myAudioSource.PlayOneShot(Holy[i].clip);
+                return;
+            }
+        }
+        Debug.Log("No name of Holy :" + p_sfxName);
+        return;
+    }
+
+    public void PlayHoly(string p_sfxName, float _volume) // overloading
+    {
+
+        for (int i = 0; i < sfx.Length; i++)
+        {
+            if (p_sfxName == Holy[i].name)
+            {
+                for (int j = 0; j < sfxPlayer.Length; j++)
+                {
+
+                    if (!sfxPlayer[j].isPlaying)
+                    {
+                        sfxPlayer[j].clip = Holy[i].clip;
+                        sfxPlayer[j].PlayOneShot(Holy[i].clip, _volume);
+                        return;
+                    }
+                }
+                Debug.Log("All Audio Player is Used it Needs More");
+                return;
+            }
+        }
+        Debug.Log("No name of Holy :" + p_sfxName);
         return;
     }
 

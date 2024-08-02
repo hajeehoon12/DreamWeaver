@@ -179,12 +179,27 @@ public class CameraManager : MonoBehaviour
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlayBGM("Time", 0.1f);
 
-        mapSize = new Vector2(260, 120);
+        mapSize = new Vector2(266, 120);
         center = new Vector2(180, -380);
 
         Sky.gameObject.SetActive(false);
         Cave.gameObject.SetActive(true);
     }
+
+    public void CallStage4CameraInfo()
+    {
+        CharacterManager.Instance.Player.GetComponent<Light2D>().lightType = Light2D.LightType.Global;
+
+        AudioManager.instance.StopBGM();
+        AudioManager.instance.PlayBGM("Time", 0.1f);
+
+        mapSize = new Vector2(280, 220);
+        center = new Vector2(-350, -20);
+
+        Sky.gameObject.SetActive(false);
+        Cave.gameObject.SetActive(true);
+    }
+
 
     public void ChangeFOV(float fov)
     {
