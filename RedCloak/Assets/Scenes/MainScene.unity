@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 65771674}
   m_Layer: 8
   m_Name: LightCutRange
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1428,7 +1428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Holy.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Holy.Array.data[0].clip
@@ -1461,6 +1461,22 @@ PrefabInstance:
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Holy.Array.data[3].name
       value: Sigh
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Holy.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: dc6bc894e5f093245905879614903cfc, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Holy.Array.data[4].name
+      value: LightCut
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Holy.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8e31e3745a740464291c7d3a29572506, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Holy.Array.data[5].name
+      value: LightSlash
       objectReference: {fileID: 0}
     - target: {fileID: 4850818699871077568, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: m_Name
@@ -15004,7 +15020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1744892752
 Transform:
   m_ObjectHideFlags: 0
@@ -15577,7 +15593,7 @@ MonoBehaviour:
   animSpeed: 1
   zone: {fileID: 1758135442}
   door: {fileID: 898779970}
-  lightCutRange: {fileID: 0}
+  lightCutRange: {fileID: 65771672}
 --- !u!114 &1775333349
 MonoBehaviour:
   m_ObjectHideFlags: 0

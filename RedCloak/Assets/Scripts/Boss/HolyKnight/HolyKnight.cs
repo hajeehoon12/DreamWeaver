@@ -130,9 +130,9 @@ public class HolyKnight : MonoBehaviour, IDamage
         CharacterManager.Instance.Player.controller.cantMove = true;
         CharacterManager.Instance.Player.controller.MakeIdle();
 
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.6f);
         AudioManager.instance.PlayHoly("Sigh", 0.1f, 1.2f);
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.4f);
         
         //AudioManager.instance.PlayHoly("Winter", 0.15f);
 
@@ -231,10 +231,13 @@ public class HolyKnight : MonoBehaviour, IDamage
     }
 
     void LightCutSlashStart()
-    { 
+    {
+        lightCutRange.transform.localPosition = new Vector3(0, 0, 0);
         lightCutRange.SetActive(true);
-        float Dir = spriteRenderer.flipX ? -1f : 1f;
+        float Dir = isFlip ? -1f : 1f;
         lightCutRange.transform.DOMoveX(lightCutRange.transform.position.x + Dir * 15, 0.34f);
+        AudioManager.instance.PlayHoly("LightSlash", 0.1f);
+        AudioManager.instance.PlayHolyPitch("BattleCry1", 0.15f);
     }
 
     void LightCutSlashEnd()

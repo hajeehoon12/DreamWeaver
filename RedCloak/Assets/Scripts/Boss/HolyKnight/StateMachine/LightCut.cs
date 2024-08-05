@@ -13,6 +13,7 @@ public class LightCut : StateMachineBehaviour
         {
             holy = animator.GetComponent<HolyKnight>();
         }
+        AudioManager.instance.PlayHoly("LightCut", 0.1f);
         
 
     }
