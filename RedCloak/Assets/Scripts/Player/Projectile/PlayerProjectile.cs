@@ -7,13 +7,18 @@ public class PlayerProjectile : MonoBehaviour
     public float speed = 15f;
     public float hitOffset = 0f;
     public bool UseFirePointRotation;
+    public float damageRate = 1f;
     public Vector3 rotationOffset = new Vector3(0, 0, 0);
     public GameObject hit;
     public GameObject flash;
     private Rigidbody2D rb;
     public GameObject[] Detached;
+    public bool isGuided = false;
+    public float detectRange = 20f;
+    public float Mana = 5;
 
     public float projectileDuration;
+    public LayerMask enemyLayer;
 
     void Start()
     {
@@ -36,6 +41,17 @@ public class PlayerProjectile : MonoBehaviour
                 Destroy(flashInstance, flashPsParts.main.duration);
             }
         }
+
+        if (isGuided)
+        {
+            RaycastHit2D targetPos = Physics2D.CircleCast(transform.position, detectRange, Vector2.zero,0f, enemyLayer);
+            if (targetPos)
+            {
+                transform.LookAt(new Vector3(targetPos.transform.position.x, targetPos.transform.position.y + 0.5f, 0));
+            }
+        
+        }
+
         Destroy(gameObject, projectileDuration);
     }
 
@@ -64,7 +80,8 @@ public class PlayerProjectile : MonoBehaviour
             if (collision.transform.gameObject.TryGetComponent(out IDamage monster))
             {
                 AudioManager.instance.PlayPitchSFX("GreenSlash", 0.05f);
-                monster.GetDamage(CharacterManager.Instance.Player.controller.attackRate);
+                float damage = CharacterManager.Instance.Player.controller.attackRate * damageRate;
+                monster.GetDamage(damage);
             }
         }
 

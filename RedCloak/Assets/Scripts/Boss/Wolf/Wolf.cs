@@ -128,7 +128,7 @@ public class Wolf : MonoBehaviour, IDamage
         yield return new WaitForSeconds(1f);
         shockWave.gameObject.SetActive(true);
         animator.SetBool(isRun, true);
-        UIBar.Instance.CallBossBar("Thunder Wolf");
+        UIManager.Instance.uiBar.CallBossBar("Thunder Wolf");
         StartCoroutine(WolfBossStageStart());
         
         isPhase1 = true;
@@ -455,7 +455,7 @@ public class Wolf : MonoBehaviour, IDamage
 
     void SetBossBar()
     {
-        UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, 0);
+        UIManager.Instance.uiBar.SetBossBar(bossHealth, bossMaxHealth, 0);
     }
 
     public void GetDamage(float damage)
@@ -498,7 +498,7 @@ public class Wolf : MonoBehaviour, IDamage
                 //mainCoroutine = StartCoroutine(Iteration());
             }
 
-            UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, damage);
+            UIManager.Instance.uiBar.SetBossBar(bossHealth, bossMaxHealth, damage);
             StartCoroutine(ColorChanged());
         }
         else
@@ -506,7 +506,7 @@ public class Wolf : MonoBehaviour, IDamage
             if (isBossDie) return;
 
             isStageStart = false;
-            UIBar.Instance.SetBossBar(0, bossMaxHealth, bossHealth);
+            UIManager.Instance.uiBar.SetBossBar(0, bossMaxHealth, bossHealth);
             wolfZone.RainOff();
             CallDie();
             wolfCol.enabled = true;
@@ -689,7 +689,7 @@ public class Wolf : MonoBehaviour, IDamage
 
     void CallDie()
     {
-        UIBar.Instance.CallBackBossBar();
+        UIManager.Instance.uiBar.CallBackBossBar();
         gameObject.layer = LayerMask.NameToLayer(Define.DEAD);
         animator.Play("Death", -1, 0f);
   

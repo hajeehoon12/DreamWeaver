@@ -109,7 +109,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         yield return new WaitForSeconds(1f);
         //AudioManager.instance.PlayHoly("Winter", 0.15f);
 
-        UIBar.Instance.CallBossBar("HolyKnight");
+        UIManager.Instance.uiBar.CallBossBar("HolyKnight");
 
         float time = 0f;
         float totalTime = 2f;
@@ -146,7 +146,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     void SetBossBar()
     {
-        UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, 0);
+        UIManager.Instance.uiBar.SetBossBar(bossHealth, bossMaxHealth, 0);
     }
 
 
@@ -186,7 +186,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
             }
 
-            UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, damage);
+            UIManager.Instance.uiBar.SetBossBar(bossHealth, bossMaxHealth, damage);
             StartCoroutine(ColorChanged());
         }
         else
@@ -197,7 +197,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
             animator.Play("Death", -1, 0f);
             AudioManager.instance.PlaySamurai("SamuraiDie", 0.15f);
-            UIBar.Instance.SetBossBar(0, bossMaxHealth, bossHealth);
+            UIManager.Instance.uiBar.SetBossBar(0, bossMaxHealth, bossHealth);
 
             CallDie();
 

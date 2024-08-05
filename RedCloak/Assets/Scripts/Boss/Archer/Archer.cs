@@ -64,7 +64,7 @@ public class Archer : MonoBehaviour , IDamage
         AudioManager.instance.PlaySFX("Nervous", 0.1f);
 
         //DOTween.To(() => bossHealth, x => bossHealth = x, bossMaxHealth, 2);
-        UIBar.Instance.CallBossBar("Shadow of Forest");
+        UIManager.Instance.uiBar.CallBossBar("Shadow of Forest");
         StartCoroutine(ArcherBossStageStart());
         
         isPhase1 = true;
@@ -255,7 +255,7 @@ public class Archer : MonoBehaviour , IDamage
 
     void SetBossBar()
     {
-        UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, 0);
+        UIManager.Instance.uiBar.SetBossBar(bossHealth, bossMaxHealth, 0);
     }
 
     IEnumerator DoAttack()
@@ -379,13 +379,13 @@ public class Archer : MonoBehaviour , IDamage
                 Appear();
             }
 
-            UIBar.Instance.SetBossBar(bossHealth, bossMaxHealth, damage);
+            UIManager.Instance.uiBar.SetBossBar(bossHealth, bossMaxHealth, damage);
             StartCoroutine(ColorChanged());
         }
         else
         {
             if (isBossDie) return;
-            UIBar.Instance.SetBossBar(0, bossMaxHealth, bossHealth);
+            UIManager.Instance.uiBar.SetBossBar(0, bossMaxHealth, bossHealth);
             CallDie();
             archerCol.enabled = true;
         }
@@ -414,7 +414,7 @@ public class Archer : MonoBehaviour , IDamage
         //    archers[i].enabled = false;
         //}
 
-        UIBar.Instance.CallBackBossBar();
+        UIManager.Instance.uiBar.CallBackBossBar();
         animator.SetBool(isDead, true);
         isBossDie = true;
         StartCoroutine(ArcherDie());

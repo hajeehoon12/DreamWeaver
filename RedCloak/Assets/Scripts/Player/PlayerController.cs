@@ -583,7 +583,7 @@ public class PlayerController : MonoBehaviour
         
         StartCoroutine(ColorChanged());
         StartCoroutine(GetAttackedCheck());
-        UIBar.Instance.ApplyDamage();
+        UIManager.Instance.uiBar.ApplyDamage();
 
         rigid.velocity = Vector3.zero;
         transform.position += new Vector3(0, 0.3f, 0);
@@ -607,7 +607,7 @@ public class PlayerController : MonoBehaviour
 
         StartCoroutine(ColorChanged());
         StartCoroutine(GetAttackedCheck());
-        UIBar.Instance.ApplyDamage();
+        UIManager.Instance.uiBar.ApplyDamage();
 
         rigid.velocity = Vector3.zero;
         transform.position += new Vector3(0, 0.3f, 0);

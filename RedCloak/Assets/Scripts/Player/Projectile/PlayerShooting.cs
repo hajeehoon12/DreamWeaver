@@ -70,9 +70,9 @@ public class PlayerShooting : MonoBehaviour
         if (Prefab == 0) return;
         else
         {
-            if (CharacterManager.Instance.Player.stats.playerMP >= 5)
+            if (CharacterManager.Instance.Player.stats.playerMP >= Prefabs[Prefab].GetComponent<PlayerProjectile>().Mana)
             {
-                CharacterManager.Instance.Player.stats.playerMP -= 5;
+                CharacterManager.Instance.Player.stats.playerMP -= Prefabs[Prefab].GetComponent<PlayerProjectile>().Mana;
             }
             else return;
         }

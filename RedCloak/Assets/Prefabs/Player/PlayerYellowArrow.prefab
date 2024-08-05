@@ -4981,11 +4981,14 @@ MonoBehaviour:
   speed: 25
   hitOffset: 0.1
   UseFirePointRotation: 0
+  damageRate: 2
   rotationOffset: {x: 0, y: 0, z: 0}
   hit: {fileID: 1448707677214384, guid: 2036e77062e38794c8337908e546c288, type: 3}
   flash: {fileID: 0}
   Detached:
   - {fileID: 1655099193879956}
+  isGuided: 0
+  Mana: 10
   projectileDuration: 1
 --- !u!1 &1655099193879956
 GameObject:

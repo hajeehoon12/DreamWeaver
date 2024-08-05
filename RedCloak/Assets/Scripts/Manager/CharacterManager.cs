@@ -72,7 +72,7 @@ public class CharacterManager : MonoBehaviour
         
         
         Player.transform.position = SavePoint;
-        UIBar.Instance.SetCurrentHP();
+        UIManager.Instance.uiBar.SetCurrentHP();
         AudioManager.instance.PlaySFX("HeartUp", 0.2f);
         
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.TRAP), LayerMask.NameToLayer(Define.PLAYER), false);

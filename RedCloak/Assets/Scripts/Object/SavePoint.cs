@@ -11,7 +11,7 @@ public class SavePoint : MonoBehaviour, IDamage
         //CharacterManager.Instance.Player.controller.
         CharacterManager.Instance.Player.stats.playerHP = CharacterManager.Instance.Player.stats.playerMaxHP;
         CharacterManager.Instance.Player.battle.ChangeHealth(0);
-        UIBar.Instance.SetCurrentHP();
+        UIManager.Instance.uiBar.SetCurrentHP();
 
     }
 
