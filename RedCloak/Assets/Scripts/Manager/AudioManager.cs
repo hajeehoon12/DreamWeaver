@@ -263,6 +263,32 @@ public class AudioManager : MonoBehaviour
         return;
     }
 
+    public void PlayHoly(string p_sfxName, float _volume, float pitch) // overloading
+    {
+
+        for (int i = 0; i < sfx.Length; i++)
+        {
+            if (p_sfxName == Holy[i].name)
+            {
+                for (int j = 0; j < sfxPlayer.Length; j++)
+                {
+
+                    if (!sfxPlayer[j].isPlaying)
+                    {
+                        sfxPlayer[j].clip = Holy[i].clip;
+                        sfxPlayer[j].pitch = pitch;
+                        sfxPlayer[j].PlayOneShot(Holy[i].clip, _volume);
+                        return;
+                    }
+                }
+                Debug.Log("All Audio Player is Used it Needs More");
+                return;
+            }
+        }
+        Debug.Log("No name of Holy :" + p_sfxName);
+        return;
+    }
+
 
     public void PlayUI(string p_sfxName)
     {

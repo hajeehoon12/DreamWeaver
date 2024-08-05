@@ -10,6 +10,8 @@ public class HolyKnight : MonoBehaviour, IDamage
     private static readonly int notStart = Animator.StringToHash("NotStart");
     private static readonly int isStart = Animator.StringToHash("IsStart");
     private static readonly int castBuff = Animator.StringToHash("CastBuff");
+    private static readonly int dashEnd = Animator.StringToHash("DashEnd");
+    private static readonly int lightCut = Animator.StringToHash("LightCut");
 
     //private static readonly int isNextPhase = Animator.StringToHash("IsNextPhase");
     //private static readonly int isJump = Animator.StringToHash("IsJump");
@@ -59,6 +61,8 @@ public class HolyKnight : MonoBehaviour, IDamage
     public Door door;
 
     Player player;
+
+    float count = 0;
 
     private void Awake()
     {
@@ -116,18 +120,23 @@ public class HolyKnight : MonoBehaviour, IDamage
         animator.SetBool(notStart, false);
         CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(9, 7, 0) , 4f, 0.05f, 0.1f);
         AudioManager.instance.PlaySFX("Nervous", 0.1f);
+
         AudioManager.instance.StopBGM();
+        
         isStageStart = true;
         CameraManager.Instance.ModifyCameraInfo(new Vector2(31, 11), new Vector2(8, -275));
         CharacterManager.Instance.Player.controller.cantMove = true;
         CharacterManager.Instance.Player.controller.MakeIdle();
 
-
-
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
+        
+        yield return new WaitForSeconds(0.5f);
+        AudioManager.instance.PlayHoly("Sigh", 0.1f, 1.2f);
         //AudioManager.instance.PlayHoly("Winter", 0.15f);
 
         UIManager.Instance.uiBar.CallBossBar("HolyKnight");
+
+        
 
         float time = 0f;
         float totalTime = 2f;
@@ -141,10 +150,11 @@ public class HolyKnight : MonoBehaviour, IDamage
         }
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlayBGM("Winter", 0.15f);
-        CharacterManager.Instance.Player.controller.cantMove = false;
+        
         isPhase1 = true;
         animator.SetBool(castBuff, true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
+        CharacterManager.Instance.Player.controller.cantMove = false;
         Discrimination();
     }
 
@@ -157,12 +167,66 @@ public class HolyKnight : MonoBehaviour, IDamage
             //Debug.Log("Stop");
             StopCoroutine(mainCoroutine);
         }
-        //mainCoroutine = StartCoroutine(Iteration());
+        mainCoroutine = StartCoroutine(Iteration());
     }
 
+    IEnumerator Iteration()
+    {
+        canFlip = true;
+        if (isPhase1)
+        {
+            yield return new WaitForSeconds(3f);
+            //Flip();
+            switch (count % 1)
+            {
+                case 0:
+                    LightCut();
+                    break;
+                case 1:
+                    //SpecialAttack();
+                    break;
+            }
+        }
 
+        if (isPhase2)
+        {
+            yield return new WaitForSeconds(2f);
+            // Flip();
+            switch (count % 2)
+            {
+                case 0:
+                    //Attack();
+                    break;
+                case 1:
+                    //SpecialAttack();
+                    break;
+            }
+        }
 
+        if (isPhase3)
+        {
 
+            yield return new WaitForSeconds(1f);
+            //Flip();
+            switch (count % 2)
+            {
+                case 0:
+                    //Attack();
+                    break;
+                case 1:
+                    //SpecialAttack();
+                    break;
+            }
+        }
+
+        count++;
+    }
+
+    void LightCut()
+    {
+        animator.SetBool(lightCut, true);
+        Discrimination();
+    }
 
     void SetBossBar()
     {
@@ -224,6 +288,13 @@ public class HolyKnight : MonoBehaviour, IDamage
 
         }
     }
+
+    public void DashEnd()
+    {
+        animator.SetBool(dashEnd, false);
+    }
+
+
 
     void CallDie()
     {

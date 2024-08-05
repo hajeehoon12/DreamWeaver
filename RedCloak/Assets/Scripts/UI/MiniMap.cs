@@ -26,7 +26,7 @@ public class MiniMap : MonoBehaviour
 
     public void SetMinimap(int stageNum)
     {
-        Debug.Log(stageNum);
+        //Debug.Log(stageNum);
         for(int i = 0; i < miniMaps.Count; i++)
         {
             if(i == stageNum - 1)
