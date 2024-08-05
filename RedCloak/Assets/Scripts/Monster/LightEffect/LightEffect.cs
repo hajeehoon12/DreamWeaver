@@ -8,7 +8,7 @@ public class LightEffect : MonoBehaviour
 {
 
     //Transform CharacterManager.Instance.Player.pet.transform;
-    public int point { get; set; }
+    public int point{ get; set; }
     private WaitForSeconds interval = new WaitForSeconds(0.2f);
     private WaitForSeconds boundInterval = new WaitForSeconds(0.015f);
     Coroutine thisCoroutine;
@@ -85,6 +85,9 @@ public class LightEffect : MonoBehaviour
         StopCoroutine(thisCoroutine);
         StopCoroutine(boundCoroutine);
         yield return interval;
+        CharacterManager.Instance.Player.stats.playerGold += point;
+        Debug.Log("Point추가 : " + point);
+        UIManager.Instance.uiBar.UpdateGold();
         ObjectPool.Instance.ReleaseToPool(Define.OP_MonsterLight, gameObject);
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class UIManager : MonoBehaviour
     public UIBar uiBar;
 
     public GameObject currentUI;
+    
 
     private void Awake()
     {
@@ -38,6 +40,8 @@ public class UIManager : MonoBehaviour
         uiElement.SetActive(true);
         currentUI = uiElement;
     }
+
+ 
 
     public void ChangeMenu(GameObject currentUI, GameObject targetUI)
     {

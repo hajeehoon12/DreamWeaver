@@ -219,8 +219,8 @@ MonoBehaviour:
         byteData: 
         byteDataArray: 
       Version: 1.7.9
-  gizmoViewMode: 2
-  showBehaviorDesignerGizmo: 1
+  gizmoViewMode: 0
+  showBehaviorDesignerGizmo: 0
 --- !u!114 &1481901990374836356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +237,7 @@ MonoBehaviour:
   invincible: 0
   maxHealth: 50
   currentHealth: 0
+  point: 10
   _renderer: {fileID: 2629687532971380898}
   _animator: {fileID: 2421413569850921679}
   _collider: {fileID: 3638767336650548272}
@@ -288,5 +289,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controller: {fileID: 4049904939066521185}
-  spherePos: {x: 1, y: 1, z: 0}
   radius: 1.5

@@ -171,8 +171,8 @@ MonoBehaviour:
         byteData: 
         byteDataArray: 
       Version: 1.7.9
-  gizmoViewMode: 2
-  showBehaviorDesignerGizmo: 1
+  gizmoViewMode: 0
+  showBehaviorDesignerGizmo: 0
 --- !u!50 &5316648763255307562
 Rigidbody2D:
   serializedVersion: 4
@@ -251,6 +251,7 @@ MonoBehaviour:
   invincible: 0
   maxHealth: 50
   currentHealth: 0
+  point: 20
   _renderer: {fileID: 7827077251928296403}
   _animator: {fileID: 6907335573199065403}
   _collider: {fileID: 4905815361908202746}

@@ -17,6 +17,7 @@ public class UIBar : MonoBehaviour
     //[SerializeField] private Slider maxHealthBar;
     [SerializeField] private Image manaBar;
     [SerializeField] private Transform BossBarPos;
+    [SerializeField] private TMP_Text goldTxt;
     public RectTransform damageEffectRect;
     
     public static UIBar Instance;
@@ -43,7 +44,13 @@ public class UIBar : MonoBehaviour
     private void Update()
     {
         UpdateMana();
+        
         //ApplyDamage();
+    }
+
+    public void UpdateGold() // update player current Gold
+    {
+        goldTxt.text = CharacterManager.Instance.Player.stats.playerGold.ToString("N0");
     }
 
     public void SetBossBar(float currentHealth, float maxHealth, float Damage)

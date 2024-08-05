@@ -198,10 +198,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GetHit: 0
+  invincible: 0
   maxHealth: 50
   currentHealth: 0
-  light1Prefab: {fileID: 9131188216839003653, guid: 95e4150ec3bfcdf47b91bb60ecfe6518, type: 3}
-  light2Prefab: {fileID: 2643489189189102077, guid: 0ee74d7f447da28429c27628eef9b9ca, type: 3}
+  point: 10
   _renderer: {fileID: 8887699655241479755}
   _animator: {fileID: 8578248850736926307}
   _collider: {fileID: 7503181618258451548}
@@ -283,8 +283,8 @@ MonoBehaviour:
         byteData: 
         byteDataArray: 
       Version: 1.7.9
-  gizmoViewMode: 2
-  showBehaviorDesignerGizmo: 1
+  gizmoViewMode: 0
+  showBehaviorDesignerGizmo: 0
 --- !u!114 &1360337281395930065
 MonoBehaviour:
   m_ObjectHideFlags: 0
