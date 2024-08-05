@@ -6,12 +6,26 @@ using AnimationImporter.PyxelEdit;
 
 public class HolyKnight : MonoBehaviour, IDamage
 {
+    
+    private static readonly int notStart = Animator.StringToHash("NotStart");
+    private static readonly int isStart = Animator.StringToHash("IsStart");
+
+    //private static readonly int isNextPhase = Animator.StringToHash("IsNextPhase");
+    //private static readonly int isJump = Animator.StringToHash("IsJump");
+    //private static readonly int isRun = Animator.StringToHash("IsRun");
+    //private static readonly int isDashAttack = Animator.StringToHash("IsDashAttack");
+    //private static readonly int isDead = Animator.StringToHash("IsDead");
+    //private static readonly int isAttack = Animator.StringToHash("IsAttack");
+    //private static readonly int animSpeed = Animator.StringToHash("AnimSpeed");
+    //private static readonly int thunder = Animator.StringToHash("Thunder");
+
+
 
     private float bossHealth = 0;
     public float bossMaxHealth;
 
     private bool isInvincible = false;
-
+    
     public bool isPhase1 = false;
     public bool isPhase2 = false;
     public bool isPhase3 = false;
@@ -55,6 +69,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     private void Start()
     {
         isStageStart = true;
+        animator.SetBool(notStart, true);
     }
 
     private void Update()
@@ -96,6 +111,8 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     IEnumerator HolyStageOn()
     {
+        animator.SetBool(isStart, true);
+        animator.SetBool(notStart, false);
         CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(5, 5, 0) , 3f, 0.05f, 0.1f);
         AudioManager.instance.PlaySFX("Nervous", 0.1f);
         AudioManager.instance.StopBGM();
@@ -161,10 +178,13 @@ public class HolyKnight : MonoBehaviour, IDamage
             return;
         }
 
+
+
         if (bossHealth > damage)
         {
             bossHealth -= damage;
-            //Debug.Log($"남은 보스 체력 : {bossHealth}");
+            Debug.Log($"남은 보스 체력 : {bossHealth}");
+
             if (bossHealth < (bossMaxHealth * 2 / 3) && isPhase1)
             {
                 isPhase1 = false;
@@ -182,8 +202,6 @@ public class HolyKnight : MonoBehaviour, IDamage
                 isPhase3 = true;
                 isPhase2 = false;
 
-
-
             }
 
             UIManager.Instance.uiBar.SetBossBar(bossHealth, bossMaxHealth, damage);
@@ -196,7 +214,7 @@ public class HolyKnight : MonoBehaviour, IDamage
             if (isPhase3) isBossDie = true;
 
             animator.Play("Death", -1, 0f);
-            AudioManager.instance.PlaySamurai("SamuraiDie", 0.15f);
+            //AudioManager.instance.PlaySamurai("SamuraiDie", 0.15f);
             UIManager.Instance.uiBar.SetBossBar(0, bossMaxHealth, bossHealth);
 
             CallDie();

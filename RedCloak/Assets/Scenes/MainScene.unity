@@ -1349,6 +1349,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Holy.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Holy.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 06096a1bb1389f54b875b2fef5511104, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Holy.Array.data[0].name
+      value: BattleCry1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Holy.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8eabe529177493e4098e1812a8723fca, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Holy.Array.data[1].name
+      value: BattleCry2
+      objectReference: {fileID: 0}
     - target: {fileID: 4850818699871077568, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -15219,9 +15239,10 @@ GameObject:
   - component: {fileID: 1775333346}
   - component: {fileID: 1775333347}
   - component: {fileID: 1775333348}
-  m_Layer: 0
+  - component: {fileID: 1775333349}
+  m_Layer: 8
   m_Name: HolyKnight
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15377,13 +15398,29 @@ MonoBehaviour:
   isPhase3: 0
   isBossDie: 0
   isStageStart: 0
-  ghostDash: {fileID: 0}
+  ghostDash: {fileID: 1775333349}
   isFlip: 0
   canFlip: 1
   isDefending: 0
   animSpeed: 1
   zone: {fileID: 1758135442}
   door: {fileID: 898779970}
+--- !u!114 &1775333349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775333343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52c2d78efdeffa4f92308bf2802f4bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostDelay: 0.05
+  fadeDuration: 0.4
+  ghost: {fileID: 5785987680709450409, guid: 90f68a13d6bbdd947ac2357370814a78, type: 3}
+  makeGhost: 0
 --- !u!1001 &1776378780
 PrefabInstance:
   m_ObjectHideFlags: 0
