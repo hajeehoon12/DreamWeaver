@@ -12,6 +12,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     private static readonly int castBuff = Animator.StringToHash("CastBuff");
     private static readonly int dashEnd = Animator.StringToHash("DashEnd");
     private static readonly int lightCut = Animator.StringToHash("LightCut");
+    private static readonly int holySlash = Animator.StringToHash("HolySlash");
 
     //private static readonly int isNextPhase = Animator.StringToHash("IsNextPhase");
     //private static readonly int isJump = Animator.StringToHash("IsJump");
@@ -65,6 +66,8 @@ public class HolyKnight : MonoBehaviour, IDamage
     float count = 0;
 
     public GameObject lightCutRange;
+    public GameObject fog;
+    public GameObject holySlashRange;
 
     private void Awake()
     {
@@ -77,6 +80,8 @@ public class HolyKnight : MonoBehaviour, IDamage
     {
         isStageStart = true;
         animator.SetBool(notStart, true);
+        fog.SetActive(true);
+        holySlashRange.SetActive(false);
     }
 
     private void Update()
@@ -117,12 +122,13 @@ public class HolyKnight : MonoBehaviour, IDamage
 
 
     IEnumerator HolyStageOn()
-    {
+    {   
+        CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(9, 7, 0) , 4.7f, 0.05f, 0.1f);
+        AudioManager.instance.PlaySFX("Nervous", 0.1f);
+        fog.transform.DOMoveX(transform.position.x - 30, 2f);
+        yield return new WaitForSeconds(1f);
         animator.SetBool(isStart, true);
         animator.SetBool(notStart, false);
-        CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(9, 7, 0) , 4f, 0.05f, 0.1f);
-        AudioManager.instance.PlaySFX("Nervous", 0.1f);
-
         AudioManager.instance.StopBGM();
         
         isStageStart = true;
@@ -131,7 +137,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         CharacterManager.Instance.Player.controller.MakeIdle();
 
         yield return new WaitForSeconds(0.6f);
-        AudioManager.instance.PlayHoly("Sigh", 0.1f, 1.2f);
+        AudioManager.instance.PlayHoly("Sigh", 0.1f, 1.1f);
         yield return new WaitForSeconds(0.4f);
         
         //AudioManager.instance.PlayHoly("Winter", 0.15f);
@@ -141,7 +147,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         
 
         float time = 0f;
-        float totalTime = 2f;
+        float totalTime = 1.5f;
 
         while (time < totalTime)
         {
@@ -179,13 +185,13 @@ public class HolyKnight : MonoBehaviour, IDamage
         {
             yield return new WaitForSeconds(3f);
             //Flip();
-            switch (count % 1)
+            switch (count % 2)
             {
                 case 0:
                     LightCut();
                     break;
                 case 1:
-                    //SpecialAttack();
+                    HolySlash();
                     break;
             }
         }
@@ -224,12 +230,52 @@ public class HolyKnight : MonoBehaviour, IDamage
         count++;
     }
 
+    void HolySlash()
+    {
+        animator.SetBool(holySlash, true);
+       
+        
+        //transform.DOLocalMoveX(0.3f, 0.25f);
+    }
+
+    void HolySlashRangeAttack()
+    {
+        holySlashRange.SetActive(true);
+        StartCoroutine(RangeMove());
+    }
+
+    IEnumerator RangeMove()
+    {
+        AudioManager.instance.PlayHoly("SlowMotion", 0.1f);
+        yield return new WaitForSeconds(0.1f);
+        holySlashRange.transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 0), 0f);
+        holySlashRange.transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 140), 0.5f);
+    }
+
+    void HolySlashRangeEnd()
+    {
+        holySlashRange.transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 0), 0f);
+        
+    }
+
+
+    public void HolySlashEnd()
+    {
+        animator.SetBool(holySlash, false);
+        holySlashRange.SetActive(false);
+        Discrimination();
+        
+        //transform.DOLocalMoveX(0.3f, 0.25f);
+    }
+
+
+
+
     void LightCut()
     {
         animator.SetBool(lightCut, true);
         //Discrimination();
     }
-
     void LightCutSlashStart()
     {
         lightCutRange.transform.localPosition = new Vector3(0, 0, 0);
@@ -244,8 +290,16 @@ public class HolyKnight : MonoBehaviour, IDamage
     {
         lightCutRange.transform.localPosition = new Vector3(0, 0, 0);
         lightCutRange.SetActive(false);
-        
+
     }
+    public void LightCutEnd()
+    {
+        animator.SetBool(lightCut, false);
+        Discrimination();
+    }
+
+
+    
 
     void SetBossBar()
     {

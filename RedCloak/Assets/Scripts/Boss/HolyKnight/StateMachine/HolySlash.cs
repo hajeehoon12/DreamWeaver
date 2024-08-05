@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightCut : StateMachineBehaviour
+public class HolySlash : StateMachineBehaviour
 {
     HolyKnight holy;
-    //float Dir;
+    float Dir;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -13,17 +13,15 @@ public class LightCut : StateMachineBehaviour
         {
             holy = animator.GetComponent<HolyKnight>();
         }
-        AudioManager.instance.PlayHoly("LightCut", 0.1f);
-        
+        holy.canFlip = false;
+        AudioManager.instance.PlayHoly("LongBattleCry", 0.1f);
 
     }
 
 
-
-
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        holy.LightCutEnd();
+        holy.HolySlashEnd();
     }
 
 }

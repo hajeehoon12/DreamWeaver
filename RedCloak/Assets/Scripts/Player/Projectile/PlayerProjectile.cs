@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class PlayerProjectile : MonoBehaviour
 {
@@ -44,10 +45,33 @@ public class PlayerProjectile : MonoBehaviour
 
         if (isGuided)
         {
-            RaycastHit2D targetPos = Physics2D.CircleCast(transform.position, detectRange, Vector2.zero,0f, enemyLayer);
-            if (targetPos && !targetPos.transform.gameObject.CompareTag(Define.PROJECTILE))
+            Vector2 origin = transform.position;
+            RaycastHit2D[] hits = Physics2D.CircleCastAll (transform.position, detectRange, Vector2.right ,0f, enemyLayer);
+
+            Collider2D closestUnit = null;
+            float closestDistance = Mathf.Infinity;
+
+            // CircleCastAll 결과 반복 처리
+            foreach (RaycastHit2D hit in hits)
             {
-                transform.LookAt(new Vector3(targetPos.transform.position.x, targetPos.transform.position.y + 0.5f, 0));
+                // 충돌한 유닛의 Collider2D 가져오기
+                Collider2D unitCollider = hit.collider;
+
+                // 원의 중심에서 충돌 지점까지의 거리 계산
+                float distance = Vector2.Distance(origin, hit.point);
+
+                // 가장 가까운 유닛인지 확인
+                if (distance < closestDistance && Mathf.Abs(origin.y - hit.point.y) < 10)
+                {
+                    closestDistance = distance;
+                    closestUnit = unitCollider;
+                }
+            }
+
+
+            if (closestUnit && !closestUnit.transform.gameObject.CompareTag(Define.PROJECTILE))//
+            {
+                transform.LookAt(new Vector3(closestUnit.transform.position.x, closestUnit.transform.position.y + 0.5f, 0));
             }
         
         }
