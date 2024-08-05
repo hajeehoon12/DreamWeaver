@@ -8,7 +8,7 @@ public class LightEffect : MonoBehaviour
 {
 
     //Transform CharacterManager.Instance.Player.pet.transform;
-
+    public int point { get; set; }
     private WaitForSeconds interval = new WaitForSeconds(0.2f);
     private WaitForSeconds boundInterval = new WaitForSeconds(0.015f);
     Coroutine thisCoroutine;
