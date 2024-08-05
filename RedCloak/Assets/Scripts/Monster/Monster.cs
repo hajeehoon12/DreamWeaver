@@ -9,6 +9,7 @@ public class Monster : MonoBehaviour, IDamage
     
     public float maxHealth;
     public float currentHealth;
+    public int point;
 
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private Animator _animator;
@@ -62,6 +63,11 @@ public class Monster : MonoBehaviour, IDamage
         light1.transform.position = transform.position;
         light2.transform.position = transform.position + new Vector3(0, 0.5f);
         light1Particle = light1.GetComponent<ParticleSystem>();
+        if (light2.TryGetComponent<LightEffect>(out LightEffect e))
+        {
+            e.point = point;
+            Debug.Log("give light point");
+        }
         
         AudioManager.instance.PlayPitchSFX("Twinkle", 0.5f);
         light1.SetActive(true);
