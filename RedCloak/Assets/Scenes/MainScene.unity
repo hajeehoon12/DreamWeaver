@@ -15300,6 +15300,7 @@ GameObject:
   - component: {fileID: 1775333347}
   - component: {fileID: 1775333348}
   - component: {fileID: 1775333349}
+  - component: {fileID: 1775333350}
   m_Layer: 8
   m_Name: HolyKnight
   m_TagString: Monster
@@ -15487,6 +15488,33 @@ MonoBehaviour:
   fadeDuration: 0.4
   ghost: {fileID: 5785987680709450409, guid: 90f68a13d6bbdd947ac2357370814a78, type: 3}
   makeGhost: 0
+--- !u!50 &1775333350
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775333343}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 30.438133
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1001 &1776378780
 PrefabInstance:
   m_ObjectHideFlags: 0

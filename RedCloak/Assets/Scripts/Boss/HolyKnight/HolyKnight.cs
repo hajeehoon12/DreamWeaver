@@ -13,6 +13,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     private static readonly int dashEnd = Animator.StringToHash("DashEnd");
     private static readonly int lightCut = Animator.StringToHash("LightCut");
     private static readonly int holySlash = Animator.StringToHash("HolySlash");
+    private static readonly int run = Animator.StringToHash("Run");
 
     //private static readonly int isNextPhase = Animator.StringToHash("IsNextPhase");
     //private static readonly int isJump = Animator.StringToHash("IsJump");
@@ -137,7 +138,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         CharacterManager.Instance.Player.controller.MakeIdle();
 
         yield return new WaitForSeconds(0.6f);
-        AudioManager.instance.PlayHoly("Sigh", 0.1f, 1.1f);
+        AudioManager.instance.PlayHoly("Sigh", 0.07f, 1.1f);
         yield return new WaitForSeconds(0.4f);
         
         //AudioManager.instance.PlayHoly("Winter", 0.15f);
@@ -183,7 +184,9 @@ public class HolyKnight : MonoBehaviour, IDamage
         canFlip = true;
         if (isPhase1)
         {
+            animator.SetBool(run, true);
             yield return new WaitForSeconds(3f);
+            animator.SetBool(run, false);
             //Flip();
             switch (count % 2)
             {
@@ -234,8 +237,6 @@ public class HolyKnight : MonoBehaviour, IDamage
     {
         animator.SetBool(holySlash, true);
        
-        
-        //transform.DOLocalMoveX(0.3f, 0.25f);
     }
 
     void HolySlashRangeAttack()
@@ -246,16 +247,20 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     IEnumerator RangeMove()
     {
+        canFlip = true;
         AudioManager.instance.PlayHoly("SlowMotion", 0.1f);
         yield return new WaitForSeconds(0.1f);
         holySlashRange.transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 0), 0f);
         holySlashRange.transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 140), 0.5f);
+        float Dir = isFlip ? -1f : 1f;
+        transform.DOMoveX(10 * Dir + transform.position.x, 0.5f);
+        //Debug.Log("Start");
     }
 
     void HolySlashRangeEnd()
     {
         holySlashRange.transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 0), 0f);
-        
+        //Debug.Log("End");
     }
 
 
@@ -365,6 +370,11 @@ public class HolyKnight : MonoBehaviour, IDamage
     public void DashEnd()
     {
         animator.SetBool(dashEnd, false);
+    }
+
+    public void RunEnd()
+    {
+        animator.SetBool(run, false);
     }
 
 
