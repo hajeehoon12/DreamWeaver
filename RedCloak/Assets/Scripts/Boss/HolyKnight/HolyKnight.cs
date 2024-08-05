@@ -9,6 +9,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     
     private static readonly int notStart = Animator.StringToHash("NotStart");
     private static readonly int isStart = Animator.StringToHash("IsStart");
+    private static readonly int castBuff = Animator.StringToHash("CastBuff");
 
     //private static readonly int isNextPhase = Animator.StringToHash("IsNextPhase");
     //private static readonly int isJump = Animator.StringToHash("IsJump");
@@ -113,7 +114,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     {
         animator.SetBool(isStart, true);
         animator.SetBool(notStart, false);
-        CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(5, 5, 0) , 3f, 0.05f, 0.1f);
+        CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(9, 7, 0) , 4f, 0.05f, 0.1f);
         AudioManager.instance.PlaySFX("Nervous", 0.1f);
         AudioManager.instance.StopBGM();
         isStageStart = true;
@@ -142,6 +143,8 @@ public class HolyKnight : MonoBehaviour, IDamage
         AudioManager.instance.PlayBGM("Winter", 0.15f);
         CharacterManager.Instance.Player.controller.cantMove = false;
         isPhase1 = true;
+        animator.SetBool(castBuff, true);
+        yield return new WaitForSeconds(1f);
         Discrimination();
     }
 
