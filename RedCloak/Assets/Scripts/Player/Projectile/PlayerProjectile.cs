@@ -45,7 +45,7 @@ public class PlayerProjectile : MonoBehaviour
         if (isGuided)
         {
             RaycastHit2D targetPos = Physics2D.CircleCast(transform.position, detectRange, Vector2.zero,0f, enemyLayer);
-            if (targetPos)
+            if (targetPos && !targetPos.transform.gameObject.CompareTag(Define.PROJECTILE))
             {
                 transform.LookAt(new Vector3(targetPos.transform.position.x, targetPos.transform.position.y + 0.5f, 0));
             }

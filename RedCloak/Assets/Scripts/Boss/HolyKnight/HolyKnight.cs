@@ -6,12 +6,29 @@ using AnimationImporter.PyxelEdit;
 
 public class HolyKnight : MonoBehaviour, IDamage
 {
+    
+    private static readonly int notStart = Animator.StringToHash("NotStart");
+    private static readonly int isStart = Animator.StringToHash("IsStart");
+    private static readonly int castBuff = Animator.StringToHash("CastBuff");
+    private static readonly int dashEnd = Animator.StringToHash("DashEnd");
+    private static readonly int lightCut = Animator.StringToHash("LightCut");
+
+    //private static readonly int isNextPhase = Animator.StringToHash("IsNextPhase");
+    //private static readonly int isJump = Animator.StringToHash("IsJump");
+    //private static readonly int isRun = Animator.StringToHash("IsRun");
+    //private static readonly int isDashAttack = Animator.StringToHash("IsDashAttack");
+    //private static readonly int isDead = Animator.StringToHash("IsDead");
+    //private static readonly int isAttack = Animator.StringToHash("IsAttack");
+    //private static readonly int animSpeed = Animator.StringToHash("AnimSpeed");
+    //private static readonly int thunder = Animator.StringToHash("Thunder");
+
+
 
     private float bossHealth = 0;
     public float bossMaxHealth;
 
     private bool isInvincible = false;
-
+    
     public bool isPhase1 = false;
     public bool isPhase2 = false;
     public bool isPhase3 = false;
@@ -45,6 +62,10 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     Player player;
 
+    float count = 0;
+
+    public GameObject lightCutRange;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -55,6 +76,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     private void Start()
     {
         isStageStart = true;
+        animator.SetBool(notStart, true);
     }
 
     private void Update()
@@ -96,20 +118,27 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     IEnumerator HolyStageOn()
     {
-        CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(5, 5, 0) , 3f, 0.05f, 0.1f);
+        animator.SetBool(isStart, true);
+        animator.SetBool(notStart, false);
+        CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(9, 7, 0) , 4f, 0.05f, 0.1f);
         AudioManager.instance.PlaySFX("Nervous", 0.1f);
+
         AudioManager.instance.StopBGM();
+        
         isStageStart = true;
         CameraManager.Instance.ModifyCameraInfo(new Vector2(31, 11), new Vector2(8, -275));
         CharacterManager.Instance.Player.controller.cantMove = true;
         CharacterManager.Instance.Player.controller.MakeIdle();
 
-
-
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.6f);
+        AudioManager.instance.PlayHoly("Sigh", 0.1f, 1.2f);
+        yield return new WaitForSeconds(0.4f);
+        
         //AudioManager.instance.PlayHoly("Winter", 0.15f);
 
         UIManager.Instance.uiBar.CallBossBar("HolyKnight");
+
+        
 
         float time = 0f;
         float totalTime = 2f;
@@ -123,8 +152,11 @@ public class HolyKnight : MonoBehaviour, IDamage
         }
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlayBGM("Winter", 0.15f);
-        CharacterManager.Instance.Player.controller.cantMove = false;
+        
         isPhase1 = true;
+        animator.SetBool(castBuff, true);
+        yield return new WaitForSeconds(2f);
+        CharacterManager.Instance.Player.controller.cantMove = false;
         Discrimination();
     }
 
@@ -137,12 +169,83 @@ public class HolyKnight : MonoBehaviour, IDamage
             //Debug.Log("Stop");
             StopCoroutine(mainCoroutine);
         }
-        //mainCoroutine = StartCoroutine(Iteration());
+        mainCoroutine = StartCoroutine(Iteration());
     }
 
+    IEnumerator Iteration()
+    {
+        canFlip = true;
+        if (isPhase1)
+        {
+            yield return new WaitForSeconds(3f);
+            //Flip();
+            switch (count % 1)
+            {
+                case 0:
+                    LightCut();
+                    break;
+                case 1:
+                    //SpecialAttack();
+                    break;
+            }
+        }
 
+        if (isPhase2)
+        {
+            yield return new WaitForSeconds(2f);
+            // Flip();
+            switch (count % 2)
+            {
+                case 0:
+                    //Attack();
+                    break;
+                case 1:
+                    //SpecialAttack();
+                    break;
+            }
+        }
 
+        if (isPhase3)
+        {
 
+            yield return new WaitForSeconds(1f);
+            //Flip();
+            switch (count % 2)
+            {
+                case 0:
+                    //Attack();
+                    break;
+                case 1:
+                    //SpecialAttack();
+                    break;
+            }
+        }
+
+        count++;
+    }
+
+    void LightCut()
+    {
+        animator.SetBool(lightCut, true);
+        //Discrimination();
+    }
+
+    void LightCutSlashStart()
+    {
+        lightCutRange.transform.localPosition = new Vector3(0, 0, 0);
+        lightCutRange.SetActive(true);
+        float Dir = isFlip ? -1f : 1f;
+        lightCutRange.transform.DOMoveX(lightCutRange.transform.position.x + Dir * 15, 0.34f);
+        AudioManager.instance.PlayHoly("LightSlash", 0.1f);
+        AudioManager.instance.PlayHolyPitch("BattleCry1", 0.15f);
+    }
+
+    void LightCutSlashEnd()
+    {
+        lightCutRange.transform.localPosition = new Vector3(0, 0, 0);
+        lightCutRange.SetActive(false);
+        
+    }
 
     void SetBossBar()
     {
@@ -161,10 +264,13 @@ public class HolyKnight : MonoBehaviour, IDamage
             return;
         }
 
+
+
         if (bossHealth > damage)
         {
             bossHealth -= damage;
-            //Debug.Log($"남은 보스 체력 : {bossHealth}");
+            Debug.Log($"남은 보스 체력 : {bossHealth}");
+
             if (bossHealth < (bossMaxHealth * 2 / 3) && isPhase1)
             {
                 isPhase1 = false;
@@ -182,8 +288,6 @@ public class HolyKnight : MonoBehaviour, IDamage
                 isPhase3 = true;
                 isPhase2 = false;
 
-
-
             }
 
             UIManager.Instance.uiBar.SetBossBar(bossHealth, bossMaxHealth, damage);
@@ -196,13 +300,20 @@ public class HolyKnight : MonoBehaviour, IDamage
             if (isPhase3) isBossDie = true;
 
             animator.Play("Death", -1, 0f);
-            AudioManager.instance.PlaySamurai("SamuraiDie", 0.15f);
+            //AudioManager.instance.PlaySamurai("SamuraiDie", 0.15f);
             UIManager.Instance.uiBar.SetBossBar(0, bossMaxHealth, bossHealth);
 
             CallDie();
 
         }
     }
+
+    public void DashEnd()
+    {
+        animator.SetBool(dashEnd, false);
+    }
+
+
 
     void CallDie()
     {
