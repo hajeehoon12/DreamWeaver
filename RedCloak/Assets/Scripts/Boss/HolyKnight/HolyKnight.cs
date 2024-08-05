@@ -64,6 +64,8 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     float count = 0;
 
+    public GameObject lightCutRange;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -128,10 +130,10 @@ public class HolyKnight : MonoBehaviour, IDamage
         CharacterManager.Instance.Player.controller.cantMove = true;
         CharacterManager.Instance.Player.controller.MakeIdle();
 
-        yield return new WaitForSeconds(0.5f);
-        
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         AudioManager.instance.PlayHoly("Sigh", 0.1f, 1.2f);
+        yield return new WaitForSeconds(0.75f);
+        
         //AudioManager.instance.PlayHoly("Winter", 0.15f);
 
         UIManager.Instance.uiBar.CallBossBar("HolyKnight");
@@ -225,7 +227,21 @@ public class HolyKnight : MonoBehaviour, IDamage
     void LightCut()
     {
         animator.SetBool(lightCut, true);
-        Discrimination();
+        //Discrimination();
+    }
+
+    void LightCutSlashStart()
+    { 
+        lightCutRange.SetActive(true);
+        float Dir = spriteRenderer.flipX ? -1f : 1f;
+        lightCutRange.transform.DOMoveX(lightCutRange.transform.position.x + Dir * 15, 0.34f);
+    }
+
+    void LightCutSlashEnd()
+    {
+        lightCutRange.transform.localPosition = new Vector3(0, 0, 0);
+        lightCutRange.SetActive(false);
+        
     }
 
     void SetBossBar()
