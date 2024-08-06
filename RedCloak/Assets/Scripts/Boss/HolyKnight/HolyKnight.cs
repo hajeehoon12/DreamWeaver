@@ -125,8 +125,8 @@ public class HolyKnight : MonoBehaviour, IDamage
     IEnumerator HolyStageOn()
     {   
         CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(9, 7, 0) , 4.7f, 0.05f, 0.1f);
-        AudioManager.instance.PlaySFX("Nervous", 0.1f);
-        fog.transform.DOMoveX(transform.position.x - 30, 2f);
+        AudioManager.instance.PlayHoly("Choir", 0.1f);
+        fog.transform.DOMoveX(transform.position.x - 30, 4f);
         yield return new WaitForSeconds(1f);
         animator.SetBool(isStart, true);
         animator.SetBool(notStart, false);
