@@ -69,13 +69,15 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     float count = 0;
 
-    public GameObject lightCutRange;
+    public GameObject AttackRange;
+    public GameObject LightCutRange;
     public GameObject fog;
     public GameObject holySlashRange;
     public GameObject Aura;
     public GameObject GroundDust;
     public GameObject HolyCharge;
     public GameObject HolyStarExplosion;
+    public GameObject SpinSlash;
 
     public bool slashMove = false;
 
@@ -264,6 +266,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     void JumpHeavy()
     {
+        HolyCharge.SetActive(true);
         AudioManager.instance.PlayHoly("JumpDash", 0.1f);
         float Dir = isFlip ? -1f : 1f;
         animator.SetBool(jumpAttack, true);
@@ -277,16 +280,28 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     void HeavyAttackDown()
     {
+        AttackRange.SetActive(true);
         animator.SetBool(jumpAttack, false);
-        
-        AudioManager.instance.PlayHoly("HeavyAir", 0.1f);
+        HolyCharge.SetActive(false);
+        AudioManager.instance.PlayHoly("HeavyAir", 0.2f);
         transform.DOMoveY(-288.5f, 1f).SetEase(Ease.InCirc).OnComplete(()=>
         {
+            AttackRange.SetActive(false);
             AudioManager.instance.PlayHoly("OnGround", 0.1f);
             rigid.gravityScale = 1f;
-            Discrimination();
+            CreateSlash();
         }
         );
+    }
+
+    void CreateSlash()
+    {
+        float Dir = isFlip ? -1f : 1f;
+        AudioManager.instance.PlaySamurai("SpinBlade", 0.2f);
+        GameObject SpinBlade = Instantiate(SpinSlash, new Vector3(transform.position.x + Dir *2, transform.position.y, 1f), Quaternion.identity);
+        SpinBlade.transform.DOMoveX(transform.position.x + Dir * 40, 2f).SetEase(Ease.InBack).OnComplete(() => Discrimination());
+        Destroy(SpinBlade, 3);
+        //Discrimination();
     }
 
 
@@ -393,18 +408,18 @@ public class HolyKnight : MonoBehaviour, IDamage
     {
         Aura.SetActive(false);
         HolyCharge.SetActive(false);
-        lightCutRange.transform.localPosition = new Vector3(0, 0, 0);
-        lightCutRange.SetActive(true);
+        LightCutRange.transform.localPosition = new Vector3(0, 0, 0);
+        LightCutRange.SetActive(true);
         float Dir = isFlip ? -1f : 1f;
-        lightCutRange.transform.DOMoveX(lightCutRange.transform.position.x + Dir * 15, 0.34f);
+        LightCutRange.transform.DOMoveX(LightCutRange.transform.position.x + Dir * 15, 0.34f);
         AudioManager.instance.PlayHoly("LightSlash", 0.1f);
         AudioManager.instance.PlayHolyPitch("BattleCry1", 0.15f);
     }
 
     void LightCutSlashEnd()
     {
-        lightCutRange.transform.localPosition = new Vector3(0, 0, 0);
-        lightCutRange.SetActive(false);
+        LightCutRange.transform.localPosition = new Vector3(0, 0, 0);
+        LightCutRange.SetActive(false);
 
     }
     public void LightCutEnd()
