@@ -1427,8 +1427,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: bgm.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Holy.Array.size
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Monster.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: bgm.Array.data[9].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f575c935acb7bbc48ae2a5d173c8e9fd, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: bgm.Array.data[9].name
+      value: Promise
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Holy.Array.data[0].clip
@@ -1511,6 +1527,14 @@ PrefabInstance:
       value: Explosion
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: bgm.Array.data[10].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 97d3ff2fc37a6b741a9a342bf7be25f0, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: bgm.Array.data[10].name
+      value: Winter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Holy.Array.data[10].clip
       value: 
       objectReference: {fileID: 8300000, guid: d1ed05b2b1fe8ea48873965384911b78, type: 3}
@@ -1541,6 +1565,30 @@ PrefabInstance:
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Holy.Array.data[13].name
       value: HeavyAir
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Monster.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 56765e46848aa0648b7838cfad6cf0b7, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Monster.Array.data[0].name
+      value: Whip1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Monster.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f85c42c67788dbb4fbc852fdc0813723, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Monster.Array.data[1].name
+      value: Whip2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Monster.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 073cf58670a8aa843bf82c0b81eeeb98, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Monster.Array.data[2].name
+      value: GolemHit
       objectReference: {fileID: 0}
     - target: {fileID: 4850818699871077568, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: m_Name
@@ -66427,11 +66475,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 90.62396
+      value: -83.4
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -274.9
+      value: -270.1
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.z

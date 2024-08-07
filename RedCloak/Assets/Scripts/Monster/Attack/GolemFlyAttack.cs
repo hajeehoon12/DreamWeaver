@@ -12,7 +12,14 @@ public class GolemFlyAttack : MonoBehaviour, IMobAttack
 
     public bool PerformAttack()
     {
+        AudioManager.instance.PlayMonster("GolemHit", 0.1f);
         return Physics2D.CircleCast(transform.position + transform.right + transform.up, radius, Vector2.zero, 0,
             1 << LayerMask.NameToLayer(Define.PLAYER));
     }
+
+    void TelePortSound()
+    {
+        AudioManager.instance.PlayHoly("JumpDash", 0.15f);
+    }
+
 }

@@ -108,6 +108,9 @@ public class CameraManager : MonoBehaviour
             case 3:
                 CallStage3CameraInfo();
                 break;
+            case 4:
+                CallStage4CameraInfo();
+                break;
             default:
                 break;
 
@@ -162,6 +165,8 @@ public class CameraManager : MonoBehaviour
         mapSize = new Vector2(220, 40);
         center = new Vector2(70, -10);
 
+        stageNum = 1;
+
         //UIManager.Instance.changeStage.FadeInStageUI(3f, "Forest of the Beginning");
         StartCoroutine(StageUI("Forest of the Beginning"));
 
@@ -176,6 +181,7 @@ public class CameraManager : MonoBehaviour
         mapSize = new Vector2(220, 40);
         center = new Vector2(70, -10);
 
+        stageNum = 1;
         //UIManager.Instance.changeStage.FadeInStageUI(3f, "Forest of the Beginning");
         StartCoroutine(StageUI("Stage Boss Clear!"));
 
@@ -191,6 +197,8 @@ public class CameraManager : MonoBehaviour
         mapSize = new Vector2(265, 65);
         center = new Vector2(120, -165);
 
+        stageNum = 2;
+
         StartCoroutine(StageUI("Sky GrassLand"));
 
         Sky.gameObject.SetActive(true);
@@ -205,6 +213,7 @@ public class CameraManager : MonoBehaviour
         mapSize = new Vector2(265, 65);
         center = new Vector2(120, -165);
 
+        stageNum = 2;
         //StartCoroutine(StageUI("Sky GrassLand"));
         StartCoroutine(StageUI("Stage Boss Clear!"));
 
@@ -225,6 +234,8 @@ public class CameraManager : MonoBehaviour
         mapSize = new Vector2(266, 120);
         center = new Vector2(180, -380);
 
+        stageNum = 3;
+
         Sky.gameObject.SetActive(false);
         Cave.gameObject.SetActive(true);
     }
@@ -243,6 +254,8 @@ public class CameraManager : MonoBehaviour
         mapSize = new Vector2(266, 120);
         center = new Vector2(180, -380);
 
+        stageNum = 3;
+
         Sky.gameObject.SetActive(false);
         Cave.gameObject.SetActive(true);
     }
@@ -252,11 +265,12 @@ public class CameraManager : MonoBehaviour
         CharacterManager.Instance.Player.GetComponent<Light2D>().lightType = Light2D.LightType.Global;
 
         AudioManager.instance.StopBGM();
-        AudioManager.instance.PlayBGM("Time", 0.1f);
+        AudioManager.instance.PlayBGM("Promise", 0.1f);
 
         mapSize = new Vector2(280, 220);
         center = new Vector2(-350, -20);
 
+        stageNum = 4;
         //UIManager.Instance.changeStage.FadeInStageUI(3f, "The Mountain");
         StartCoroutine(StageUI("The Mountain"));
 
@@ -269,11 +283,12 @@ public class CameraManager : MonoBehaviour
         CharacterManager.Instance.Player.GetComponent<Light2D>().lightType = Light2D.LightType.Global;
 
         AudioManager.instance.StopBGM();
-        AudioManager.instance.PlayBGM("Time", 0.1f);
+        AudioManager.instance.PlayBGM("Promise", 0.1f);
 
         mapSize = new Vector2(280, 220);
         center = new Vector2(-350, -20);
 
+        stageNum = 4;
         //UIManager.Instance.changeStage.FadeInStageUI(3f, "The Mountain");
         //StartCoroutine(StageUI("The Mountain"));
         StartCoroutine(StageUI("Stage Boss Clear!"));

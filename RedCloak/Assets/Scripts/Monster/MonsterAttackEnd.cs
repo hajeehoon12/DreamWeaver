@@ -6,6 +6,8 @@ public class MonsterAttackEnd : StateMachineBehaviour
 {
     private MonsterController _controller;
     private bool init = false;
+
+
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (!init)
