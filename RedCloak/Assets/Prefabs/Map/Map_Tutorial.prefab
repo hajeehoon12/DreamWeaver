@@ -10296,7 +10296,7 @@ GameObject:
   - component: {fileID: 4679230457069936905}
   m_Layer: 9
   m_Name: Forest Wall
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29600,7 +29600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portalDestination: {fileID: 5738496258765143219}
-  whichStage: 1
+  whichStage: 4
   isStartPortal: 1
 --- !u!61 &5913586485184712790
 BoxCollider2D:
@@ -55993,7 +55993,7 @@ Transform:
   m_GameObject: {fileID: 8659542502448487239}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 118.94, y: -44.81, z: 0}
+  m_LocalPosition: {x: -65, y: 90, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
