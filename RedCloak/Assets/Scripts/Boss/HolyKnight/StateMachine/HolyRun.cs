@@ -9,6 +9,7 @@ public class HolyRun : StateMachineBehaviour
     float Dir;
     bool isWall;
     public LayerMask groundLayerMask;
+    int count = 0;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -18,14 +19,23 @@ public class HolyRun : StateMachineBehaviour
         }
         holy.canFlip = false;
         //holy.ghostDash.makeGhost = true;
-        Dir = holy.isFlip ? -1f : 1f;
+        
         //AudioManager.instance.PlayHoly("BattleCry1", 0.1f, 0.9f);
 
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       
+        Dir = holy.isFlip ? -1f : 1f;
+        if (count % 100 == 0)
+        {
+            holy.canFlip = true;
+        }
+        else
+        {
+            holy.canFlip = false;
+        }
+
         isWall = Physics2D.Raycast(holy.transform.position + new Vector3(2,0), Vector2.right * Dir, 4f, groundLayerMask);
         if (!isWall)
         {
@@ -36,7 +46,7 @@ public class HolyRun : StateMachineBehaviour
             holy.RunEnd();
             //Debug.Log("Meet wall");
         }
-
+        count++;
     }
 
 

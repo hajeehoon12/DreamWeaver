@@ -75,6 +75,8 @@ public class HolyKnight : MonoBehaviour, IDamage
     public GameObject HolyCharge;
     public GameObject HolyStarExplosion;
 
+    public bool slashMove = false;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -159,7 +161,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
         float time = 0f;
         float totalTime = 1.5f;
-
+        StartCoroutine(AuraEffect1sec());
         while (time < totalTime)
         {
             bossHealth += (bossMaxHealth * Time.deltaTime / totalTime);
@@ -167,7 +169,7 @@ public class HolyKnight : MonoBehaviour, IDamage
             yield return new WaitForSeconds(Time.deltaTime);
             time += Time.deltaTime;
         }
-        Aura.SetActive(false);
+        //Aura.SetActive(false);
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlayBGM("Winter", 0.15f);
         
@@ -176,6 +178,12 @@ public class HolyKnight : MonoBehaviour, IDamage
         yield return new WaitForSeconds(2f);
         CharacterManager.Instance.Player.controller.cantMove = false;
         Discrimination();
+    }
+
+    IEnumerator AuraEffect1sec()
+    {
+        yield return new WaitForSeconds(1f);
+        Aura.SetActive(false);
     }
 
     public void Discrimination()
@@ -277,6 +285,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     void HolySlash()
     {
+        HolyCharge.SetActive(true);
         animator.SetBool(holySlash, true);
        
     }
@@ -288,10 +297,13 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     void HolySlashRangeAttack()
     {
+        HolyCharge.SetActive(false);
         holySlashRange.SetActive(true);
         GroundDust.SetActive(false);
         StartCoroutine(RangeMove());
         HolyStarExplosion.SetActive(true);
+        ghostDash.makeGhost = true;
+        canFlip = false;
     }
 
     IEnumerator RangeMove()
@@ -302,23 +314,26 @@ public class HolyKnight : MonoBehaviour, IDamage
         holySlashRange.transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 0), 0f);
         holySlashRange.transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 140), 0.5f);
         float Dir = isFlip ? -1f : 1f;
-        transform.DOMoveX(10 * Dir + transform.position.x, 0.5f);
+        slashMove = true;
+        
         //Debug.Log("Start");
     }
 
     void HolySlashRangeEnd()
     {
-        holySlashRange.transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 0), 0f);
-        
+        holySlashRange.transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 0), 0.2f);
+        slashMove = false;
         //Debug.Log("End");
     }
 
 
     public void HolySlashEnd()
     {
+        ghostDash.makeGhost = false;
         HolyStarExplosion.SetActive(false);
         animator.SetBool(holySlash, false);
         holySlashRange.SetActive(false);
+        canFlip = true;
         Discrimination();
         
         //transform.DOLocalMoveX(0.3f, 0.25f);
@@ -330,6 +345,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     void LightCut()
     {
         animator.SetBool(lightCut, true);
+        Aura.SetActive(true);
         //Discrimination();
     }
 
@@ -340,6 +356,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     void LightCutSlashStart()
     {
+        Aura.SetActive(false);
         HolyCharge.SetActive(false);
         lightCutRange.transform.localPosition = new Vector3(0, 0, 0);
         lightCutRange.SetActive(true);

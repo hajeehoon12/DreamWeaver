@@ -5293,7 +5293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7881555165561090673, guid: 4c163cbf578bbbe45b6c2cb2cc932ccd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.052
       objectReference: {fileID: 0}
     - target: {fileID: 7881555165561090673, guid: 4c163cbf578bbbe45b6c2cb2cc932ccd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12850,6 +12850,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4638755916222760362, guid: 48474e9fd79d66f49b7b7685b8bedb13, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638755916334796552, guid: 48474e9fd79d66f49b7b7685b8bedb13, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4638755916334796552, guid: 48474e9fd79d66f49b7b7685b8bedb13, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -12865,6 +12873,10 @@ PrefabInstance:
     - target: {fileID: 4638755916334796555, guid: 48474e9fd79d66f49b7b7685b8bedb13, type: 3}
       propertyPath: m_Name
       value: Aura
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638755916334796555, guid: 48474e9fd79d66f49b7b7685b8bedb13, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4638755916334796555, guid: 48474e9fd79d66f49b7b7685b8bedb13, type: 3}
       propertyPath: m_IsActive
@@ -12884,7 +12896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638755916334796662, guid: 48474e9fd79d66f49b7b7685b8bedb13, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.019
       objectReference: {fileID: 0}
     - target: {fileID: 4638755916334796662, guid: 48474e9fd79d66f49b7b7685b8bedb13, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17686,7 +17698,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: eb6ad12e992dbd34e829096172ccba42, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -17818,6 +17830,7 @@ MonoBehaviour:
   GroundDust: {fileID: 1979494195}
   HolyCharge: {fileID: 668225829}
   HolyStarExplosion: {fileID: 179743235}
+  slashMove: 0
 --- !u!114 &1775333349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19641,15 +19654,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1659444800097601814, guid: d5f79b2a949190b4da95469201d87251, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1659444800097601814, guid: d5f79b2a949190b4da95469201d87251, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1659444800097601814, guid: d5f79b2a949190b4da95469201d87251, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1659444800097601814, guid: d5f79b2a949190b4da95469201d87251, type: 3}
       propertyPath: m_LocalPosition.x
