@@ -270,7 +270,7 @@ public class PlayerController : MonoBehaviour
             if (hits.transform.gameObject.TryGetComponent(out Rigidbody2D rigid2D))
             {
                 rigid2D.AddForce(CheckDir * new Vector2(1, 0) * rigid2D.mass * 10f, ForceMode2D.Impulse);
-                Debug.Log("hit object!!");
+                //Debug.Log("hit object!!");
                 AudioManager.instance.PlayPitchSFX("BoxHit", 0.05f);
             }
 

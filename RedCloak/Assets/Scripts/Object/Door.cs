@@ -13,6 +13,12 @@ public class Door : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        //OpenDoor();
+        animator.SetBool(isDoorOpen, true); // for the test
+    }
+
     public void OpenDoor()
     {
         animator.SetBool(isDoorOpen, true);

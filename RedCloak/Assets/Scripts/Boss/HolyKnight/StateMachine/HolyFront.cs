@@ -6,6 +6,8 @@ public class HolyFront : StateMachineBehaviour
 {
     HolyKnight holy;
     //float Dir;
+    //bool isWall;
+    //public LayerMask groundLayerMask;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -15,8 +17,11 @@ public class HolyFront : StateMachineBehaviour
         }
         holy.canFlip = false;
         AudioManager.instance.PlayHoly("BattleCry1", 0.1f, 0.9f);
+        holy.ghostDash.makeGhost = true;
 
     }
+
+
 
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

@@ -26,7 +26,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     //private static readonly int animSpeed = Animator.StringToHash("AnimSpeed");
     //private static readonly int thunder = Animator.StringToHash("Thunder");
 
-
+    public LayerMask groundLayerMask;
 
     private float bossHealth = 0;
     public float bossMaxHealth;
@@ -53,6 +53,8 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     public bool isFlip = false;
     public bool canFlip = true;
+
+    public bool isFrontDash = false;
 
     Vector3 Right = new Vector3(0, 180, 0);
     Vector3 Left = new Vector3(0, 0, 0);
@@ -142,7 +144,8 @@ public class HolyKnight : MonoBehaviour, IDamage
     {   
         Aura.SetActive(true);
         CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(9, 7, 0) , 4.7f, 0.05f, 0.1f);
-        AudioManager.instance.PlayHoly("Choir", 0.1f);
+        //
+        AudioManager.instance.PlayHoly("WindBlow", 0.1f);
         fog.transform.DOMoveX(transform.position.x - 30, 4f);
         yield return new WaitForSeconds(1f);
         animator.SetBool(isStart, true);
@@ -267,7 +270,8 @@ public class HolyKnight : MonoBehaviour, IDamage
     void JumpHeavy()
     {
         HolyCharge.SetActive(true);
-        AudioManager.instance.PlayHoly("JumpDash", 0.1f);
+        AudioManager.instance.PlayHolyPitch("LongBattleCry", 0.15f);
+        AudioManager.instance.PlayHoly("JumpDash", 0.2f);
         float Dir = isFlip ? -1f : 1f;
         animator.SetBool(jumpAttack, true);
         rigid.gravityScale = 0;
@@ -316,6 +320,8 @@ public class HolyKnight : MonoBehaviour, IDamage
         HolyStarExplosion.SetActive(true);
         GroundDust.SetActive(true);
         AudioManager.instance.PlayHoly("Explosion", 0.1f);
+        isFrontDash = true;
+        StartCoroutine(FrontAttackDuring());
     }
 
     void FrontAttackEnd()
@@ -323,11 +329,30 @@ public class HolyKnight : MonoBehaviour, IDamage
         holySlashRange.SetActive(false);
         HolyStarExplosion.SetActive(false);
         GroundDust.SetActive(false);
+        isFrontDash = false;
     }
 
+    IEnumerator FrontAttackDuring()
+    {
+        //yield return new WaitForSeconds(1f);
+        float Dir;
+        bool isWall;
+
+        while (isFrontDash)
+        {
+            Dir = isFlip ? -1f : 1f;
+            isWall = Physics2D.Raycast(transform.position + new Vector3(2, 0), Vector2.right * Dir, 4f, groundLayerMask);
+            if (!isWall)
+            {
+                transform.position += new Vector3(Dir * Time.deltaTime * 12, 0, 0);
+            }
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+    }
 
     public void FrontEnd()
     {
+        ghostDash.makeGhost = false;
         animator.SetBool(frontHeavy, false);
         Discrimination();
     }
