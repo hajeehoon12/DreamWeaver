@@ -16,7 +16,7 @@ public class HolyDash : StateMachineBehaviour
         holy.canFlip = false;
         holy.ghostDash.makeGhost = true;
         Dir = holy.isFlip ? -1f : 1f;
-        AudioManager.instance.PlayHoly("BattleCry1", 0.1f, 0.9f);
+        //AudioManager.instance.PlayHoly("BattleCry1", 0.1f, 0.9f);
 
     }
 
