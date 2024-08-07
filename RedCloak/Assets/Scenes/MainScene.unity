@@ -1428,7 +1428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Holy.Array.size
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Holy.Array.data[0].clip
@@ -1513,10 +1513,34 @@ PrefabInstance:
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Holy.Array.data[10].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 8512828ec059907409ef35dde8370b8c, type: 3}
+      objectReference: {fileID: 8300000, guid: d1ed05b2b1fe8ea48873965384911b78, type: 3}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Holy.Array.data[10].name
-      value: Choir
+      value: OnGround
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Holy.Array.data[11].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: dfc490dd9c8d85a4b802919278e853e3, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Holy.Array.data[11].name
+      value: HeavyAir
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Holy.Array.data[12].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 97bee8d49b7a56848a8c2d1105045455, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Holy.Array.data[12].name
+      value: JumpDash
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Holy.Array.data[13].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: dfc490dd9c8d85a4b802919278e853e3, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Holy.Array.data[13].name
+      value: HeavyAir
       objectReference: {fileID: 0}
     - target: {fileID: 4850818699871077568, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: m_Name
@@ -12896,7 +12920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638755916334796662, guid: 48474e9fd79d66f49b7b7685b8bedb13, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.019
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4638755916334796662, guid: 48474e9fd79d66f49b7b7685b8bedb13, type: 3}
       propertyPath: m_LocalPosition.y
@@ -51137,6 +51161,7 @@ GameObject:
   - component: {fileID: 473352806263901874}
   - component: {fileID: 8182293144551956585}
   - component: {fileID: 8182293144551956586}
+  - component: {fileID: 8182293144551956588}
   m_Layer: 0
   m_Name: SamuraiZone
   m_TagString: Untagged
@@ -66543,6 +66568,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8182293144551956588
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3321854314958359496}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1341d7ceec9aaab4c95c26980ab927b4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!199 &8341825988581182879
 ParticleSystemRenderer:
   serializedVersion: 6

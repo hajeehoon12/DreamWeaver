@@ -15,6 +15,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     private static readonly int holySlash = Animator.StringToHash("HolySlash");
     private static readonly int run = Animator.StringToHash("Run");
     private static readonly int frontHeavy = Animator.StringToHash("FrontHeavy");
+    private static readonly int jumpAttack = Animator.StringToHash("JumpAttack");
 
     //private static readonly int isNextPhase = Animator.StringToHash("IsNextPhase");
     //private static readonly int isJump = Animator.StringToHash("IsJump");
@@ -41,6 +42,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     public bool isStageStart = false;
 
     SpriteRenderer spriteRenderer;
+    Rigidbody2D rigid;
     Animator animator;
     public GhostDash ghostDash;
 
@@ -82,6 +84,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         player = CharacterManager.Instance.Player;
+        rigid = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
@@ -207,16 +210,20 @@ public class HolyKnight : MonoBehaviour, IDamage
             yield return new WaitForSeconds(3f);
             animator.SetBool(run, false);
             //Flip();
-            switch (count % 3)
+            switch (count % 4)
             {
                 case 0:
-                    LightCut();
+                    JumpHeavy();
+                    
                     break;
                 case 1:
                     HolySlash();
                     break;
                 case 2:
                     FrontHeavy();
+                    break;
+                case 3:
+                    LightCut();
                     break;
             }
         }
@@ -254,6 +261,34 @@ public class HolyKnight : MonoBehaviour, IDamage
 
         count++;
     }
+
+    void JumpHeavy()
+    {
+        AudioManager.instance.PlayHoly("JumpDash", 0.1f);
+        float Dir = isFlip ? -1f : 1f;
+        animator.SetBool(jumpAttack, true);
+        rigid.gravityScale = 0;
+        transform.DOMove(new Vector3(player.transform.position.x - Dir * 2f , player.transform.position.y + 12f, 1), 0.75f).OnComplete(()=>
+        {
+            HeavyAttackDown();        
+        }
+        );
+    }
+
+    void HeavyAttackDown()
+    {
+        animator.SetBool(jumpAttack, false);
+        
+        AudioManager.instance.PlayHoly("HeavyAir", 0.1f);
+        transform.DOMoveY(-288.5f, 1f).SetEase(Ease.InCirc).OnComplete(()=>
+        {
+            AudioManager.instance.PlayHoly("OnGround", 0.1f);
+            rigid.gravityScale = 1f;
+            Discrimination();
+        }
+        );
+    }
+
 
     void FrontHeavy()
     {
