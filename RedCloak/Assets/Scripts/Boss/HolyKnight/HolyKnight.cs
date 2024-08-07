@@ -287,7 +287,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         AttackRange.SetActive(true);
         animator.SetBool(jumpAttack, false);
         HolyCharge.SetActive(false);
-        AudioManager.instance.PlayHoly("HeavyAir", 0.2f);
+        StartCoroutine(HeavyAttackSound());
         transform.DOMoveY(-288.5f, 1f).SetEase(Ease.InCirc).OnComplete(()=>
         {
             AttackRange.SetActive(false);
@@ -296,6 +296,12 @@ public class HolyKnight : MonoBehaviour, IDamage
             CreateSlash();
         }
         );
+    }
+
+    IEnumerator HeavyAttackSound()
+    {
+        yield return new WaitForSeconds(0.15f);
+        AudioManager.instance.PlayHoly("HeavyAir", 0.2f);
     }
 
     void CreateSlash()

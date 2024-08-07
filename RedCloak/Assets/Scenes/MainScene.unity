@@ -1432,7 +1432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Holy.Array.size
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Monster.Array.size
@@ -1529,10 +1529,10 @@ PrefabInstance:
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: bgm.Array.data[10].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 97d3ff2fc37a6b741a9a342bf7be25f0, type: 3}
+      objectReference: {fileID: 8300000, guid: f575c935acb7bbc48ae2a5d173c8e9fd, type: 3}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: bgm.Array.data[10].name
-      value: Winter
+      value: Promise
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Holy.Array.data[10].clip
@@ -1561,10 +1561,18 @@ PrefabInstance:
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Holy.Array.data[13].clip
       value: 
-      objectReference: {fileID: 8300000, guid: dfc490dd9c8d85a4b802919278e853e3, type: 3}
+      objectReference: {fileID: 8300000, guid: 02fe2f52f15222c45914fb564f9fd78e, type: 3}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Holy.Array.data[13].name
-      value: HeavyAir
+      value: WindBlow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Holy.Array.data[14].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 97bee8d49b7a56848a8c2d1105045455, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Holy.Array.data[14].name
+      value: JumpDash
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Monster.Array.data[0].clip
@@ -17882,6 +17890,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793c85049c328aa4f973123ea0688d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   bossMaxHealth: 600
   isPhase1: 0
   isPhase2: 0
@@ -17891,6 +17902,7 @@ MonoBehaviour:
   ghostDash: {fileID: 1775333349}
   isFlip: 0
   canFlip: 1
+  isFrontDash: 0
   isDefending: 0
   animSpeed: 1
   zone: {fileID: 1758135442}
