@@ -17,7 +17,7 @@ public class HolyFront : StateMachineBehaviour
         }
         holy.canFlip = false;
         AudioManager.instance.PlayHoly("BattleCry1", 0.1f, 0.9f);
-        holy.ghostDash.makeGhost = true;
+        
 
     }
 

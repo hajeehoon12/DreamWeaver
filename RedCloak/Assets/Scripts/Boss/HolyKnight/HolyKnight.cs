@@ -321,6 +321,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         GroundDust.SetActive(true);
         AudioManager.instance.PlayHoly("Explosion", 0.1f);
         isFrontDash = true;
+        ghostDash.makeGhost = true;
         StartCoroutine(FrontAttackDuring());
     }
 
@@ -344,7 +345,7 @@ public class HolyKnight : MonoBehaviour, IDamage
             isWall = Physics2D.Raycast(transform.position + new Vector3(2, 0), Vector2.right * Dir, 4f, groundLayerMask);
             if (!isWall)
             {
-                transform.position += new Vector3(Dir * Time.deltaTime * 12, 0, 0);
+                transform.position += new Vector3(Dir * Time.deltaTime * 30, 0, 0);
             }
             yield return new WaitForSeconds(Time.deltaTime);
         }
@@ -384,7 +385,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     IEnumerator RangeMove()
     {
         canFlip = true;
-        AudioManager.instance.PlayHoly("SlowMotion", 0.1f);
+        AudioManager.instance.PlayHoly("SlowMotion", 0.25f);
         yield return new WaitForSeconds(0.1f);
         holySlashRange.transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 0), 0f);
         holySlashRange.transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, 140), 0.5f);
