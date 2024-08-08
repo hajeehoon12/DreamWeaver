@@ -108,6 +108,7 @@ AnimatorState:
   - {fileID: -4323327355949940971}
   - {fileID: 6289050913162854406}
   - {fileID: 5632189897188315903}
+  - {fileID: -6782671494632610066}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -196,6 +197,31 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &-6782671494632610066
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: BackDash
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 6437711009722500908}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.01
+  m_TransitionOffset: 0
+  m_ExitTime: 0.5098039
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!114 &-6470037875300052604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -614,6 +640,18 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-2748585003523281779
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16d43ba3e993f4468c6680b262efab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1102 &-2748478763154795505
 AnimatorState:
   serializedVersion: 6
@@ -729,6 +767,7 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
+  - {fileID: 1546384415670623560}
   - {fileID: 4996918499418993772}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
@@ -809,7 +848,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -8060198328689424817}
-    m_Position: {x: 170, y: 230, z: 0}
+    m_Position: {x: 810, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8562158762183506203}
     m_Position: {x: -109.28595, y: 322.96027, z: 0}
@@ -842,7 +881,7 @@ AnimatorStateMachine:
     m_Position: {x: 480, y: 70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6437711009722500908}
-    m_Position: {x: 1190, y: 260, z: 0}
+    m_Position: {x: 1450, y: 420, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4907819736768418065}
     m_Position: {x: 980, y: 150, z: 0}
@@ -866,22 +905,22 @@ AnimatorStateMachine:
     m_Position: {x: 1380, y: 150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1705266768019535011}
-    m_Position: {x: 910, y: 330, z: 0}
+    m_Position: {x: 860, y: 320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3140083095697217006}
     m_Position: {x: 1180, y: 580, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4266163883887807564}
-    m_Position: {x: 910, y: 440, z: 0}
+    m_Position: {x: 750, y: 470, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1550868805697783178}
     m_Position: {x: 1360, y: -20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6349034123101734666}
-    m_Position: {x: 1220, y: 440, z: 0}
+    m_Position: {x: 1210, y: 420, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1186046624300172811}
-    m_Position: {x: 1225.7417, y: 719.8197, z: 0}
+    m_Position: {x: 1000, y: 410, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8041840407311703853}
     m_Position: {x: 1239.3643, y: 646.25714, z: 0}
@@ -990,6 +1029,24 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: Death
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: AirAttack
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: BackDash
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1079,8 +1136,10 @@ AnimatorState:
   m_Name: AirAtkCombo
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
+  m_Transitions:
+  - {fileID: 7856218419947615753}
+  m_StateMachineBehaviours:
+  - {fileID: -2748585003523281779}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1123,6 +1182,31 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &1546384415670623560
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: AirAttack
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 1186046624300172811}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.01
+  m_TransitionOffset: 0
+  m_ExitTime: 1
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &1809416192433957635
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1131,6 +1215,31 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 0}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 1
+  serializedVersion: 3
+  m_TransitionDuration: 0.01
+  m_TransitionOffset: 0
+  m_ExitTime: 1
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &2857902696148645788
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: BackDash
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 0}
   m_Solo: 0
@@ -1401,7 +1510,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: AirAttack
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4266163883887807564}
   m_Solo: 0
@@ -1466,6 +1578,18 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &5709321921190143459
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 363c0567764ee364d8233188b86034d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1101 &6289050913162854406
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1527,8 +1651,10 @@ AnimatorState:
   m_Name: BackDash
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
+  m_Transitions:
+  - {fileID: 2857902696148645788}
+  m_StateMachineBehaviours:
+  - {fileID: 5709321921190143459}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1669,6 +1795,28 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &7856218419947615753
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 4266163883887807564}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.73118275
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1102 &8041840407311703853
 AnimatorState:
   serializedVersion: 6

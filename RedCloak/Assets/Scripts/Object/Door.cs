@@ -8,6 +8,8 @@ public class Door : MonoBehaviour
     private static readonly int isDoorOpen = Animator.StringToHash("IsDoorOpen");
     Animator animator;
 
+    public bool cameraHold = false;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -22,9 +24,13 @@ public class Door : MonoBehaviour
     public void OpenDoor()
     {
         animator.SetBool(isDoorOpen, true);
-        CameraManager.Instance.MakeCameraShake(transform.position, 4f, 0.1f, 0.1f);
-        AudioManager.instance.PlaySFX("DoorOpen", 0.2f);
-        AudioManager.instance.PlaySamurai("EarthQuake", 0.2f);
+
+        if (cameraHold)
+        {
+            CameraManager.Instance.MakeCameraShake(transform.position, 4f, 0.1f, 0.1f);
+            AudioManager.instance.PlaySFX("DoorOpen", 0.2f);
+            AudioManager.instance.PlaySamurai("EarthQuake", 0.2f);
+        }
     }
 
     //private void OnTriggerEnter2D(Collider2D collision)

@@ -62,6 +62,8 @@ public class Samurai : MonoBehaviour, IDamage
     Player player;
 
     public Door door;
+    public Door door1;
+    public Door door2;
 
     private void Awake()
     {
@@ -619,6 +621,8 @@ public class Samurai : MonoBehaviour, IDamage
     {
         yield return new WaitForSeconds(2f);
         door.OpenDoor();
+        door1.OpenDoor();
+        door2.OpenDoor();
     }
 
 }

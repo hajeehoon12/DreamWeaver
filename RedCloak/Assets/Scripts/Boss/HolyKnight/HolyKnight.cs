@@ -17,6 +17,8 @@ public class HolyKnight : MonoBehaviour, IDamage
     private static readonly int frontHeavy = Animator.StringToHash("FrontHeavy");
     private static readonly int jumpAttack = Animator.StringToHash("JumpAttack");
     private static readonly int block = Animator.StringToHash("Block");
+    private static readonly int airAttack = Animator.StringToHash("AirAttack");
+    private static readonly int backDash = Animator.StringToHash("BackDash");
 
     //private static readonly int isNextPhase = Animator.StringToHash("IsNextPhase");
     //private static readonly int isJump = Animator.StringToHash("IsJump");
@@ -81,6 +83,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     public GameObject HolyCharge;
     public GameObject HolyStarExplosion;
     public GameObject SpinSlash;
+    public GameObject HolyRapid;
 
     public bool slashMove = false;
 
@@ -247,9 +250,11 @@ public class HolyKnight : MonoBehaviour, IDamage
             switch (count % 2)
             {
                 case 0:
+                    JumpHeavy();
                     //Attack();
                     break;
                 case 1:
+                    BackDash();
                     //SpecialAttack();
                     break;
             }
@@ -288,6 +293,13 @@ public class HolyKnight : MonoBehaviour, IDamage
     void JumpHeavy()
     {
         HolyCharge.SetActive(true);
+
+        if (isPhase1)
+        {
+            animator.SetBool(airAttack, false);
+        }
+        else animator.SetBool(airAttack, true);
+
         AudioManager.instance.PlayHolyPitch("LongBattleCry", 0.15f);
         AudioManager.instance.PlayHoly("JumpDash", 0.2f);
         float Dir = isFlip ? -1f : 1f;
@@ -295,12 +307,53 @@ public class HolyKnight : MonoBehaviour, IDamage
         rigid.gravityScale = 0;
         transform.DOMove(new Vector3(player.transform.position.x - Dir * 2f , player.transform.position.y + 12f, 1), 0.75f).OnComplete(()=>
         {
-            HeavyAttackDown();        
+            if (CameraManager.Instance.stageNum == 4)
+            {
+                HeavyAttackDown();
+            }
+            else
+            {
+                AirAttack();
+            }
         }
         );
     }
 
-    void HeavyAttackDown()
+    void BackDash()
+    {
+        animator.SetBool(backDash, true);
+
+    }
+
+    public void DisAppear()
+    {
+        spriteRenderer.DOFade(0, 1f).OnComplete(() => StageClear());
+    }
+
+    public void EndBackDash()
+    {
+        animator.SetBool(backDash, false);
+    }
+
+
+    void AirAttack()
+    {
+        AudioManager.instance.PlayHoly("DoubleAttack", 0.05f);
+        animator.SetBool(airAttack, true);
+        animator.SetBool(jumpAttack, false);
+        //HeavyAttackDown();
+    }
+
+    void AirRapidSlash()
+    {
+        AudioManager.instance.PlayHoly("Rapid", 0.1f);
+        AttackRange.SetActive(true);
+        float Dir = isFlip ? -1f : 1f;
+        GameObject blueRapid = Instantiate(HolyRapid, transform.position + new Vector3(Dir * 2, 1, 0), Quaternion.identity);
+        blueRapid.transform.LookAt(CharacterManager.Instance.Player.transform.position);
+    }
+
+    public void HeavyAttackDown()
     {
         AttackRange.SetActive(true);
         animator.SetBool(jumpAttack, false);
@@ -523,6 +576,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
             if (bossHealth < (bossMaxHealth * 1 / 3) && isPhase2)
             {
+                count = 0;
                 isPhase1 = false;
                 isPhase3 = true;
                 isPhase2 = false;
@@ -557,7 +611,14 @@ public class HolyKnight : MonoBehaviour, IDamage
         animator.SetBool(run, false);
     }
 
-
+    void StageClear()
+    {
+        door.OpenDoor();
+        zone.RemoveWall();
+        this.gameObject.layer = LayerMask.NameToLayer(Define.PLAYERPROJECTILE);
+        UIManager.Instance.uiBar.CallBackBossBar();
+        CameraManager.Instance.CallStage3CameraInfo("HolyKnight");
+    }
 
     void CallDie()
     {
@@ -585,7 +646,8 @@ public class HolyKnight : MonoBehaviour, IDamage
         //samuraiZone.EndStageBoss();
         this.gameObject.layer = LayerMask.NameToLayer(Define.PLAYERPROJECTILE);
         zone.RemoveWall();
-        door.OpenDoor();
+        //door.OpenDoor();
+        UIManager.Instance.uiBar.CallBackBossBar();
         //SwordAuraOff();
         CameraManager.Instance.CallStage3CameraInfo();
     }

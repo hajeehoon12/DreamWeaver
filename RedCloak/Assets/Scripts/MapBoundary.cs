@@ -19,6 +19,11 @@ public class MapBoundary : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer(Define.PLAYER))
         {
+            if (StartStage == 0)
+            {
+                Debug.Log("Do Initiate");
+            }
+
             switch (EndStage)
             {
                 case 0:
