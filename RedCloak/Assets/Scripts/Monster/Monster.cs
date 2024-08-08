@@ -66,7 +66,7 @@ public class Monster : MonoBehaviour, IDamage
         if (light2.TryGetComponent<LightEffect>(out LightEffect e))
         {
             e.point = point;
-            Debug.Log("give light point");
+            //Debug.Log("give light point");
         }
         
         AudioManager.instance.PlayPitchSFX("Twinkle", 0.5f);
