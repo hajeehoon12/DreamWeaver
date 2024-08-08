@@ -465,7 +465,7 @@ public class Wolf : MonoBehaviour, IDamage
         if (bossHealth > damage)
         {
             bossHealth -= damage;
-            Debug.Log($"남은 보스 체력 : {bossHealth}");
+            //Debug.Log($"남은 보스 체력 : {bossHealth}");
             if (bossHealth < (bossMaxHealth * 2 / 3) && isPhase1)
             {
                 isPhase1 = false;

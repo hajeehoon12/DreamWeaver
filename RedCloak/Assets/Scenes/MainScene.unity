@@ -1513,7 +1513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Monster.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: bgm.Array.data[9].clip
@@ -1706,6 +1706,14 @@ PrefabInstance:
     - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: Monster.Array.data[2].name
       value: GolemHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Monster.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: b902eea730328434884fa3a55552d773, type: 3}
+    - target: {fileID: 4493847060296076376, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
+      propertyPath: Monster.Array.data[3].name
+      value: GolemGround
       objectReference: {fileID: 0}
     - target: {fileID: 4850818699871077568, guid: 7be2fba8e1861434c8f0f661b6ed8e9d, type: 3}
       propertyPath: m_Name
@@ -19468,6 +19476,7 @@ MonoBehaviour:
   SpinSlash: {fileID: 4648022268782823554, guid: 481ec1a7f7f40804fad6a91a811a1c39, type: 3}
   HolyRapid: {fileID: 1580133494715678, guid: da5407d642f535e4095421da65ac566e, type: 3}
   slashMove: 0
+  TempStage: 0
 --- !u!114 &1775333349
 MonoBehaviour:
   m_ObjectHideFlags: 0

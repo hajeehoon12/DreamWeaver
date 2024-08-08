@@ -22,6 +22,7 @@ public class GolemGroundAttack : MonoBehaviour, IMobAttack
     {
         if(effect.activeInHierarchy)
             effect.SetActive(false);
+        AudioManager.instance.PlayMonsterPitch("GolemGround", 0.1f);
         effect.SetActive(true);
         return false;
     }

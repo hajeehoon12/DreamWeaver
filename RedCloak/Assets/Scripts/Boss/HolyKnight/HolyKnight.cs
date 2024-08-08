@@ -86,6 +86,9 @@ public class HolyKnight : MonoBehaviour, IDamage
     public GameObject HolyRapid;
 
     public bool slashMove = false;
+    public bool TempStage = false;
+
+    
 
     private void Awake()
     {
@@ -145,7 +148,11 @@ public class HolyKnight : MonoBehaviour, IDamage
 
 
     IEnumerator HolyStageOn()
-    {   
+    {
+        if (CameraManager.Instance.stageNum == 3)
+        {
+            TempStage = true;
+        }
         Aura.SetActive(true);
         CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(9, 7, 0) , 4.7f, 0.05f, 0.1f);
         //
@@ -245,11 +252,17 @@ public class HolyKnight : MonoBehaviour, IDamage
 
         if (isPhase2)
         {
-            yield return new WaitForSeconds(2f);
+            if (!TempStage)
+            {
+                animator.SetBool(run, true);
+                yield return new WaitForSeconds(2f);
+                animator.SetBool(run, false);
+            }
             // Flip();
-            switch (count % 3)
+            switch (count % 2)
             {
                 case 0:
+                   
                     JumpHeavy();
                     //Attack();
                     break;
@@ -314,7 +327,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         rigid.gravityScale = 0;
         transform.DOMove(new Vector3(player.transform.position.x - Dir * 2f , player.transform.position.y + 12f, 1), 0.75f).OnComplete(()=>
         {
-            if (CameraManager.Instance.stageNum == 4)
+            if (isPhase1)
             {
                 HeavyAttackDown();
             }
@@ -330,7 +343,8 @@ public class HolyKnight : MonoBehaviour, IDamage
     {
         if (CameraManager.Instance.stageNum != 4)
         {
-            AudioManager.instance.PlayHoly("HolyDefeat", 0.1f, 1.2f);
+            this.gameObject.layer = LayerMask.NameToLayer(Define.PLAYERPROJECTILE);
+            AudioManager.instance.PlayHoly("HolyDefeat", 0.2f, 1.2f);
         }
         animator.SetBool(backDash, true);
 
@@ -347,7 +361,7 @@ public class HolyKnight : MonoBehaviour, IDamage
             StageClear();
             HolyCharge.SetActive(false);
             GroundDust.SetActive(false);
-
+            
 
         }
 
@@ -585,7 +599,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         if (bossHealth > damage)
         {
             bossHealth -= damage;
-            Debug.Log($"남은 보스 체력 : {bossHealth}");
+            //Debug.Log($"남은 보스 체력 : {bossHealth}");
 
             if (bossHealth < (bossMaxHealth * 2 / 3) && isPhase1)
             {
@@ -638,8 +652,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     void StageClear()
     {
-        door.OpenDoor();
-        zone.RemoveWall();
+        
         this.gameObject.layer = LayerMask.NameToLayer(Define.PLAYERPROJECTILE);
         UIManager.Instance.uiBar.CallBackBossBar();
         CameraManager.Instance.CallStage3CameraInfo("HolyKnight");
@@ -648,7 +661,13 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     IEnumerator TempStageAfter()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(0.5f);
+
+        FadeManager.instance.FadeOut(0.2f);
+        yield return new WaitForSeconds(2f);
+        FadeManager.instance.FadeIn(0.2f);
+        door.OpenDoor();
+        zone.RemoveWall();
         StopAllCoroutines();
         isBossDie = true;
         gameObject.SetActive(false);

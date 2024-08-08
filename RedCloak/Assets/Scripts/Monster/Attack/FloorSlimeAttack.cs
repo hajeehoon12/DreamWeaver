@@ -21,7 +21,7 @@ public class FloorSlimeAttack : MonoBehaviour, IMobAttack
 
     public bool PerformAttack()
     {
-        AudioManager.instance.PlayMonsterPitch("Whip2", 0.1f);
+        AudioManager.instance.PlayMonsterPitch("Whip1", 0.1f);
         return Physics2D.BoxCast(transform.position, attackScope, 0f, Vector2.zero, 0,
             1 << LayerMask.NameToLayer(Define.PLAYER));
     }
