@@ -111,6 +111,7 @@ public class AudioManager : MonoBehaviour
         {
             if (p_sfxName == sfx[i].name)
             {
+                sfxPlayer[i].pitch = 1f;
                 myAudioSource.PlayOneShot(sfx[i].clip);
                 return;
             }
@@ -132,6 +133,7 @@ public class AudioManager : MonoBehaviour
                     if (!sfxPlayer[j].isPlaying)
                     {
                         sfxPlayer[j].clip = sfx[i].clip;
+                        sfxPlayer[j].pitch = 1f;
                         sfxPlayer[j].PlayOneShot(sfx[i].clip, _volume);
                         return;
                     }
@@ -172,6 +174,7 @@ public class AudioManager : MonoBehaviour
                     if (!sfxPlayer[j].isPlaying)
                     {
                         sfxPlayer[j].clip = Wolf[i].clip;
+                        sfxPlayer[j].pitch = 1f;
                         sfxPlayer[j].PlayOneShot(Wolf[i].clip, _volume);
                         return;
                     }
@@ -191,6 +194,7 @@ public class AudioManager : MonoBehaviour
         {
             if (p_sfxName == Samurai[i].name)
             {
+                sfxPlayer[i].pitch = 1f;
                 myAudioSource.PlayOneShot(Samurai[i].clip);
                 return;
             }
@@ -212,6 +216,7 @@ public class AudioManager : MonoBehaviour
                     if (!sfxPlayer[j].isPlaying)
                     {
                         sfxPlayer[j].clip = Samurai[i].clip;
+                        sfxPlayer[j].pitch = 1f;
                         sfxPlayer[j].PlayOneShot(Samurai[i].clip, _volume);
                         return;
                     }
@@ -231,6 +236,7 @@ public class AudioManager : MonoBehaviour
         {
             if (p_sfxName == Holy[i].name)
             {
+                sfxPlayer[i].pitch = 1f;
                 myAudioSource.PlayOneShot(Holy[i].clip);
                 return;
             }
@@ -324,6 +330,8 @@ public class AudioManager : MonoBehaviour
         {
             if (p_sfxName == Monster[i].name)
             {
+
+                sfxPlayer[i].pitch = 1f;
                 myAudioSource.PlayOneShot(Monster[i].clip);
                 return;
             }
@@ -418,6 +426,7 @@ public class AudioManager : MonoBehaviour
         {
             if (p_sfxName == UI[i].name)
             {
+                sfxPlayer[i].pitch = 1f;
                 myAudioSource.PlayOneShot(UI[i].clip);
                 return;
             }
@@ -439,6 +448,7 @@ public class AudioManager : MonoBehaviour
                     if (!sfxPlayer[j].isPlaying)
                     {
                         sfxPlayer[j].clip = UI[i].clip;
+                        sfxPlayer[j].pitch = 1f;
                         sfxPlayer[j].PlayOneShot(UI[i].clip, _volume);
                         return;
                     }

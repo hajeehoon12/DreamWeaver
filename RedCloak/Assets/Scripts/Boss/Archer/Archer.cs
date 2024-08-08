@@ -54,7 +54,7 @@ public class Archer : MonoBehaviour , IDamage
     private void Start()
     {
         //CallArcherBoss();
-        BossZoneWall.enabled = false;
+        //BossZoneWall.enabled = false;
     }
 
     public void CallArcherBoss()

@@ -62,7 +62,7 @@ public class WolfZone : MonoBehaviour
     IEnumerator TransferChar(GameObject player)
     {
         yield return new WaitForSeconds(4f);
-        player.transform.position = new Vector3(xPos+4, player.transform.position.y, player.transform.position.z);
+        player.transform.position = new Vector3(xPos+4, player.transform.position.y-4, player.transform.position.z);
 
     }
 

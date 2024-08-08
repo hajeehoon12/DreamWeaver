@@ -24,7 +24,7 @@ public class HolyBlock : StateMachineBehaviour
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        holy.FrontEnd();
+        holy.BlockEnd();
     }
 
 }

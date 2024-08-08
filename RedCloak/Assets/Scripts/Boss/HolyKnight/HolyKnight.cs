@@ -277,6 +277,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     void BlockStart()
     {
         animator.SetBool(block, true);
+        Aura.SetActive(false);
     }
 
     public void BlockEnd()
