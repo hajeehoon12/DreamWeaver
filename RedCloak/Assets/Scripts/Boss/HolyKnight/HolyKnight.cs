@@ -247,7 +247,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         {
             yield return new WaitForSeconds(2f);
             // Flip();
-            switch (count % 2)
+            switch (count % 3)
             {
                 case 0:
                     JumpHeavy();
@@ -256,6 +256,13 @@ public class HolyKnight : MonoBehaviour, IDamage
                 case 1:
                     BackDash();
                     //SpecialAttack();
+                    break;
+                case 2:
+                    if (CameraManager.Instance.stageNum == 3)
+                    {
+                        
+                    }
+
                     break;
             }
         }
@@ -321,13 +328,30 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     void BackDash()
     {
+        if (CameraManager.Instance.stageNum != 4)
+        {
+            AudioManager.instance.PlayHoly("HolyDefeat", 0.1f, 1.2f);
+        }
         animator.SetBool(backDash, true);
 
     }
 
     public void DisAppear()
     {
-        spriteRenderer.DOFade(0, 1f).OnComplete(() => StageClear());
+        HolyCharge.SetActive(true);
+        GroundDust.SetActive(true);
+        AudioManager.instance.PlayHoly("JumpDash", 0.2f);
+        AudioManager.instance.PlayHoly("HolyWarp", 0.2f);
+        spriteRenderer.DOFade(0, 1f).OnComplete(() =>
+        {
+            StageClear();
+            HolyCharge.SetActive(false);
+            GroundDust.SetActive(false);
+
+
+        }
+
+        );
     }
 
     public void EndBackDash()
@@ -571,6 +595,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
                 //Debug.Log("next phase");
                 //StopCoroutine(mainCoroutine);
+                //Discrimination();
                 //mainCoroutine = StartCoroutine(Iteration());
             }
 
@@ -618,6 +643,15 @@ public class HolyKnight : MonoBehaviour, IDamage
         this.gameObject.layer = LayerMask.NameToLayer(Define.PLAYERPROJECTILE);
         UIManager.Instance.uiBar.CallBackBossBar();
         CameraManager.Instance.CallStage3CameraInfo("HolyKnight");
+        StartCoroutine(TempStageAfter());
+    }
+
+    IEnumerator TempStageAfter()
+    {
+        yield return new WaitForSeconds(2.5f);
+        StopAllCoroutines();
+        isBossDie = true;
+        gameObject.SetActive(false);
     }
 
     void CallDie()
