@@ -16,6 +16,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     private static readonly int run = Animator.StringToHash("Run");
     private static readonly int frontHeavy = Animator.StringToHash("FrontHeavy");
     private static readonly int jumpAttack = Animator.StringToHash("JumpAttack");
+    private static readonly int block = Animator.StringToHash("Block");
 
     //private static readonly int isNextPhase = Animator.StringToHash("IsNextPhase");
     //private static readonly int isJump = Animator.StringToHash("IsJump");
@@ -212,14 +213,14 @@ public class HolyKnight : MonoBehaviour, IDamage
         if (isPhase1)
         {
             animator.SetBool(run, true);
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
             animator.SetBool(run, false);
             //Flip();
             switch (count % 4)
             {
                 case 0:
                     JumpHeavy();
-                    
+
                     break;
                 case 1:
                     HolySlash();
@@ -229,6 +230,12 @@ public class HolyKnight : MonoBehaviour, IDamage
                     break;
                 case 3:
                     LightCut();
+                    break;
+                case 4:
+                    
+                    break;
+                default:
+                    BlockStart();
                     break;
             }
         }
@@ -265,6 +272,16 @@ public class HolyKnight : MonoBehaviour, IDamage
         }
 
         count++;
+    }
+
+    void BlockStart()
+    {
+        animator.SetBool(block, true);
+    }
+
+    public void BlockEnd()
+    {
+        animator.SetBool(block, false);
     }
 
     void JumpHeavy()
@@ -351,7 +368,7 @@ public class HolyKnight : MonoBehaviour, IDamage
             isWall = Physics2D.Raycast(transform.position + new Vector3(2, 0), Vector2.right * Dir, 4f, groundLayerMask);
             if (!isWall)
             {
-                transform.position += new Vector3(Dir * Time.deltaTime * 30, 0, 0);
+                transform.position += new Vector3(Dir * Time.deltaTime * 60, 0, 0);
             }
             yield return new WaitForSeconds(Time.deltaTime);
         }
@@ -473,6 +490,11 @@ public class HolyKnight : MonoBehaviour, IDamage
     {
         if (isInvincible) return;
         if (!isStageStart) return;
+        if (animator.GetBool(block))
+        {
+            AudioManager.instance.PlaySamurai("DefendSuccess", 0.1f);
+            return;
+        }
 
         if (isDefending)
         {
@@ -566,5 +588,10 @@ public class HolyKnight : MonoBehaviour, IDamage
         //SwordAuraOff();
         CameraManager.Instance.CallStage3CameraInfo();
     }
+
+
+
+
+
 
 }
