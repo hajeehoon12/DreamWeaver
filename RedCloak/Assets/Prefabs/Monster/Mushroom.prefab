@@ -188,7 +188,7 @@ MonoBehaviour:
         Bool Parameter","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null,"GameObjectmValue":10},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"Run"},"SharedBoolboolValue":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"BooleansetOnce":false}]}]}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(273.663574,140.162933)"},"ID":39,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.CompareFieldValue","NodeData":{"Offset":"(-256.659332,128.069885)"},"ID":40,"Name":"Compare
         Field Value","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null,"GameObjectmValue":11},"SharedStringcomponentName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"Monster"},"SharedStringfieldName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"GetHit"},"SharedVariablecompareValue":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false}},{"Type":"BehaviorDesigner.Runtime.Tasks.Patrol","NodeData":{"Offset":"(-130,130)"},"ID":41,"Name":"Patrol","Instant":true,"SharedFloatSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":5},"SharedBoolKnockBack":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"GetHit","IsShared":true,"BooleanmValue":true}},{"Type":"BehaviorDesigner.Runtime.Tasks.ReturnSuccess","NodeData":{"Offset":"(-9.127197,128.069916)"},"ID":42,"Name":"Return
         Success","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(80.64514,120)"},"ID":43,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.CheckWallCliff","NodeData":{"Offset":"(2.10638237,107)"},"ID":44,"Name":"Check
-        Wall Cliff","Instant":true,"LayerMaskwallLayer":8704,"SharedVector2WallRayPos":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":null,"Vector2mValue":"(0,0.5)"},"SharedFloatWallDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1.5}},{"Type":"Flip","NodeData":{"Offset":"(148.106369,111)"},"ID":45,"Name":"Flip","Instant":true}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetBoolParameter","NodeData":{"Offset":"(130,130)"},"ID":46,"Name":"Set
+        Wall Cliff","Instant":true,"LayerMaskwallLayer":139776,"SharedVector2WallRayPos":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":null,"Vector2mValue":"(0,0.5)"},"SharedFloatWallDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1.5}},{"Type":"Flip","NodeData":{"Offset":"(148.106369,111)"},"ID":45,"Name":"Flip","Instant":true}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetBoolParameter","NodeData":{"Offset":"(130,130)"},"ID":46,"Name":"Set
         Bool Parameter","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null,"GameObjectmValue":12},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"Run"},"SharedBoolboolValue":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"BooleansetOnce":false}]}]}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Player","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"AttackRayPosition","IsShared":true,"Vector2mValue":"(0,0.5)"},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"AttackDistance","IsShared":true,"SinglemValue":1.5},{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"DetectionRange","IsShared":true,"Vector2mValue":"(0,1)"},{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":"DetectionSize","IsShared":true,"Vector2mValue":"(10,2)"},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"GetHit","IsShared":true,"BooleanmValue":true},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"KnockbackPower","IsShared":true,"SinglemValue":5},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"OnAttack","IsShared":true,"PropertyMapping":"MonsterController/OnAttack","PropertyMappingOwner":13,"BooleanmValue":false}]}'
       fieldSerializationData:
         typeName: []
@@ -213,8 +213,8 @@ MonoBehaviour:
         byteData: 
         byteDataArray: 
       Version: 1.7.9
-  gizmoViewMode: 0
-  showBehaviorDesignerGizmo: 0
+  gizmoViewMode: 2
+  showBehaviorDesignerGizmo: 1
 --- !u!114 &3542864294503575016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +241,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GetHit: 0
   invincible: 0
+  data:
+    rcode: 
+    enemyCode: 
+    enemyName: 
+    isRegen: 0
+    mapData: 
+    pos: 
+    isCatch: 0
+    dropPoint: 0
   maxHealth: 30
   currentHealth: 0
   point: 5
