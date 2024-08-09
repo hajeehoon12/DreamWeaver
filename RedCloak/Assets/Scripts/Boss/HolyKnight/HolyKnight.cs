@@ -443,8 +443,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     void FrontAttackEnd()
     {
         holySlashRange.SetActive(false);
-        HolyStarExplosion.SetActive(false);
-        GroundDust.SetActive(false);
+        
         isFrontDash = false;
     }
 
@@ -470,6 +469,8 @@ public class HolyKnight : MonoBehaviour, IDamage
     {
         ghostDash.makeGhost = false;
         animator.SetBool(frontHeavy, false);
+        HolyStarExplosion.SetActive(false);
+        GroundDust.SetActive(false);
         Discrimination();
     }
 

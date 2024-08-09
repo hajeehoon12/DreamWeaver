@@ -29,7 +29,7 @@ public class ItemManager : MonoBehaviour
 
     public void synchroniztion()
     {
-        Debug.Log("Make sync");
+        //Debug.Log("Make sync");
         PlayerController controller;
         Player player;
         player = CharacterManager.Instance.Player;
@@ -37,7 +37,7 @@ public class ItemManager : MonoBehaviour
 
         controller.canDoubleJump = airShoes;
         //controller.canDash = dash;
-        Debug.Log(healthPartNum);
+        //Debug.Log(healthPartNum);
         player.stats.playerMaxHP= 4 + healthPartNum;
         player.stats.playerHP = 4 + healthPartNum ;
         UIManager.Instance.uiBar.UpdateMaxHP(1);
