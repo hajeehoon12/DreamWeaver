@@ -72,7 +72,7 @@ public class CameraManager : MonoBehaviour
         screenWidth = screenHeight * Screen.width / Screen.height;
         saveStage = stageNum;
         SelectStage();
-
+        
         //mapSize = map.GetComponent<Collider2D>().bounds.extents + new Vector3(0, 2, 0);
     }
 
@@ -115,6 +115,7 @@ public class CameraManager : MonoBehaviour
                 break;
 
         }
+        MonsterDataManager.ToggleMonsters(stageNum);
     }
 
     void LimitCameraArea()
