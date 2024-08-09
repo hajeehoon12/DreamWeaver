@@ -162,13 +162,13 @@ public class PlayerBattle : MonoBehaviour
         CharacterManager.Instance.Player.stats.playerHP += change; // health change value
         CharacterManager.Instance.Player.stats.playerHP = Mathf.Clamp(CharacterManager.Instance.Player.stats.playerHP, 0, CharacterManager.Instance.Player.stats.playerMaxHP); // restrict health range for 0<= health <= maxHealth
 
-        Debug.Log("Player Health : " + change);
+        //Debug.Log("Player Health : " + change);
 
         if (CharacterManager.Instance.Player.stats.playerHP <= 0f)
         {
             OnDamagePos?.Invoke(position);
             timeSinceLastChange = 0f;
-            Debug.Log("Player Dead");
+            //Debug.Log("Player Dead");
             CallDeath();
 
             

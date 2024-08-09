@@ -86,7 +86,7 @@ public class LightEffect : MonoBehaviour
         StopCoroutine(boundCoroutine);
         yield return interval;
         CharacterManager.Instance.Player.stats.playerGold += point;
-        Debug.Log("Point추가 : " + point);
+        //Debug.Log("Point추가 : " + point);
         UIManager.Instance.uiBar.UpdateGold();
         ObjectPool.Instance.ReleaseToPool(Define.OP_MonsterLight, gameObject);
     }
