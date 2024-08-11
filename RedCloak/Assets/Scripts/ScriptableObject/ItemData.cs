@@ -10,6 +10,13 @@ public enum ItemType
     Skill
 }
 
+public enum SkillType
+{ 
+    Skill1,
+    Skill2,
+    Skill3
+}
+
 
 [CreateAssetMenu(fileName = " Item", menuName = "New Item")]
 public class ItemData : ScriptableObject
@@ -22,8 +29,8 @@ public class ItemData : ScriptableObject
     //아이콘
     //오브젝트
 
-    [Header("Drop")]
-    public GameObject dropPrefab;
+    [Header("Skill")]
+    public SkillType skillType;
 
     //[Header("Equip")]
     //public GameObject equipPrefab;

@@ -37,6 +37,22 @@ public class ItemLight : MonoBehaviour
 
         if (RewardData.type == ItemType.Skill)
         {
+            switch (RewardData.skillType)
+            {
+
+                case SkillType.Skill1:
+                    player.GetComponentInChildren<PlayerShooting>().PlayerSkill1 = true;
+                    //Debug.Log("Green");
+                    break;
+                case SkillType.Skill2:
+                    player.GetComponentInChildren<PlayerShooting>().PlayerSkill2 = true;
+                    break;
+                case SkillType.Skill3:
+                    player.GetComponentInChildren<PlayerShooting>().PlayerSkill3 = true;
+                    break;
+                default:
+                    break;
+            }
             
         }
 
