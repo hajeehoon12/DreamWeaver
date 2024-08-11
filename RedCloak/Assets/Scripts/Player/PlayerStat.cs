@@ -26,6 +26,7 @@ public class PlayerStat//:MonoBehaviour
         if (itemData.healthIncrease > 0)
         {
             CharacterManager.Instance.Player.stats.playerMaxHP += itemData.healthIncrease;
+            CharacterManager.Instance.Player.stats.playerHP = CharacterManager.Instance.Player.stats.playerMaxHP;
         }
 
 

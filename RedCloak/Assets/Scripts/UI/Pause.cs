@@ -46,12 +46,12 @@ public class Pause : MonoBehaviour
         UIManager.Instance.CloseCurrentUI();
     }
 
-    private void DisablePlayerInput()
+    public void DisablePlayerInput()
     {
         playerInputAction.Disable();
     }
 
-    private void EnablePlayerInput()
+    public void EnablePlayerInput()
     {
         playerInputAction.Enable();
     }

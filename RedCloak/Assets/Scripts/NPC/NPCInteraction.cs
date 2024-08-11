@@ -17,11 +17,12 @@ public class NPCInteraction : MonoBehaviour
     public LayerMask playerLayer;
     public Shop shop;
     public List<ItemData> shopDataList = new List<ItemData>();
+    public GameObject continueKey;
 
     public bool isPlayerRange = false;
     public bool isDialogue = false;
 
-    private int currentLineIndex = 0;
+    public int currentLineIndex = 0;
 
     private Dictionary<string, bool> itemPurcased;
 
@@ -58,21 +59,20 @@ public class NPCInteraction : MonoBehaviour
 
     public void StartDialogue(DialogueData dialogue)
     {
+        continueKey.SetActive(false);
         isDialogue = true;
         UIManager.Instance.OpenUI(dialogueUI);
+        UIManager.Instance.pause.DisablePlayerInput();
         dialogueData = dialogue;
         currentLineIndex = 0;
         OpenSelectMenu();
+        CurrnetLine();
     }
 
     public void OpenSelectMenu()
     {
         selectMenu.SetActive(true);
-    }
-
-    public void OpenShop()
-    {
-        shopObj.SetActive(true);
+        StartCoroutine(CheckSelectMenu());
     }
 
     public void NextDialogue()
@@ -80,6 +80,7 @@ public class NPCInteraction : MonoBehaviour
         if(currentLineIndex < dialogueData.dialogueLines.Count - 1)
         {
             currentLineIndex++;
+            continueKey.SetActive(true);
             CurrnetLine();
         }
         
@@ -119,5 +120,24 @@ public class NPCInteraction : MonoBehaviour
     public bool HasPurchasedItem(string itemName)
     {
         return itemPurcased.ContainsKey(itemName) && itemPurcased[itemName];
+    }
+
+    public void OpenShop()
+    {
+        UIManager.Instance.OpenUI(shopObj);
+    }
+
+    private IEnumerator CheckSelectMenu()
+    {
+        while(isDialogue)
+        {
+            if(!selectMenu.activeInHierarchy)
+            {
+                NextDialogue();
+                yield break;
+            }
+
+            yield return null;
+        }
     }
 }

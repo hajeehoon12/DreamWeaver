@@ -11,9 +11,11 @@ public class Shop : MonoBehaviour
     public GameObject goodsList;
     public GameObject parentPosition;
     public GameObject npcObject;
+    public GameObject soldOut;
     public TextMeshProUGUI itemName;
     public TextMeshProUGUI itemDescription;
     public TextMeshProUGUI itemPrice;
+    public Image icon;
 
     public NPCInteraction npc;
 
@@ -28,6 +30,8 @@ public class Shop : MonoBehaviour
             itemName = goodsInstantiate.transform.Find("ItemDisplay/ItemName").GetComponent<TextMeshProUGUI>();
             itemDescription = goodsInstantiate.transform.Find("ItemDisplay/ItemDescription").GetComponent<TextMeshProUGUI>();
             itemPrice = goodsInstantiate.transform.Find("ItemDisplay/ItemPrice").GetComponent<TextMeshProUGUI>();
+            icon = goodsInstantiate.transform.Find("Icon").GetComponent<Image>();
+            soldOut = goodsInstantiate.transform.Find("SoldOut").gameObject;
 
             if (itemName != null)
             {
@@ -44,13 +48,41 @@ public class Shop : MonoBehaviour
                 itemPrice.text = itemdata.price.ToString();
             }
 
+            if(icon != null)
+            {
+                icon.sprite = itemdata.icon;
+            }
+
             Button itemBtn = goodsInstantiate.transform.Find("BuyBtn").GetComponent<Button>();
 
             if (itemBtn != null && npc != null)
             {
-                itemBtn.onClick.RemoveAllListeners();
-                itemBtn.onClick.AddListener(() => npc.PurchasedItem(itemdata));
-                itemBtn.interactable = !npc.HasPurchasedItem(itemdata.name);
+                if (npc.HasPurchasedItem(itemdata.name))
+                {
+                    itemBtn.interactable = false;
+                    if (soldOut != null)
+                    {
+                        soldOut.SetActive(true);
+                    }
+                }
+                else
+                {
+                    CharacterManager.Instance.Player.itemData = itemdata;
+                    CharacterManager.Instance.Player.addItem?.Invoke();
+                    itemBtn.onClick.RemoveAllListeners();
+                    itemBtn.onClick.AddListener(() =>
+                    {
+                    npc.PurchasedItem(itemdata);
+                    UpdateUI();
+                    });
+                    itemBtn.interactable = !npc.HasPurchasedItem(itemdata.name);
+
+                    if (soldOut != null)
+                    {
+                        soldOut.SetActive(false);
+                    }
+                }
+
             }
         }
     }
@@ -61,5 +93,15 @@ public class Shop : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+    }
+
+    private void OnDisable()
+    {
+        npc.NextDialogue();
+    }
+
+    private void UpdateUI()
+    {
+        SetShopGoods();
     }
 }
