@@ -26,6 +26,11 @@ public class ItemData : ScriptableObject
     public string description;
     public ItemType type;
     public Sprite icon;
+    public int price;
+    public int addStat;
+    public bool canBuy = true;
+    public int healthIncrease;
+    public int manaIncrease;
     //아이콘
     //오브젝트
 

@@ -75,4 +75,20 @@ public class UIController : MonoBehaviour
             miniMap.SetActive(true);
         }
     }
+
+    public void NPCInteraction(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.phase == InputActionPhase.Started && CharacterManager.Instance.Player.controller.currentNpc != null)
+        {
+            CharacterManager.Instance.Player.controller.currentNpc.StartDialogue(CharacterManager.Instance.Player.controller.currentNpc.dialogueData);
+        }
+    }
+
+    public void ContinueDialogue(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.phase == InputActionPhase.Started && CharacterManager.Instance.Player.controller.currentNpc.isDialogue)
+        {
+            CharacterManager.Instance.Player.controller.currentNpc.NextDialogue();
+        }
+    }
 }
