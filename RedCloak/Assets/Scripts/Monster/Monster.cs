@@ -6,7 +6,8 @@ public class Monster : MonoBehaviour, IDamage
 {
     public bool GetHit = false;
     [SerializeField] private bool invincible;
-    
+
+    public MonsterData data;
     public float maxHealth;
     public float currentHealth;
     public int point;

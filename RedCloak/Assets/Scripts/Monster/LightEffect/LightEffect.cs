@@ -14,7 +14,7 @@ public class LightEffect : MonoBehaviour
     Coroutine thisCoroutine;
     private Coroutine boundCoroutine;
 
-    void Start()
+    void OnEnable()
     {
         transform.position += new Vector3(0, 0, -2);
 

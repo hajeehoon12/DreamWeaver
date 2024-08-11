@@ -12,14 +12,7 @@ public class SecretPlace : MonoBehaviour
             originColor = spriteRenderer.color;
             spriteRenderer.color = new Color(1, 1, 1, 0f);
             AudioManager.instance.PlaySFX("Success", 0.15f);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag(Define.PLAYER))
-        {
-            spriteRenderer.color = originColor;
+            this.gameObject.SetActive(false);
         }
     }
 }
