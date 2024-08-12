@@ -682,6 +682,11 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collider)
     {
         NPCInteraction npc = collider.GetComponent<NPCInteraction>();
+        if(npc != null)
+        {
+            npc.EndDialogue();
+        }
+        UIManager.Instance.CloseCurrentUI();
         if (npc != null && npc == currentNpc)
         {
             currentNpc = null;

@@ -78,10 +78,19 @@ public class NPCInteraction : MonoBehaviour
 
     public void NextDialogue()
     {
+        if(dialogueData == null || dialogueData.dialogueLines == null)
+        {
+            return;
+        }
+
         if(currentLineIndex < dialogueData.dialogueLines.Count - 1)
         {
             currentLineIndex++;
-            continueKey.SetActive(true);
+            if(continueKey != null)
+            {
+                continueKey.SetActive(true);
+
+            }
             CurrnetLine();
         }
         
@@ -98,7 +107,7 @@ public class NPCInteraction : MonoBehaviour
         dialogueText.text = line.dialogueText;
     }
 
-    private void EndDialogue()
+    public void EndDialogue()
     {
         UIManager.Instance.CloseCurrentUI();
         UIManager.Instance.pause.EnablePlayerInput();

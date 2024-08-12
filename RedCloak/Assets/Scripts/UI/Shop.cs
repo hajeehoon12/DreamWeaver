@@ -97,7 +97,10 @@ public class Shop : MonoBehaviour
 
     private void OnDisable()
     {
-        npc.NextDialogue();
+        if(npc != null)
+        {
+            npc.NextDialogue();
+        }
     }
 
     private void UpdateUI()
