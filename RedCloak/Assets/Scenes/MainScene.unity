@@ -3110,8 +3110,8 @@ Transform:
   m_GameObject: {fileID: 277243117}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 127.7, y: -380.5, z: 0}
-  m_LocalScale: {x: 1, y: 0.8, z: 1}
+  m_LocalPosition: {x: 127.7, y: -380.3, z: 0}
+  m_LocalScale: {x: 1, y: 1.1600001, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1887300832}
@@ -10597,8 +10597,8 @@ Transform:
   m_GameObject: {fileID: 1049036121}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 130.1, y: -424.93, z: 0}
-  m_LocalScale: {x: 1, y: 0.91, z: 1}
+  m_LocalPosition: {x: 130.15, y: -425.06, z: 0}
+  m_LocalScale: {x: 1.5569, y: 1.416779, z: 1.5569}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2036063097}
@@ -29315,6 +29315,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7885933421116790580}
     - target: {fileID: 3795898141541841480, guid: 0baf0806b9dcf8747ba23570b153ad31, type: 3}
+      propertyPath: wolfLight
+      value: 
+      objectReference: {fileID: 2643489189189102077, guid: 1b12981c2c0a2ae41b966fa0f84dfb1a, type: 3}
+    - target: {fileID: 3795898141541841480, guid: 0baf0806b9dcf8747ba23570b153ad31, type: 3}
+      propertyPath: bossMaxHealth
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795898141541841480, guid: 0baf0806b9dcf8747ba23570b153ad31, type: 3}
       propertyPath: transparentWall
       value: 
       objectReference: {fileID: 1736145251}
@@ -39202,7 +39210,7 @@ PrefabInstance:
       objectReference: {fileID: 7844024773496331781}
     - target: {fileID: 5973158534209798152, guid: 2471b3579b61d644abf3739653e92f6a, type: 3}
       propertyPath: bossMaxHealth
-      value: 5
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 8353841846385766618, guid: 2471b3579b61d644abf3739653e92f6a, type: 3}
       propertyPath: m_Name
@@ -49645,7 +49653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5851826784669889978, guid: f706ea928c2c05044b8d03156496ae96, type: 3}
       propertyPath: stageNum
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5851826784669889978, guid: f706ea928c2c05044b8d03156496ae96, type: 3}
       propertyPath: mapSize.x
@@ -55186,6 +55194,14 @@ PrefabInstance:
       propertyPath: samuraiZone
       value: 
       objectReference: {fileID: 8182293144551956586}
+    - target: {fileID: 7744592783375949890, guid: 53d9e5b4d5d69a04197021854a803011, type: 3}
+      propertyPath: samuraiLight
+      value: 
+      objectReference: {fileID: 2643489189189102077, guid: 90d2c5a051088d3419055fb314643b8b, type: 3}
+    - target: {fileID: 7744592783375949890, guid: 53d9e5b4d5d69a04197021854a803011, type: 3}
+      propertyPath: bossMaxHealth
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -70831,11 +70847,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 105
+      value: 268.6
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.7
+      value: -450.7
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.z
