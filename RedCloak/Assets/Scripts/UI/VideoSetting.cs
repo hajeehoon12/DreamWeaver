@@ -42,7 +42,6 @@ public class VideoSetting : MonoBehaviour
     public void VsyncOption(bool isOn)
     {
         QualitySettings.vSyncCount = isOn ? 1 : 0;
-        Debug.Log(QualitySettings.vSyncCount);
     }
 
     public void FullScreen(bool isOn)
