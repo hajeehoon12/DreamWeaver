@@ -29,6 +29,9 @@ public class ItemLight : MonoBehaviour
                     player.controller.canWallJump = true;
                     //Debug.Log("SharpGloves");
                     break;
+                case "swordsmanship":
+                    player.controller.canComboAttack = true;
+                    break;
                 default:
                     break;
             

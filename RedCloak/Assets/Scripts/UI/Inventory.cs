@@ -45,7 +45,7 @@ public class Inventory : MonoBehaviour
     {
         ItemData data = CharacterManager.Instance.Player.itemData;
         ItemSlot emptySlot = GetEmptySlot();
-        if(data != null && (data.type == ItemType.Antique || data.type == ItemType.Skill))
+        if(data != null && (data.type == ItemType.Antique || data.type == ItemType.Skill || data.type == ItemType.Health))
         {
             UIManager.Instance.itemPopup.PopupGetItem();
         }
