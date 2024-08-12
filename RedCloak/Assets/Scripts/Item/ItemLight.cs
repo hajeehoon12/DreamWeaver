@@ -20,7 +20,7 @@ public class ItemLight : MonoBehaviour
             switch (RewardData.itemName)
             {
                 case "AirShoes":
-                    player.controller.canDoubleJump = true;
+                    player.controller.canDJ = true;
                     player.controller.canDash = true;
                     //Debug.Log("AirShoes");
                     //TODO CanMake PlayerDash

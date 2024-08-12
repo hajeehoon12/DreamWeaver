@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
     public bool canDash = true;           // skill on / off
     public bool canComboAttack = true;    // skill on / off
     public bool canWallJump = true;       // skill on / off
-
+    public bool canDJ = true;
 
     public bool canDoubleJump = true;      // not skill on / off
 
@@ -120,6 +120,8 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        if (!canDJ) canDoubleJump = false;
+
         if (cantMove) return;
         ManaRegenerate();
         JumpCheck(); // Checking whether can jump
