@@ -1667,6 +1667,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 27224868daeda4fbeb1647b99d0d0ddb, type: 3}
   - name: PlatformOff
     clip: {fileID: 8300000, guid: 92f3c515d69bb401796ca7ecf47f1e33, type: 3}
+  - name: DoorClose
+    clip: {fileID: 8300000, guid: d9ff03243b280024ea41cad598841fff, type: 3}
+  - name: LevelUp
+    clip: {fileID: 8300000, guid: e9e3130e61831794bb04a6d7da5fbc39, type: 3}
   bgm:
   - name: SadStory
     clip: {fileID: 8300000, guid: 63866d7c854dc1a4f81291c92f8f4c11, type: 3}
@@ -1686,6 +1690,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 958c134eed26f1849a022e49b17d48e6, type: 3}
   - name: Winter
     clip: {fileID: 8300000, guid: 97d3ff2fc37a6b741a9a342bf7be25f0, type: 3}
+  - name: Promise
+    clip: {fileID: 8300000, guid: f575c935acb7bbc48ae2a5d173c8e9fd, type: 3}
   UI: []
   Wolf:
   - name: ChargeAttack
@@ -1732,8 +1738,51 @@ MonoBehaviour:
   - name: EarthQuake
     clip: {fileID: 8300000, guid: 0ce0fdb6bde9cde4186073f8f8a8a7f2, type: 3}
   Holy:
-  - name: Winter
-    clip: {fileID: 8300000, guid: af93db27d2d964b448dbc70f313a0980, type: 3}
+  - name: BattleCry1
+    clip: {fileID: 8300000, guid: 06096a1bb1389f54b875b2fef5511104, type: 3}
+  - name: BattleCry2
+    clip: {fileID: 8300000, guid: 8eabe529177493e4098e1812a8723fca, type: 3}
+  - name: CastBuff
+    clip: {fileID: 8300000, guid: 598f82f3d8873fc4a959a21f73de4bc6, type: 3}
+  - name: Sigh
+    clip: {fileID: 8300000, guid: 4e18e678bf3a55c42ba6a76e146da5af, type: 3}
+  - name: LightCut
+    clip: {fileID: 8300000, guid: dc6bc894e5f093245905879614903cfc, type: 3}
+  - name: LightSlash
+    clip: {fileID: 8300000, guid: 8e31e3745a740464291c7d3a29572506, type: 3}
+  - name: LongBattleCry
+    clip: {fileID: 8300000, guid: 7ee272c28184a8648892c65c4feec1be, type: 3}
+  - name: SlowMotion
+    clip: {fileID: 8300000, guid: d9d1182e58dafdb4ca6c68718179691f, type: 3}
+  - name: Choir
+    clip: {fileID: 8300000, guid: 8512828ec059907409ef35dde8370b8c, type: 3}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: 311ffbceb07f12d449491e23efc6edfc, type: 3}
+  - name: OnGround
+    clip: {fileID: 8300000, guid: d1ed05b2b1fe8ea48873965384911b78, type: 3}
+  - name: HeavyAir
+    clip: {fileID: 8300000, guid: dfc490dd9c8d85a4b802919278e853e3, type: 3}
+  - name: JumpDash
+    clip: {fileID: 8300000, guid: 97bee8d49b7a56848a8c2d1105045455, type: 3}
+  - name: WindBlow
+    clip: {fileID: 8300000, guid: 02fe2f52f15222c45914fb564f9fd78e, type: 3}
+  - name: DoubleAttack
+    clip: {fileID: 8300000, guid: fe6aae5053c037945af914c6c21fe04c, type: 3}
+  - name: Rapid
+    clip: {fileID: 8300000, guid: 5ec06637e623011409e8a31aceef8e38, type: 3}
+  - name: HolyWarp
+    clip: {fileID: 8300000, guid: fd3421161adae4f4e84ee53f15c67bfd, type: 3}
+  - name: HolyDefeat
+    clip: {fileID: 8300000, guid: 496e024661967544c974b6d03d96de2f, type: 3}
+  Monster:
+  - name: Whip1
+    clip: {fileID: 8300000, guid: 7d4740c1510083f47ac5292ad8d5c613, type: 3}
+  - name: Whip2
+    clip: {fileID: 8300000, guid: f85c42c67788dbb4fbc852fdc0813723, type: 3}
+  - name: GolemHit
+    clip: {fileID: 8300000, guid: 073cf58670a8aa843bf82c0b81eeeb98, type: 3}
+  - name: GolemGround
+    clip: {fileID: 8300000, guid: b902eea730328434884fa3a55552d773, type: 3}
   bgmPlayer: {fileID: 3854997849801399508}
   bgmPlayer2: {fileID: 5313201296594538622}
   sfxPlayer:
