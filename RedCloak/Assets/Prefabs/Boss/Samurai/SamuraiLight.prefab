@@ -4984,7 +4984,7 @@ GameObject:
   - component: {fileID: 7741415897756062965}
   - component: {fileID: -3830592055759716700}
   m_Layer: 0
-  m_Name: ArcherLight
+  m_Name: SamuraiLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10080,8 +10080,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9572d2a709da14f8bf0761b4a481de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point: 50
-  RewardData: {fileID: 11400000, guid: 85c75061dbebb054794401f77b8ef0be, type: 2}
+  point: 200
+  RewardData: {fileID: 11400000, guid: 685d6f189fab6d841aaf0a6d6dcae1e6, type: 2}
 --- !u!1 &3670112907754982933
 GameObject:
   m_ObjectHideFlags: 0

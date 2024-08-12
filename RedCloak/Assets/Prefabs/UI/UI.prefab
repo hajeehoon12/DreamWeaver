@@ -3731,6 +3731,7 @@ MonoBehaviour:
   miniMap: {fileID: 0}
   uiBar: {fileID: 2599001193310675599}
   pause: {fileID: 1319454701501911659}
+  skillUI: {fileID: 6545485221662525578}
   currentUI: {fileID: 0}
 --- !u!114 &3205634295178824429
 MonoBehaviour:
@@ -22381,9 +22382,9 @@ RectTransform:
   - {fileID: 4163027818496280212}
   m_Father: {fileID: 3834506074112143914}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -147.5}
   m_SizeDelta: {x: 250, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9007913137611735117
@@ -22871,23 +22872,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6916759423610974059, guid: 7dc1d6e8d8ef35d48b265a1e31165ad0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6916759423610974059, guid: 7dc1d6e8d8ef35d48b265a1e31165ad0, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6916759423610974059, guid: 7dc1d6e8d8ef35d48b265a1e31165ad0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6916759423610974059, guid: 7dc1d6e8d8ef35d48b265a1e31165ad0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -55
       objectReference: {fileID: 0}
     - target: {fileID: 8094242495610335209, guid: 7dc1d6e8d8ef35d48b265a1e31165ad0, type: 3}
       propertyPath: m_Name
       value: Dialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094242495610335209, guid: 7dc1d6e8d8ef35d48b265a1e31165ad0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

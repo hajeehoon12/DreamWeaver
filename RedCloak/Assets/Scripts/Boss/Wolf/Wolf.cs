@@ -69,6 +69,8 @@ public class Wolf : MonoBehaviour, IDamage
 
     private bool isPhase2Start = false;
 
+    public GameObject wolfLight;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -697,6 +699,9 @@ public class Wolf : MonoBehaviour, IDamage
         animator.SetBool(isDead, true);
         lightening.SetActive(false);
         isBossDie = true;
+
+        Instantiate(wolfLight, transform.position, Quaternion.identity);
+
         wolfZone.RemoveWall();
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlaySFX("Success", 0.05f);

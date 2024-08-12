@@ -18,7 +18,9 @@ public class BossLightEffect : MonoBehaviour
     void Start()
     {
         transform.position += new Vector3(0, 0, -2);
+        AudioManager.instance.PlaySFX("Twinkle", 0.5f);
         CharacterManager.Instance.Player.controller.cantMove = true;
+        CharacterManager.Instance.Player.controller.RunStop();
         MoveToPlayer();
         
     }
@@ -91,7 +93,7 @@ public class BossLightEffect : MonoBehaviour
         //Debug.Log("Point추가 : " + point);
         CharacterManager.Instance.Player.controller.cantMove = false;
         UIManager.Instance.uiBar.UpdateGold();
-        
+        AudioManager.instance.PlaySFX("LevelUp", 0.2f);
         Destroy(gameObject, 0.5f);
     }
 
@@ -110,17 +112,21 @@ public class BossLightEffect : MonoBehaviour
 
                 case SkillType.Skill1:
                     player.GetComponentInChildren<PlayerShooting>().PlayerSkill1 = true;
+                    UIManager.Instance.skillUI.skill1 = true;
                     //Debug.Log("Green");
                     break;
                 case SkillType.Skill2:
                     player.GetComponentInChildren<PlayerShooting>().PlayerSkill2 = true;
+                    UIManager.Instance.skillUI.skill2 = true;
                     break;
                 case SkillType.Skill3:
                     player.GetComponentInChildren<PlayerShooting>().PlayerSkill3 = true;
+                    UIManager.Instance.skillUI.skill3 = true;
                     break;
                 default:
                     break;
             }
+            UIManager.Instance.skillUI.UpdateSkill();
 
         }
 

@@ -387,7 +387,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 5.5813904
+  m_Mass: 5.581391
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
@@ -479,6 +479,7 @@ MonoBehaviour:
   electricWave: {fileID: 1032096471364102, guid: 9eb95a18065b70742be8155ce918903c, type: 3}
   AnimSpeed: 1
   shouting: {fileID: 7720274338619740788}
+  wolfLight: {fileID: 2643489189189102077, guid: 1b12981c2c0a2ae41b966fa0f84dfb1a, type: 3}
 --- !u!114 &701572628878681987
 MonoBehaviour:
   m_ObjectHideFlags: 0
