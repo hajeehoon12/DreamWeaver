@@ -18,7 +18,9 @@ public class BossLightEffect : MonoBehaviour
     void Start()
     {
         transform.position += new Vector3(0, 0, -2);
+        AudioManager.instance.PlaySFX("Twinkle", 0.5f);
         CharacterManager.Instance.Player.controller.cantMove = true;
+        CharacterManager.Instance.Player.controller.RunStop();
         MoveToPlayer();
         
     }
@@ -91,7 +93,7 @@ public class BossLightEffect : MonoBehaviour
         //Debug.Log("Point추가 : " + point);
         CharacterManager.Instance.Player.controller.cantMove = false;
         UIManager.Instance.uiBar.UpdateGold();
-        
+        AudioManager.instance.PlaySFX("LevelUp", 0.2f);
         Destroy(gameObject, 0.5f);
     }
 

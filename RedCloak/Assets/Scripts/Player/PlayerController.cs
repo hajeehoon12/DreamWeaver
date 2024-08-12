@@ -323,6 +323,11 @@ public class PlayerController : MonoBehaviour
         //OnAttack();
     }
 
+    public void RunStop()
+    {
+        animator.SetBool(isRunning, false);
+    }
+
     IEnumerator DoingDash() // Do Coroutine During Dash
     {
         
