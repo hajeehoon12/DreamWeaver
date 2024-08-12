@@ -1,23 +1,24 @@
 using System;
-using System.Collections;
+using System.IO;
 using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Windows;
+using static UnityEngine.Debug;
+using Input = UnityEngine.Input;
 
 public class MonsterDataManager : MonoBehaviour
 {
     [SerializeField] private TextAsset mobDataJson;
     [SerializeField] private TextAsset mapDataJson;
-    private MonsterData[] monsterDatas;
-    private MapData[] mapDatas;
+    
     private GameObject mapParent;
     private static List<GameObject> maps = new List<GameObject>();
+    public static MonsterDataArray mobArray { get; private set; }
+    public static MapDataArray mapArray { get; private set; }
 
     private void Awake()
     {
-        LoadJsonData();
+        if (mobArray == null)
+            LoadJsonData();
     }
 
     private void OnEnable()
@@ -26,8 +27,10 @@ public class MonsterDataManager : MonoBehaviour
         {
             Destroy(mapParent);
             mapParent = null;
-            maps.Clear();
         }
+        
+        if (maps.Count != 0)
+            maps.Clear();
             
         LoadMapData();
         LoadMonsterData();
@@ -36,22 +39,33 @@ public class MonsterDataManager : MonoBehaviour
 
     public void LoadJsonData()
     {
-        if (mobDataJson != null)
+        string path = $"{Application.persistentDataPath}/data.json";
+
+        if (File.Exists(path))
         {
-            MonsterDataArray array = JsonUtility.FromJson<MonsterDataArray>("{\"data\":" + mobDataJson.text + "}");
-            monsterDatas = array.data;
+            string data = AEScrypt.Decrypt(File.ReadAllText(path));
+            LoadSaveData(data);
+            Log("Load from savedata");
+        }
+        else
+        {
+            if (mobDataJson != null)
+                mobArray = JsonUtility.FromJson<MonsterDataArray>("{\"data\":" + mobDataJson.text + "}");
         }
 
         if (mapDataJson != null)
-        {
-            MapDataArray array = JsonUtility.FromJson<MapDataArray>("{\"data\":" + mapDataJson.text + "}");
-            mapDatas = array.data;
-        }
+            mapArray = JsonUtility.FromJson<MapDataArray>("{\"data\":" + mapDataJson.text + "}");
+    }
+    
+    public void LoadSaveData(string text)
+    {
+        if (text != null)
+            mobArray = JsonUtility.FromJson<MonsterDataArray>(text);
     }
     
     public void LoadMonsterData()
     {
-        foreach (var monster in monsterDatas)
+        foreach (var monster in mobArray.data)
         {
             if (monster is { isRegen: false, isCatch: true })
                 continue;
@@ -64,16 +78,16 @@ public class MonsterDataManager : MonoBehaviour
             int mapIndex = int.Parse(monster.mapData[^1].ToString()) - 1;
             GameObject mob = Instantiate(Resources.Load<GameObject>($"Monster/{monster.enemyName}"), maps[mapIndex].transform);
             mob.transform.position = new Vector3(floatpos[0], floatpos[1], floatpos[2]);
-            
+
             if (mob.TryGetComponent<Monster>(out Monster m))
-                m.point = monster.dropPoint;
+                m.data = monster;
         }
     }
 
     public void LoadMapData()
     {
         mapParent = new GameObject("Monsters");
-        foreach (var map in mapDatas)
+        foreach (var map in mapArray.data)
         {
             GameObject m = new GameObject(map.rcode);
             m.transform.parent = mapParent.transform;
@@ -81,9 +95,17 @@ public class MonsterDataManager : MonoBehaviour
         }
     }
 
-    public void LoadSaveData()
+    public static void SaveMobData()
     {
+        string json = AEScrypt.Encrypt(JsonUtility.ToJson(mobArray, true));
+
+        if (!Directory.Exists(Application.persistentDataPath))
+            Directory.CreateDirectory(Application.persistentDataPath);
+
+        string filePath = Application.persistentDataPath + "/data.json";
+        File.WriteAllText(filePath, json);
         
+        Log("Monster data saved to: " + filePath);
     }
 
     public static void ToggleMonsters(int stageNum)
@@ -92,14 +114,22 @@ public class MonsterDataManager : MonoBehaviour
             maps[i].SetActive(i == stageNum-1);
     }
 
+    public static void ChangeCatchStat(string rcode)
+    {
+        int index = int.Parse(rcode.Substring(rcode.Length - 5)) - 1;
+
+        mobArray.data[index].isCatch = true;
+        Debug.Log($"catch stat changed on {mobArray.data[index].enemyName}");
+    }
+
     [Serializable]
-    private class MonsterDataArray
+    public class MonsterDataArray
     {
         public MonsterData[] data;
     }
 
     [Serializable]
-    private class MapDataArray
+    public class MapDataArray
     {
         public MapData[] data;
     }
