@@ -70680,7 +70680,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4689547573083332208, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: PlayerSkill1
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4689547573083332208, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: PlayerSkill2
@@ -70704,11 +70704,11 @@ PrefabInstance:
       objectReference: {fileID: 1764308443362498, guid: 9898948b5aa9c2441b988f630e466355, type: 3}
     - target: {fileID: 8488820794825072302, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: stats.playerHP
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8488820794825072302, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: stats.playerMaxHP
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8946823807965324558, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_Name
