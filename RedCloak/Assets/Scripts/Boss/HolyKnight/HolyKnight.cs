@@ -668,9 +668,10 @@ public class HolyKnight : MonoBehaviour, IDamage
         yield return new WaitForSeconds(2f);
         FadeManager.instance.FadeIn(0.2f);
         CharacterManager.Instance.doors[4].OpenDoor();
+        CharacterManager.Instance.ChangeDoorOpenStat(4);
         zone.RemoveWall();
         StopAllCoroutines();
-        MonsterDataManager.ChangeCatchStat("END00014");
+        MonsterDataManager.ChangeCatchStat("ENS00130");
         isBossDie = true;
         gameObject.SetActive(false);
     }
