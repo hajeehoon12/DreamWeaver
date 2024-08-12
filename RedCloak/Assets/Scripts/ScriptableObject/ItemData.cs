@@ -6,8 +6,18 @@ public enum ItemType
     Goods,
     Equip,
     Antique,
-    Health
+    Health,
+    Skill
 }
+
+public enum SkillType
+{ 
+    Skill1,
+    Skill2,
+    Skill3
+}
+
+
 [CreateAssetMenu(fileName = " Item", menuName = "New Item")]
 public class ItemData : ScriptableObject
 {
@@ -16,11 +26,16 @@ public class ItemData : ScriptableObject
     public string description;
     public ItemType type;
     public Sprite icon;
+    public int price;
+    public int addStat;
+    public bool canBuy = true;
+    public int healthIncrease;
+    public int manaIncrease;
     //아이콘
     //오브젝트
 
-    [Header("Drop")]
-    public GameObject dropPrefab;
+    [Header("Skill")]
+    public SkillType skillType;
 
     //[Header("Equip")]
     //public GameObject equipPrefab;

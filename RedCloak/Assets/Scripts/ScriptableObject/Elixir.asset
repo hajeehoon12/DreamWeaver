@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5594095b8a8668d41aee79b748971206, type: 3}
-  m_Name: AirShoes
+  m_Name: Elixir
   m_EditorClassIdentifier: 
-  itemName: AirShoes
-  description: You can Double Jump and Dash(Pressing C) with magical power of wing
-    shoes
-  type: 2
-  icon: {fileID: 21300000, guid: a47766bc4970cce4c963affb73c3ec60, type: 3}
+  itemName: Elixir
+  description: Your Max Health will be increased by amazing potion
+  type: 3
+  icon: {fileID: 21300000, guid: 8c40623b752cbb24a90bf09112de2127, type: 3}
   dropPrefab: {fileID: 0}

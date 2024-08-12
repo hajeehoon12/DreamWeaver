@@ -82,9 +82,9 @@ public class PlayerController : MonoBehaviour
     public bool cantMove = false;
 
     public Vector3 StartPoint;
-    
 
-    
+    public NPCInteraction currentNpc;
+
 
     void Awake()
     {
@@ -672,6 +672,20 @@ public class PlayerController : MonoBehaviour
             playerBattle.ChangeHealth(-1); // get damaged
         }
         //Debug.Log("Trigger detected with " + collider.gameObject.name);
+        NPCInteraction npc = collider.GetComponent<NPCInteraction>();
+        if (npc != null)
+        {
+            currentNpc = npc;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        NPCInteraction npc = collider.GetComponent<NPCInteraction>();
+        if (npc != null && npc == currentNpc)
+        {
+            currentNpc = null;
+        }
     }
 
     public void OnCollisionDelay(LayerMask LayerName)

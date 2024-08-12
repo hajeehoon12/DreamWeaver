@@ -11,23 +11,51 @@ public class ItemLight : MonoBehaviour
     {
         //TODO Give RewardData to Player
         Debug.Log("Give Player : " + RewardData.name);
-        CharacterManager.Instance.Player.itemData = RewardData;
-        CharacterManager.Instance.Player.addItem?.Invoke();
+        Player player = CharacterManager.Instance.Player;
+        player.itemData = RewardData;
+        player.addItem?.Invoke();
 
         if (RewardData.type == ItemType.Antique)
         {
             switch (RewardData.itemName)
             {
-                case "airShoes":
+                case "AirShoes":
+                    player.controller.canDoubleJump = true;
+                    player.controller.canDash = true;
+                    //Debug.Log("AirShoes");
                     //TODO CanMake PlayerDash
                     break;
-                case "":
+                case "SharpGloves":
+                    player.controller.canWallJump = true;
+                    //Debug.Log("SharpGloves");
                     break;
                 default:
                     break;
             
             }
         }
+
+        if (RewardData.type == ItemType.Skill)
+        {
+            switch (RewardData.skillType)
+            {
+
+                case SkillType.Skill1:
+                    player.GetComponentInChildren<PlayerShooting>().PlayerSkill1 = true;
+                    //Debug.Log("Green");
+                    break;
+                case SkillType.Skill2:
+                    player.GetComponentInChildren<PlayerShooting>().PlayerSkill2 = true;
+                    break;
+                case SkillType.Skill3:
+                    player.GetComponentInChildren<PlayerShooting>().PlayerSkill3 = true;
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+
 
         if (RewardData.type == ItemType.Health)
         {

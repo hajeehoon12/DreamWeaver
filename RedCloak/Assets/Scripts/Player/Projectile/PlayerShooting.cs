@@ -27,6 +27,10 @@ public class PlayerShooting : MonoBehaviour
 
     public bool isRotating = false;
 
+    public bool PlayerSkill1 = true;
+    public bool PlayerSkill2 = true;
+    public bool PlayerSkill3 = true;
+
     void Start()
     {
         Counter(0);
@@ -64,13 +68,38 @@ public class PlayerShooting : MonoBehaviour
         Counter(-1);
     }
 
+    public bool CheckSkill(int num) // Can Play Current Skill
+    {
+        bool result = true;
+
+        switch (num)
+        {
+            case 1:
+                if (!PlayerSkill1)
+                    result = false;
+                break;
+            case 2:
+                if(!PlayerSkill2)
+                    result = false;
+                break;
+            case 3:
+                if(!PlayerSkill3)
+                    result = false;
+                break;
+            default:
+                break;
+        }
+        //Debug.Log("Check");
+        return result;
+    }
+
 
     public void FireProjectile()
     {
         if (Prefab == 0) return;
         else
         {
-            if (CharacterManager.Instance.Player.stats.playerMP >= Prefabs[Prefab].GetComponent<PlayerProjectile>().Mana)
+            if (CharacterManager.Instance.Player.stats.playerMP >= Prefabs[Prefab].GetComponent<PlayerProjectile>().Mana && CheckSkill(Prefab))
             {
                 CharacterManager.Instance.Player.stats.playerMP -= Prefabs[Prefab].GetComponent<PlayerProjectile>().Mana;
             }

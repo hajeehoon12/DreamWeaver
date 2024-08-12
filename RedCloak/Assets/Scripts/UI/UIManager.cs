@@ -12,13 +12,13 @@ public class UIManager : MonoBehaviour
     public ChanageStage changeStage;
     public MiniMap miniMap;
     public UIBar uiBar;
+    public Pause pause;
 
     public GameObject currentUI;
-    
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);

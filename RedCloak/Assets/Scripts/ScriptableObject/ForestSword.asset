@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5594095b8a8668d41aee79b748971206, type: 3}
-  m_Name: AirShoes
+  m_Name: ForestSword
   m_EditorClassIdentifier: 
-  itemName: AirShoes
-  description: You can Double Jump and Dash(Pressing C) with magical power of wing
-    shoes
-  type: 2
-  icon: {fileID: 21300000, guid: a47766bc4970cce4c963affb73c3ec60, type: 3}
-  dropPrefab: {fileID: 0}
+  itemName: Forest Sword
+  description: ' Make green sword Slash fired straight ahead.'
+  type: 4
+  icon: {fileID: 21300000, guid: 1796bf3129a3b344b80f1dc0876c2100, type: 3}
+  skillType: 0
