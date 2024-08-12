@@ -12,7 +12,7 @@ public class SavePoint : MonoBehaviour, IDamage
         CharacterManager.Instance.Player.stats.playerHP = CharacterManager.Instance.Player.stats.playerMaxHP;
         CharacterManager.Instance.Player.battle.ChangeHealth(0);
         UIManager.Instance.uiBar.SetCurrentHP();
-
+        MonsterDataManager.SaveMobData();
     }
 
     public void GetDamage(float damage)

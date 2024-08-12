@@ -12,7 +12,6 @@ public class Monster : MonoBehaviour, IDamage
     public MonsterData data;
     public float maxHealth;
     public float currentHealth;
-    public int point;
 
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private Animator _animator;
@@ -74,7 +73,7 @@ public class Monster : MonoBehaviour, IDamage
         light1Particle = light1.GetComponent<ParticleSystem>();
         if (light2.TryGetComponent<LightEffect>(out LightEffect e))
         {
-            e.point = point;
+            e.point = data.dropPoint;
             //Debug.Log("give light point");
         }
         
