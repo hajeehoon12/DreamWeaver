@@ -37,27 +37,8 @@ public class MonsterDataManager : MonoBehaviour
 
     public void LoadJsonData()
     {
-        string path = $"{Application.persistentDataPath}/data.json";
-
-        if (File.Exists(path))
-        {
-            string data = AEScrypt.Decrypt(File.ReadAllText(path));
-            LoadSaveData(data);
-        }
-        else
-        {
-            if (mobDataJson != null)
-                mobArray = JsonUtility.FromJson<MonsterDataArray>("{\"data\":" + mobDataJson.text + "}");
-        }
-
-        if (mapDataJson != null)
-            mapArray = JsonUtility.FromJson<MapDataArray>("{\"data\":" + mapDataJson.text + "}");
-    }
-    
-    public void LoadSaveData(string text)
-    {
-        if (text != null)
-            mobArray = JsonUtility.FromJson<MonsterDataArray>(text);
+        mapArray = SaveLoad.Load<MapDataArray>("MapData");
+        mobArray = SaveLoad.Load<MonsterDataArray>("MobData");
     }
     
     public void LoadMonsterData()
@@ -90,17 +71,6 @@ public class MonsterDataManager : MonoBehaviour
             m.transform.parent = mapParent.transform;
             maps.Add(m);
         }
-    }
-
-    public static void SaveMobData()
-    {
-        string json = AEScrypt.Encrypt(JsonUtility.ToJson(mobArray, true));
-
-        if (!Directory.Exists(Application.persistentDataPath))
-            Directory.CreateDirectory(Application.persistentDataPath);
-
-        string filePath = $"{Application.persistentDataPath}/data.json";
-        File.WriteAllText(filePath, json);
     }
 
     public static void ToggleMonsters(int stageNum)
