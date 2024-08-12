@@ -38,8 +38,8 @@ public class ItemManager : MonoBehaviour
         controller.canDoubleJump = airShoes;
         //controller.canDash = dash;
         //Debug.Log(healthPartNum);
-        player.stats.playerMaxHP= 4 + healthPartNum;
-        player.stats.playerHP = 4 + healthPartNum ;
+        player.stats.playerMaxHP= CharacterManager.Instance.playerInitHealth + healthPartNum;
+        player.stats.playerHP = CharacterManager.Instance.playerInitHealth + healthPartNum ;
         
 
     }

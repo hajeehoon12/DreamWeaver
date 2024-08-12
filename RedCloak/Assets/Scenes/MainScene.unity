@@ -2798,6 +2798,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5401356896098153738, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
+      propertyPath: dropData
+      value: 
+      objectReference: {fileID: 11400000, guid: a2afae08261a0a2479d7e9dc46dd7d80, type: 2}
     - target: {fileID: 6366736423589511129, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
       propertyPath: m_Name
       value: RewardChest
@@ -3479,6 +3483,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5401356896098153738, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
+      propertyPath: dropData
+      value: 
+      objectReference: {fileID: 11400000, guid: ecf8e126ba134b84e9af76945bb83ec0, type: 2}
     - target: {fileID: 6366736423589511129, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
       propertyPath: m_Name
       value: RewardChest
@@ -18145,6 +18153,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5401356896098153738, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
+      propertyPath: dropData
+      value: 
+      objectReference: {fileID: 11400000, guid: a2afae08261a0a2479d7e9dc46dd7d80, type: 2}
     - target: {fileID: 6366736423589511129, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
       propertyPath: m_Name
       value: RewardChest
@@ -21519,6 +21531,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5401356896098153738, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
+      propertyPath: dropData
+      value: 
+      objectReference: {fileID: 11400000, guid: a2afae08261a0a2479d7e9dc46dd7d80, type: 2}
     - target: {fileID: 6366736423589511129, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
       propertyPath: m_Name
       value: RewardChest
@@ -39150,6 +39166,14 @@ PrefabInstance:
       value: -0.125
       objectReference: {fileID: 0}
     - target: {fileID: 5973158534209798152, guid: 2471b3579b61d644abf3739653e92f6a, type: 3}
+      propertyPath: dropData
+      value: 
+      objectReference: {fileID: 11400000, guid: 85c75061dbebb054794401f77b8ef0be, type: 2}
+    - target: {fileID: 5973158534209798152, guid: 2471b3579b61d644abf3739653e92f6a, type: 3}
+      propertyPath: ItemLight
+      value: 
+      objectReference: {fileID: 1680902291597547189, guid: 3306cf279c3d7cf44a27ca4c639444c3, type: 3}
+    - target: {fileID: 5973158534209798152, guid: 2471b3579b61d644abf3739653e92f6a, type: 3}
       propertyPath: BossZoneWall
       value: 
       objectReference: {fileID: 7844024773496331781}
@@ -49594,7 +49618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5851826784669889978, guid: f706ea928c2c05044b8d03156496ae96, type: 3}
       propertyPath: stageNum
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5851826784669889978, guid: f706ea928c2c05044b8d03156496ae96, type: 3}
       propertyPath: mapSize.x
@@ -70776,11 +70800,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 271.2
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -146.8
+      value: 4.7
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.z

@@ -9,6 +9,7 @@ public class CharacterManager : MonoBehaviour
 
     public Vector3 SavePoint;
     public bool isLoadScene = true;
+    public int playerInitHealth = 4;
 
     public static CharacterManager Instance
     {
@@ -73,6 +74,8 @@ public class CharacterManager : MonoBehaviour
         
         Player.transform.position = SavePoint;
         UIManager.Instance.uiBar.SetCurrentHP();
+        UIManager.Instance.skillUI.InitateRotation();
+        UIManager.Instance.uiBar.CallBackBossBar();
         AudioManager.instance.PlaySFX("HeartUp", 0.2f);
         
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.TRAP), LayerMask.NameToLayer(Define.PLAYER), false);

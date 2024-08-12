@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public MiniMap miniMap;
     public UIBar uiBar;
     public Pause pause;
+    public SkillUI skillUI;
 
     public GameObject currentUI;
 

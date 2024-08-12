@@ -43,6 +43,24 @@ public class Archer : MonoBehaviour , IDamage
     float skillTime1 = 10f;
     float skillTime2 = 15f;
 
+    public ItemData dropData;
+    public GameObject ItemLight;
+
+    public void ThrowItem()
+    {
+        StartCoroutine(ItemLoad());
+    }
+
+    IEnumerator ItemLoad()
+    {
+        yield return new WaitForSeconds(0.2f);
+        GameObject Items = Instantiate(ItemLight, transform.position, Quaternion.identity);
+        AudioManager.instance.PlaySFX("ItemThrow", 0.2f);
+        Items.GetComponentInParent<Rigidbody2D>().AddForce(new Vector3(0, 10, 0), ForceMode2D.Impulse);
+        Items.GetComponentInChildren<ItemLight>().RewardData = dropData;
+    }
+
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -449,7 +467,9 @@ public class Archer : MonoBehaviour , IDamage
         BossZoneWall.enabled = false;
         //archerCol.isTrigger = true;
         archerCol.enabled = false;
-        
+        ThrowItem();
+
+
 
     }
 

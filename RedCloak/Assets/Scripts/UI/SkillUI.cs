@@ -31,9 +31,7 @@ public class SkillUI : MonoBehaviour
 
     public void InitateRotation()
     {
-        rotation = Quaternion.Euler(0, 0, 0);
-        skillGroup.transform.DORotateQuaternion(rotation, 0f);
-        rotation = Quaternion.Euler(0, 0, targetAngle);
+        skillGroup.transform.DORotateQuaternion(Quaternion.Euler(0, 0, 0), 0f);       
     }
 
     public void StartRotation(int num)
