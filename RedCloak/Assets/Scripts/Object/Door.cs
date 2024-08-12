@@ -9,6 +9,7 @@ public class Door : MonoBehaviour
     Animator animator;
 
     public bool cameraHold = false;
+    public bool isOpenStart = false;
 
     private void Awake()
     {
@@ -18,7 +19,10 @@ public class Door : MonoBehaviour
     private void Start()
     {
         //OpenDoor();
-        animator.SetBool(isDoorOpen, true); // for the test
+        if (isOpenStart)
+        {
+            animator.SetBool(isDoorOpen, true); // for the test
+        }
     }
 
     public void OpenDoor()
@@ -32,6 +36,13 @@ public class Door : MonoBehaviour
             AudioManager.instance.PlaySamurai("EarthQuake", 0.2f);
         }
     }
+
+    public void CloseDoor()
+    {
+        AudioManager.instance.PlaySFX("DoorClose", 0.2f);
+        animator.SetBool(isDoorOpen, false);
+    }
+
 
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
