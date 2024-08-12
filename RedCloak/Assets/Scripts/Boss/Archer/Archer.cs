@@ -43,6 +43,14 @@ public class Archer : MonoBehaviour , IDamage
     float skillTime1 = 10f;
     float skillTime2 = 15f;
 
+    //public ItemData dropData;
+    //public GameObject ItemLight;
+
+    public GameObject archerLight;
+
+
+
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -449,7 +457,9 @@ public class Archer : MonoBehaviour , IDamage
         BossZoneWall.enabled = false;
         //archerCol.isTrigger = true;
         archerCol.enabled = false;
-        
+        //ThrowItem();
+        Instantiate(archerLight, transform.position,Quaternion.identity);
+
 
     }
 
