@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
         SnowEffect.SetActive(false);
         playerGravityScale = rigid.gravityScale;
         boundPlayer = playerCollider.bounds.extents;
-        canDoubleJump = true;
+        //canDoubleJump = true;
 
         playerBattle.OnDamage += GetAttacked;
         playerBattle.OnDamagePos += GetAttacked;

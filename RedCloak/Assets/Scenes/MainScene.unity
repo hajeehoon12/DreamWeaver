@@ -70360,6 +70360,14 @@ PrefabInstance:
       propertyPath: Prefabs.Array.data[3]
       value: 
       objectReference: {fileID: 1764308443362498, guid: 9898948b5aa9c2441b988f630e466355, type: 3}
+    - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: canDash
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: canDoubleJump
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8488820794825072302, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: stats.playerHP
       value: 5
