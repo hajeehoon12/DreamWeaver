@@ -34,5 +34,11 @@ public class SlimeZoneBoundary : MonoBehaviour
         }
     }
 
+    public void OpenForever()
+    {
+        col.isTrigger = true;
+        gameObject.SetActive(false);
+    }
+
 
 }
