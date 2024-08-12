@@ -21,6 +21,7 @@ public class Door : MonoBehaviour
 
     private void Start()
     {
+        isOpenStart = CharacterManager.Instance.GetDoorOpenStat(selfNum);
         //OpenDoor();
         if (isOpenStart)
         {
