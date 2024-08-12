@@ -3781,6 +3781,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1329439552}
     - target: {fileID: 5512360677171735020, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
+      propertyPath: dialogueAction.m_Name
+      value: Dialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 5512360677171735020, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
       propertyPath: shopDataList.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 82f999f0637a4c2429491c979a059389, type: 2}
@@ -3788,6 +3792,22 @@ PrefabInstance:
       propertyPath: shopDataList.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 1cd6311534e0bc54eb09a8864fc678c2, type: 2}
+    - target: {fileID: 5512360677171735020, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
+      propertyPath: dialogueAction.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5512360677171735020, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
+      propertyPath: dialogueAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: f4433768-73e0-4ff4-9b8e-b187e6940d28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5512360677171735020, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
+      propertyPath: dialogueAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/z
+      objectReference: {fileID: 0}
+    - target: {fileID: 5512360677171735020, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
+      propertyPath: dialogueAction.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Dialogue
+      objectReference: {fileID: 0}
     - target: {fileID: 5967627135617554113, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
       propertyPath: m_Name
       value: TutorialNPC

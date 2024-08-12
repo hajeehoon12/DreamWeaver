@@ -86,9 +86,13 @@ public class UIController : MonoBehaviour
 
     public void ContinueDialogue(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.phase == InputActionPhase.Started && CharacterManager.Instance.Player.controller.currentNpc.isDialogue)
+        if(CharacterManager.Instance.Player.controller.currentNpc != null)
         {
-            CharacterManager.Instance.Player.controller.currentNpc.NextDialogue();
+            if (callbackContext.phase == InputActionPhase.Started && CharacterManager.Instance.Player.controller.currentNpc.isDialogue)
+            {
+                CharacterManager.Instance.Player.controller.currentNpc.NextDialogue();
+            }
         }
+        
     }
 }

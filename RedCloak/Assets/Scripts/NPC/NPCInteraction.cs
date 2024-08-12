@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class NPCInteraction : MonoBehaviour
@@ -100,6 +101,7 @@ public class NPCInteraction : MonoBehaviour
     private void EndDialogue()
     {
         UIManager.Instance.CloseCurrentUI();
+        UIManager.Instance.pause.EnablePlayerInput();
     }
 
     public void PurchasedItem(ItemData itemData)
