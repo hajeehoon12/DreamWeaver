@@ -4,6 +4,7 @@ using UnityEngine;
 public class MonsterDoorOpen : MonoBehaviour
 {
     [SerializeField] private Door _door;
+    public GameObject DoorCollider;
 
     private void Start()
     {
@@ -13,5 +14,6 @@ public class MonsterDoorOpen : MonoBehaviour
     public void OpenDoor()
     {
         _door.OpenDoor();
+        DoorCollider.gameObject.SetActive(false);
     }
 }
