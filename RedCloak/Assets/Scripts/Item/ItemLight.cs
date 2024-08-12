@@ -60,6 +60,8 @@ public class ItemLight : MonoBehaviour
         if (RewardData.type == ItemType.Health)
         {
             ItemManager.Instance.healthPartNum++;
+            ItemManager.Instance.synchroniztion();
+            UIManager.Instance.uiBar.UpdateMaxHP(1);
         }
 
 

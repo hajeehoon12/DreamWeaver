@@ -40,7 +40,7 @@ public class ItemManager : MonoBehaviour
         //Debug.Log(healthPartNum);
         player.stats.playerMaxHP= 4 + healthPartNum;
         player.stats.playerHP = 4 + healthPartNum ;
-        UIManager.Instance.uiBar.UpdateMaxHP(1);
+        
 
     }
 

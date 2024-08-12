@@ -6,7 +6,7 @@ using DG.Tweening;
 public class SkillUI : MonoBehaviour
 {
     [SerializeField] private GameObject skillGroup;
-    [SerializeField] private float targetAngle = 60.0f;
+    [SerializeField] private float targetAngle = 90.0f;
     [SerializeField] private float rotateTime = 0.5f;
 
     private Quaternion rotation;
@@ -27,6 +27,13 @@ public class SkillUI : MonoBehaviour
         {
             StartRotation(-1);
         }
+    }
+
+    public void InitateRotation()
+    {
+        rotation = Quaternion.Euler(0, 0, 0);
+        skillGroup.transform.DORotateQuaternion(rotation, 0f);
+        rotation = Quaternion.Euler(0, 0, targetAngle);
     }
 
     public void StartRotation(int num)
