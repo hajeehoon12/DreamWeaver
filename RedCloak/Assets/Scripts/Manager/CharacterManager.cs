@@ -12,6 +12,7 @@ public class CharacterManager : MonoBehaviour
     public int playerInitHealth = 5;
 
     public Door[] doors = new Door[5];
+    public DoorDataArray doorData;
 
     public static CharacterManager Instance
     {
@@ -35,6 +36,8 @@ public class CharacterManager : MonoBehaviour
 
     private void Awake()
     {
+        doorData = SaveLoad.Load<DoorDataArray>("DoorData");
+        
         if (_instance != null)
         {
             _instance = this;
@@ -86,6 +89,30 @@ public class CharacterManager : MonoBehaviour
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.MONSTERPROJECTILE), LayerMask.NameToLayer(Define.PLAYER), false);
         
     }
-    
 
+    public bool GetDoorOpenStat(int index)
+    {
+        return doorData.data[index].isOpen;
+    }
+
+    public void ChangeDoorOpenStat(int index)
+    {
+        doorData.data[index].isOpen = true;
+    }
+
+    [Serializable]
+    public class DoorDataArray
+    {
+        public DoorData[] data;
+    }
+}
+
+[Serializable]
+public struct DoorData
+{
+    public string rcode;
+    public string displayName;
+    public string MapData;
+    public string description;
+    public bool isOpen;
 }
