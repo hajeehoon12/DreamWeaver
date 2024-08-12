@@ -602,7 +602,7 @@ public class Samurai : MonoBehaviour, IDamage
         SwordAura.SetActive(false);
         
         AudioManager.instance.PlaySFX("Success", 0.05f);
-        
+        MonsterDataManager.ChangeCatchStat("END00011");
         ClearAfter();
         //AudioManager.instance.PlaySFX()
     }

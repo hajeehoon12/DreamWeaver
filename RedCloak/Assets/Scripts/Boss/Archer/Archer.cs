@@ -425,6 +425,7 @@ public class Archer : MonoBehaviour , IDamage
         UIManager.Instance.uiBar.CallBackBossBar();
         animator.SetBool(isDead, true);
         isBossDie = true;
+        MonsterDataManager.ChangeCatchStat("END00003");
         StartCoroutine(ArcherDie());
     }
 

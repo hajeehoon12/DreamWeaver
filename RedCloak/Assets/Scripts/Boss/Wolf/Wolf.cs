@@ -699,7 +699,7 @@ public class Wolf : MonoBehaviour, IDamage
         animator.SetBool(isDead, true);
         lightening.SetActive(false);
         isBossDie = true;
-
+        MonsterDataManager.ChangeCatchStat("END00007");
         Instantiate(wolfLight, transform.position, Quaternion.identity);
 
         wolfZone.RemoveWall();

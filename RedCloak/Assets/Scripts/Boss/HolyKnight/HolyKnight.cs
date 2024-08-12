@@ -670,6 +670,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         CharacterManager.Instance.doors[4].OpenDoor();
         zone.RemoveWall();
         StopAllCoroutines();
+        MonsterDataManager.ChangeCatchStat("END00014");
         isBossDie = true;
         gameObject.SetActive(false);
     }
