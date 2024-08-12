@@ -110,7 +110,7 @@ public class PlayerBattle : MonoBehaviour
         {
             timeSinceLastChange = 0f;
             OnDamage?.Invoke();
-            //Debug.Log("Player Dead");
+            Debug.Log("Player Dead");
             CallDeath();
             return true;
         }
@@ -194,7 +194,7 @@ public class PlayerBattle : MonoBehaviour
 
     private void CallDeath()
     {
-        if(!isDead) return; // temp for test
+        //if(!isDead) return; // temp for test// can't die exception
 
 
         if (isDead) return;
