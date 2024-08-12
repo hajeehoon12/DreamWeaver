@@ -1,4 +1,5 @@
 using BehaviorDesigner.Runtime;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class Monster : MonoBehaviour, IDamage
     public bool GetHit = false;
     [SerializeField] private bool invincible;
 
+    public event Action Die;
     public MonsterData data;
     public float maxHealth;
     public float currentHealth;
@@ -28,6 +30,7 @@ public class Monster : MonoBehaviour, IDamage
     private void Start()
     {
         currentHealth = maxHealth;
+        Die += DieSequence;
     }
 
     private void OnEnable()
@@ -50,11 +53,16 @@ public class Monster : MonoBehaviour, IDamage
         }
         else
         {
-            _behavior.enabled = false;
-            _rigidbody.bodyType = RigidbodyType2D.Static;
-            _collider.enabled = false;
-            _animator.SetTrigger("Die");
+            Die?.Invoke();
         }
+    }
+
+    private void DieSequence()
+    {
+        _behavior.enabled = false;
+        _rigidbody.bodyType = RigidbodyType2D.Static;
+        _collider.enabled = false;
+        _animator.SetTrigger("Die");
     }
 
     public IEnumerator SpawnLight()
