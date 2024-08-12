@@ -13,6 +13,7 @@ public class SavePoint : MonoBehaviour, IDamage
         CharacterManager.Instance.Player.battle.ChangeHealth(0);
         UIManager.Instance.uiBar.SetCurrentHP();
         SaveLoad.Save("MobData", MonsterDataManager.mobArray);
+        SaveLoad.Save("DoorData", CharacterManager.Instance.doorData);
     }
 
     public void GetDamage(float damage)
