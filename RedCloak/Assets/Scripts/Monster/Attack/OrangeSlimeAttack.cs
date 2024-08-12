@@ -39,9 +39,4 @@ public class OrangeSlimeAttack : MonoBehaviour, IMobAttack
         
         return result;
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireCube(transform.position + new Vector3(0,5), new Vector3(30,10));
-    }
 }

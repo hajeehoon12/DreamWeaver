@@ -2,8 +2,6 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Debug;
-using Input = UnityEngine.Input;
 
 public class MonsterDataManager : MonoBehaviour
 {
@@ -45,7 +43,6 @@ public class MonsterDataManager : MonoBehaviour
         {
             string data = AEScrypt.Decrypt(File.ReadAllText(path));
             LoadSaveData(data);
-            Log("Load from savedata");
         }
         else
         {
@@ -102,10 +99,8 @@ public class MonsterDataManager : MonoBehaviour
         if (!Directory.Exists(Application.persistentDataPath))
             Directory.CreateDirectory(Application.persistentDataPath);
 
-        string filePath = Application.persistentDataPath + "/data.json";
+        string filePath = $"{Application.persistentDataPath}/data.json";
         File.WriteAllText(filePath, json);
-        
-        Log("Monster data saved to: " + filePath);
     }
 
     public static void ToggleMonsters(int stageNum)
@@ -119,7 +114,6 @@ public class MonsterDataManager : MonoBehaviour
         int index = int.Parse(rcode.Substring(rcode.Length - 5)) - 1;
 
         mobArray.data[index].isCatch = true;
-        Debug.Log($"catch stat changed on {mobArray.data[index].enemyName}");
     }
 
     [Serializable]

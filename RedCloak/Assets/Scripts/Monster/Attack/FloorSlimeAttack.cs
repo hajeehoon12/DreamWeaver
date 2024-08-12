@@ -14,11 +14,6 @@ public class FloorSlimeAttack : MonoBehaviour, IMobAttack
         _controller.MobAttack = this;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireCube(transform.position,attackScope);
-    }
-
     public bool PerformAttack()
     {
         AudioManager.instance.PlayMonsterPitch("Whip1", 0.1f);
