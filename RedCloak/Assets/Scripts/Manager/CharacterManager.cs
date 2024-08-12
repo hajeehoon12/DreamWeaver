@@ -9,7 +9,7 @@ public class CharacterManager : MonoBehaviour
 
     public Vector3 SavePoint;
     public bool isLoadScene = true;
-    public int playerInitHealth = 4;
+    public int playerInitHealth = 5;
 
     public static CharacterManager Instance
     {

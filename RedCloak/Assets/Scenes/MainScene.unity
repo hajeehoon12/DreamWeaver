@@ -422,6 +422,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6983055722796898541, guid: 9dab8d57f53083147811151d4156d003, type: 3}
   m_PrefabInstance: {fileID: 23996467}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &29793362 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6545485221662525578, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+  m_PrefabInstance: {fileID: 4615185439369609101}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f0e9019bb15bf4abce8052aa9571fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &32334168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39174,9 +39185,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1680902291597547189, guid: 3306cf279c3d7cf44a27ca4c639444c3, type: 3}
     - target: {fileID: 5973158534209798152, guid: 2471b3579b61d644abf3739653e92f6a, type: 3}
+      propertyPath: archerLight
+      value: 
+      objectReference: {fileID: 2643489189189102077, guid: b3e4bec060196264186deeecbce5ccbf, type: 3}
+    - target: {fileID: 5973158534209798152, guid: 2471b3579b61d644abf3739653e92f6a, type: 3}
       propertyPath: BossZoneWall
       value: 
       objectReference: {fileID: 7844024773496331781}
+    - target: {fileID: 5973158534209798152, guid: 2471b3579b61d644abf3739653e92f6a, type: 3}
+      propertyPath: bossMaxHealth
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 8353841846385766618, guid: 2471b3579b61d644abf3739653e92f6a, type: 3}
       propertyPath: m_Name
       value: archer
@@ -54978,6 +54997,10 @@ PrefabInstance:
       propertyPath: miniMap
       value: 
       objectReference: {fileID: 1813545728}
+    - target: {fileID: 1022167438740049461, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+      propertyPath: skillUI
+      value: 
+      objectReference: {fileID: 29793362}
     - target: {fileID: 1081330358837555738, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -70788,11 +70811,11 @@ PrefabInstance:
       objectReference: {fileID: 1764308443362498, guid: 9898948b5aa9c2441b988f630e466355, type: 3}
     - target: {fileID: 8488820794825072302, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: stats.playerHP
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8488820794825072302, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: stats.playerMaxHP
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8946823807965324558, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_Name
