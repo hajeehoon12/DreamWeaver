@@ -320,7 +320,7 @@ public class PlayerController : MonoBehaviour
 
     void OnClick() // When Clicked
     {
-        OnAttack();
+        //OnAttack();
     }
 
     IEnumerator DoingDash() // Do Coroutine During Dash
