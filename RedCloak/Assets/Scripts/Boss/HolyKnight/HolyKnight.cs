@@ -68,7 +68,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     public HolyKnightZone zone;
 
-    public Door door;
+    //public Door door;
 
     Player player;
 
@@ -667,7 +667,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         FadeManager.instance.FadeOut(0.2f);
         yield return new WaitForSeconds(2f);
         FadeManager.instance.FadeIn(0.2f);
-        door.OpenDoor();
+        CharacterManager.Instance.doors[4].OpenDoor();
         zone.RemoveWall();
         StopAllCoroutines();
         isBossDie = true;

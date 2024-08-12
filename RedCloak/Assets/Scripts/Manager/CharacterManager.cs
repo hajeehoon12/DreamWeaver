@@ -11,6 +11,8 @@ public class CharacterManager : MonoBehaviour
     public bool isLoadScene = true;
     public int playerInitHealth = 5;
 
+    public Door[] doors = new Door[5];
+
     public static CharacterManager Instance
     {
         get

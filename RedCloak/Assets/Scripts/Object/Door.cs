@@ -11,6 +11,9 @@ public class Door : MonoBehaviour
     public bool cameraHold = false;
     public bool isOpenStart = false;
 
+    public bool selfObjective = false;
+    public int selfNum = 0;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -22,6 +25,11 @@ public class Door : MonoBehaviour
         if (isOpenStart)
         {
             animator.SetBool(isDoorOpen, true); // for the test
+        }
+
+        if (selfObjective)
+        {
+            CharacterManager.Instance.doors[selfNum] = this;
         }
     }
 

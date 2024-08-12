@@ -136,11 +136,12 @@ MonoBehaviour:
     playerSpeed: 10
     jumpPower: 15
     attackDamage: 5
-    playerHP: 4
-    playerMaxHP: 4
+    playerHP: 5
+    playerMaxHP: 5
     playerMP: 50
     playerMaxMP: 50
     playerGold: 0
+  itemData: {fileID: 0}
 --- !u!114 &7443914195730454756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +160,7 @@ MonoBehaviour:
   rigid: {fileID: 0}
   ghostDash: {fileID: 0}
   playerCollider: {fileID: 0}
+  shootProjectile: {fileID: 0}
   Rolling: 0
   isGrounded: 1
   enemyLayerMask:
@@ -174,10 +176,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 131072
   canRoll: 1
-  canDash: 1
-  canComboAttack: 1
-  canWallJump: 1
-  canDoubleJump: 1
+  canDash: 0
+  canComboAttack: 0
+  canWallJump: 0
+  canDoubleJump: 0
   isWall: 0
   attackRate: 10
   ComboCount: 0
@@ -190,6 +192,7 @@ MonoBehaviour:
   isLongJump: 0
   cantMove: 0
   StartPoint: {x: 0, y: 0, z: 0}
+  currentNpc: {fileID: 0}
 --- !u!114 &8648394096373722908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +208,7 @@ MonoBehaviour:
   healthChangeDelay: 0.5
   isAttacked: 0
   onInvincible: 0
+  isDead: 0
 --- !u!50 &1183696111061690566
 Rigidbody2D:
   serializedVersion: 4
@@ -377,7 +381,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6639496726971127151, guid: 5efc3e238418636409fceef0a61616b8, type: 3}
       propertyPath: Prefabs.Array.size
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639496726971127151, guid: 5efc3e238418636409fceef0a61616b8, type: 3}
+      propertyPath: Prefabs.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6639496726971127151, guid: 5efc3e238418636409fceef0a61616b8, type: 3}
       propertyPath: Prefabs.Array.data[1]
@@ -387,6 +395,10 @@ PrefabInstance:
       propertyPath: Prefabs.Array.data[2]
       value: 
       objectReference: {fileID: 1249710063744722, guid: b5142b50d0087484da65aa5c35349656, type: 3}
+    - target: {fileID: 6639496726971127151, guid: 5efc3e238418636409fceef0a61616b8, type: 3}
+      propertyPath: Prefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 1764308443362498, guid: 9898948b5aa9c2441b988f630e466355, type: 3}
     - target: {fileID: 6799595111446954386, guid: 5efc3e238418636409fceef0a61616b8, type: 3}
       propertyPath: m_Name
       value: PlayerSlash
