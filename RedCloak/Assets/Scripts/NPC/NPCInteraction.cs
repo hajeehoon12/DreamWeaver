@@ -101,6 +101,7 @@ public class NPCInteraction : MonoBehaviour
     private void EndDialogue()
     {
         UIManager.Instance.CloseCurrentUI();
+        UIManager.Instance.pause.EnablePlayerInput();
     }
 
     public void PurchasedItem(ItemData itemData)
