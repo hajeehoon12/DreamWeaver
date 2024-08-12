@@ -112,17 +112,21 @@ public class BossLightEffect : MonoBehaviour
 
                 case SkillType.Skill1:
                     player.GetComponentInChildren<PlayerShooting>().PlayerSkill1 = true;
+                    UIManager.Instance.skillUI.skill1 = true;
                     //Debug.Log("Green");
                     break;
                 case SkillType.Skill2:
                     player.GetComponentInChildren<PlayerShooting>().PlayerSkill2 = true;
+                    UIManager.Instance.skillUI.skill2 = true;
                     break;
                 case SkillType.Skill3:
                     player.GetComponentInChildren<PlayerShooting>().PlayerSkill3 = true;
+                    UIManager.Instance.skillUI.skill3 = true;
                     break;
                 default:
                     break;
             }
+            UIManager.Instance.skillUI.UpdateSkill();
 
         }
 

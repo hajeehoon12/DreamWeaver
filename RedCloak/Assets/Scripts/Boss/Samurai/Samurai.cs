@@ -122,10 +122,8 @@ public class Samurai : MonoBehaviour, IDamage
 
 
     public void CallSamurai()
-    {
-       
+    {  
         StartCoroutine(SamuraiStageOn());
-        
     }
 
     IEnumerator SamuraiStageOn()

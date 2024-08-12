@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     public Collider2D playerCollider;
     PlayerBattle playerBattle;
 
-    PlayerShooting shootProjectile;
+    public PlayerShooting shootProjectile;
 
     bool Jumping = false;           // AM i Jumping?
     //bool Falling = false;

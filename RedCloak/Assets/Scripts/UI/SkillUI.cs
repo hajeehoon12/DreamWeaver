@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
+
 
 public class SkillUI : MonoBehaviour
 {
@@ -12,9 +14,19 @@ public class SkillUI : MonoBehaviour
     private Quaternion rotation;
     private bool isRotating = false;
 
+    public bool skill1 = false;
+    public bool skill2 = false;
+    public bool skill3 = false;
+
+    public GameObject Skill1;
+    public GameObject Skill2;
+    public GameObject Skill3;
+
     private void Start()
     {
         rotation = Quaternion.Euler(0, 0, targetAngle);
+        InitiateSkillInfo();
+        UpdateSkill();
     }
 
     private void Update()
@@ -26,6 +38,43 @@ public class SkillUI : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Q) && !isRotating)// 
         {
             StartRotation(-1);
+        }
+    }
+
+    void InitiateSkillInfo()
+    {
+        PlayerShooting shoot = CharacterManager.Instance.Player.controller.shootProjectile;
+
+        skill1 = shoot.PlayerSkill1;
+        skill2 = shoot.PlayerSkill2;
+        skill3 = shoot.PlayerSkill3;
+    }
+
+    public void UpdateSkill()
+    {
+        if (skill1)
+        {
+            Skill1.GetComponent<Image>().DOFade(1, 1f);
+        }
+        else
+        {
+            Skill1.GetComponent<Image>().DOFade(0, 1f);
+        }
+        if (skill2)
+        {
+            Skill2.GetComponent<Image>().DOFade(1, 1f);
+        }
+        else
+        {
+            Skill2.GetComponent<Image>().DOFade(0, 1f);
+        }
+        if (skill3)
+        {
+            Skill3.GetComponent<Image>().DOFade(1, 1f);
+        }
+        else
+        {
+            Skill3.GetComponent<Image>().DOFade(0, 1f);
         }
     }
 
