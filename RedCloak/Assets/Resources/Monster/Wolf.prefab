@@ -85,6 +85,10 @@ PrefabInstance:
       propertyPath: wolfZone
       value: 
       objectReference: {fileID: 5978896762046746586}
+    - target: {fileID: 3795898141541841480, guid: 0baf0806b9dcf8747ba23570b153ad31, type: 3}
+      propertyPath: transparentWall
+      value: 
+      objectReference: {fileID: 8168739780658417634}
     - target: {fileID: 7439029480959802217, guid: 0baf0806b9dcf8747ba23570b153ad31, type: 3}
       propertyPath: m_Name
       value: Wolf
@@ -364,3 +368,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12316fef5e93d2d4f9debdb647e7eb41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8168739780658417634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7335009578642288333, guid: 714dc04b3986a5648b4a0d7bee8d3af2, type: 3}
+  m_PrefabInstance: {fileID: 1483375144283988271}
+  m_PrefabAsset: {fileID: 0}
