@@ -61,9 +61,9 @@ public class Samurai : MonoBehaviour, IDamage
 
     Player player;
 
-    public Door door;
-    public Door door1;
-    public Door door2;
+    //public Door door;
+    //public Door door1;
+    //public Door door2;
 
     public GameObject samuraiLight;
 
@@ -620,9 +620,9 @@ public class Samurai : MonoBehaviour, IDamage
     IEnumerator DoorOpen()
     {
         yield return new WaitForSeconds(2f);
-        door.OpenDoor();
-        door1.OpenDoor();
-        door2.OpenDoor();
+        CharacterManager.Instance.doors[0].OpenDoor();
+        CharacterManager.Instance.doors[1].OpenDoor();
+        CharacterManager.Instance.doors[2].OpenDoor();
         yield return new WaitForSeconds(4f);
         Instantiate(samuraiLight, transform.position, Quaternion.identity);
     }

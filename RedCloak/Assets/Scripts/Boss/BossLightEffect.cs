@@ -86,6 +86,7 @@ public class BossLightEffect : MonoBehaviour
 
     private IEnumerator LifeTimeEnd()
     {
+        AudioManager.instance.PlaySFX("LevelUp", 0.2f);
         GetItem();
        
         yield return interval;
@@ -93,7 +94,7 @@ public class BossLightEffect : MonoBehaviour
         //Debug.Log("Point추가 : " + point);
         CharacterManager.Instance.Player.controller.cantMove = false;
         UIManager.Instance.uiBar.UpdateGold();
-        AudioManager.instance.PlaySFX("LevelUp", 0.2f);
+        
         Destroy(gameObject, 0.5f);
     }
 

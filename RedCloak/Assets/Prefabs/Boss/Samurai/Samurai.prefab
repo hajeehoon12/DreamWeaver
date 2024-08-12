@@ -5019,7 +5019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17af337c7b7bdd84bbc2cd998cc56881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossMaxHealth: 5
+  bossMaxHealth: 900
   isPhase1: 0
   isPhase2: 0
   isPhase3: 0
@@ -5037,9 +5037,6 @@ MonoBehaviour:
   samuraiZone: {fileID: 0}
   isDefending: 0
   animSpeed: 1
-  door: {fileID: 0}
-  door1: {fileID: 0}
-  door2: {fileID: 0}
   samuraiLight: {fileID: 2643489189189102077, guid: 90d2c5a051088d3419055fb314643b8b, type: 3}
 --- !u!50 &1123967618995039861
 Rigidbody2D:
