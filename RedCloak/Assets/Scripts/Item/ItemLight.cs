@@ -10,7 +10,7 @@ public class ItemLight : MonoBehaviour
     public void GetItem()
     {
         //TODO Give RewardData to Player
-        Debug.Log("Give Player : " + RewardData.name);
+        //Debug.Log("Give Player : " + RewardData.name);
         Player player = CharacterManager.Instance.Player;
         player.itemData = RewardData;
         player.addItem?.Invoke();
