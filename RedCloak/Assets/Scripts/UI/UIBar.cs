@@ -124,9 +124,12 @@ public class UIBar : MonoBehaviour
         {
             heartInstantiate = Instantiate(heart, heartParent.transform);
             heartFront = heartInstantiate.transform.Find("GemFront").gameObject;
+            CharacterManager.Instance.Player.stats.playerHP = CharacterManager.Instance.Player.stats.playerMaxHP;
             heartsFront.Add(heartFront);
             //heartInstantiate.transform.SetParent(heartParent.transform);
         }
+
+        SetCurrentHP();
     }
 
     public void ApplyDamage()
