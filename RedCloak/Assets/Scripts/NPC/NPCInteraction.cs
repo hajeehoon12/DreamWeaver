@@ -98,7 +98,7 @@ public class NPCInteraction : MonoBehaviour
         dialogueText.text = line.dialogueText;
     }
 
-    private void EndDialogue()
+    public void EndDialogue()
     {
         UIManager.Instance.CloseCurrentUI();
         UIManager.Instance.pause.EnablePlayerInput();
