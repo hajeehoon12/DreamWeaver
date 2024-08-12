@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class MonsterDataManager : MonoBehaviour
 {
-    [SerializeField] private TextAsset mobDataJson;
-    [SerializeField] private TextAsset mapDataJson;
-    
     private GameObject mapParent;
     private static List<GameObject> maps = new List<GameObject>();
     public static MonsterDataArray mobArray { get; private set; }
