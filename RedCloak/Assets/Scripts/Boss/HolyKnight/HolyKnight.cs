@@ -666,8 +666,8 @@ public class HolyKnight : MonoBehaviour, IDamage
         FadeManager.instance.FadeOut(0.2f);
         yield return new WaitForSeconds(2f);
         FadeManager.instance.FadeIn(0.2f);
-        CharacterManager.Instance.doors[4].OpenDoor();
-        CharacterManager.Instance.ChangeDoorOpenStat(4);
+        CharacterManager.Instance.doors[3].OpenDoor();
+        CharacterManager.Instance.ChangeDoorOpenStat(3);
         zone.RemoveWall();
         StopAllCoroutines();
         MonsterDataManager.ChangeCatchStat("ENS00130");
