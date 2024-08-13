@@ -26,6 +26,7 @@ public class OrangeSlimeAttack : MonoBehaviour, IMobAttack
 
     public bool PerformAttack()
     {
+        Debug.Log(isMeele);
         if (isMeele)
         {
             attack = meele;

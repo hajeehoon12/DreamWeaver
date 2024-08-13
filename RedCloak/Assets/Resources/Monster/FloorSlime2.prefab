@@ -126,9 +126,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GetHit: 0
   invincible: 1
+  data:
+    rcode: 
+    enemyCode: 
+    enemyName: 
+    isRegen: 0
+    mapData: 
+    pos: 
+    isCatch: 0
+    dropPoint: 0
   maxHealth: 0
   currentHealth: 0
-  point: 20
   _renderer: {fileID: 1257490746395358917}
   _animator: {fileID: 4617119537650751737}
   _collider: {fileID: 9169144255263090092}
@@ -262,7 +270,7 @@ MonoBehaviour:
       variableStartIndex: 
       JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(754,145)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(0,120)"},"ID":1,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0,110)"},"ID":2,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"Detect","NodeData":{"Offset":"(-60,150)"},"ID":3,"Name":"Detect","Instant":true,"SharedVector2DetectSize":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":null,"Vector2mValue":"(12,5)"},"SharedVector2DetectBoxPos":{"Type":"BehaviorDesigner.Runtime.SharedVector2","Name":null,"Vector2mValue":"(0,0)"},"SharedTransformTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":null}},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetTrigger","NodeData":{"Offset":"(60,150)"},"ID":4,"Name":"Set
         Trigger","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null,"GameObjectmValue":0},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"Attack"}},{"Type":"checkAttack","NodeData":{"Offset":"(176,145)"},"ID":5,"Name":"Check
-        Attack","Instant":true,"SharedBoolAttacking":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"OnAttack","IsShared":true,"PropertyMapping":"MonsterController/OnAttack","PropertyMappingOwner":1,"BooleanmValue":false}},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(302,146)"},"ID":6,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.5},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"OnAttack","IsShared":true,"PropertyMapping":"MonsterController/OnAttack","PropertyMappingOwner":2,"BooleanmValue":false}]}'
+        Attack","Instant":true,"MonsterController_controller":1},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(302,146)"},"ID":6,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.5},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"OnAttack","IsShared":true,"PropertyMapping":"MonsterController/OnAttack","PropertyMappingOwner":2,"BooleanmValue":false}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
@@ -270,10 +278,10 @@ MonoBehaviour:
         dataPosition: 
         unityObjects:
         - {fileID: 2435982089840284852}
-        - {fileID: 2435982089840284852}
+        - {fileID: 3230779012190337687}
         - {fileID: 2435982089840284852}
         byteData: 
         byteDataArray: 
       Version: 1.7.9
-  gizmoViewMode: 0
-  showBehaviorDesignerGizmo: 0
+  gizmoViewMode: 2
+  showBehaviorDesignerGizmo: 1

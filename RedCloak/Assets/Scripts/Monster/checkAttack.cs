@@ -4,10 +4,10 @@ using BehaviorDesigner.Runtime.Tasks;
 
 public class checkAttack : Action
 {
-    public SharedBool Attacking;
+    [SerializeField] private MonsterController _controller;
 
 	public override TaskStatus OnUpdate()
     {
-        return Attacking.Value ? TaskStatus.Running : TaskStatus.Success;
+        return _controller.OnAttack ? TaskStatus.Running : TaskStatus.Success;
     }
 }

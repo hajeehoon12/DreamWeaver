@@ -18,7 +18,8 @@ public class MonsterController : MonoBehaviour
                 LayerMask.NameToLayer(Define.ENEMY));
         }
     }
-    public bool OnAttack { get; set; } = false;
+
+    public bool OnAttack { get; set; }= false;
 
     private void Start()
     {
@@ -30,7 +31,6 @@ public class MonsterController : MonoBehaviour
     {
         if (MobAttack != null)
         {
-            OnAttack = true;
             if (MobAttack.PerformAttack())
             {
                 CallAttackEvent();
