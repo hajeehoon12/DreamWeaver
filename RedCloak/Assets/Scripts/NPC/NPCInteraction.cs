@@ -19,6 +19,7 @@ public class NPCInteraction : MonoBehaviour
     public Shop shop;
     public List<ItemData> shopDataList = new List<ItemData>();
     public GameObject continueKey;
+    public GameObject arrowKey;
 
     public bool isPlayerRange = false;
     public bool isDialogue = false;
@@ -39,6 +40,7 @@ public class NPCInteraction : MonoBehaviour
         dialogueUI.SetActive(false);
         selectMenu.SetActive(false);
         shopObj.SetActive(false);
+        arrowKey.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,6 +49,7 @@ public class NPCInteraction : MonoBehaviour
         {
             isPlayerRange = true;
             shop.SetShopGoods();
+            arrowKey.SetActive(true);
         }
     }
 
@@ -55,6 +58,7 @@ public class NPCInteraction : MonoBehaviour
         if (((1 << collision.gameObject.layer) & playerLayer) != 0)
         {
             isPlayerRange = false;
+            arrowKey.SetActive(true);
         }
     }
 

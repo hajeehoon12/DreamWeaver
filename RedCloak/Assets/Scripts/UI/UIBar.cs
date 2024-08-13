@@ -128,7 +128,7 @@ public class UIBar : MonoBehaviour
             heartsFront.Add(heartFront);
             //heartInstantiate.transform.SetParent(heartParent.transform);
         }
-
+         
         SetCurrentHP();
     }
 
