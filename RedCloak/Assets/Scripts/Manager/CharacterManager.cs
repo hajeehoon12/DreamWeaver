@@ -149,7 +149,7 @@ public class CharacterManager : MonoBehaviour
 
         yield return new WaitUntil(() => isLoadScene);
 
-        CameraManager.Instance.SelectStage();
+        LoadInfo();
         CharacterManager.Instance.Player.stats.playerHP = Player.stats.playerMaxHP;
         
         
@@ -157,9 +157,10 @@ public class CharacterManager : MonoBehaviour
         UIManager.Instance.uiBar.SetCurrentHP();
         UIManager.Instance.skillUI.InitateRotation();
         UIManager.Instance.uiBar.CallBackBossBar();
+        CameraManager.Instance.SelectStage();
         AudioManager.instance.PlaySFX("HeartUp", 0.2f);
 
-        LoadInfo();
+        
         
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.TRAP), LayerMask.NameToLayer(Define.PLAYER), false);
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.ENEMY), LayerMask.NameToLayer(Define.PLAYER), false);
