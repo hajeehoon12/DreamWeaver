@@ -17,20 +17,19 @@ public class Door : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-    }
-
-    private void Start()
-    {
-        isOpenStart = CharacterManager.Instance.GetDoorOpenStat(selfNum);
-        //OpenDoor();
-        if (isOpenStart)
-        {
-            animator.SetBool(isDoorOpen, true); // for the test
-        }
-
+        
         if (selfObjective)
         {
             CharacterManager.Instance.doors[selfNum] = this;
+            isOpenStart = CharacterManager.Instance.GetDoorOpenStat(selfNum);
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (isOpenStart)
+        {
+            animator.SetBool(isDoorOpen, true); // for the test
         }
     }
 
