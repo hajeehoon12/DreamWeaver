@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
 
+
 public class CharacterManager : MonoBehaviour
 {
     private static CharacterManager _instance;
@@ -13,6 +14,27 @@ public class CharacterManager : MonoBehaviour
 
     public Door[] doors = new Door[5];
     public DoorDataArray doorData;
+
+    public PlayerStat tempStat;
+
+    public float playerSpeed = 10;
+    public float jumpPower = 15;
+    public float attackDamage = 5;
+    public float playerHP = 4;
+    public float playerMaxHP = 4;
+    public float playerMP = 50;
+    public float playerMaxMP = 50;
+    public float playerGold = 0;
+
+    public bool canRoll = true;
+    public bool canDash = true;
+    public bool canComboAttack = true;
+    public bool canWallJump = true;
+    public bool canDJ = true;
+
+    public bool Skill1 = true;
+    public bool Skill2 = true;
+    public bool Skill3 = true;
 
     public static CharacterManager Instance
     {
@@ -58,6 +80,59 @@ public class CharacterManager : MonoBehaviour
         SavePoint = Player.transform.position;
     }
 
+    public void SaveInfo()
+    { 
+        
+
+        PlayerController PC = Player.controller;
+        PlayerStat stat = Player.stats;
+
+        playerSpeed = stat.playerSpeed;
+        jumpPower = stat.jumpPower;
+        attackDamage = stat.attackDamage;
+        playerHP = stat.playerHP;
+        playerMaxHP = stat.playerMaxHP;
+        playerMP = stat.playerMP;
+        playerMaxMP = stat.playerMaxMP;
+        playerGold = stat.playerGold;
+
+        canRoll = PC.canRoll;
+        canDash = PC.canDash;
+        canComboAttack = PC.canComboAttack;
+        canWallJump = PC.canWallJump;
+        canDJ = PC.canDJ;
+        Skill1 = PC.shootProjectile.PlayerSkill1;
+        Skill2 = PC.shootProjectile.PlayerSkill2;
+        Skill3 = PC.shootProjectile.PlayerSkill3;
+    }
+
+    public void LoadInfo()
+    { 
+        
+        PlayerController PC = Player.controller;
+        PlayerStat stat = Player.stats;
+
+        stat.playerSpeed = playerSpeed;
+        stat.jumpPower = jumpPower;
+        stat.attackDamage = attackDamage;
+        stat.playerHP = playerHP;
+        stat.playerMaxHP = playerMaxHP;
+        stat.playerMP = playerMP;
+        stat.playerMaxMP = playerMaxMP;
+        stat.playerGold = playerGold;
+
+        PC.canRoll = canRoll;
+        PC.canDash = canDash;
+        PC.canComboAttack = canComboAttack;
+        PC.canWallJump = canWallJump;
+        PC.canDJ = canDJ;
+        PC.shootProjectile.PlayerSkill1 = Skill1;
+        PC.shootProjectile.PlayerSkill2 = Skill2;
+        PC.shootProjectile.PlayerSkill3 = Skill3;
+
+        UIManager.Instance.skillUI.UpdateSkill();
+    }
+
     public void CallDeath()
     {
         FadeManager.instance.FadeOut(1f);
@@ -83,6 +158,8 @@ public class CharacterManager : MonoBehaviour
         UIManager.Instance.skillUI.InitateRotation();
         UIManager.Instance.uiBar.CallBackBossBar();
         AudioManager.instance.PlaySFX("HeartUp", 0.2f);
+
+        LoadInfo();
         
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.TRAP), LayerMask.NameToLayer(Define.PLAYER), false);
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(Define.ENEMY), LayerMask.NameToLayer(Define.PLAYER), false);

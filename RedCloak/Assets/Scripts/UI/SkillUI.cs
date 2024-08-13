@@ -25,7 +25,7 @@ public class SkillUI : MonoBehaviour
     private void Start()
     {
         rotation = Quaternion.Euler(0, 0, targetAngle);
-        InitiateSkillInfo();
+        
         UpdateSkill();
     }
 
@@ -52,6 +52,7 @@ public class SkillUI : MonoBehaviour
 
     public void UpdateSkill()
     {
+        InitiateSkillInfo();
         if (skill1)
         {
             Skill1.GetComponent<Image>().DOFade(1, 1f);
