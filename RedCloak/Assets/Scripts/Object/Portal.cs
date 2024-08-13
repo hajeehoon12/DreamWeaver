@@ -17,10 +17,10 @@ public class Portal : MonoBehaviour
         {
             if (isStartPortal)
             {
-                CameraManager.Instance.CallStage2CameraInfo();
+                
                 collision.gameObject.transform.position = portalDestination.position;
                 StartCoroutine(TeleportAfterFade());//collision.gameObject
-                isStartPortal = false;
+                //isStartPortal = false;
             }
 
 

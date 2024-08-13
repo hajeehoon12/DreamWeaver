@@ -119,10 +119,10 @@ public class HolyKnight : MonoBehaviour, IDamage
             LookPlayer();
         }
 
-        if (Input.GetKeyUp(KeyCode.V))
-        {
-            CallHolyStage();
-        }
+        //if (Input.GetKeyUp(KeyCode.V))
+        //{
+        //    CallHolyStage();
+        //}
 
     }
 
