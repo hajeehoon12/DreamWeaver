@@ -29,7 +29,9 @@ public class ItemData : ScriptableObject
     public Sprite icon;
     public int price;
     public int addStat;
+    public int maxStackAmount;
     public bool canBuy = true;
+    public bool canStack = false;
     public int healthIncrease;
     public int manaIncrease;
     public int attackIncrease;

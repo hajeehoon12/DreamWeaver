@@ -44,15 +44,30 @@ public class Inventory : MonoBehaviour
     public void AddItem()
     {
         ItemData data = CharacterManager.Instance.Player.itemData;
-        ItemSlot emptySlot = GetEmptySlot();
+
         if(data != null && !data.canBuy)
         {
             UIManager.Instance.itemPopup.PopupGetItem();
         }
 
+        if(data.canStack)
+        {
+            ItemSlot slot = GetItemStack(data);
+            if(slot != null)
+            {
+                slot.quantity++;
+                UpdateInventory();
+                CharacterManager.Instance.Player.itemData = null;
+                return;
+            }
+        }
+
+        ItemSlot emptySlot = GetEmptySlot();
+
         if (emptySlot != null )
         {
             emptySlot.item = data;
+            emptySlot.quantity = 1;
             UpdateInventory();
             CharacterManager.Instance.Player.itemData = null;
             return;
@@ -70,6 +85,19 @@ public class Inventory : MonoBehaviour
         for(int i = 0; i < slots.Length; i++)
         {
             if (slots[i].item == null)
+            {
+                return slots[i];
+            }
+        }
+
+        return null;
+    }
+
+    ItemSlot GetItemStack(ItemData data)
+    {
+        for(int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].item == data && slots[i].quantity < data.maxStackAmount)
             {
                 return slots[i];
             }
@@ -132,5 +160,10 @@ public class Inventory : MonoBehaviour
         {
             CharacterManager.Instance.Player.stats.attackDamage += itemData.attackIncrease;
         }
+    }
+
+    public bool HasItem(ItemData item, int quantity)
+    {
+        return false;
     }
 }

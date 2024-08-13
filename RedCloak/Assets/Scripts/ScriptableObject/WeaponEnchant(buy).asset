@@ -18,7 +18,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: aebbe95b5b9072242a506c170f46b682, type: 3}
   price: 100
   addStat: 0
+  maxStackAmount: 10
   canBuy: 1
+  canStack: 1
   healthIncrease: 0
   manaIncrease: 0
   attackIncrease: 1

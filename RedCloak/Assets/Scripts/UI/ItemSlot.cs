@@ -10,12 +10,13 @@ public class ItemSlot : MonoBehaviour
     public Inventory inventory;
     public Button button;
     public Image icon;
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI quantityText;
     // 장착 테두리 모양 고민해보기
     private Outline outline;
 
     public int index;
     public bool equipped;
+    public int quantity;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class ItemSlot : MonoBehaviour
     {
         icon.gameObject.SetActive(true);
         icon.sprite = item.icon;
+        quantityText.text = quantity > 1 ? quantity.ToString() : string.Empty;
     }
 
     public void Clear()
