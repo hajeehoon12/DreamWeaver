@@ -55,7 +55,10 @@ public class MonsterDataManager : MonoBehaviour
             mob.transform.position = new Vector3(floatpos[0], floatpos[1], floatpos[2]);
 
             if (mob.TryGetComponent<Monster>(out Monster m))
+            {
                 m.data = monster;
+                m.init = true;
+            }
         }
     }
 

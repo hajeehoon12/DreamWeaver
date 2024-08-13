@@ -602,7 +602,7 @@ public class Samurai : MonoBehaviour, IDamage
         SwordAura.SetActive(false);
         
         AudioManager.instance.PlaySFX("Success", 0.05f);
-        MonsterDataManager.ChangeCatchStat("END00011");
+        MonsterDataManager.ChangeCatchStat("ENS00107");
         ClearAfter();
         //AudioManager.instance.PlaySFX()
     }
@@ -621,8 +621,11 @@ public class Samurai : MonoBehaviour, IDamage
     {
         yield return new WaitForSeconds(2f);
         CharacterManager.Instance.doors[0].OpenDoor();
+        CharacterManager.Instance.ChangeDoorOpenStat(0);
         CharacterManager.Instance.doors[1].OpenDoor();
+        CharacterManager.Instance.ChangeDoorOpenStat(1);
         CharacterManager.Instance.doors[2].OpenDoor();
+        CharacterManager.Instance.ChangeDoorOpenStat(2);
         yield return new WaitForSeconds(4f);
         Instantiate(samuraiLight, transform.position, Quaternion.identity);
     }

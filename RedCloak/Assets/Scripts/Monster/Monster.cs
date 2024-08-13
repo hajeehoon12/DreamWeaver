@@ -12,6 +12,8 @@ public class Monster : MonoBehaviour, IDamage
     public MonsterData data;
     public float maxHealth;
     public float currentHealth;
+    private bool isDie = false;
+    public bool init { get; set; } = false;
 
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private Animator _animator;
@@ -34,9 +36,14 @@ public class Monster : MonoBehaviour, IDamage
 
     private void OnEnable()
     {
-        _behavior.enabled = true;
-        _rigidbody.bodyType = RigidbodyType2D.Dynamic;
-        _collider.enabled = true;
+        if (!isDie && init)
+        {
+            string[] pos = data.pos.Split(",");
+            transform.position = new Vector3(float.Parse(pos[0]), float.Parse(pos[1]), float.Parse(pos[2]));
+            _behavior.enabled = true;
+            _rigidbody.bodyType = RigidbodyType2D.Dynamic;
+            _collider.enabled = true;
+        }
     }
 
     public void GetDamage(float damage)
@@ -52,6 +59,7 @@ public class Monster : MonoBehaviour, IDamage
         }
         else
         {
+            isDie = true;
             Die?.Invoke();
         }
     }
