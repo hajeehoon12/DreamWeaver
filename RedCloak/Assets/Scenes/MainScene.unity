@@ -236,6 +236,17 @@ Transform:
   - {fileID: 1246593441}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &34564734 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2939627623486863589, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+  m_PrefabInstance: {fileID: 4615185439369609101}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2604e28c420a37d48898771dd15133d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &41893599
 GameObject:
   m_ObjectHideFlags: 0
@@ -46431,9 +46442,17 @@ PrefabInstance:
       propertyPath: miniMap
       value: 
       objectReference: {fileID: 1813545728}
+    - target: {fileID: 1022167438740049461, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 34564734}
     - target: {fileID: 1929562418289780295, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267830038273986360, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2703739888592574084, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
       propertyPath: m_AnchorMax.y
@@ -46549,7 +46568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6169145335139940176, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6317796546523572574, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
       propertyPath: m_AnchorMax.y
@@ -61973,7 +61992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -109.2
+      value: 197.6
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.y
