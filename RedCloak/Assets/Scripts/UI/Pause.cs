@@ -55,4 +55,9 @@ public class Pause : MonoBehaviour
     {
         playerInputAction.Enable();
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
