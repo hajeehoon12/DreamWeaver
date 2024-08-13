@@ -375,14 +375,17 @@ public class PlayerController : MonoBehaviour
         if (isAttacked) return;
         if (animator.GetBool(isJumping)) return;
 
-        if (CharacterManager.Instance.Player.stats.playerMP >= 10)
-        {
-            CharacterManager.Instance.Player.stats.playerMP -= 10;
-        }
-        else return;
+        
 
         if (!Rolling && !Jumping)
         {
+
+            if (CharacterManager.Instance.Player.stats.playerMP >= 10)
+            {
+                CharacterManager.Instance.Player.stats.playerMP -= 10;
+            }
+            else return;
+
             playerBattle.OnCollisionDelay();
             rigid.velocity = Vector3.zero;
             rigid.gravityScale = playerGravityScale;
