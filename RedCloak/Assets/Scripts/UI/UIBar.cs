@@ -44,7 +44,8 @@ public class UIBar : MonoBehaviour
     private void Update()
     {
         UpdateMana();
-        
+        LowHealthEffect();
+
         //ApplyDamage();
     }
 
@@ -141,7 +142,6 @@ public class UIBar : MonoBehaviour
             heartsFront[i].SetActive(i < currntPlayerHealth);
         }
 
-        LowHealthEffect();
         StartCoroutine(HitEffectFade());
     }
 
