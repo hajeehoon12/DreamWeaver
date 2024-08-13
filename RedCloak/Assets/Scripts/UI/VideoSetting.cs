@@ -16,6 +16,7 @@ public class VideoSetting : MonoBehaviour
     [SerializeField] private GameObject videoSettingUI;
     [SerializeField] private Toggle vSyncToggle;
     [SerializeField] private Toggle fullScreenToggle;
+    public RectTransform dialoguePanel;
 
     private int screenWidth;
     private int screenHeight;
@@ -31,7 +32,6 @@ public class VideoSetting : MonoBehaviour
     private void InitVSync()
     {
         vSyncToggle.isOn = QualitySettings.vSyncCount > 0;
-        Debug.Log($"Init{QualitySettings.vSyncCount}");
     }
 
     private void InitFullScreen()
@@ -91,6 +91,7 @@ public class VideoSetting : MonoBehaviour
         }
         UpdateResolutionText();
         SetResolution();
+        AdjustDialoguePanel();
         /*
         var gvWndType = typeof(Editor).Assembly.GetType("UnityEditor.GameView");
         var selectedSizeIndexProp = gvWndType.GetProperty("selectedSizeIndex",
@@ -108,6 +109,7 @@ public class VideoSetting : MonoBehaviour
         }
         UpdateResolutionText();
         SetResolution();
+        AdjustDialoguePanel();
     }
 
     private void UpdateResolutionText()
@@ -124,5 +126,10 @@ public class VideoSetting : MonoBehaviour
     public void OnClickBack()
     {
         UIManager.Instance.OpenUI(optionUI);
+    }
+
+    private void AdjustDialoguePanel()
+    {
+        dialoguePanel.sizeDelta = new Vector2(screenWidth * 1f, dialoguePanel.sizeDelta.y);
     }
 }
