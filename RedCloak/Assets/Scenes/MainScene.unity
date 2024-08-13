@@ -62063,28 +62063,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4689547573083332208, guid: abc27c70448db1146ac450766b059c79, type: 3}
-      propertyPath: PlayerSkill2
+      propertyPath: PlayerSkill1
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689547573083332208, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: PlayerSkill2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: canDJ
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: canDash
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: canWallJump
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: canDoubleJump
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: canComboAttack
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8488820794825072302, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: stats.playerHP
