@@ -18,6 +18,8 @@ public class CharacterManager : MonoBehaviour
 
     public PlayerStat tempStat;
 
+    public bool canSwapSkill = true;
+
     public float playerSpeed = 10;
     public float jumpPower = 15;
     public float attackDamage = 5;
@@ -148,6 +150,7 @@ public class CharacterManager : MonoBehaviour
 
     IEnumerator CallSave()
     {
+        canSwapSkill = false;
         isLoadScene = false;
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -161,6 +164,7 @@ public class CharacterManager : MonoBehaviour
         Player.transform.position = SavePoint;
         UIManager.Instance.uiBar.SetCurrentHP();
         UIManager.Instance.skillUI.InitateRotation();
+        canSwapSkill = true;
         UIManager.Instance.uiBar.CallBackBossBar();
         CameraManager.Instance.SelectStage(SaveStage);
         AudioManager.instance.PlaySFX("HeartUp", 0.2f);

@@ -56,12 +56,12 @@ public class HS_DemoShooting2D : MonoBehaviour
         fireCountdown -= Time.deltaTime;
 
         //To change projectiles
-        if ((Input.GetKey(KeyCode.Q) && buttonSaver >= 0.4f))// left button
+        if ((Input.GetKey(KeyCode.Q) && buttonSaver >= 0.4f && CharacterManager.Instance.canSwapSkill))// left button
         {
             buttonSaver = 0f;
             Counter(-1);
         }
-        if ((Input.GetKey(KeyCode.E) && buttonSaver >= 0.4f))// right button
+        if ((Input.GetKey(KeyCode.E) && buttonSaver >= 0.4f && CharacterManager.Instance.canSwapSkill))// right button
         {
             buttonSaver = 0f;
             Counter(+1);
