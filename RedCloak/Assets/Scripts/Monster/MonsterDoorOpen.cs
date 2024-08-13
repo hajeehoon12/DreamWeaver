@@ -13,7 +13,7 @@ public class MonsterDoorOpen : MonoBehaviour
 
     public void OpenDoor()
     {
-        MonsterDataManager.ChangeCatchStat(GetComponent<Monster>().data.rcode);
+        MonsterDataManager.ChangeCatchStat(GetComponentInChildren<Monster>().data.rcode);
         _door.OpenDoor();
         DoorCollider.gameObject.SetActive(false);
     }

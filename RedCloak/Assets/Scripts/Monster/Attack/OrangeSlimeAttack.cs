@@ -18,7 +18,7 @@ public class OrangeSlimeAttack : MonoBehaviour, IMobAttack
     private IMobAttack attack;
     public bool isMeele { get; set; }
 
-    private void Start()
+    private void OnEnable()
     {
         _behavior.SetVariable("MeeleRange",(SharedFloat)meeleRange);
         _controller.MobAttack = this;
