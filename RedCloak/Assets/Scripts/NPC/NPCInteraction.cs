@@ -58,7 +58,7 @@ public class NPCInteraction : MonoBehaviour
         if (((1 << collision.gameObject.layer) & playerLayer) != 0)
         {
             isPlayerRange = false;
-            arrowKey.SetActive(true);
+            arrowKey.SetActive(false);
         }
     }
 
