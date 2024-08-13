@@ -13,6 +13,7 @@ public class SavePoint : MonoBehaviour, IDamage
         CharacterManager.Instance.Player.battle.ChangeHealth(0);
         UIManager.Instance.uiBar.SetCurrentHP();
         CharacterManager.Instance.SaveInfo();
+        //CharacterManager.Instance.SaveStage = CameraManager.Instance.stageNum;
         SaveLoad.Save("MobData", MonsterDataManager.mobArray);
         SaveLoad.Save("DoorData", CharacterManager.Instance.doorData);
     }
