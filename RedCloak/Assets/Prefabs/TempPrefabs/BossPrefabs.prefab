@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 2264331454503462318}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 73.31914, y: -375.9059, z: 0.0061282963}
+  m_LocalPosition: {x: 73.31914, y: -376, z: 0.0061282963}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -792,7 +792,6 @@ MonoBehaviour:
   isDefending: 0
   animSpeed: 1
   zone: {fileID: 4192957856228334635}
-  door: {fileID: 0}
   AttackRange: {fileID: 4858585115737017342}
   LightCutRange: {fileID: 366814758157138630}
   fog: {fileID: 8801273528992469379}

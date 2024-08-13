@@ -133,6 +133,8 @@ public class CharacterManager : MonoBehaviour
         PC.shootProjectile.PlayerSkill2 = Skill2;
         PC.shootProjectile.PlayerSkill3 = Skill3;
 
+        AudioManager.instance.StopBGM2();
+
         UIManager.Instance.skillUI.UpdateSkill();
     }
 
