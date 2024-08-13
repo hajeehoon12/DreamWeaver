@@ -78,7 +78,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 47885247
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -180,9 +180,9 @@ MonoBehaviour:
   Sky: {fileID: 6648325522633820383}
   Cave: {fileID: 7832921525200057486}
   cameraPosition: {x: 0, y: 5, z: -200}
-  center: {x: 180, y: -380}
+  center: {x: 8, y: -275}
   tempCenter: {x: 0, y: 0}
-  mapSize: {x: 260, y: 120}
+  mapSize: {x: 35, y: 15}
   tempMapSize: {x: 0, y: 0}
   shakeCamera: {fileID: 4442600419664338997}
   shakeRotate: 0
@@ -190,6 +190,7 @@ MonoBehaviour:
   originRot: {x: 0, y: 0, z: 0, w: 0}
   isCameraShaking: 0
   stageNum: 2
+  saveStage: 0
 --- !u!1 &5908851888577271320
 GameObject:
   m_ObjectHideFlags: 0
