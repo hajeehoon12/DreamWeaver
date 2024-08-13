@@ -36,7 +36,8 @@ public class CharacterManager : MonoBehaviour
 
     private void Awake()
     {
-        doorData = SaveLoad.Load<DoorDataArray>("DoorData");
+        if (doorData == null)
+            doorData = SaveLoad.Load<DoorDataArray>("DoorData");
         
         if (_instance != null)
         {

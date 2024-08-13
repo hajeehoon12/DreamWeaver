@@ -29,12 +29,26 @@ public class ItemLight : MonoBehaviour
                     player.controller.canWallJump = true;
                     //Debug.Log("SharpGloves");
                     break;
-                case "swordsmanship":
+                case "Swordsmanship":
                     player.controller.canComboAttack = true;
                     break;
                 default:
                     break;
             
+            }
+        }
+
+        if (RewardData.type == ItemType.Attack)
+        {
+            switch (RewardData.itemName)
+            {
+                case "Weapon Enchant":
+                    CharacterManager.Instance.Player.stats.attackDamage += 1;
+                    break;
+                
+                default:
+                    break;
+
             }
         }
 

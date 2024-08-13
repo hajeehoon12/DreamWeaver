@@ -7,7 +7,8 @@ public enum ItemType
     Equip,
     Antique,
     Health,
-    Skill
+    Skill,
+    Attack
 }
 
 public enum SkillType
