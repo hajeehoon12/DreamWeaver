@@ -73,7 +73,7 @@ public class ItemLight : MonoBehaviour
             
         }
 
-
+        
         if (RewardData.type == ItemType.Health)
         {
             ItemManager.Instance.healthPartNum++;

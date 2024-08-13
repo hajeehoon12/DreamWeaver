@@ -62,6 +62,7 @@ public class UIManager : MonoBehaviour
         {
             currentUI.SetActive(false);
             Time.timeScale = 1f;
+            pause.EnablePlayerInput();
             currentUI = null;
         }
     }
