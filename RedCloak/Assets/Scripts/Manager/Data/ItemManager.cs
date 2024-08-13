@@ -35,7 +35,7 @@ public class ItemManager : MonoBehaviour
         player = CharacterManager.Instance.Player;
         controller = player.controller;
 
-        controller.canDoubleJump = airShoes;
+        //controller.canDoubleJump = airShoes;
         //controller.canDash = dash;
         //Debug.Log(healthPartNum);
         player.stats.playerMaxHP= CharacterManager.Instance.playerInitHealth + healthPartNum;
