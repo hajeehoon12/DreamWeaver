@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
     {
         if (CharacterManager.Instance.Player.stats.playerMP <= CharacterManager.Instance.Player.stats.playerMaxMP)
         {
-            CharacterManager.Instance.Player.stats.playerMP = Mathf.Clamp(CharacterManager.Instance.Player.stats.playerMP + Time.deltaTime * 5, 0, CharacterManager.Instance.Player.stats.playerMaxMP);
+            CharacterManager.Instance.Player.stats.playerMP = Mathf.Clamp(CharacterManager.Instance.Player.stats.playerMP + Time.deltaTime * 8, 0, CharacterManager.Instance.Player.stats.playerMaxMP);
         }
         
     }
