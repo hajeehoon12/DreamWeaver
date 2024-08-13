@@ -45,7 +45,6 @@ public class Portal : MonoBehaviour
                     break;
             
             }
-            MonsterDataManager.ToggleMonsters(whichStage);
         }
     }
 

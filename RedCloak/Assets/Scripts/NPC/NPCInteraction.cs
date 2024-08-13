@@ -58,6 +58,8 @@ public class NPCInteraction : MonoBehaviour
             itemPurcased[itemData.name] = true;
             if(itemData.healthIncrease > 0)
             {
+                ItemManager.Instance.healthPartNum += itemData.healthIncrease;
+                ItemManager.Instance.synchroniztion();
                 UIManager.Instance.uiBar.UpdateMaxHP(itemData.healthIncrease);
             }
         }

@@ -116,7 +116,6 @@ public class CameraManager : MonoBehaviour
                 break;
 
         }
-        MonsterDataManager.ToggleMonsters(stageNum);
     }
 
     public void SelectStage(int stage)
@@ -143,7 +142,6 @@ public class CameraManager : MonoBehaviour
                 break;
 
         }
-        MonsterDataManager.ToggleMonsters(stageNum);
     }
 
     void LimitCameraArea()
@@ -203,6 +201,7 @@ public class CameraManager : MonoBehaviour
         Cave.gameObject.SetActive(false);
 
         UIManager.Instance.miniMap.SetMinimap(stageNum);
+        MonsterDataManager.ToggleMonsters(stageNum);
     }
     public void CallStage1CameraInfo(string boss)
     {
@@ -236,6 +235,8 @@ public class CameraManager : MonoBehaviour
         Cave.gameObject.SetActive(false);
 
         UIManager.Instance.miniMap.SetMinimap(stageNum);
+        
+        MonsterDataManager.ToggleMonsters(stageNum);
     }
 
     public void CallStage2CameraInfo(string boss)
@@ -273,6 +274,8 @@ public class CameraManager : MonoBehaviour
         Cave.gameObject.SetActive(true);
 
         UIManager.Instance.miniMap.SetMinimap(stageNum);
+        
+        MonsterDataManager.ToggleMonsters(stageNum);
     }
 
     public void CallStage3CameraInfo(string boss)
@@ -313,6 +316,8 @@ public class CameraManager : MonoBehaviour
         Cave.gameObject.SetActive(false);
 
         UIManager.Instance.miniMap.SetMinimap(stageNum);
+        
+        MonsterDataManager.ToggleMonsters(stageNum);
     }
 
     public void CallStage4CameraInfo(string boss)

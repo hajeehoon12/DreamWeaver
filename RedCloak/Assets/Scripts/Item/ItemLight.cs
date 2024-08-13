@@ -7,6 +7,8 @@ public class ItemLight : MonoBehaviour
     public ItemData RewardData;
     public GameObject parent;
 
+    public GameObject upArrowIcon;
+
     public void GetItem()
     {
         //TODO Give RewardData to Player
@@ -103,5 +105,24 @@ public class ItemLight : MonoBehaviour
             }
         }
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(Define.PLAYER))
+        {
+            upArrowIcon.SetActive(true);
+        }
+    }
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(Define.PLAYER))
+        {
+            upArrowIcon.SetActive(false);
+        }
+    }
+
 
 }
