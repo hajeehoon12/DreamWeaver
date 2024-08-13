@@ -14,6 +14,7 @@ public class BossLightEffect : MonoBehaviour
     private WaitForSeconds boundInterval = new WaitForSeconds(0.015f);
     Coroutine thisCoroutine;
     private Coroutine boundCoroutine;
+    public string codeNum;
 
     void Start()
     {
@@ -105,6 +106,7 @@ public class BossLightEffect : MonoBehaviour
         Player player = CharacterManager.Instance.Player;
         player.itemData = RewardData;
         player.addItem?.Invoke();
+        DataSave();
 
         if (RewardData.type == ItemType.Skill)
         {
@@ -135,4 +137,10 @@ public class BossLightEffect : MonoBehaviour
         //UIManager.Instance.itemPopup.PopupGetItem();
 
     }
+
+    public void DataSave()
+    {
+        MonsterDataManager.ChangeCatchStat(codeNum);
+    }
+
 }
