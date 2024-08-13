@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Rendering.Universal;
-using UnityEditor.SceneManagement;
 
 
 public class CameraManager : MonoBehaviour
