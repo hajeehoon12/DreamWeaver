@@ -3859,7 +3859,6 @@ GameObject:
   - component: {fileID: 4313214622218707551}
   - component: {fileID: 1022167438740049461}
   - component: {fileID: 3205634295178824429}
-  - component: {fileID: 1295693477040884558}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -4059,26 +4058,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageUI: {fileID: 4670651887102110053}
   stageName: {fileID: 8531156378498471185}
---- !u!114 &1295693477040884558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1929562418289780295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90a514ddcd09d5c48a11279bf49f359b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  miniMap: {fileID: 0}
-  miniMapCamera: {fileID: 0}
-  miniMaps:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &2007066768252254555
 GameObject:
   m_ObjectHideFlags: 0
@@ -20154,7 +20133,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9094444648022646882}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1319454701501911659}
+        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6847913307966198147
 GameObject:
   m_ObjectHideFlags: 0
@@ -23328,9 +23319,9 @@ RectTransform:
   - {fileID: 4163027818496280212}
   m_Father: {fileID: 3834506074112143914}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -147.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 250, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9007913137611735117
@@ -23859,19 +23850,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6916759423610974059, guid: 7dc1d6e8d8ef35d48b265a1e31165ad0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6916759423610974059, guid: 7dc1d6e8d8ef35d48b265a1e31165ad0, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6916759423610974059, guid: 7dc1d6e8d8ef35d48b265a1e31165ad0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6916759423610974059, guid: 7dc1d6e8d8ef35d48b265a1e31165ad0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -55
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8094242495610335209, guid: 7dc1d6e8d8ef35d48b265a1e31165ad0, type: 3}
       propertyPath: m_Name
