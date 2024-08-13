@@ -118,6 +118,33 @@ public class CameraManager : MonoBehaviour
         MonsterDataManager.ToggleMonsters(stageNum);
     }
 
+    public void SelectStage(int stage)
+    {
+
+
+        switch (stage)
+        {
+            case 0:
+                break;
+            case 1:
+                CallStage1CameraInfo();
+                break;
+            case 2:
+                CallStage2CameraInfo();
+                break;
+            case 3:
+                CallStage3CameraInfo();
+                break;
+            case 4:
+                CallStage4CameraInfo();
+                break;
+            default:
+                break;
+
+        }
+        MonsterDataManager.ToggleMonsters(stageNum);
+    }
+
     void LimitCameraArea()
     {
         
