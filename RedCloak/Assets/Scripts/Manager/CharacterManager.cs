@@ -129,6 +129,8 @@ public class CharacterManager : MonoBehaviour
         PC.shootProjectile.PlayerSkill1 = Skill1;
         PC.shootProjectile.PlayerSkill2 = Skill2;
         PC.shootProjectile.PlayerSkill3 = Skill3;
+
+        UIManager.Instance.skillUI.UpdateSkill();
     }
 
     public void CallDeath()
