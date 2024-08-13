@@ -29,7 +29,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     //private static readonly int thunder = Animator.StringToHash("Thunder");
 
     //public LayerMask groundLayerMask;
-    public LayerMask groundLayerMask = LayerMask.GetMask("Floor", "Wall", "Minimap");
+    public LayerMask groundLayerMask;
 
     private float bossHealth = 0;
     public float bossMaxHealth;
@@ -96,6 +96,8 @@ public class HolyKnight : MonoBehaviour, IDamage
         spriteRenderer = GetComponent<SpriteRenderer>();
         player = CharacterManager.Instance.Player;
         rigid = GetComponent<Rigidbody2D>();
+
+        groundLayerMask = LayerMask.GetMask("Floor") | LayerMask.GetMask("Wall") | LayerMask.GetMask("Minimap");
     }
 
     private void Start()
