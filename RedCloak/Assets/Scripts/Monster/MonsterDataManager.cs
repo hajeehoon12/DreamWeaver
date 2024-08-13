@@ -51,7 +51,7 @@ public class MonsterDataManager : MonoBehaviour
                 floatpos[i] = float.Parse(pos[i]);
 
             int mapIndex = int.Parse(monster.mapData[^1].ToString()) - 1;
-            GameObject mob = Instantiate(Resources.Load<GameObject>($"Monster/{monster.enemyName}"), maps[mapIndex].transform);
+            GameObject mob = Instantiate(Resources.Load<GameObject>($"Monster/{monster.displayName}"), maps[mapIndex].transform);
             mob.transform.position = new Vector3(floatpos[0], floatpos[1], floatpos[2]);
 
             if (mob.TryGetComponent<Monster>(out Monster m1))
@@ -124,7 +124,7 @@ public struct MonsterData
 {
     public string rcode;
     public string enemyCode;
-    public string enemyName;
+    public string displayName;
     public bool isRegen;
     public string mapData;
     public string pos;
