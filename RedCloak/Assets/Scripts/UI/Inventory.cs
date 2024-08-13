@@ -113,4 +113,24 @@ public class Inventory : MonoBehaviour
         itemName.text = string.Empty;
         itemDescription.text = string.Empty;
     }
+
+    public void ApplyItemEffect(ItemData itemData)
+    {
+        if (itemData.healthIncrease > 0)
+        {
+            CharacterManager.Instance.Player.stats.playerMaxHP += itemData.healthIncrease;
+            CharacterManager.Instance.Player.stats.playerHP = CharacterManager.Instance.Player.stats.playerMaxHP;
+        }
+
+
+        if (itemData.manaIncrease > 0)
+        {
+            CharacterManager.Instance.Player.stats.playerMaxMP += itemData.manaIncrease;
+        }
+
+        if (itemData.attackIncrease > 0)
+        {
+            CharacterManager.Instance.Player.stats.attackDamage += itemData.attackIncrease;
+        }
+    }
 }

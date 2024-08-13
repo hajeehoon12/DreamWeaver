@@ -21,23 +21,5 @@ public class PlayerStat//:MonoBehaviour
 
     public float playerGold = 0f;
 
-    public void ApplyItemEffect(ItemData itemData)
-    {
-        if (itemData.healthIncrease > 0)
-        {
-            CharacterManager.Instance.Player.stats.playerMaxHP += itemData.healthIncrease;
-            CharacterManager.Instance.Player.stats.playerHP = CharacterManager.Instance.Player.stats.playerMaxHP;
-        }
 
-
-        if (itemData.manaIncrease > 0)
-        {
-            CharacterManager.Instance.Player.stats.playerMaxMP += itemData.manaIncrease;
-        }
-
-        if (itemData.attackIncrease > 0)
-        {
-            CharacterManager.Instance.Player.stats.attackDamage += itemData.attackIncrease;
-        }
-    }
 }

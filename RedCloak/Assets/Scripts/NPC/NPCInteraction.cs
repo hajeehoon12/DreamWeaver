@@ -121,7 +121,8 @@ public class NPCInteraction : MonoBehaviour
     {
         if(!HasPurchasedItem(itemData.name))
         {
-            CharacterManager.Instance.Player.GetComponent<Player>().stats.ApplyItemEffect(itemData);
+            UIManager.Instance.inventory.ApplyItemEffect(itemData);
+            //CharacterManager.Instance.Player.GetComponent<Player>().stats.ApplyItemEffect(itemData);
             itemPurcased[itemData.name] = true;
             if(itemData.healthIncrease > 0)
             {
