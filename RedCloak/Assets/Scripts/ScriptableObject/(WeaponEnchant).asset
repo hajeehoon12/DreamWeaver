@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5594095b8a8668d41aee79b748971206, type: 3}
-  m_Name: WeaponEnchant
+  m_Name: (WeaponEnchant)
   m_EditorClassIdentifier: 
   itemName: Weapon Enchant
   description: Increase Attack Rate
@@ -18,7 +18,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 161cf9c38ef23a34486e8995486f32ba, type: 3}
   price: 0
   addStat: 0
-  canBuy: 1
+  canBuy: 0
   healthIncrease: 0
   manaIncrease: 0
+  attackIncrease: 0
   skillType: 0

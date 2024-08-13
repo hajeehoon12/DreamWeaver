@@ -1399,6 +1399,10 @@ PrefabInstance:
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 1329439552}
+    - target: {fileID: 5512360677171735020, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
+      propertyPath: shopDataList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: be3a7e6e330ce3b48b6e26e847baa639, type: 2}
     - target: {fileID: 5967627135617554113, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
       propertyPath: m_Name
       value: TutorialNPC (1)
@@ -2499,7 +2503,7 @@ PrefabInstance:
     - target: {fileID: 5512360677171735020, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
       propertyPath: shopDataList.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 1cd6311534e0bc54eb09a8864fc678c2, type: 2}
+      objectReference: {fileID: 11400000, guid: be3a7e6e330ce3b48b6e26e847baa639, type: 2}
     - target: {fileID: 5512360677171735020, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
       propertyPath: dialogueAction.m_SingletonActionBindings.Array.size
       value: 1
@@ -3031,6 +3035,10 @@ PrefabInstance:
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 1329439552}
+    - target: {fileID: 5512360677171735020, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
+      propertyPath: shopDataList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: be3a7e6e330ce3b48b6e26e847baa639, type: 2}
     - target: {fileID: 5967627135617554113, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
       propertyPath: m_Name
       value: TutorialNPC (2)
@@ -6790,6 +6798,10 @@ PrefabInstance:
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 1329439552}
+    - target: {fileID: 5512360677171735020, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
+      propertyPath: shopDataList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: be3a7e6e330ce3b48b6e26e847baa639, type: 2}
     - target: {fileID: 5967627135617554113, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
       propertyPath: m_Name
       value: TutorialNPC (4)
@@ -7616,6 +7628,10 @@ PrefabInstance:
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 1329439552}
+    - target: {fileID: 5512360677171735020, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
+      propertyPath: shopDataList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: be3a7e6e330ce3b48b6e26e847baa639, type: 2}
     - target: {fileID: 5967627135617554113, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
       propertyPath: m_Name
       value: TutorialNPC (5)
@@ -13014,6 +13030,10 @@ PrefabInstance:
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 1329439552}
+    - target: {fileID: 5512360677171735020, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
+      propertyPath: shopDataList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: be3a7e6e330ce3b48b6e26e847baa639, type: 2}
     - target: {fileID: 5967627135617554113, guid: bf8d0bcb5b51e7c4f87b3004741e3753, type: 3}
       propertyPath: m_Name
       value: TutorialNPC (3)
@@ -41210,7 +41230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5851826784669889978, guid: f706ea928c2c05044b8d03156496ae96, type: 3}
       propertyPath: stageNum
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5851826784669889978, guid: f706ea928c2c05044b8d03156496ae96, type: 3}
       propertyPath: mapSize.x
@@ -61853,6 +61873,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4689547573083332208, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: PlayerSkill1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689547573083332208, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: PlayerSkill2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689547573083332208, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: PlayerSkill3
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: canDJ
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: isWall
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: canDash
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: canWallJump
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: canDoubleJump
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: canComboAttack
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8488820794825072302, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: stats.playerHP
       value: 4
@@ -61867,11 +61923,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -107.3
+      value: -109.7
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.z
