@@ -21,5 +21,4 @@ public class PlayerStat//:MonoBehaviour
 
     public float playerGold = 0f;
 
-
 }
