@@ -28,7 +28,8 @@ public class HolyKnight : MonoBehaviour, IDamage
     //private static readonly int animSpeed = Animator.StringToHash("AnimSpeed");
     //private static readonly int thunder = Animator.StringToHash("Thunder");
 
-    public LayerMask groundLayerMask;
+    //public LayerMask groundLayerMask;
+    public LayerMask groundLayerMask = LayerMask.GetMask("Floor", "Wall", "Minimap");
 
     private float bossHealth = 0;
     public float bossMaxHealth;
