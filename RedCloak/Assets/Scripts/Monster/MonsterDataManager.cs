@@ -54,10 +54,21 @@ public class MonsterDataManager : MonoBehaviour
             GameObject mob = Instantiate(Resources.Load<GameObject>($"Monster/{monster.enemyName}"), maps[mapIndex].transform);
             mob.transform.position = new Vector3(floatpos[0], floatpos[1], floatpos[2]);
 
-            if (mob.TryGetComponent<Monster>(out Monster m))
+            if (mob.TryGetComponent<Monster>(out Monster m1))
             {
-                m.data = monster;
-                m.init = true;
+                m1.data = monster;
+                m1.init = true;
+            }
+            else
+            {
+                for (int i = 0; i < mob.transform.childCount; i++)
+                {
+                    if(mob.transform.GetChild(i).TryGetComponent<Monster>(out Monster m2))
+                    {
+                        m2.data = monster;
+                        m2.init = true;
+                    }
+                }
             }
         }
     }

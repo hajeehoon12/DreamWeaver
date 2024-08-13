@@ -40,10 +40,15 @@ public class Monster : MonoBehaviour, IDamage
         {
             string[] pos = data.pos.Split(",");
             transform.position = new Vector3(float.Parse(pos[0]), float.Parse(pos[1]), float.Parse(pos[2]));
-            _behavior.enabled = true;
+            _behavior.EnableBehavior();
             _rigidbody.bodyType = RigidbodyType2D.Dynamic;
             _collider.enabled = true;
         }
+    }
+
+    private void OnDisable()
+    {
+        _behavior.DisableBehavior();
     }
 
     public void GetDamage(float damage)
