@@ -123,7 +123,10 @@ public class NPCInteraction : MonoBehaviour
         {
             CharacterManager.Instance.Player.GetComponent<Player>().stats.ApplyItemEffect(itemData);
             itemPurcased[itemData.name] = true;
-            UIManager.Instance.uiBar.UpdateMaxHP(itemData.healthIncrease);
+            if(itemData.healthIncrease > 0)
+            {
+                UIManager.Instance.uiBar.UpdateMaxHP(itemData.healthIncrease);
+            }
         }
 
         else

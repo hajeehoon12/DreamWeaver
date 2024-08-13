@@ -31,6 +31,7 @@ public class ItemData : ScriptableObject
     public bool canBuy = true;
     public int healthIncrease;
     public int manaIncrease;
+    public int attackIncrease;
     //아이콘
     //오브젝트
 

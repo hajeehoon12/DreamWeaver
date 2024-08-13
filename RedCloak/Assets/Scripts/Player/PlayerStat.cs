@@ -34,5 +34,10 @@ public class PlayerStat//:MonoBehaviour
         {
             CharacterManager.Instance.Player.stats.playerMaxMP += itemData.manaIncrease;
         }
+
+        if (itemData.attackIncrease > 0)
+        {
+            CharacterManager.Instance.Player.stats.attackDamage += itemData.attackIncrease;
+        }
     }
 }
