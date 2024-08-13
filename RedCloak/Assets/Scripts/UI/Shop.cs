@@ -7,10 +7,8 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour
 {
     public GameObject shop;
-    public List<Button> itemBtn;
     public GameObject goodsList;
     public GameObject parentPosition;
-    public GameObject npcObject;
     public GameObject soldOut;
     public TextMeshProUGUI itemName;
     public TextMeshProUGUI itemDescription;
@@ -18,6 +16,12 @@ public class Shop : MonoBehaviour
     public Image icon;
 
     public NPCInteraction npc;
+
+    public void InitializeShop(NPCInteraction npcInteraction)
+    {
+        npc = npcInteraction;
+        SetShopGoods();
+    }
 
     public void SetShopGoods()
     {
@@ -97,10 +101,7 @@ public class Shop : MonoBehaviour
 
     private void OnDisable()
     {
-        if(npc != null)
-        {
-            npc.NextDialogue();
-        }
+        UIManager.Instance.dialogueUI.NextDialogue();
     }
 
     private void UpdateUI()

@@ -129,7 +129,6 @@ GameObject:
   - component: {fileID: 9151937165215821393}
   - component: {fileID: 4265926050575397898}
   - component: {fileID: 5512360677171735020}
-  - component: {fileID: 2583481656928419700}
   - component: {fileID: 4507823160835094332}
   m_Layer: 0
   m_Name: Tutorialnpc
@@ -262,49 +261,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3837204f319b1d9428582723dedd1447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueUI: {fileID: 0}
-  selectMenu: {fileID: 0}
-  shopObj: {fileID: 0}
-  speakerText: {fileID: 0}
-  dialogueText: {fileID: 0}
-  upgrade: {fileID: 0}
-  exit: {fileID: 0}
   dialogueData: {fileID: 11400000, guid: bbe9542aef196e14caf81c6dfcbf8329, type: 2}
   playerLayer:
     serializedVersion: 2
     m_Bits: 2048
-  shop: {fileID: 2583481656928419700}
   shopDataList:
   - {fileID: 11400000, guid: 82f999f0637a4c2429491c979a059389, type: 2}
-  - {fileID: 11400000, guid: 1cd6311534e0bc54eb09a8864fc678c2, type: 2}
-  continueKey: {fileID: 0}
+  - {fileID: 11400000, guid: be3a7e6e330ce3b48b6e26e847baa639, type: 2}
   arrowKey: {fileID: 3575692758744955271}
   isPlayerRange: 0
-  isDialogue: 0
-  currentLineIndex: 0
---- !u!114 &2583481656928419700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8626330726295364478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21a26534e4ae46045a7f530bcde557fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shop: {fileID: 0}
-  itemBtn: []
-  goodsList: {fileID: 3670715215748165010, guid: ed61d9fbd4358c746987cd8f2951b41a, type: 3}
-  parentPosition: {fileID: 0}
-  npcObject: {fileID: 8626330726295364478}
-  soldOut: {fileID: 0}
-  itemName: {fileID: 0}
-  itemDescription: {fileID: 0}
-  itemPrice: {fileID: 0}
-  icon: {fileID: 0}
-  npc: {fileID: 5512360677171735020}
 --- !u!95 &4507823160835094332
 Animator:
   serializedVersion: 5

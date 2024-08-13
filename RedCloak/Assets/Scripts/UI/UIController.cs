@@ -80,7 +80,7 @@ public class UIController : MonoBehaviour
     {
         if (callbackContext.phase == InputActionPhase.Started && CharacterManager.Instance.Player.controller.currentNpc != null)
         {
-            CharacterManager.Instance.Player.controller.currentNpc.StartDialogue(CharacterManager.Instance.Player.controller.currentNpc.dialogueData);
+            UIManager.Instance.dialogueUI.StartDialogue(CharacterManager.Instance.Player.controller.currentNpc.dialogueData);
         }
     }
 
@@ -88,9 +88,9 @@ public class UIController : MonoBehaviour
     {
         if(CharacterManager.Instance.Player.controller.currentNpc != null)
         {
-            if (callbackContext.phase == InputActionPhase.Started && CharacterManager.Instance.Player.controller.currentNpc.isDialogue)
+            if (callbackContext.phase == InputActionPhase.Started && UIManager.Instance.dialogueUI.isDialogue)
             {
-                CharacterManager.Instance.Player.controller.currentNpc.NextDialogue();
+                UIManager.Instance.dialogueUI.NextDialogue();
             }
         }
         
