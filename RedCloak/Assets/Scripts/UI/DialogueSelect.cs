@@ -32,7 +32,7 @@ public class DialogueSelect : MonoBehaviour
     {
         Shop.SetActive(false);
         uiInput.Enable();
-        npc.StartDialogue(CharacterManager.Instance.Player.controller.currentNpc.dialogueData);
+        UIManager.Instance.dialogueUI.StartDialogue(CharacterManager.Instance.Player.controller.currentNpc.dialogueData);
     }
 
     public void CloseSelectMenu()

@@ -691,7 +691,7 @@ public class PlayerController : MonoBehaviour
         NPCInteraction npc = collider.GetComponent<NPCInteraction>();
         if(npc != null)
         {
-            npc.EndDialogue();
+            UIManager.Instance.dialogueUI.EndDialogue();
         }
         UIManager.Instance.CloseCurrentUI();
         if (npc != null && npc == currentNpc)

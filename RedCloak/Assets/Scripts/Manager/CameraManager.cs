@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Rendering.Universal;
+using UnityEditor.SceneManagement;
 
 
 public class CameraManager : MonoBehaviour
@@ -200,6 +201,8 @@ public class CameraManager : MonoBehaviour
 
         Sky.gameObject.SetActive(true);
         Cave.gameObject.SetActive(false);
+
+        UIManager.Instance.miniMap.SetMinimap(stageNum);
     }
     public void CallStage1CameraInfo(string boss)
     {
@@ -231,6 +234,8 @@ public class CameraManager : MonoBehaviour
 
         Sky.gameObject.SetActive(true);
         Cave.gameObject.SetActive(false);
+
+        UIManager.Instance.miniMap.SetMinimap(stageNum);
     }
 
     public void CallStage2CameraInfo(string boss)
@@ -266,6 +271,8 @@ public class CameraManager : MonoBehaviour
 
         Sky.gameObject.SetActive(false);
         Cave.gameObject.SetActive(true);
+
+        UIManager.Instance.miniMap.SetMinimap(stageNum);
     }
 
     public void CallStage3CameraInfo(string boss)
@@ -304,6 +311,8 @@ public class CameraManager : MonoBehaviour
 
         Sky.gameObject.SetActive(true);
         Cave.gameObject.SetActive(false);
+
+        UIManager.Instance.miniMap.SetMinimap(stageNum);
     }
 
     public void CallStage4CameraInfo(string boss)

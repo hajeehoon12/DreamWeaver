@@ -51,7 +51,6 @@ public class Portal : MonoBehaviour
 
     private IEnumerator TeleportAfterFade()//GameObject player
     {
-        MiniMapChange();
         FadeManager.instance.FadeOut(0f);
         //yield return new WaitForSeconds(1f);
 
@@ -86,10 +85,5 @@ public class Portal : MonoBehaviour
         //{
         //    UIManager.Instance.changeStage.FadeInStageUI(1f, stageName);
         //}
-    }
-
-    private void MiniMapChange()
-    {
-        UIManager.Instance.miniMap.SetMinimap(whichStage);
     }
 }

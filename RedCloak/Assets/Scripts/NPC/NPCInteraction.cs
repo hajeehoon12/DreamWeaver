@@ -7,24 +7,12 @@ using UnityEngine.UI;
 
 public class NPCInteraction : MonoBehaviour
 {
-    public GameObject dialogueUI;
-    public GameObject selectMenu;
-    public GameObject shopObj;
-    public TextMeshProUGUI speakerText;
-    public TextMeshProUGUI dialogueText;
-    public Button upgrade;
-    public Button exit;
     public DialogueData dialogueData;
     public LayerMask playerLayer;
-    public Shop shop;
     public List<ItemData> shopDataList = new List<ItemData>();
-    public GameObject continueKey;
     public GameObject arrowKey;
 
     public bool isPlayerRange = false;
-    public bool isDialogue = false;
-
-    public int currentLineIndex = 0;
 
     private Dictionary<string, bool> itemPurcased;
 
@@ -37,9 +25,6 @@ public class NPCInteraction : MonoBehaviour
             itemPurcased[itemData.name] = false;
         }
 
-        dialogueUI.SetActive(false);
-        selectMenu.SetActive(false);
-        shopObj.SetActive(false);
         arrowKey.SetActive(false);
     }
 
@@ -47,8 +32,9 @@ public class NPCInteraction : MonoBehaviour
     {
         if(((1 << collision.gameObject.layer) & playerLayer) != 0)
         {
+            UIManager.Instance.dialogueUI.dialogueData = dialogueData;
             isPlayerRange = true;
-            shop.SetShopGoods();
+            UIManager.Instance.shop.InitializeShop(this);
             arrowKey.SetActive(true);
         }
     }
@@ -57,64 +43,10 @@ public class NPCInteraction : MonoBehaviour
     {
         if (((1 << collision.gameObject.layer) & playerLayer) != 0)
         {
+            UIManager.Instance.dialogueUI.dialogueData = null;
             isPlayerRange = false;
             arrowKey.SetActive(false);
         }
-    }
-
-    public void StartDialogue(DialogueData dialogue)
-    {
-        continueKey.SetActive(false);
-        isDialogue = true;
-        UIManager.Instance.OpenUI(dialogueUI);
-        UIManager.Instance.pause.DisablePlayerInput();
-        dialogueData = dialogue;
-        currentLineIndex = 0;
-        OpenSelectMenu();
-        CurrnetLine();
-    }
-
-    public void OpenSelectMenu()
-    {
-        selectMenu.SetActive(true);
-        StartCoroutine(CheckSelectMenu());
-    }
-
-    public void NextDialogue()
-    {
-        if(dialogueData == null || dialogueData.dialogueLines == null)
-        {
-            return;
-        }
-
-        if(currentLineIndex < dialogueData.dialogueLines.Count - 1)
-        {
-            currentLineIndex++;
-            if(continueKey != null)
-            {
-                continueKey.SetActive(true);
-
-            }
-            CurrnetLine();
-        }
-        
-        else
-        {
-            EndDialogue();
-        }
-    }
-
-    private void CurrnetLine()
-    {
-        DialogueData.DialogueLine line = dialogueData.dialogueLines[currentLineIndex];
-        speakerText.text = line.name;
-        dialogueText.text = line.dialogueText;
-    }
-
-    public void EndDialogue()
-    {
-        UIManager.Instance.CloseCurrentUI();
-        UIManager.Instance.pause.EnablePlayerInput();
     }
 
     public void PurchasedItem(ItemData itemData)
@@ -139,24 +71,5 @@ public class NPCInteraction : MonoBehaviour
     public bool HasPurchasedItem(string itemName)
     {
         return itemPurcased.ContainsKey(itemName) && itemPurcased[itemName];
-    }
-
-    public void OpenShop()
-    {
-        UIManager.Instance.OpenUI(shopObj);
-    }
-
-    private IEnumerator CheckSelectMenu()
-    {
-        while(isDialogue)
-        {
-            if(!selectMenu.activeInHierarchy)
-            {
-                NextDialogue();
-                yield break;
-            }
-
-            yield return null;
-        }
     }
 }
