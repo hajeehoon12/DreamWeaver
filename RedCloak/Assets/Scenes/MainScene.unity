@@ -2128,7 +2128,7 @@ PrefabInstance:
     - target: {fileID: 5401356896098153738, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
       propertyPath: dropData
       value: 
-      objectReference: {fileID: 11400000, guid: 1cd6311534e0bc54eb09a8864fc678c2, type: 2}
+      objectReference: {fileID: 11400000, guid: cf3e63c68b480354bb8dceb97398b151, type: 2}
     - target: {fileID: 6366736423589511129, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
       propertyPath: m_Name
       value: RewardChest
@@ -2730,6 +2730,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5401356896098153738, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
+      propertyPath: dropData
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ded8f7634101c24d940165c72ebf12b, type: 2}
     - target: {fileID: 6366736423589511129, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
       propertyPath: m_Name
       value: RewardChest
@@ -4497,6 +4501,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5401356896098153738, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
+      propertyPath: dropData
+      value: 
+      objectReference: {fileID: 11400000, guid: a2afae08261a0a2479d7e9dc46dd7d80, type: 2}
     - target: {fileID: 6366736423589511129, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
       propertyPath: m_Name
       value: RewardChest
@@ -7165,6 +7173,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5401356896098153738, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
+      propertyPath: dropData
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ded8f7634101c24d940165c72ebf12b, type: 2}
     - target: {fileID: 6366736423589511129, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
       propertyPath: m_Name
       value: RewardChest
@@ -7798,6 +7810,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5401356896098153738, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
+      propertyPath: dropData
+      value: 
+      objectReference: {fileID: 11400000, guid: a2afae08261a0a2479d7e9dc46dd7d80, type: 2}
     - target: {fileID: 6366736423589511129, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
       propertyPath: m_Name
       value: RewardChest
@@ -7935,19 +7951,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 185365665589231001, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[19].y
-      value: -0.3601818
+      value: -0.3601823
       objectReference: {fileID: 0}
     - target: {fileID: 185365665589231001, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[20].y
-      value: -0.14101061
+      value: -0.141011
       objectReference: {fileID: 0}
     - target: {fileID: 185365665589231001, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[44].x
-      value: -0.5874008
+      value: -0.5874176
       objectReference: {fileID: 0}
     - target: {fileID: 185365665589231001, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[45].x
-      value: -1.1428484
+      value: -1.1428511
       objectReference: {fileID: 0}
     - target: {fileID: 204329192034900378, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Creator
@@ -8187,31 +8203,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4414204002258596707, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[11].y
-      value: 13.720764
+      value: 13.720861
       objectReference: {fileID: 0}
     - target: {fileID: 4414204002258596707, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[12].y
-      value: 13.8921995
+      value: 13.892277
       objectReference: {fileID: 0}
     - target: {fileID: 4414204002258596707, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[13].x
-      value: 11.637872
+      value: 11.637849
       objectReference: {fileID: 0}
     - target: {fileID: 4414204002258596707, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[13].y
-      value: 13.750567
+      value: 13.750573
       objectReference: {fileID: 0}
     - target: {fileID: 4414204002258596707, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[14].y
-      value: 14.600488
+      value: 14.600487
       objectReference: {fileID: 0}
     - target: {fileID: 4414204002258596707, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[15].x
-      value: 7.8575764
+      value: 7.857579
       objectReference: {fileID: 0}
     - target: {fileID: 4414204002258596707, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[15].y
-      value: 14.85395
+      value: 14.853949
       objectReference: {fileID: 0}
     - target: {fileID: 4419176238096542293, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Creator
@@ -8403,7 +8419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947956110100185077, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[15].y
-      value: -32.14114
+      value: -32.141148
       objectReference: {fileID: 0}
     - target: {fileID: 7981402139273996066, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Creator
@@ -8451,15 +8467,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8633063282244691731, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[41].y
-      value: -17.361649
+      value: -17.36165
       objectReference: {fileID: 0}
     - target: {fileID: 8633063282244691731, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[53].y
-      value: -6.3606997
+      value: -6.360701
       objectReference: {fileID: 0}
     - target: {fileID: 8633063282244691731, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[54].y
-      value: -6.141223
+      value: -6.141224
       objectReference: {fileID: 0}
     - target: {fileID: 8649785768347169380, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Creator
@@ -8554,6 +8570,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5401356896098153738, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
+      propertyPath: dropData
+      value: 
+      objectReference: {fileID: 11400000, guid: a2afae08261a0a2479d7e9dc46dd7d80, type: 2}
     - target: {fileID: 6366736423589511129, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
       propertyPath: m_Name
       value: RewardChest
@@ -10263,6 +10283,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5401356896098153738, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
+      propertyPath: dropData
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ded8f7634101c24d940165c72ebf12b, type: 2}
     - target: {fileID: 6366736423589511129, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
       propertyPath: m_Name
       value: RewardChest
@@ -11740,6 +11764,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5401356896098153738, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
+      propertyPath: dropData
+      value: 
+      objectReference: {fileID: 11400000, guid: a2afae08261a0a2479d7e9dc46dd7d80, type: 2}
     - target: {fileID: 6366736423589511129, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
       propertyPath: m_Name
       value: RewardChest
@@ -12392,6 +12420,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5401356896098153738, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
+      propertyPath: dropData
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ded8f7634101c24d940165c72ebf12b, type: 2}
     - target: {fileID: 6366736423589511129, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
       propertyPath: m_Name
       value: RewardChest
@@ -12454,6 +12486,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5401356896098153738, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
+      propertyPath: dropData
+      value: 
+      objectReference: {fileID: 11400000, guid: a2afae08261a0a2479d7e9dc46dd7d80, type: 2}
     - target: {fileID: 6366736423589511129, guid: 92fbd5a037ae4b046a962be36bfe6287, type: 3}
       propertyPath: m_Name
       value: RewardChest
@@ -61817,6 +61853,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8488820794825072302, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: stats.playerHP
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8488820794825072302, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: stats.playerMaxHP
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8946823807965324558, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_Name
       value: Player
