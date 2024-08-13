@@ -1,31 +1,31 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    public static ObjectPool Instance;
-
+    private static Transform thisTransform;
     [SerializeField] private List<PoolObjects> ObjectsList;
-    private Dictionary<string, GameObject> list = new Dictionary<string, GameObject>();
-    private Dictionary<string, Queue<GameObject>> pool = new Dictionary<string, Queue<GameObject>>();
+    private static Dictionary<string, GameObject> list = new Dictionary<string, GameObject>();
+    private static Dictionary<string, Queue<GameObject>> pool = new Dictionary<string, Queue<GameObject>>();
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        thisTransform = GetComponent<Transform>();
     }
 
     private void Start()
     {
+        InitPool();
+    }
+
+    private void InitPool()
+    {
+        list.Clear();
+        pool.Clear();
+        
         if (ObjectsList != null)
         {
             for (int i = 0; i < ObjectsList.Count; i++)
@@ -42,8 +42,8 @@ public class ObjectPool : MonoBehaviour
             }
         }
     }
-
-    public GameObject GetFromPool(string key)
+    
+    public static GameObject GetFromPool(string key)
     {
         GameObject go;
         try
@@ -60,12 +60,12 @@ public class ObjectPool : MonoBehaviour
         catch (AvaliableObjectNotFound e) when (e.NotFound)
         {
             Debug.Log(e.ExceptionMessage);
-            go = Instantiate(list[key], transform);
+            go = Instantiate(list[key], thisTransform);
             return go;
         }
     }
 
-    public void ReleaseToPool(string key, GameObject go)
+    public static void ReleaseToPool(string key, GameObject go)
     {
         go.SetActive(false);
         pool[key].Enqueue(go);

@@ -88,7 +88,7 @@ public class LightEffect : MonoBehaviour
         CharacterManager.Instance.Player.stats.playerGold += point;
         //Debug.Log("Point추가 : " + point);
         UIManager.Instance.uiBar.UpdateGold();
-        ObjectPool.Instance.ReleaseToPool(Define.OP_MonsterLight, gameObject);
+        ObjectPool.ReleaseToPool(Define.OP_MonsterLight, gameObject);
     }
 
 

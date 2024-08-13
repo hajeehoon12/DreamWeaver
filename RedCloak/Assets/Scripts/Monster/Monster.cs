@@ -74,8 +74,8 @@ public class Monster : MonoBehaviour, IDamage
 
     public IEnumerator SpawnLight()
     {
-        light1 = ObjectPool.Instance.GetFromPool(Define.OP_MonsterLightOut);
-        light2 = ObjectPool.Instance.GetFromPool(Define.OP_MonsterLight);
+        light1 = ObjectPool.GetFromPool(Define.OP_MonsterLightOut);
+        light2 = ObjectPool.GetFromPool(Define.OP_MonsterLight);
         light1.transform.position = transform.position;
         light2.transform.position = transform.position + new Vector3(0, 0.5f);
         light1Particle = light1.GetComponent<ParticleSystem>();
@@ -90,7 +90,7 @@ public class Monster : MonoBehaviour, IDamage
         yield return lightDelay;
         light2.SetActive(true);
         light1Particle.Stop();
-        ObjectPool.Instance.ReleaseToPool(Define.OP_MonsterLightOut, light1);
+        ObjectPool.ReleaseToPool(Define.OP_MonsterLightOut, light1);
     }
 
     private IEnumerator FlashWhite()
