@@ -8431,6 +8431,10 @@ PrefabInstance:
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8133577615457683806, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8147704799191065273, guid: 41f54118930313a4eb509ceec7c5505e, type: 3}
       propertyPath: m_Creator
       value: 
@@ -61762,6 +61766,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8488820794825072302, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: stats.playerHP
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8488820794825072302, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: stats.playerMaxHP
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8946823807965324558, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_Name
       value: Player

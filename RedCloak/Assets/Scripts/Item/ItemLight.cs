@@ -22,6 +22,7 @@ public class ItemLight : MonoBehaviour
                 case "AirShoes":
                     player.controller.canDJ = true;
                     player.controller.canDash = true;
+                    player.controller.canDoubleJump = true;
                     //Debug.Log("AirShoes");
                     //TODO CanMake PlayerDash
                     break;

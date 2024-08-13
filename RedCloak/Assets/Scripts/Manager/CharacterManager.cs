@@ -9,8 +9,9 @@ public class CharacterManager : MonoBehaviour
     private static CharacterManager _instance;
 
     public Vector3 SavePoint;
+    public int SaveStage = 1;
     public bool isLoadScene = true;
-    public int playerInitHealth = 4;
+    public int playerInitHealth = 5;
 
     public Door[] doors = new Door[5];
     public DoorDataArray doorData;
@@ -20,8 +21,8 @@ public class CharacterManager : MonoBehaviour
     public float playerSpeed = 10;
     public float jumpPower = 15;
     public float attackDamage = 5;
-    public float playerHP = 4;
-    public float playerMaxHP = 4;
+    public float playerHP = 5;
+    public float playerMaxHP = 5;
     public float playerMP = 50;
     public float playerMaxMP = 50;
     public float playerGold = 0;
@@ -104,6 +105,8 @@ public class CharacterManager : MonoBehaviour
         Skill1 = PC.shootProjectile.PlayerSkill1;
         Skill2 = PC.shootProjectile.PlayerSkill2;
         Skill3 = PC.shootProjectile.PlayerSkill3;
+
+        SaveStage = CameraManager.Instance.stageNum;
     }
 
     public void LoadInfo()
@@ -157,7 +160,7 @@ public class CharacterManager : MonoBehaviour
         UIManager.Instance.uiBar.SetCurrentHP();
         UIManager.Instance.skillUI.InitateRotation();
         UIManager.Instance.uiBar.CallBackBossBar();
-        CameraManager.Instance.SelectStage();
+        CameraManager.Instance.SelectStage(SaveStage);
         AudioManager.instance.PlaySFX("HeartUp", 0.2f);
 
         
