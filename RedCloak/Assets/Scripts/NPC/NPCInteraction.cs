@@ -58,7 +58,7 @@ public class NPCInteraction : MonoBehaviour
         if (((1 << collision.gameObject.layer) & playerLayer) != 0)
         {
             isPlayerRange = false;
-            arrowKey.SetActive(true);
+            arrowKey.SetActive(false);
         }
     }
 
@@ -121,9 +121,13 @@ public class NPCInteraction : MonoBehaviour
     {
         if(!HasPurchasedItem(itemData.name))
         {
-            CharacterManager.Instance.Player.GetComponent<Player>().stats.ApplyItemEffect(itemData);
+            UIManager.Instance.inventory.ApplyItemEffect(itemData);
+            //CharacterManager.Instance.Player.GetComponent<Player>().stats.ApplyItemEffect(itemData);
             itemPurcased[itemData.name] = true;
-            UIManager.Instance.uiBar.UpdateMaxHP(itemData.healthIncrease);
+            if(itemData.healthIncrease > 0)
+            {
+                UIManager.Instance.uiBar.UpdateMaxHP(itemData.healthIncrease);
+            }
         }
 
         else

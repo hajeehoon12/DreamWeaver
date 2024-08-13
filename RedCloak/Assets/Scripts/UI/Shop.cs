@@ -67,13 +67,13 @@ public class Shop : MonoBehaviour
                 }
                 else
                 {
-                    CharacterManager.Instance.Player.itemData = itemdata;
-                    CharacterManager.Instance.Player.addItem?.Invoke();
                     itemBtn.onClick.RemoveAllListeners();
                     itemBtn.onClick.AddListener(() =>
                     {
-                    npc.PurchasedItem(itemdata);
-                    UpdateUI();
+                        npc.PurchasedItem(itemdata);
+                        CharacterManager.Instance.Player.itemData = itemdata;
+                        CharacterManager.Instance.Player.addItem?.Invoke();
+                        UpdateUI();
                     });
                     itemBtn.interactable = !npc.HasPurchasedItem(itemdata.name);
 

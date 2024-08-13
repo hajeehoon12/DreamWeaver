@@ -45,7 +45,7 @@ public class Inventory : MonoBehaviour
     {
         ItemData data = CharacterManager.Instance.Player.itemData;
         ItemSlot emptySlot = GetEmptySlot();
-        if(data != null && (data.type == ItemType.Antique || data.type == ItemType.Skill || data.type == ItemType.Health))
+        if(data != null && !data.canBuy)
         {
             UIManager.Instance.itemPopup.PopupGetItem();
         }
@@ -112,5 +112,25 @@ public class Inventory : MonoBehaviour
 
         itemName.text = string.Empty;
         itemDescription.text = string.Empty;
+    }
+
+    public void ApplyItemEffect(ItemData itemData)
+    {
+        if (itemData.healthIncrease > 0)
+        {
+            CharacterManager.Instance.Player.stats.playerMaxHP += itemData.healthIncrease;
+            CharacterManager.Instance.Player.stats.playerHP = CharacterManager.Instance.Player.stats.playerMaxHP;
+        }
+
+
+        if (itemData.manaIncrease > 0)
+        {
+            CharacterManager.Instance.Player.stats.playerMaxMP += itemData.manaIncrease;
+        }
+
+        if (itemData.attackIncrease > 0)
+        {
+            CharacterManager.Instance.Player.stats.attackDamage += itemData.attackIncrease;
+        }
     }
 }

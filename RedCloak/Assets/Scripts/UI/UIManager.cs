@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public UIBar uiBar;
     public Pause pause;
     public SkillUI skillUI;
+    public Inventory inventory;
 
     public GameObject currentUI;
 
