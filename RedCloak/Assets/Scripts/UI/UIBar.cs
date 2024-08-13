@@ -32,7 +32,7 @@ public class UIBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BossBarPos.DOMoveY(-150, 0f);
+        BossBarPos.DOMoveY(-200, 0f);
         //CallBackBossBar();
         //CallBossBar();
 
@@ -100,7 +100,7 @@ public class UIBar : MonoBehaviour
 
     public void CallBackBossBar()
     {
-        BossBarPos.DOMoveY(-150, 1f);
+        BossBarPos.DOMoveY(-200, 1f);
     }
 
     public void SetPlayerHealth()
