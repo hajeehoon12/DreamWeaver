@@ -28,7 +28,8 @@ public class HolyKnight : MonoBehaviour, IDamage
     //private static readonly int animSpeed = Animator.StringToHash("AnimSpeed");
     //private static readonly int thunder = Animator.StringToHash("Thunder");
 
-    public LayerMask groundLayerMask;
+    //public LayerMask groundLayerMask;
+    public LayerMask groundLayerMask = LayerMask.GetMask("Floor", "Wall", "Minimap");
 
     private float bossHealth = 0;
     public float bossMaxHealth;
@@ -666,8 +667,8 @@ public class HolyKnight : MonoBehaviour, IDamage
         FadeManager.instance.FadeOut(0.2f);
         yield return new WaitForSeconds(2f);
         FadeManager.instance.FadeIn(0.2f);
-        CharacterManager.Instance.doors[4].OpenDoor();
-        CharacterManager.Instance.ChangeDoorOpenStat(4);
+        CharacterManager.Instance.doors[3].OpenDoor();
+        CharacterManager.Instance.ChangeDoorOpenStat(3);
         zone.RemoveWall();
         StopAllCoroutines();
         MonsterDataManager.ChangeCatchStat("ENS00130");
