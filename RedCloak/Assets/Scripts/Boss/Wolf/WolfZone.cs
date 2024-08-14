@@ -47,6 +47,7 @@ public class WolfZone : MonoBehaviour
                 childWall[1].layer = LayerMask.NameToLayer(Define.FLOOR);
                 collision.transform.position = new Vector3(xPos, collision.transform.position.y, collision.transform.position.z);
                 sakura.SetActive(true);
+                CharacterManager.Instance.Player.controller.RunStop();
             }
         }
     }
