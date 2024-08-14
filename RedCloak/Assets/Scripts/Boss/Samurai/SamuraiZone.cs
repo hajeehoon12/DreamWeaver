@@ -42,6 +42,7 @@ public class SamuraiZone : MonoBehaviour
             samurai.CallSamurai();
             enterZone = true;
             collider2d.isTrigger = false;
+            CharacterManager.Instance.Player.controller.RunStop();
         }
     }
 
