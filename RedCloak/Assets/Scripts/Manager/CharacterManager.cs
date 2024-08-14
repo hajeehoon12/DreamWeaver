@@ -108,6 +108,7 @@ public class CharacterManager : MonoBehaviour
         Skill2 = PC.shootProjectile.PlayerSkill2;
         Skill3 = PC.shootProjectile.PlayerSkill3;
 
+        SavePoint = Player.transform.position;
         SaveStage = CameraManager.Instance.stageNum;
     }
 
@@ -157,6 +158,7 @@ public class CharacterManager : MonoBehaviour
 
         yield return new WaitUntil(() => isLoadScene);
 
+        yield return new WaitForSeconds(0.3f);
         LoadInfo();
         CharacterManager.Instance.Player.stats.playerHP = Player.stats.playerMaxHP;
         
