@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: (Swordsmanship)
   m_EditorClassIdentifier: 
   itemName: Swordsmanship
-  description: Can play continous three combo attack
+  description: (Passive) Can play continous three combo attack
   type: 2
   icon: {fileID: 21300000, guid: deedfb184bbdec34f8e62c79f309a8cc, type: 3}
   price: 0
   addStat: 0
+  maxStackAmount: 0
   canBuy: 0
+  canStack: 0
   healthIncrease: 0
   manaIncrease: 0
   attackIncrease: 0
