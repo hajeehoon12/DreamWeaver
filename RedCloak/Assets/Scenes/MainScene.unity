@@ -200,6 +200,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 100}
   m_EdgeRadius: 0
+--- !u!1 &18768661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3510975249026478070, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+  m_PrefabInstance: {fileID: 2590954025657941064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &20736320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,6 +1574,11 @@ Transform:
   - {fileID: 709565396}
   m_Father: {fileID: 20736321}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &488465614 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5696850677982717044, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+  m_PrefabInstance: {fileID: 2590954025657941064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &506064089
 GameObject:
   m_ObjectHideFlags: 0
@@ -8898,6 +8908,11 @@ Transform:
   - {fileID: 959347109}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1737398499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4356244650064872070, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+  m_PrefabInstance: {fileID: 2590954025657941064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1755662227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8432373840660801899, guid: 451e32576e1ab0943800330293401abc, type: 3}
@@ -30708,6 +30723,18 @@ PrefabInstance:
       propertyPath: skill1
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6545485221662525578, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+      propertyPath: Skill1
+      value: 
+      objectReference: {fileID: 488465614}
+    - target: {fileID: 6545485221662525578, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+      propertyPath: Skill2
+      value: 
+      objectReference: {fileID: 18768661}
+    - target: {fileID: 6545485221662525578, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+      propertyPath: Skill3
+      value: 
+      objectReference: {fileID: 1737398499}
     - target: {fileID: 6986358930598672819, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
