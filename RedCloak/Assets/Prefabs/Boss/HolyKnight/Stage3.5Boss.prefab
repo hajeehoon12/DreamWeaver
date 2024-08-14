@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6f225aa7be1fc4c8c786e47dae90eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holy: {fileID: 5362449397342469438}
+  holy: {fileID: 0}
   enterZone: 0
 --- !u!1 &8961971040002278720
 GameObject:
@@ -240,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8757290560402224782}
   m_Layer: 0
-  m_Name: HolyKnight
+  m_Name: Stage3.5Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -315,10 +315,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6205436646304561751, guid: d71bc7bd50d56bc49b94a42228428962, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8636870943220958979, guid: d71bc7bd50d56bc49b94a42228428962, type: 3}
       propertyPath: fog
       value: 
@@ -332,17 +328,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d71bc7bd50d56bc49b94a42228428962, type: 3}
---- !u!114 &5362449397342469438 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8636870943220958979, guid: d71bc7bd50d56bc49b94a42228428962, type: 3}
-  m_PrefabInstance: {fileID: 4447140857997359677}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 793c85049c328aa4f973123ea0688d96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8262761118690809830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5700521912224411099, guid: d71bc7bd50d56bc49b94a42228428962, type: 3}

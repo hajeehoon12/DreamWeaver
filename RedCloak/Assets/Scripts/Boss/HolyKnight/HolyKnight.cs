@@ -110,6 +110,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         GroundDust.SetActive(false);
         HolyCharge.SetActive(false);
         HolyStarExplosion.SetActive(false);
+        LightCutRange.SetActive(false);
     }
 
     private void Update()
