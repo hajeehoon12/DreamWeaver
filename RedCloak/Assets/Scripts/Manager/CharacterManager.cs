@@ -10,6 +10,9 @@ public class CharacterManager : MonoBehaviour
 
     public Vector3 SavePoint;
     public int SaveStage = 1;
+
+    public bool haveSave = false;
+
     public bool isLoadScene = true;
     public int playerInitHealth = 5;
 
@@ -80,7 +83,10 @@ public class CharacterManager : MonoBehaviour
 
     private void Start()
     {
-        SavePoint = Player.transform.position;
+        if (!haveSave)
+        {
+            SavePoint = Player.transform.position;
+        }
     }
 
     public void SaveInfo()
@@ -107,6 +113,8 @@ public class CharacterManager : MonoBehaviour
         Skill1 = PC.shootProjectile.PlayerSkill1;
         Skill2 = PC.shootProjectile.PlayerSkill2;
         Skill3 = PC.shootProjectile.PlayerSkill3;
+
+        haveSave = true;
 
         SavePoint = Player.transform.position;
         SaveStage = CameraManager.Instance.stageNum;
@@ -158,7 +166,7 @@ public class CharacterManager : MonoBehaviour
 
         yield return new WaitUntil(() => isLoadScene);
 
-        yield return new WaitForSeconds(0.3f);
+        //yield return new WaitForSeconds(0.3f);
         LoadInfo();
         CharacterManager.Instance.Player.stats.playerHP = Player.stats.playerMaxHP;
         

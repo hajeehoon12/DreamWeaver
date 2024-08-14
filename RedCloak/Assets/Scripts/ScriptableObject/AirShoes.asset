@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: AirShoes
   m_EditorClassIdentifier: 
   itemName: AirShoes
-  description: You can Double Jump and Dash(Pressing C) with magical power of wing
-    shoes
+  description: (Passive Skill)You can Double Jump and Dash(Pressing C) with magical
+    power of wing shoes
   type: 2
   icon: {fileID: 21300000, guid: a47766bc4970cce4c963affb73c3ec60, type: 3}
   price: 0
   addStat: 0
+  maxStackAmount: 0
   canBuy: 0
+  canStack: 0
   healthIncrease: 0
   manaIncrease: 0
   attackIncrease: 0
