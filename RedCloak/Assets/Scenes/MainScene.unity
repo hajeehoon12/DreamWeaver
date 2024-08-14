@@ -1687,6 +1687,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &535655588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5696850677982717044, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+  m_PrefabInstance: {fileID: 2590954025657941064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &566528882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1831,6 +1836,11 @@ Transform:
   - {fileID: 1211589032}
   m_Father: {fileID: 20736321}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &630451447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3510975249026478070, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+  m_PrefabInstance: {fileID: 2590954025657941064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &642122006
 GameObject:
   m_ObjectHideFlags: 0
@@ -9805,6 +9815,11 @@ Transform:
   - {fileID: 1126470849}
   m_Father: {fileID: 1703020184}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1925429214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4356244650064872070, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+  m_PrefabInstance: {fileID: 2590954025657941064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1947229156 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9066547278495092084, guid: 273316c0b6f80d04081aebce59ab3525, type: 3}
@@ -30675,6 +30690,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6319895408610573898, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545485221662525578, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+      propertyPath: Skill1
+      value: 
+      objectReference: {fileID: 535655588}
+    - target: {fileID: 6545485221662525578, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+      propertyPath: Skill2
+      value: 
+      objectReference: {fileID: 630451447}
+    - target: {fileID: 6545485221662525578, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+      propertyPath: Skill3
+      value: 
+      objectReference: {fileID: 1925429214}
+    - target: {fileID: 6545485221662525578, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+      propertyPath: skill1
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6986358930598672819, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
