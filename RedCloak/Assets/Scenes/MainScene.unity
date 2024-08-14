@@ -30609,6 +30609,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -11.299988
       objectReference: {fileID: 0}
+    - target: {fileID: 4962323213827886677, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 3157351928526619093}
     - target: {fileID: 4966333788287598351, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
       propertyPath: m_Creator
       value: 
@@ -35818,6 +35822,11 @@ PrefabInstance:
 --- !u!212 &3157351928526619092 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2615936910074680773, guid: f706ea928c2c05044b8d03156496ae96, type: 3}
+  m_PrefabInstance: {fileID: 3157351928526619091}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &3157351928526619093 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4401349786345831442, guid: f706ea928c2c05044b8d03156496ae96, type: 3}
   m_PrefabInstance: {fileID: 3157351928526619091}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &3160679407178134898
