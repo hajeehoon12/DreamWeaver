@@ -32,6 +32,14 @@ public class Pause : MonoBehaviour
         UIManager.Instance.OpenUI(optionUI);
     }
 
+    public void LoadLastSave()
+    {
+        CharacterManager.Instance.CallDeath();
+        UIManager.Instance.CloseCurrentUI();
+        Time.timeScale = 1f;
+        EnablePlayerInput();
+    }
+
     IEnumerator FadeOut()
     {
         pauseUICanvasGroup.DOFade(0f, 0.5f).SetUpdate(true);
