@@ -1,13 +1,5 @@
-using DG.Tweening.Core.Easing;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-[System.Serializable]
-public struct RewardChestData
-{
-    public bool isOnceOpened;
-}
 
 public class RewardChest : MonoBehaviour
 {
@@ -18,25 +10,17 @@ public class RewardChest : MonoBehaviour
     public ItemData dropData;
     public GameObject ItemLight;
 
-    //public bool isOnceOpened = false;
-
-    RewardChestData data;
-    
-    
+    public int index;
+    public bool isOpen;
 
     private void Start()
     {
-        InitOpen();
+        Init();
     }
 
-    void ChangeBoxState()
-    { 
-        //TODO modify JSon box state
-    }
-
-    public void InitOpen()
+    public void Init()
     {
-        if (data.isOnceOpened)
+        if (isOpen)
         {
             chestIcon.sprite = openedChestSprite;
         }
@@ -47,7 +31,8 @@ public class RewardChest : MonoBehaviour
         chestIcon.sprite = openedChestSprite;
         AudioManager.instance.PlaySFX("Boxopen", 0.2f);
         upArrowIcon.SetActive(false);
-        ChangeBoxState();
+        RewardBoxDataManager.ChangeOpenStat(index);
+        isOpen = true;
         //GameManager.Instance.spawnManager.SpawnBoxRewardItem(this.transform);
     }
 
@@ -67,7 +52,7 @@ public class RewardChest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(Define.PLAYER) && !data.isOnceOpened)
+        if (collision.gameObject.CompareTag(Define.PLAYER) && !isOpen)
         {
             upArrowIcon.SetActive(true);
         }
@@ -77,7 +62,7 @@ public class RewardChest : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(Define.PLAYER))
         {
-            if (Input.GetKey(KeyCode.UpArrow) && !data.isOnceOpened)
+            if (Input.GetKey(KeyCode.UpArrow) && !isOpen)
             {
 
                 OpenChest();
@@ -89,7 +74,7 @@ public class RewardChest : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(Define.PLAYER) && data.isOnceOpened)
+        if (collision.gameObject.CompareTag(Define.PLAYER) && isOpen)
         {
             upArrowIcon.SetActive(false);
         }
