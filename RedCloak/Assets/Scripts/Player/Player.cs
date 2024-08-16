@@ -21,9 +21,6 @@ public class Player : MonoBehaviour
         controller = GetComponent<PlayerController>();
         //stats = GetComponent<PlayerStat>();
         battle = GetComponent<PlayerBattle>();
-        
-
-
     }
 
 

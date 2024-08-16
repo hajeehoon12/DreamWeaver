@@ -104,7 +104,10 @@ public class HolyKnight : MonoBehaviour, IDamage
     {
         isStageStart = true;
         animator.SetBool(notStart, true);
-        fog.SetActive(true);
+        if (TempStage)
+        {
+            fog.SetActive(true);
+        }
         holySlashRange.SetActive(false);
         Aura.SetActive(false);
         GroundDust.SetActive(false);
@@ -120,10 +123,10 @@ public class HolyKnight : MonoBehaviour, IDamage
             LookPlayer();
         }
 
-        //if (Input.GetKeyUp(KeyCode.V))
-        //{
-        //    CallHolyStage();
-        //}
+        if (Input.GetKeyUp(KeyCode.V))
+        {
+            CallHolyStage();
+        }
 
     }
 
@@ -160,14 +163,24 @@ public class HolyKnight : MonoBehaviour, IDamage
         CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(9, 7, 0) , 4.7f, 0.05f, 0.1f);
         //
         AudioManager.instance.PlayHoly("WindBlow", 0.1f);
-        fog.transform.DOMoveX(transform.position.x - 30, 4f);
+        if (TempStage)
+        {
+            fog.transform.DOMoveX(transform.position.x - 30, 4f);
+        }
         yield return new WaitForSeconds(1f);
         animator.SetBool(isStart, true);
         animator.SetBool(notStart, false);
         AudioManager.instance.StopBGM();
         
         isStageStart = true;
-        CameraManager.Instance.ModifyCameraInfo(new Vector2(31, 11), new Vector2(8, -275));
+        if (TempStage)
+        {
+            CameraManager.Instance.ModifyCameraInfo(new Vector2(31, 11), new Vector2(8, -275));
+        }
+        else
+        {
+            CameraManager.Instance.ModifyCameraInfo(new Vector2(35, 15), new Vector2(-230, 160));
+        }
         CharacterManager.Instance.Player.controller.cantMove = true;
         CharacterManager.Instance.Player.controller.MakeIdle();
 
@@ -193,7 +206,14 @@ public class HolyKnight : MonoBehaviour, IDamage
         }
         //Aura.SetActive(false);
         AudioManager.instance.StopBGM();
-        AudioManager.instance.PlayBGM("Winter", 0.15f);
+        if (TempStage)
+        {
+            AudioManager.instance.PlayBGM("Winter", 0.15f);
+        }
+        else
+        {
+            AudioManager.instance.PlayBGM("Mountain", 0.15f);
+        }
         
         isPhase1 = true;
         animator.SetBool(castBuff, true);
@@ -400,7 +420,8 @@ public class HolyKnight : MonoBehaviour, IDamage
         animator.SetBool(jumpAttack, false);
         HolyCharge.SetActive(false);
         StartCoroutine(HeavyAttackSound());
-        transform.DOMoveY(-288.5f, 1f).SetEase(Ease.InCirc).OnComplete(()=>
+        float DestinationY = TempStage ? -288.5f : 146.4f;
+        transform.DOMoveY(DestinationY, 1f).SetEase(Ease.InCirc).OnComplete(()=>
         {
             AttackRange.SetActive(false);
             AudioManager.instance.PlayHoly("OnGround", 0.1f);
