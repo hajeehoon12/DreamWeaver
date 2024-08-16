@@ -46,8 +46,8 @@ public class CharacterManager : MonoBehaviour
 
     public bool canSwapSkill = true;
 
-    PlayerData data;
-
+    public PlayerDataSet playerData { get; private set; }
+    
     public float playerSpeed = 10;
     public float jumpPower = 15;
     public float attackDamage = 5;
@@ -91,6 +91,9 @@ public class CharacterManager : MonoBehaviour
     {
         if (doorData == null)
             doorData = SaveLoad.Load<DoorDataArray>("DoorData");
+
+        if (playerData == null)
+            playerData = SaveLoad.Load<PlayerDataSet>("PlayerData");
         
         if (_instance != null)
         {
@@ -225,6 +228,12 @@ public class CharacterManager : MonoBehaviour
     public class DoorDataArray
     {
         public DoorData[] data;
+    }
+
+    [Serializable]
+    public class PlayerDataSet
+    {
+        public PlayerData data;
     }
 }
 
