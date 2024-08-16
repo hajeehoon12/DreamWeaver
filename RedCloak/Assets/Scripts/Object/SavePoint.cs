@@ -16,6 +16,8 @@ public class SavePoint : MonoBehaviour, IDamage
         //CharacterManager.Instance.SaveStage = CameraManager.Instance.stageNum;
         SaveLoad.Save("MobData", MonsterDataManager.mobArray);
         SaveLoad.Save("DoorData", CharacterManager.Instance.doorData);
+        SaveLoad.Save("RewardBoxData", RewardBoxDataManager.array);
+        SaveLoad.Save("PlayerData", CharacterManager.Instance.playerData);
     }
 
     public void GetDamage(float damage)
