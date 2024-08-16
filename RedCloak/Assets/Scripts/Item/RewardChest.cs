@@ -26,15 +26,20 @@ public class RewardChest : MonoBehaviour
 
     private void Start()
     {
-        if (data.isOnceOpened)
-        {
-            chestIcon.sprite = openedChestSprite;
-        }
+        InitOpen();
     }
 
     void ChangeBoxState()
     { 
         //TODO modify JSon box state
+    }
+
+    public void InitOpen()
+    {
+        if (data.isOnceOpened)
+        {
+            chestIcon.sprite = openedChestSprite;
+        }
     }
 
     public void OpenChest()

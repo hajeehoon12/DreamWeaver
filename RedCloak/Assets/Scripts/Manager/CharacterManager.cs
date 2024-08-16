@@ -15,7 +15,7 @@ public struct PlayerData
     public float playerMaxMP;
     public float playerGold;
 
-    public bool canRoll;
+    public bool canRoll; // true
     public bool canDash;
     public bool canComboAttack;
     public bool canWallJump;
@@ -46,6 +46,8 @@ public class CharacterManager : MonoBehaviour
 
     public bool canSwapSkill = true;
 
+    PlayerData data;
+
     public float playerSpeed = 10;
     public float jumpPower = 15;
     public float attackDamage = 5;
@@ -56,14 +58,14 @@ public class CharacterManager : MonoBehaviour
     public float playerGold = 0;
 
     public bool canRoll = true;
-    public bool canDash = true;
-    public bool canComboAttack = true;
-    public bool canWallJump = true;
-    public bool canDJ = true;
+    public bool canDash = false;
+    public bool canComboAttack = false;
+    public bool canWallJump = false;
+    public bool canDJ = false;
 
-    public bool Skill1 = true;
-    public bool Skill2 = true;
-    public bool Skill3 = true;
+    public bool Skill1 = false;
+    public bool Skill2 = false;
+    public bool Skill3 = false;
 
     public static CharacterManager Instance
     {
