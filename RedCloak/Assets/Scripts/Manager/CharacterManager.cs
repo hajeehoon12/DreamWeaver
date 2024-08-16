@@ -3,6 +3,29 @@ using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
 
+[System.Serializable]
+public struct PlayerData
+{
+    public float playerSpeed;
+    public float jumpPower;
+    public float attackDamage;
+    public float playerHP;
+    public float playerMaxHP;
+    public float playerMP;
+    public float playerMaxMP;
+    public float playerGold;
+
+    public bool canRoll;
+    public bool canDash;
+    public bool canComboAttack;
+    public bool canWallJump;
+    public bool canDJ;
+
+    public bool Skill1;
+    public bool Skill2;
+    public bool Skill3;
+}
+
 
 public class CharacterManager : MonoBehaviour
 {
@@ -91,8 +114,6 @@ public class CharacterManager : MonoBehaviour
 
     public void SaveInfo()
     { 
-        
-
         PlayerController PC = Player.controller;
         PlayerStat stat = Player.stats;
 

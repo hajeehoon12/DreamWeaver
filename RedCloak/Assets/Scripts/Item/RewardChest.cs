@@ -3,6 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public struct RewardChestData
+{
+    public bool isOnceOpened;
+}
+
 public class RewardChest : MonoBehaviour
 {
     [SerializeField] SpriteRenderer chestIcon;
@@ -12,11 +18,31 @@ public class RewardChest : MonoBehaviour
     public ItemData dropData;
     public GameObject ItemLight;
 
+    //public bool isOnceOpened = false;
+
+    RewardChestData data;
+    
+    
+
+    private void Start()
+    {
+        if (data.isOnceOpened)
+        {
+            chestIcon.sprite = openedChestSprite;
+        }
+    }
+
+    void ChangeBoxState()
+    { 
+        //TODO modify JSon box state
+    }
+
     public void OpenChest()
     {
         chestIcon.sprite = openedChestSprite;
         AudioManager.instance.PlaySFX("Boxopen", 0.2f);
         upArrowIcon.SetActive(false);
+        ChangeBoxState();
         //GameManager.Instance.spawnManager.SpawnBoxRewardItem(this.transform);
     }
 
@@ -36,7 +62,7 @@ public class RewardChest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(Define.PLAYER))
+        if (collision.gameObject.CompareTag(Define.PLAYER) && !data.isOnceOpened)
         {
             upArrowIcon.SetActive(true);
         }
@@ -46,7 +72,7 @@ public class RewardChest : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(Define.PLAYER))
         {
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.UpArrow) && !data.isOnceOpened)
             {
 
                 OpenChest();
@@ -58,7 +84,7 @@ public class RewardChest : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(Define.PLAYER))
+        if (collision.gameObject.CompareTag(Define.PLAYER) && data.isOnceOpened)
         {
             upArrowIcon.SetActive(false);
         }

@@ -210,7 +210,7 @@ public class PlayerController : MonoBehaviour
                     //rigid.velocity = new Vector2(rigid.velocity.x, -slopeSpeed); // init;
                     
                 }
-                if (Input.GetAxis("Jump") != 0)
+                if (Input.GetAxis("Jump") != 0 && canWallJump)
                 {
                     lastWallJumpTime -= 0.3f;
 
