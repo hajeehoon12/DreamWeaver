@@ -46,7 +46,7 @@ public class CharacterManager : MonoBehaviour
 
     public bool canSwapSkill = true;
 
-    public PlayerDataSet playerData { get; private set; }
+    public PlayerDataSet playerData { get; set; }
     
     public float playerSpeed = 10;
     public float jumpPower = 15;
@@ -115,6 +115,7 @@ public class CharacterManager : MonoBehaviour
         {
             SavePoint = Player.transform.position;
         }
+        LoadInfo();
     }
 
     public void SaveInfo()
@@ -122,23 +123,23 @@ public class CharacterManager : MonoBehaviour
         PlayerController PC = Player.controller;
         PlayerStat stat = Player.stats;
 
-        playerSpeed = stat.playerSpeed;
-        jumpPower = stat.jumpPower;
-        attackDamage = stat.attackDamage;
-        playerHP = stat.playerHP;
-        playerMaxHP = stat.playerMaxHP;
-        playerMP = stat.playerMP;
-        playerMaxMP = stat.playerMaxMP;
-        playerGold = stat.playerGold;
+        playerData.data.playerSpeed = stat.playerSpeed;
+        playerData.data.jumpPower = stat.jumpPower;
+        playerData.data.attackDamage = stat.attackDamage;
+        playerData.data.playerHP = stat.playerHP;
+        playerData.data.playerMaxHP = stat.playerMaxHP;
+        playerData.data.playerMP = stat.playerMP;
+        playerData.data.playerMaxMP = stat.playerMaxMP;
+        playerData.data.playerGold = stat.playerGold;
 
-        canRoll = PC.canRoll;
-        canDash = PC.canDash;
-        canComboAttack = PC.canComboAttack;
-        canWallJump = PC.canWallJump;
-        canDJ = PC.canDJ;
-        Skill1 = PC.shootProjectile.PlayerSkill1;
-        Skill2 = PC.shootProjectile.PlayerSkill2;
-        Skill3 = PC.shootProjectile.PlayerSkill3;
+        playerData.data.canRoll = PC.canRoll;
+        playerData.data.canDash = PC.canDash;
+        playerData.data.canComboAttack = PC.canComboAttack;
+        playerData.data.canWallJump = PC.canWallJump;
+        playerData.data.canDJ = PC.canDJ;
+        playerData.data.Skill1 = PC.shootProjectile.PlayerSkill1;
+        playerData.data.Skill2 = PC.shootProjectile.PlayerSkill2;
+        playerData.data.Skill3 = PC.shootProjectile.PlayerSkill3;
 
         haveSave = true;
 
@@ -152,23 +153,23 @@ public class CharacterManager : MonoBehaviour
         PlayerController PC = Player.controller;
         PlayerStat stat = Player.stats;
 
-        stat.playerSpeed = playerSpeed;
-        stat.jumpPower = jumpPower;
-        stat.attackDamage = attackDamage;
-        stat.playerHP = playerHP;
-        stat.playerMaxHP = playerMaxHP;
-        stat.playerMP = playerMP;
-        stat.playerMaxMP = playerMaxMP;
-        stat.playerGold = playerGold;
+        stat.playerSpeed = playerData.data.playerSpeed;
+        stat.jumpPower = playerData.data.jumpPower;
+        stat.attackDamage = playerData.data.attackDamage;
+        stat.playerHP = playerData.data.playerHP;
+        stat.playerMaxHP = playerData.data.playerMaxHP;
+        stat.playerMP = playerData.data.playerMP;
+        stat.playerMaxMP = playerData.data.playerMaxMP;
+        stat.playerGold = playerData.data.playerGold;
 
-        PC.canRoll = canRoll;
-        PC.canDash = canDash;
-        PC.canComboAttack = canComboAttack;
-        PC.canWallJump = canWallJump;
-        PC.canDJ = canDJ;
-        PC.shootProjectile.PlayerSkill1 = Skill1;
-        PC.shootProjectile.PlayerSkill2 = Skill2;
-        PC.shootProjectile.PlayerSkill3 = Skill3;
+        PC.canRoll = playerData.data.canRoll;
+        PC.canDash = playerData.data.canDash;
+        PC.canComboAttack = playerData.data.canComboAttack;
+        PC.canWallJump = playerData.data.canWallJump;
+        PC.canDJ = playerData.data.canDJ;
+        PC.shootProjectile.PlayerSkill1 = playerData.data.Skill1;
+        PC.shootProjectile.PlayerSkill2 = playerData.data.Skill2;
+        PC.shootProjectile.PlayerSkill3 = playerData.data.Skill3;
 
         AudioManager.instance.StopBGM2();
 
