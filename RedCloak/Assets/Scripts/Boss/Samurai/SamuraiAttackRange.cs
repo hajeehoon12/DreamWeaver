@@ -8,7 +8,7 @@ public class SamuraiAttackRange : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer(Define.PLAYERPROJECTILE))
         {
-            AudioManager.instance.PlaySamurai("DefendSuccess", 0.2f);
+            AudioManager.instance.PlaySamurai("DefendSuccess", 0.15f);
         }
     }
 
