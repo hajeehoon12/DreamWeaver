@@ -345,12 +345,14 @@ public class HolyKnight : MonoBehaviour, IDamage
     void BlockStart()
     {
         animator.SetBool(block, true);
-        Aura.SetActive(false);
+        Aura.SetActive(true);
     }
 
     public void BlockEnd()
     {
         animator.SetBool(block, false);
+        Aura.SetActive(false);
+        Discrimination();
     }
 
     void JumpHeavy()
