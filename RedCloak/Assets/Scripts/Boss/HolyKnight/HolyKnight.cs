@@ -89,6 +89,9 @@ public class HolyKnight : MonoBehaviour, IDamage
     public bool slashMove = false;
     public bool TempStage = false;
 
+    public Door door1;
+    public Door door2;
+
     
 
     private void Awake()
@@ -160,9 +163,18 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     IEnumerator HolyStageOn()
     {
+        CharacterManager.Instance.Player.controller.cantMove = true;
+        CharacterManager.Instance.Player.controller.MakeIdle();
+
         if (CameraManager.Instance.stageNum == 3)
         {
             TempStage = true;
+        }
+        else
+        {
+            door1.CloseDoor();
+            door2.CloseDoor();
+            yield return new WaitForSeconds(1f);
         }
         Aura.SetActive(true);
         CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(9, 7, 0) , 4.7f, 0.05f, 0.1f);
@@ -184,10 +196,9 @@ public class HolyKnight : MonoBehaviour, IDamage
         }
         else
         {
-            CameraManager.Instance.ModifyCameraInfo(new Vector2(35, 15), new Vector2(-230, 160));
+            CameraManager.Instance.ModifyCameraInfo(new Vector2(35, 15), new Vector2(-226, 160));
         }
-        CharacterManager.Instance.Player.controller.cantMove = true;
-        CharacterManager.Instance.Player.controller.MakeIdle();
+        
 
         yield return new WaitForSeconds(0.6f);
         AudioManager.instance.PlayHoly("Sigh", 0.07f, 1.1f);
@@ -295,14 +306,18 @@ public class HolyKnight : MonoBehaviour, IDamage
                     //Attack();
                     break;
                 case 1:
-                    BackDash();
+                    if (TempStage)
+                    {
+                        BackDash();
+                    }
+                    else
+                    {
+                        BlockStart();
+                    }
                     //SpecialAttack();
                     break;
                 case 2:
-                    if (CameraManager.Instance.stageNum == 3)
-                    {
-                        
-                    }
+                    
 
                     break;
             }
