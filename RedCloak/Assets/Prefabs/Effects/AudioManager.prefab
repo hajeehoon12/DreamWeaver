@@ -1692,6 +1692,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 97d3ff2fc37a6b741a9a342bf7be25f0, type: 3}
   - name: Promise
     clip: {fileID: 8300000, guid: f575c935acb7bbc48ae2a5d173c8e9fd, type: 3}
+  - name: Mountain
+    clip: {fileID: 8300000, guid: 74a64047ce8236b488ee9fbc56eecca3, type: 3}
   UI: []
   Wolf:
   - name: ChargeAttack
@@ -1774,6 +1776,18 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: fd3421161adae4f4e84ee53f15c67bfd, type: 3}
   - name: HolyDefeat
     clip: {fileID: 8300000, guid: 496e024661967544c974b6d03d96de2f, type: 3}
+  - name: BackDash
+    clip: {fileID: 8300000, guid: b91b4c3722280af46887a70f5e452221, type: 3}
+  - name: HolyStageOn
+    clip: {fileID: 8300000, guid: b044aab903b06c5418397a2718865b62, type: 3}
+  - name: HolyHeal
+    clip: {fileID: 8300000, guid: 3b0f138b791e33242974d2828f6373de, type: 3}
+  - name: HolyDie
+    clip: {fileID: 8300000, guid: 6626371abc3770642959eaaae4a6798c, type: 3}
+  - name: HolyBeat
+    clip: {fileID: 8300000, guid: 94f0662c3c86e64409d7d2a688e2df0c, type: 3}
+  - name: HolyEarthQuake
+    clip: {fileID: 8300000, guid: 241d90c234dd7694f999786ff7dab335, type: 3}
   Monster:
   - name: Whip1
     clip: {fileID: 8300000, guid: 7d4740c1510083f47ac5292ad8d5c613, type: 3}

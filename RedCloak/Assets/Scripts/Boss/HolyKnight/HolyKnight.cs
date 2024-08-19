@@ -92,6 +92,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     public GameObject SpinSlash;
     public GameObject HolyRapid;
     public GameObject HolyArrow;
+    public GameObject holyLight;
 
     public bool slashMove = false;
     public bool TempStage = false;
@@ -189,7 +190,8 @@ public class HolyKnight : MonoBehaviour, IDamage
             yield return new WaitForSeconds(1.5f);
         }
         Aura.SetActive(true);
-        CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(9, 7, 0) , 4.7f, 0.05f, 0.1f);
+        float Dir = isFlip ? -1f : 1f;
+        CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(9 * Dir, 7, 0) , 4.7f, 0.05f, 0.1f);
         //
         if (TempStage)
         {
@@ -896,6 +898,8 @@ public class HolyKnight : MonoBehaviour, IDamage
 
         CameraManager.Instance.CallStage4CameraInfo("Holy Knight");
         AudioManager.instance.PlaySFX("Success", 0.05f);
+
+        Instantiate(holyLight, transform.position, Quaternion.identity);
     }
 
 
