@@ -64,6 +64,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     Vector3 Left = new Vector3(0, 0, 0);
 
     public bool isDefending = false;
+    public bool defendSuccess = false;
 
     public float AnimSpeed = 1.5f;
 
@@ -298,7 +299,7 @@ public class HolyKnight : MonoBehaviour, IDamage
                 animator.SetBool(run, false);
             }
             // Flip();
-            switch (count % 2)
+            switch (count % 3)
             {
                 case 0:
                    
@@ -317,7 +318,7 @@ public class HolyKnight : MonoBehaviour, IDamage
                     //SpecialAttack();
                     break;
                 case 2:
-                    
+                    BackDash();
 
                     break;
             }
@@ -352,12 +353,15 @@ public class HolyKnight : MonoBehaviour, IDamage
     {
         animator.SetBool(block, false);
         Aura.SetActive(false);
-        Discrimination();
+        isDefending = false;
+        if(!defendSuccess) Discrimination();
     }
 
     void JumpHeavy()
     {
         HolyCharge.SetActive(true);
+
+        if (!TempStage) ghostDash.makeGhost = true;
 
         if (isPhase1)
         {
@@ -416,6 +420,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     public void EndBackDash()
     {
         animator.SetBool(backDash, false);
+        animator.SetBool(frontHeavy, true);
     }
 
 
@@ -450,6 +455,7 @@ public class HolyKnight : MonoBehaviour, IDamage
             AudioManager.instance.PlayHoly("OnGround", 0.1f);
             rigid.gravityScale = 1f;
             CreateSlash();
+            ghostDash.makeGhost = false;
         }
         );
     }
@@ -573,6 +579,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         animator.SetBool(holySlash, false);
         holySlashRange.SetActive(false);
         canFlip = true;
+        defendSuccess = false;
         Discrimination();
         
         //transform.DOLocalMoveX(0.3f, 0.25f);
@@ -633,14 +640,11 @@ public class HolyKnight : MonoBehaviour, IDamage
         if (animator.GetBool(block))
         {
             AudioManager.instance.PlaySamurai("DefendSuccess", 0.1f);
+            defendSuccess = true;
+            animator.Play("HolySlash", -1, 0.3f);
             return;
         }
 
-        if (isDefending)
-        {
-            //DoCounterAttack();
-            return;
-        }
 
 
 

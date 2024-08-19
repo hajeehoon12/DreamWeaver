@@ -14,7 +14,9 @@ public class HolyBlock : StateMachineBehaviour
         if (holy == null)
         {
             holy = animator.GetComponent<HolyKnight>();
+            
         }
+        holy.isDefending = true;
         //holy.canFlip = false;
         //AudioManager.instance.PlayHoly("BattleCry1", 0.1f, 0.9f);
     }
