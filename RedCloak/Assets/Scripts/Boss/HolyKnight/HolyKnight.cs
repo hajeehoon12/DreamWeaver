@@ -100,6 +100,8 @@ public class HolyKnight : MonoBehaviour, IDamage
     public Door door2;
 
     private bool earthQuakeEnd = false;
+
+    public bool phaseModify = false;
  
     
 
@@ -374,10 +376,14 @@ public class HolyKnight : MonoBehaviour, IDamage
     void GreatHeal()
     {
         animator.SetBool(greatHealMotion, true);
-        CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(0, 4, 0), 3f, 0.2f, 0.2f);
+    }
+
+    public void GreatHealStart()
+    {
+        //player.controller.cantMove = true;
+        CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(0, 4, 0), 2.5f, 0.2f, 0.2f);
         AudioManager.instance.PlayHoly("HolyEarthQuake", 0.2f);
         StartCoroutine(EarthQuake());
-
     }
 
     IEnumerator EarthQuake()
@@ -387,9 +393,9 @@ public class HolyKnight : MonoBehaviour, IDamage
             // x -267 -190
             // y 168
 
-            Instantiate(HolyArrow, new Vector3(Random.Range(-267, -190), 168, 0),Quaternion.Euler(0, 90, 0));
+            Instantiate(HolyArrow, new Vector3(Random.Range(-267, -190), 168, 0),Quaternion.Euler(90, 0, 0));
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.4f);
         }
     }
 
@@ -419,6 +425,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         Aura.SetActive(false);
         animator.SetBool(greatHealMotion, false);
         isPhase3Start = false;
+        player.controller.cantMove = false;
         Discrimination();
     }
 
@@ -453,8 +460,17 @@ public class HolyKnight : MonoBehaviour, IDamage
         float Dir = isFlip ? -1f : 1f;
         animator.SetBool(jumpAttack, true);
         rigid.gravityScale = 0;
+
+        if (phaseModify) return;
+
         transform.DOMove(new Vector3(player.transform.position.x - Dir * 2f , player.transform.position.y + 12f, 1), 0.75f).OnComplete(()=>
         {
+            if (phaseModify)
+            {
+                rigid.gravityScale = 1f;
+                return; 
+            }
+
             if (isPhase1)
             {
                 HeavyAttackDown();
@@ -740,6 +756,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
             if (bossHealth < (bossMaxHealth * 2 / 3) && isPhase1)
             {
+                phaseModify = true;
                 isPhase1 = false;
                 isPhase2 = true;
                 isPhase3 = false;
@@ -754,6 +771,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
             if (bossHealth < (bossMaxHealth * 1 / 3) && isPhase2)
             {
+                phaseModify = true;
                 count = 0;
                 isPhase1 = false;
                 isPhase3 = true;
@@ -865,6 +883,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         Aura.SetActive(false);
         AudioManager.instance.StopBGM();
         AudioManager.instance.PlayHoly("HolyBeat", 0.35f);
+        rigid.gravityScale = 3f;
         Time.timeScale = 0.3f;
         StartCoroutine(KnockBack());
         yield return new WaitForSeconds(2f);

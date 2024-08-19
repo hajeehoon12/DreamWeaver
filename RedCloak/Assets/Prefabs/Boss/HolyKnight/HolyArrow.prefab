@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 199059629376678626}
   - component: {fileID: -4195464778956379428}
   - component: {fileID: -5288913848622655833}
+  - component: {fileID: 6910211645114761572}
   m_Layer: 19
   m_Name: HolyArrow
   m_TagString: Untagged
@@ -31,8 +32,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4841,14 +4842,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f823ef72cb93e4e9e7c1f261dfc803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 15
   hitOffset: 0.1
   UseFirePointRotation: 0
   rotationOffset: {x: 0, y: 0, z: 0}
   hit: {fileID: 1153730961705006, guid: f1aeeba2f9003904da5c0a24ba150198, type: 3}
   flash: {fileID: 1373498804365708, guid: 1be2572052efd584296895036cceb277, type: 3}
   Detached: []
-  LifeTime: 0
+  LifeTime: 3
 --- !u!199 &199059629376678626
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -4986,3 +4987,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6910211645114761572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878987882032996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 669d28b58e973064e974de896c18869a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

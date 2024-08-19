@@ -19,6 +19,7 @@ public class HolyGreatHeal : StateMachineBehaviour
         holy.Aura.SetActive(true);
 
         AudioManager.instance.PlayHoly("HolyHeal", 0.25f);
+        holy.GreatHealStart();
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
