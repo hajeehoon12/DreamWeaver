@@ -173,7 +173,7 @@ public class CharacterManager : MonoBehaviour
 
         AudioManager.instance.StopBGM2();
 
-        UIManager.Instance.skillUI.UpdateSkill();
+        //UIManager.Instance.skillUI.UpdateSkill();
     }
 
     public void CallDeath()

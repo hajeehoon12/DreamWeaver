@@ -17,7 +17,7 @@ public class HolyBackDash : StateMachineBehaviour
             holy = animator.GetComponent<HolyKnight>();
         }
 
-        if (CameraManager.Instance.stageNum == 4)
+        if (!holy.TempStage)
         {
             holy.EndBackDash();
         }
@@ -25,6 +25,7 @@ public class HolyBackDash : StateMachineBehaviour
         {
             holy.DisAppear();
         }
+        AudioManager.instance.PlayHoly("BackDash", 0.1f);
         //holy.canFlip = false;
         //AudioManager.instance.PlayHoly("BattleCry1", 0.1f, 0.9f);
     }
