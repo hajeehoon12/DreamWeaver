@@ -18,6 +18,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     private static readonly int block = Animator.StringToHash("Block");
     private static readonly int airAttack = Animator.StringToHash("AirAttack");
     private static readonly int backDash = Animator.StringToHash("BackDash");
+    private static readonly int animSpeed = Animator.StringToHash("AnimSpeed");
 
     //private static readonly int isNextPhase = Animator.StringToHash("IsNextPhase");
     //private static readonly int isJump = Animator.StringToHash("IsJump");
@@ -64,7 +65,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     public bool isDefending = false;
 
-    public float animSpeed = 1.0f;
+    public float AnimSpeed = 1.5f;
 
     public HolyKnightZone zone;
 
@@ -87,6 +88,9 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     public bool slashMove = false;
     public bool TempStage = false;
+
+    public Door door1;
+    public Door door2;
 
     
 
@@ -114,6 +118,10 @@ public class HolyKnight : MonoBehaviour, IDamage
         HolyCharge.SetActive(false);
         HolyStarExplosion.SetActive(false);
         LightCutRange.SetActive(false);
+        if (!TempStage)
+        {
+            animator.SetFloat(animSpeed, AnimSpeed);
+        }
     }
 
     private void Update()
@@ -155,9 +163,18 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     IEnumerator HolyStageOn()
     {
+        CharacterManager.Instance.Player.controller.cantMove = true;
+        CharacterManager.Instance.Player.controller.MakeIdle();
+
         if (CameraManager.Instance.stageNum == 3)
         {
             TempStage = true;
+        }
+        else
+        {
+            door1.CloseDoor();
+            door2.CloseDoor();
+            yield return new WaitForSeconds(1f);
         }
         Aura.SetActive(true);
         CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(9, 7, 0) , 4.7f, 0.05f, 0.1f);
@@ -179,10 +196,9 @@ public class HolyKnight : MonoBehaviour, IDamage
         }
         else
         {
-            CameraManager.Instance.ModifyCameraInfo(new Vector2(35, 15), new Vector2(-230, 160));
+            CameraManager.Instance.ModifyCameraInfo(new Vector2(35, 15), new Vector2(-226, 160));
         }
-        CharacterManager.Instance.Player.controller.cantMove = true;
-        CharacterManager.Instance.Player.controller.MakeIdle();
+        
 
         yield return new WaitForSeconds(0.6f);
         AudioManager.instance.PlayHoly("Sigh", 0.07f, 1.1f);
@@ -290,14 +306,18 @@ public class HolyKnight : MonoBehaviour, IDamage
                     //Attack();
                     break;
                 case 1:
-                    BackDash();
+                    if (TempStage)
+                    {
+                        BackDash();
+                    }
+                    else
+                    {
+                        BlockStart();
+                    }
                     //SpecialAttack();
                     break;
                 case 2:
-                    if (CameraManager.Instance.stageNum == 3)
-                    {
-                        
-                    }
+                    
 
                     break;
             }
@@ -325,12 +345,14 @@ public class HolyKnight : MonoBehaviour, IDamage
     void BlockStart()
     {
         animator.SetBool(block, true);
-        Aura.SetActive(false);
+        Aura.SetActive(true);
     }
 
     public void BlockEnd()
     {
         animator.SetBool(block, false);
+        Aura.SetActive(false);
+        Discrimination();
     }
 
     void JumpHeavy()
@@ -421,7 +443,8 @@ public class HolyKnight : MonoBehaviour, IDamage
         HolyCharge.SetActive(false);
         StartCoroutine(HeavyAttackSound());
         float DestinationY = TempStage ? -288.5f : 146.4f;
-        transform.DOMoveY(DestinationY, 1f).SetEase(Ease.InCirc).OnComplete(()=>
+        float FallTime = TempStage ? 1f : 1f/AnimSpeed;
+        transform.DOMoveY(DestinationY, FallTime).SetEase(Ease.InCirc).OnComplete(()=>
         {
             AttackRange.SetActive(false);
             AudioManager.instance.PlayHoly("OnGround", 0.1f);
