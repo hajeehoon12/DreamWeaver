@@ -19,6 +19,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     private static readonly int airAttack = Animator.StringToHash("AirAttack");
     private static readonly int backDash = Animator.StringToHash("BackDash");
     private static readonly int animSpeed = Animator.StringToHash("AnimSpeed");
+    private static readonly int sprint = Animator.StringToHash("Sprint");
 
     //private static readonly int isNextPhase = Animator.StringToHash("IsNextPhase");
     //private static readonly int isJump = Animator.StringToHash("IsJump");
@@ -180,7 +181,14 @@ public class HolyKnight : MonoBehaviour, IDamage
         Aura.SetActive(true);
         CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(9, 7, 0) , 4.7f, 0.05f, 0.1f);
         //
-        AudioManager.instance.PlayHoly("WindBlow", 0.1f);
+        if (TempStage)
+        {
+            AudioManager.instance.PlayHoly("WindBlow", 0.1f);
+        }
+        else
+        {
+            AudioManager.instance.PlayHoly("HolyStageOn", 0.1f);
+        }
         if (TempStage)
         {
             fog.transform.DOMoveX(transform.position.x - 30, 4f);
@@ -292,6 +300,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
         if (isPhase2)
         {
+            Aura.SetActive(false);
             if (!TempStage)
             {
                 animator.SetBool(run, true);
@@ -326,16 +335,21 @@ public class HolyKnight : MonoBehaviour, IDamage
 
         if (isPhase3)
         {
-
+            animator.SetBool(run, false);
+            animator.SetBool(sprint, true);
             yield return new WaitForSeconds(1f);
+            animator.SetBool(sprint, false);
             //Flip();
-            switch (count % 2)
+            switch (count % 3)
             {
                 case 0:
-                    //Attack();
+                    JumpHeavy();
                     break;
                 case 1:
-                    //SpecialAttack();
+                    BlockStart();
+                    break;
+                case 2:
+                    BackDash();
                     break;
             }
         }
@@ -390,7 +404,8 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     void BackDash()
     {
-        if (CameraManager.Instance.stageNum != 4)
+
+        if (TempStage)
         {
             this.gameObject.layer = LayerMask.NameToLayer(Define.PLAYERPROJECTILE);
             AudioManager.instance.PlayHoly("HolyDefeat", 0.2f, 1.2f);
@@ -512,7 +527,8 @@ public class HolyKnight : MonoBehaviour, IDamage
             isWall = Physics2D.Raycast(transform.position + new Vector3(2, 0), Vector2.right * Dir, 4f, groundLayerMask);
             if (!isWall)
             {
-                transform.position += new Vector3(Dir * Time.deltaTime * 60, 0, 0);
+                float Dist = TempStage ? 60f : 120f;
+                transform.position += new Vector3(Dir * Time.deltaTime * Dist, 0, 0);
             }
             yield return new WaitForSeconds(Time.deltaTime);
         }
@@ -637,11 +653,13 @@ public class HolyKnight : MonoBehaviour, IDamage
     {
         if (isInvincible) return;
         if (!isStageStart) return;
-        if (animator.GetBool(block))
+        if (isDefending)
         {
+            animator.SetBool(block, false);
             AudioManager.instance.PlaySamurai("DefendSuccess", 0.1f);
             defendSuccess = true;
-            animator.Play("HolySlash", -1, 0.3f);
+            isDefending = false;
+            animator.Play("HolySlash", 0, 0.3f);
             return;
         }
 
@@ -658,7 +676,9 @@ public class HolyKnight : MonoBehaviour, IDamage
                 isPhase1 = false;
                 isPhase2 = true;
                 isPhase3 = false;
-
+                animator.SetBool(airAttack, false);
+                rigid.gravityScale = 1f;
+                Discrimination();
                 //Debug.Log("next phase");
                 //StopCoroutine(mainCoroutine);
                 //Discrimination();
@@ -671,7 +691,9 @@ public class HolyKnight : MonoBehaviour, IDamage
                 isPhase1 = false;
                 isPhase3 = true;
                 isPhase2 = false;
-
+                animator.SetBool(airAttack, false);
+                rigid.gravityScale = 1f;
+                Discrimination();
             }
 
             UIManager.Instance.uiBar.SetBossBar(bossHealth, bossMaxHealth, damage);
@@ -683,7 +705,7 @@ public class HolyKnight : MonoBehaviour, IDamage
             if (isBossDie) return;
             if (isPhase3) isBossDie = true;
 
-            animator.Play("Death", -1, 0f);
+            animator.Play("KnockBack", -1, 0f);
             //AudioManager.instance.PlaySamurai("SamuraiDie", 0.15f);
             UIManager.Instance.uiBar.SetBossBar(0, bossMaxHealth, bossHealth);
 
@@ -700,6 +722,11 @@ public class HolyKnight : MonoBehaviour, IDamage
     public void RunEnd()
     {
         animator.SetBool(run, false);
+    }
+
+    public void SprintEnd()
+    {
+        animator.SetBool(sprint, false);
     }
 
     void StageClear()
@@ -752,11 +779,13 @@ public class HolyKnight : MonoBehaviour, IDamage
     {
         //samuraiZone.EndStageBoss();
         this.gameObject.layer = LayerMask.NameToLayer(Define.PLAYERPROJECTILE);
-        zone.RemoveWall();
+        door1.OpenDoor();
+        door2.OpenDoor();
         //door.OpenDoor();
         UIManager.Instance.uiBar.CallBackBossBar();
         //SwordAuraOff();
-        CameraManager.Instance.CallStage3CameraInfo();
+        //CameraManager.Instance.CallStage3CameraInfo("HolyKnight");
+        CameraManager.Instance.CallStage4CameraInfo();
     }
 
 
