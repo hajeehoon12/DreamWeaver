@@ -392,6 +392,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     IEnumerator EarthQuake()
     {
+        yield return new WaitForSeconds(1.5f);
         while (!earthQuakeEnd)
         {
             // x -267 -190
@@ -899,6 +900,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         CameraManager.Instance.CallStage4CameraInfo("Holy Knight");
         AudioManager.instance.PlaySFX("Success", 0.05f);
 
+        yield return new WaitForSeconds(4f);
         Instantiate(holyLight, transform.position, Quaternion.identity);
     }
 

@@ -55444,17 +55444,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4689547573083332208, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: PlayerSkill2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689547573083332208, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: PlayerSkill3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: canDJ
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: canDash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: canWallJump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: canDoubleJump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443914195730454756, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: canComboAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8488820794825072302, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: stats.playerHP
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8488820794825072302, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: stats.playerMaxHP
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8488820794825072302, guid: abc27c70448db1146ac450766b059c79, type: 3}
+      propertyPath: stats.attackDamage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8946823807965324558, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -107.7
+      value: -282
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 147.9
       objectReference: {fileID: 0}
     - target: {fileID: 9025655135574291407, guid: abc27c70448db1146ac450766b059c79, type: 3}
       propertyPath: m_LocalPosition.z
