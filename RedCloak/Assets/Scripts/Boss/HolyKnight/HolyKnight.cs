@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Rendering.Universal;
 
 public class HolyKnight : MonoBehaviour, IDamage
 {
@@ -136,10 +137,10 @@ public class HolyKnight : MonoBehaviour, IDamage
             LookPlayer();
         }
 
-        if (Input.GetKeyUp(KeyCode.V))
-        {
-            CallHolyStage();
-        }
+        //if (Input.GetKeyUp(KeyCode.V))
+        //{
+        //    CallHolyStage();
+        //}
 
     }
 
@@ -162,6 +163,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
     public void CallHolyStage()
     {
+        CharacterManager.Instance.Player.GetComponent<Light2D>().lightType = Light2D.LightType.Global;
         StartCoroutine(HolyStageOn());
     }
 
