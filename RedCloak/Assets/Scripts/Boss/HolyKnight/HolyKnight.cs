@@ -91,6 +91,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     public GameObject HolyStarExplosion;
     public GameObject SpinSlash;
     public GameObject HolyRapid;
+    public GameObject HolyArrow;
 
     public bool slashMove = false;
     public bool TempStage = false;
@@ -98,6 +99,8 @@ public class HolyKnight : MonoBehaviour, IDamage
     public Door door1;
     public Door door2;
 
+    private bool earthQuakeEnd = false;
+ 
     
 
     private void Awake()
@@ -181,7 +184,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         {
             door1.CloseDoor();
             door2.CloseDoor();
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
         }
         Aura.SetActive(true);
         CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(9, 7, 0) , 4.7f, 0.05f, 0.1f);
@@ -371,7 +374,23 @@ public class HolyKnight : MonoBehaviour, IDamage
     void GreatHeal()
     {
         animator.SetBool(greatHealMotion, true);
-        
+        CameraManager.Instance.MakeCameraShake(transform.position + new Vector3(0, 4, 0), 3f, 0.2f, 0.2f);
+        AudioManager.instance.PlayHoly("HolyEarthQuake", 0.2f);
+        StartCoroutine(EarthQuake());
+
+    }
+
+    IEnumerator EarthQuake()
+    {
+        while (!earthQuakeEnd)
+        {
+            // x -267 -190
+            // y 168
+
+            Instantiate(HolyArrow, new Vector3(Random.Range(-267, -190), 168, 0),Quaternion.Euler(0, 90, 0));
+
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     void GreatHealEffects()
@@ -827,6 +846,7 @@ public class HolyKnight : MonoBehaviour, IDamage
     {
         float Dir = isFlip ? 1f : -1f;
         float time = 0f;
+        earthQuakeEnd = true;
         AudioManager.instance.PlayHoly("HolyDie", 0.1f);
         while (time < 1f)
         {
