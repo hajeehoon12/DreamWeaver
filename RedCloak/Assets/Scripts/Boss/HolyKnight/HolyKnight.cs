@@ -310,6 +310,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
         if (isPhase2)
         {
+            phaseModify = false;
             Aura.SetActive(false);
             if (!TempStage)
             {
@@ -345,6 +346,7 @@ public class HolyKnight : MonoBehaviour, IDamage
 
         if (isPhase3)
         {
+            phaseModify = false;
             animator.SetBool(run, false);
             animator.SetBool(sprint, true);
             yield return new WaitForSeconds(1f);
