@@ -10,6 +10,7 @@ public class Shop : MonoBehaviour
     public GameObject goodsList;
     public GameObject parentPosition;
     public GameObject soldOut;
+    public GameObject noPrice;
     public TextMeshProUGUI itemName;
     public TextMeshProUGUI itemDescription;
     public TextMeshProUGUI itemPrice;
@@ -26,6 +27,8 @@ public class Shop : MonoBehaviour
     public void SetShopGoods()
     {
         ClearShop();
+
+        noPrice.SetActive(false);
 
         foreach (ItemData itemdata in npc.shopDataList)
         {
@@ -75,10 +78,23 @@ public class Shop : MonoBehaviour
                     itemBtn.onClick.AddListener(() =>
                     {
                         npc.PurchasedItem(itemdata);
-                        CharacterManager.Instance.Player.itemData = itemdata;
-                        CharacterManager.Instance.Player.addItem?.Invoke();
-                        UpdateUI();
+                        if(itemdata.price <= CharacterManager.Instance.Player.stats.playerGold)
+                        {
+                            CharacterManager.Instance.Player.itemData = itemdata;
+                            CharacterManager.Instance.Player.addItem?.Invoke();
+                            CharacterManager.Instance.Player.stats.playerGold -= itemdata.price;
+                            soldOut.SetActive(true);
+                            UIManager.Instance.uiBar.UpdateGold();
+                            UpdateUI();
+                        }
+                        
+                        else
+                        {
+                            noPrice.SetActive(true);
+                            StartCoroutine(LowPrice());
+                        }
                     });
+
                     itemBtn.interactable = !npc.HasPurchasedItem(itemdata.name);
 
                     if (soldOut != null)
@@ -86,9 +102,14 @@ public class Shop : MonoBehaviour
                         soldOut.SetActive(false);
                     }
                 }
-
             }
         }
+    }
+
+    IEnumerator LowPrice()
+    {
+        yield return new WaitForSeconds(2f);
+        noPrice.SetActive(false);
     }
 
     private void ClearShop()
