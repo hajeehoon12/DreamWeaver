@@ -22,7 +22,7 @@ public class ItemPopup : MonoBehaviour
         popupData = CharacterManager.Instance.Player.itemData;
         continueText.SetActive(false);
         isContinue = false;
-        popupName.text = popupData?.name;
+        popupName.text = popupData?.itemName;
         popupDescription.text = popupData?.description;
         popupIcon.sprite = popupData?.icon;
 
