@@ -170,7 +170,7 @@ public class CharacterManager : MonoBehaviour
         PC.shootProjectile.PlayerSkill1 = playerData.data.Skill1;
         PC.shootProjectile.PlayerSkill2 = playerData.data.Skill2;
         PC.shootProjectile.PlayerSkill3 = playerData.data.Skill3;
-
+        //Debug.Log("Load");
         AudioManager.instance.StopBGM2();
 
         //UIManager.Instance.skillUI.UpdateSkill();

@@ -29,11 +29,10 @@ public class Player : MonoBehaviour
         CharacterManager.Instance.isLoadScene = true;
         pet = GameObject.Find("PetLight").GetComponent<Pet>();
 
-        if (!CharacterManager.Instance.haveSave)
-        {
-            StageChangeManager.Instance.SaveScene();
-            CharacterManager.Instance.SaveInfo();
-        }
+
+        StageChangeManager.Instance.SaveScene();
+        //CharacterManager.Instance.LoadInfo();
+
     }
 
 }
