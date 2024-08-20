@@ -8,15 +8,14 @@ public class SaveLoad
     public static void Save<T>(string fileName, T data)
     {
         string path = $"{Application.persistentDataPath}/{fileName}.json";
-        /*
+        
         Type type = data.GetType();
         FieldInfo fieldInfo = type.GetField("version", BindingFlags.Public | BindingFlags.Instance);
         
         if (fieldInfo != null)
-            fieldInfo.SetValue(data, Application.version);*/
+            fieldInfo.SetValue(data, Application.version);
         
-        //string json = AEScrypt.Encrypt(JsonUtility.ToJson(data, true));
-        string json = JsonUtility.ToJson(data, true);
+        string json = AEScrypt.Encrypt(JsonUtility.ToJson(data, true));
         
         File.WriteAllText(path, json);
     }
@@ -29,8 +28,7 @@ public class SaveLoad
         
         if (File.Exists(path))
         {
-            //result = JsonUtility.FromJson<T>(AEScrypt.Decrypt(File.ReadAllText(path)));
-            result = JsonUtility.FromJson<T>(File.ReadAllText(path));
+            result = JsonUtility.FromJson<T>(AEScrypt.Decrypt(File.ReadAllText(path)));
             
             Type type = result.GetType();
             FieldInfo fieldInfo = type.GetField("version", BindingFlags.Public | BindingFlags.Instance);
