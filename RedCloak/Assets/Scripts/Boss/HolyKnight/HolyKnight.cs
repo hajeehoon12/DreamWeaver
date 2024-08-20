@@ -398,7 +398,7 @@ public class HolyKnight : MonoBehaviour, IDamage
             // x -267 -190
             // y 168
 
-            Instantiate(HolyArrow, new Vector3(Random.Range(-267, -190), 168, 0),Quaternion.Euler(90, 0, 0));
+            Instantiate(HolyArrow, new Vector3(Random.Range(-267, -190), 170, 0),Quaternion.Euler(90, 0, 0));
 
             yield return new WaitForSeconds(0.4f);
         }
