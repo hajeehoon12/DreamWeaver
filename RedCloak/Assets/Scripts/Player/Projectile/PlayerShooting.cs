@@ -99,7 +99,7 @@ public class PlayerShooting : MonoBehaviour
         if (Prefab == 0) return;
         else
         {
-            if (CharacterManager.Instance.Player.stats.playerMP >= Prefabs[Prefab].GetComponent<PlayerProjectile>().Mana && CheckSkill(Prefab))
+            if (CharacterManager.Instance.Player.stats.playerMP >= Prefabs[Prefab].GetComponent<PlayerProjectile>().Mana && CheckSkill(Prefab) && !CharacterManager.Instance.Player.controller.cantMove)
             {
                 CharacterManager.Instance.Player.stats.playerMP -= Prefabs[Prefab].GetComponent<PlayerProjectile>().Mana;
             }
