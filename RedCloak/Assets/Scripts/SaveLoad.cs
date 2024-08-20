@@ -1,4 +1,6 @@
+using System;
 using System.IO;
+using System.Reflection;
 using UnityEngine;
 
 public class SaveLoad
@@ -6,6 +8,13 @@ public class SaveLoad
     public static void Save<T>(string fileName, T data)
     {
         string path = $"{Application.persistentDataPath}/{fileName}.json";
+        
+        Type type = data.GetType();
+        FieldInfo fieldInfo = type.GetField("version", BindingFlags.Public | BindingFlags.Instance);
+        
+        if (fieldInfo != null)
+            fieldInfo.SetValue(data, Application.version);
+        
         string json = AEScrypt.Encrypt(JsonUtility.ToJson(data, true));
         
         File.WriteAllText(path, json);
@@ -20,13 +29,22 @@ public class SaveLoad
         if (File.Exists(path))
         {
             result = JsonUtility.FromJson<T>(AEScrypt.Decrypt(File.ReadAllText(path)));
+            
+            Type type = result.GetType();
+            FieldInfo fieldInfo = type.GetField("version", BindingFlags.Public | BindingFlags.Instance);
+            
+            if (fieldInfo != null)
+            {
+                object fieldValue = fieldInfo.GetValue(result);
+                
+                if (fieldValue.ToString() == Application.version)
+                    return result;
+            }
         }
-        else
-        {
-            TextAsset file = Resources.Load<TextAsset>($"JSONs/{fileName}");
-            result = JsonUtility.FromJson<T>("{\"data\":" + file.text + "}");
-        }
-
+        
+        TextAsset file = Resources.Load<TextAsset>($"JSONs/{fileName}");
+        result = JsonUtility.FromJson<T>("{\"data\":" + file.text + "}");
+        
         return result;
     }
 }

@@ -101,6 +101,7 @@ public class MonsterDataManager : MonoBehaviour
     public class MonsterDataArray
     {
         public MonsterData[] data;
+        public string version;
     }
 
     [Serializable]

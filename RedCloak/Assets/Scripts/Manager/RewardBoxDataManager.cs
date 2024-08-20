@@ -28,6 +28,7 @@ public class RewardBoxDataManager : MonoBehaviour
 public class RewardBoxDataArray
 {
     public RewardBoxData[] data;
+    public string version;
 }
 
 [Serializable]
