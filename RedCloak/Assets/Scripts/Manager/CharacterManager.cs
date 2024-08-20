@@ -229,12 +229,14 @@ public class CharacterManager : MonoBehaviour
     public class DoorDataArray
     {
         public DoorData[] data;
+        public string version;
     }
 
     [Serializable]
     public class PlayerDataSet
     {
         public PlayerData data;
+        public string version;
     }
 }
 
