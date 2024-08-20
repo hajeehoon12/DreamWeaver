@@ -30,7 +30,7 @@ public class Shop : MonoBehaviour
 
         noPrice.SetActive(false);
 
-        foreach (ItemData itemdata in npc.shopDataList)
+        foreach (ItemData itemdata in NPCInteraction.shopDataList)
         {
             GameObject goodsInstantiate = Instantiate(goodsList, parentPosition.transform);
 

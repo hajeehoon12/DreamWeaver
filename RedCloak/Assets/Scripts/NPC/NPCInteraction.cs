@@ -9,7 +9,7 @@ public class NPCInteraction : MonoBehaviour
 {
     public DialogueData dialogueData;
     public LayerMask playerLayer;
-    public List<ItemData> shopDataList = new List<ItemData>();
+    public static List<ItemData> shopDataList = new List<ItemData>();
     public GameObject arrowKey;
 
     public bool isPlayerRange = false;
