@@ -34,8 +34,8 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 6404469613511926061}
   - {fileID: 4586709099801447581}
+  - {fileID: 6404469613511926061}
   - {fileID: 996336704912706860}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -179,6 +179,7 @@ MonoBehaviour:
   map: {fileID: 0}
   Sky: {fileID: 6648325522633820383}
   Cave: {fileID: 7832921525200057486}
+  fade: {fileID: 0}
   cameraPosition: {x: 0, y: 5, z: -200}
   center: {x: 8, y: -275}
   tempCenter: {x: 0, y: 0}

@@ -29,7 +29,7 @@ public class FadeManager : MonoBehaviour
 
     public void FadeIn()
     {
-        fadeImage = CameraManager.Instance.GetComponentsInChildren<SpriteRenderer>()[1];
+        fadeImage = CameraManager.Instance.GetComponentsInChildren<SpriteRenderer>()[0];
         StartCoroutine(Fade(1f, 0f));
     }
 
@@ -40,7 +40,7 @@ public class FadeManager : MonoBehaviour
 
     public void FadeIn(float duration)
     {
-        fadeImage = CameraManager.Instance.GetComponentsInChildren<SpriteRenderer>()[1];
+        fadeImage = CameraManager.Instance.GetComponentsInChildren<SpriteRenderer>()[0];
         StartCoroutine(Fade(1f, 0f, duration));
     }
 
@@ -52,7 +52,7 @@ public class FadeManager : MonoBehaviour
 
     private IEnumerator Fade(float startAlpha, float endAlpha) // , float fadeDurations
     {
-        fadeImage = CameraManager.Instance.GetComponentsInChildren<SpriteRenderer>()[1];
+        fadeImage = CameraManager.Instance.GetComponentsInChildren<SpriteRenderer>()[0];
         float leadTime = 0f;
         Color color = fadeImage.color;
 
@@ -72,7 +72,7 @@ public class FadeManager : MonoBehaviour
 
     private IEnumerator Fade(float startAlpha, float endAlpha, float fadeDurations) // ,
     {
-        fadeImage = CameraManager.Instance.GetComponentsInChildren<SpriteRenderer>()[1];
+        fadeImage = CameraManager.Instance.GetComponentsInChildren<SpriteRenderer>()[0];
         float leadTime = 0f;
         Color color = fadeImage.color;
 
