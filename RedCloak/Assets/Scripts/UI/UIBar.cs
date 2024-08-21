@@ -28,6 +28,7 @@ public class UIBar : MonoBehaviour
     public TMP_Text bossText;
 
     public List<GameObject> heartsFront = new List<GameObject>();
+    public List<GameObject> hearts = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -114,13 +115,31 @@ public class UIBar : MonoBehaviour
             heartInstantiate = Instantiate(heart, heartParent.transform);
             heartFront = heartInstantiate.transform.Find("GemFront").gameObject;
             heartsFront.Add(heartFront);
+            hearts.Add(heartInstantiate);
             //heartInstantiate.transform.SetParent(heartParent.transform);
         }
     }
 
     public void UpdateMaxHP(int addMaxHP)
     {
+        foreach(GameObject heart in hearts)
+        {
+            Destroy(heart);
+        }
+        heartsFront.Clear();
+
+        int healthCount = (int)CharacterManager.Instance.Player.stats.playerMaxHP;
         GameObject heartInstantiate;
+
+        for (int i = 0; i < healthCount; i++)
+        {
+            heartInstantiate = Instantiate(heart, heartParent.transform);
+            heartFront = heartInstantiate.transform.Find("GemFront").gameObject;
+            CharacterManager.Instance.Player.stats.playerHP = CharacterManager.Instance.Player.stats.playerMaxHP;
+            heartsFront.Add(heartFront);
+            hearts.Add(heartInstantiate);
+        }
+        /*
         for (int i = 0; i < addMaxHP; i++)
         {
             heartInstantiate = Instantiate(heart, heartParent.transform);
@@ -128,8 +147,8 @@ public class UIBar : MonoBehaviour
             CharacterManager.Instance.Player.stats.playerHP = CharacterManager.Instance.Player.stats.playerMaxHP;
             heartsFront.Add(heartFront);
             //heartInstantiate.transform.SetParent(heartParent.transform);
-        }
-         
+        }*/
+
         SetCurrentHP();
     }
 
