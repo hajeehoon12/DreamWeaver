@@ -24,6 +24,10 @@ public struct PlayerData
     public bool Skill1;
     public bool Skill2;
     public bool Skill3;
+
+    public bool haveSave;
+    public int SaveStage;
+    public Vector3 lastPos;
 }
 
 
@@ -111,9 +115,11 @@ public class CharacterManager : MonoBehaviour
 
     private void Start()
     {
-        if (!haveSave)
+        if (!playerData.data.haveSave)
         {
-            SavePoint = Player.transform.position;
+            playerData.data.lastPos = Player.transform.position;
+            playerData.data.SaveStage = 1;
+            //SavePoint = Player.transform.position;
         }
         LoadInfo();
     }
@@ -141,10 +147,10 @@ public class CharacterManager : MonoBehaviour
         playerData.data.Skill2 = PC.shootProjectile.PlayerSkill2;
         playerData.data.Skill3 = PC.shootProjectile.PlayerSkill3;
 
-        haveSave = true;
+        playerData.data.haveSave = true;
 
-        SavePoint = Player.transform.position;
-        SaveStage = CameraManager.Instance.stageNum;
+        playerData.data.lastPos = Player.transform.position;
+        playerData.data.SaveStage = CameraManager.Instance.stageNum;
     }
 
     public void LoadInfo()
@@ -173,6 +179,8 @@ public class CharacterManager : MonoBehaviour
         //Debug.Log("Load");
         AudioManager.instance.StopBGM2();
 
+        Player.transform.position = playerData.data.lastPos;
+        CameraManager.Instance.SelectStage(playerData.data.SaveStage);
         //UIManager.Instance.skillUI.UpdateSkill();
     }
 
@@ -196,14 +204,14 @@ public class CharacterManager : MonoBehaviour
         //yield return new WaitForSeconds(0.3f);
         LoadInfo();
         CharacterManager.Instance.Player.stats.playerHP = Player.stats.playerMaxHP;
-        
-        
-        Player.transform.position = SavePoint;
+
+
+        Player.transform.position = playerData.data.lastPos;
         UIManager.Instance.uiBar.SetCurrentHP();
         UIManager.Instance.skillUI.InitateRotation();
         canSwapSkill = true;
         UIManager.Instance.uiBar.CallBackBossBar();
-        CameraManager.Instance.SelectStage(SaveStage);
+        CameraManager.Instance.SelectStage(playerData.data.SaveStage);
         AudioManager.instance.PlaySFX("HeartUp", 0.2f);
 
         
