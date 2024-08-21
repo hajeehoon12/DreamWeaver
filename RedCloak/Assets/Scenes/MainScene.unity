@@ -1131,6 +1131,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1712718256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!223 &316553472 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 4962323213827886677, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+  m_PrefabInstance: {fileID: 2590954025657941064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &332763864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29811,6 +29816,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1022167438740049461, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
+      propertyPath: stateCanvas
+      value: 
+      objectReference: {fileID: 316553472}
     - target: {fileID: 1929562418289780295, guid: 86f0e8ac0ff741f4a861a179d2cf2c32, type: 3}
       propertyPath: m_Name
       value: UI

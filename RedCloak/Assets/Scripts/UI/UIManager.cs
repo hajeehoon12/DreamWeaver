@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     public Inventory inventory;
     public DialogueUI dialogueUI;
     public Shop shop;
+    public Canvas stateCanvas;
 
     public GameObject currentUI;
 

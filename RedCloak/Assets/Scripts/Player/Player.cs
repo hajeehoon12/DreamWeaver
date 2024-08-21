@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
 
         StageChangeManager.Instance.SaveScene();
         //CharacterManager.Instance.LoadInfo();
+        UIManager.Instance.miniMap.player = this.GetComponent<Transform>();
 
     }
 

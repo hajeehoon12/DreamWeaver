@@ -72,8 +72,9 @@ public class CameraManager : MonoBehaviour
         screenWidth = screenHeight * Screen.width / Screen.height;
         saveStage = stageNum;
         SelectStage();
-        
+
         //mapSize = map.GetComponent<Collider2D>().bounds.extents + new Vector3(0, 2, 0);
+        UIManager.Instance.stateCanvas.worldCamera = this.GetComponent<Camera>();
     }
 
     private void Update()

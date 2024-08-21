@@ -9,14 +9,10 @@ public class MiniMap : MonoBehaviour
     public Camera miniMapCamera;
 
     public List<GameObject> miniMaps;
-    private void Awake()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-
-    }
     private void Start()
     {
         SetMinimap(CameraManager.Instance.stageNum);
+        //StartCoroutine(InitialSetPlayer());
     }
 
     private void LateUpdate()
@@ -40,6 +36,20 @@ public class MiniMap : MonoBehaviour
 
             else
                 miniMaps[i].SetActive(false);
+        }
+    }
+
+    IEnumerator InitialSetPlayer()
+    {
+        while(player == null)
+        {
+            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+            if(playerObject != null)
+            {
+                player = playerObject.transform;
+            }
+
+            yield return null;
         }
     }
 }
