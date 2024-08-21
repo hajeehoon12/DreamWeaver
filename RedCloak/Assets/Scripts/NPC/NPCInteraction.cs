@@ -9,7 +9,8 @@ public class NPCInteraction : MonoBehaviour
 {
     public DialogueData dialogueData;
     public LayerMask playerLayer;
-    public static List<ItemData> shopDataList = new List<ItemData>();
+    [SerializeField] public static List<ItemData> initialShop = new List<ItemData>();
+    public List<ItemData> shopDataList = new List<ItemData>();
     public GameObject arrowKey;
 
     public bool isPlayerRange = false;
@@ -18,6 +19,11 @@ public class NPCInteraction : MonoBehaviour
 
     private void Awake()
     {
+        if(initialShop.Count == 0 && shopDataList.Count > 0)
+        {
+            initialShop.AddRange(shopDataList);
+        }
+
         itemPurcased = new Dictionary<string, bool>();
 
         foreach(var itemData in shopDataList)
