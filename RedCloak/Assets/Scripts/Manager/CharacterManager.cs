@@ -35,11 +35,6 @@ public class CharacterManager : MonoBehaviour
 {
     private static CharacterManager _instance;
 
-    public Vector3 SavePoint;
-    public int SaveStage = 1;
-
-    public bool haveSave = false;
-
     public bool isLoadScene = true;
     public int playerInitHealth = 5;
 
