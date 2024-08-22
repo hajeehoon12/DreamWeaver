@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 public class UIController : MonoBehaviour
 {
@@ -65,14 +66,14 @@ public class UIController : MonoBehaviour
 
     public void OnMiniMap(InputAction.CallbackContext callbackContext)
     {
-        if(miniMap.activeInHierarchy)
+        if(!miniMap.activeInHierarchy)
         {
-            miniMap.SetActive(false);
+            UIManager.Instance.OpenUI(miniMap);
         }
 
         else
         {
-            miniMap.SetActive(true);
+            UIManager.Instance.CloseCurrentUI();
         }
     }
 
@@ -81,6 +82,11 @@ public class UIController : MonoBehaviour
         if (callbackContext.phase == InputActionPhase.Started && CharacterManager.Instance.Player.controller.currentNpc != null)
         {
             UIManager.Instance.dialogueUI.StartDialogue(CharacterManager.Instance.Player.controller.currentNpc.dialogueData);
+        }
+
+        if(callbackContext.phase == InputActionPhase.Started && UIManager.Instance.currentUI != null)
+        {
+            UIManager.Instance.CloseCurrentUI();
         }
     }
 
