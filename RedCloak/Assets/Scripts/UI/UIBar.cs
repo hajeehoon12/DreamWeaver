@@ -107,6 +107,12 @@ public class UIBar : MonoBehaviour
 
     public void SetPlayerHealth()
     {
+        foreach (GameObject heart in hearts)
+        {
+            Destroy(heart);
+        }
+        heartsFront.Clear();
+
         int healthCount = (int)CharacterManager.Instance.Player.stats.playerMaxHP;
         //int healthCount = (int)CharacterManager.Instance.Player.stats.playerHP;
         GameObject heartInstantiate;
@@ -118,6 +124,8 @@ public class UIBar : MonoBehaviour
             hearts.Add(heartInstantiate);
             //heartInstantiate.transform.SetParent(heartParent.transform);
         }
+
+        SetCurrentHP();
     }
 
     public void UpdateMaxHP(int addMaxHP)
