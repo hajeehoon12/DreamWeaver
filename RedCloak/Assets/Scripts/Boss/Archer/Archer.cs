@@ -48,7 +48,7 @@ public class Archer : MonoBehaviour , IDamage
 
     public GameObject archerLight;
 
-
+    private bool isInvincible = false;
 
 
     private void Awake()
@@ -85,9 +85,9 @@ public class Archer : MonoBehaviour , IDamage
 
         CameraManager.Instance.MakeCameraShake(transform.position, 3f, 0.05f, 0.1f);
         yield return new WaitForSeconds(1f);
-
+        isInvincible = true;
         float time = 0f;
-
+        
         while (time < 1)
         {
             bossHealth += (bossMaxHealth * Time.deltaTime);
@@ -95,6 +95,7 @@ public class Archer : MonoBehaviour , IDamage
             yield return new WaitForSeconds(Time.deltaTime);
             time += Time.deltaTime;
         }
+        isInvincible = false;
         animator.Play("Special Attack", 0, 0f);
         Discrimination();
         AudioManager.instance.PlayBGM("SilverBird", 0.15f);
@@ -356,6 +357,8 @@ public class Archer : MonoBehaviour , IDamage
 
     public void GetDamage(float damage)
     {
+        if (isInvincible) return;
+
         if (!isPhase1)
         {
             if (lastAvoidTime >= skillTime1)
