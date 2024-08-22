@@ -3832,6 +3832,7 @@ MonoBehaviour:
   inventory: {fileID: 2939627623486863589}
   dialogueUI: {fileID: 1331663709039716315}
   shop: {fileID: 6259952237930095086}
+  stateCanvas: {fileID: 4962323213827886677}
   currentUI: {fileID: 0}
 --- !u!114 &3205634295178824429
 MonoBehaviour:
@@ -4655,6 +4656,7 @@ MonoBehaviour:
   damageEffectRect: {fileID: 3448510024444240231}
   bossText: {fileID: 1138899605367948634}
   heartsFront: []
+  hearts: []
 --- !u!1 &3036932512237345309
 GameObject:
   m_ObjectHideFlags: 0
