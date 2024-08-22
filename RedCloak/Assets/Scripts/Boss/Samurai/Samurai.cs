@@ -519,7 +519,7 @@ public class Samurai : MonoBehaviour, IDamage
     void BaldoDamage()
     {
         //Debug.Log("Attack!!");
-        //if(!CharacterManager.Instance.Player.controller.Rolling && Vector3.Distance(transform.position, CharacterManager.Instance.Player.transform.position) < 28f)
+        if(!CharacterManager.Instance.Player.controller.Rolling)// && Vector3.Distance(transform.position, CharacterManager.Instance.Player.transform.position) < 28f)
         CharacterManager.Instance.Player.battle.ChangeHealth(-1);
     }
 
