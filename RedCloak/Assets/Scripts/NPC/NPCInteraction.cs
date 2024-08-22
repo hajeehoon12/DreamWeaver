@@ -57,7 +57,7 @@ public class NPCInteraction : MonoBehaviour
 
     public void PurchasedItem(ItemData itemData)
     {
-        if(!HasPurchasedItem(itemData.name))
+        if(!HasPurchasedItem(itemData.name) && CharacterManager.Instance.Player.stats.playerGold >= itemData.price)
         {
             UIManager.Instance.inventory.ApplyItemEffect(itemData);
             //CharacterManager.Instance.Player.GetComponent<Player>().stats.ApplyItemEffect(itemData);
