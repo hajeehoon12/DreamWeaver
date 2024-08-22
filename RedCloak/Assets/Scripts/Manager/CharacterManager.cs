@@ -154,6 +154,8 @@ public class CharacterManager : MonoBehaviour
         PlayerController PC = Player.controller;
         PlayerStat stat = Player.stats;
 
+        
+
         stat.playerSpeed = playerData.data.playerSpeed;
         stat.jumpPower = playerData.data.jumpPower;
         stat.attackDamage = playerData.data.attackDamage;
@@ -176,6 +178,7 @@ public class CharacterManager : MonoBehaviour
 
         Player.transform.position = playerData.data.lastPos;
         CameraManager.Instance.SelectStage(playerData.data.SaveStage);
+        UIManager.Instance.uiBar.UpdateGold();
         //UIManager.Instance.skillUI.UpdateSkill();
     }
 
