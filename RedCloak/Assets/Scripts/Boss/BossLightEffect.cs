@@ -141,6 +141,7 @@ public class BossLightEffect : MonoBehaviour
     public void DataSave()
     {
         MonsterDataManager.ChangeCatchStat(codeNum);
+        CharacterManager.Instance.SaveInfo();
     }
 
 }
