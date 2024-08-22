@@ -89,8 +89,8 @@ public class ItemLight : MonoBehaviour
 
         
         ItemManager.Instance.synchroniztion();
-        
 
+        CharacterManager.Instance.SaveInfo();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
