@@ -113,7 +113,7 @@ public class CharacterManager : MonoBehaviour
         if (!playerData.data.haveSave)
         {
             playerData.data.lastPos = Player.transform.position;
-            playerData.data.SaveStage = 1;
+            //playerData.data.SaveStage = 1;
             //SavePoint = Player.transform.position;
         }
         LoadInfo();
@@ -146,6 +146,11 @@ public class CharacterManager : MonoBehaviour
 
         playerData.data.lastPos = Player.transform.position;
         playerData.data.SaveStage = CameraManager.Instance.stageNum;
+
+        SaveLoad.Save("MobData", MonsterDataManager.mobArray);
+        SaveLoad.Save("DoorData", CharacterManager.Instance.doorData);
+        SaveLoad.Save("RewardBoxData", RewardBoxDataManager.array);
+        SaveLoad.Save("PlayerData", CharacterManager.Instance.playerData);
     }
 
     public void LoadInfo()
