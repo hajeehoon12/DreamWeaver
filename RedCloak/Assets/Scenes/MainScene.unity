@@ -1306,7 +1306,7 @@ Transform:
   m_GameObject: {fileID: 354428577}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15, y: -6.2, z: 0}
+  m_LocalPosition: {x: -182.98, y: 94.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6385,6 +6385,12 @@ PrefabInstance:
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2238805623978485934, guid: 273316c0b6f80d04081aebce59ab3525, type: 3}
+      propertyPath: m_text
+      value: 'Thanks For Playing!
+
+        Next Version Wiil be Update Soon!'
+      objectReference: {fileID: 0}
     - target: {fileID: 2267103156859393670, guid: 273316c0b6f80d04081aebce59ab3525, type: 3}
       propertyPath: m_Creator
       value: 
@@ -6504,6 +6510,14 @@ PrefabInstance:
     - target: {fileID: 4218653961356431979, guid: 273316c0b6f80d04081aebce59ab3525, type: 3}
       propertyPath: m_Creator
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259007120572874918, guid: 273316c0b6f80d04081aebce59ab3525, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2.3445
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259007120572874918, guid: 273316c0b6f80d04081aebce59ab3525, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.1723
       objectReference: {fileID: 0}
     - target: {fileID: 4274398591856535080, guid: 273316c0b6f80d04081aebce59ab3525, type: 3}
       propertyPath: m_Creator
@@ -6788,6 +6802,19 @@ PrefabInstance:
     - target: {fileID: 7565146213281355256, guid: 273316c0b6f80d04081aebce59ab3525, type: 3}
       propertyPath: m_Creator
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7586436424090671121, guid: 273316c0b6f80d04081aebce59ab3525, type: 3}
+      propertyPath: m_text
+      value: 'Team Dream Weaver
+
+
+        HaGeeHoon
+
+        KimChangYeon
+
+        AhnBoYeon
+
+        YiSiWon'
       objectReference: {fileID: 0}
     - target: {fileID: 7618950717040989642, guid: 273316c0b6f80d04081aebce59ab3525, type: 3}
       propertyPath: m_Creator

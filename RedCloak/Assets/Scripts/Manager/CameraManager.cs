@@ -298,6 +298,26 @@ public class CameraManager : MonoBehaviour
         Cave.gameObject.SetActive(true);
     }
 
+    public void CallStage3CameraInfo(string boss, int stage)
+    {
+        CharacterManager.Instance.Player.GetComponent<Light2D>().lightType = Light2D.LightType.Global;
+
+        AudioManager.instance.StopBGM();
+        AudioManager.instance.PlayBGM("Time", 0.1f);
+
+        //UIManager.Instance.changeStage.FadeInStageUI(3f, "Crystal Cave");
+        //StartCoroutine(StageUI("Crystal Cave"));
+        StartCoroutine(StageUI("Temp Boss Clear!"));
+
+        mapSize = new Vector2(266, 120);
+        center = new Vector2(180, -380);
+
+        stageNum = 3;
+
+        Sky.gameObject.SetActive(false);
+        Cave.gameObject.SetActive(true);
+    }
+
     public void CallStage4CameraInfo()
     {
         CharacterManager.Instance.Player.GetComponent<Light2D>().lightType = Light2D.LightType.Global;

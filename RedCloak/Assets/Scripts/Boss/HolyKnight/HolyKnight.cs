@@ -825,7 +825,7 @@ public class HolyKnight : MonoBehaviour, IDamage
         
         this.gameObject.layer = LayerMask.NameToLayer(Define.PLAYERPROJECTILE);
         UIManager.Instance.uiBar.CallBackBossBar();
-        CameraManager.Instance.CallStage3CameraInfo("HolyKnight");
+        CameraManager.Instance.CallStage3CameraInfo("HolyKnight", 3);
         StartCoroutine(TempStageAfter());
     }
 
