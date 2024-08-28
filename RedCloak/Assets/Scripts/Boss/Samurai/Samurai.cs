@@ -612,7 +612,7 @@ public class Samurai : MonoBehaviour, IDamage
         this.gameObject.layer = LayerMask.NameToLayer(Define.PLAYERPROJECTILE);
         SwordAuraOff();
         UIManager.Instance.uiBar.CallBackBossBar();
-        CameraManager.Instance.CallStage3CameraInfo();
+        CameraManager.Instance.CallStage3CameraInfo("Boss");
         StartCoroutine(DoorOpen());
     }
 
