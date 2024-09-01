@@ -106,7 +106,7 @@ public class BossLightEffect : MonoBehaviour
         Player player = CharacterManager.Instance.Player;
         player.itemData = RewardData;
         player.addItem?.Invoke();
-        DataSave();
+        
 
         if (RewardData.type == ItemType.Skill)
         {
@@ -134,6 +134,7 @@ public class BossLightEffect : MonoBehaviour
         }
 
         ItemManager.Instance.synchroniztion();
+        DataSave();
         //UIManager.Instance.itemPopup.PopupGetItem();
 
     }
